@@ -607,8 +607,32 @@ section.apretada { padding: 2rem 0; }
 }
 .tramo p { color: var(--texto-suave); margin: 0 0 0.7rem; font-size: 0.95rem; }
 .tramo p:last-child { margin-bottom: 0; }
+.tres-salidas {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.6rem;
+}
+.tres-salidas li {
+  margin: 0;
+  padding-left: 0.85rem;
+  border-left: 3px solid var(--linea-tramo);
+}
+.tres-salidas strong {
+  display: block;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--texto);
+}
+.tres-salidas span {
+  display: block;
+  font-size: 0.88rem;
+  color: var(--texto-suave);
+  line-height: 1.4;
+}
+
 .tramo .ojo-con-esto {
-  margin-top: auto;
   padding-top: 0.8rem;
   border-top: 1px dashed var(--borde);
   font-size: 0.9rem;

@@ -272,16 +272,27 @@ const porHora = Math.round(neto / ejemplo.horas);
           <span class="veredicto">Depende de cómo lo arreglés</span>
           <p>
             InDrive ni se entera de que pasaste por una caseta, y nunca se lo
-            cobra al pasajero. Ahí queda entre ustedes dos.
+            cobra al pasajero. Eso queda entre ustedes dos, y se arregla
+            distinto en cada viaje.
           </p>
           <p>
-            Si lo pagás vos y nadie te lo devuelve, resta. Si el pasajero lo
-            paga en la caseta, o te lo devuelve al final del viaje, no resta.
+            Por eso acá la app no adivina nada: te pregunta quién lo paga, y hay
+            tres respuestas.
           </p>
-          <p class="ojo-con-esto">
-            <strong>Por eso</strong> la app te deja decir que no hubo cobro, para
-            los viajes donde el peaje no te costó nada.
-          </p>
+          <ul class="tres-salidas">
+            <li>
+              <strong>Lo pago yo</strong>
+              <span>Es gasto suyo y resta del neto</span>
+            </li>
+            <li>
+              <strong>Me lo devuelven</strong>
+              <span>El pasajero se lo devuelve al final, no resta</span>
+            </li>
+            <li>
+              <strong>No registrar</strong>
+              <span>El pasajero pagó en la caseta, no pasó nada</span>
+            </li>
+          </ul>
         </div>
       </div>
 
