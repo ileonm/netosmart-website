@@ -23,6 +23,11 @@
   --acento-texto: #ffffff;
   --gasto: #a3201a;        /* 6,4:1 sobre blanco */
   --sombra: 0 1px 2px rgba(26, 26, 46, 0.06), 0 4px 12px rgba(26, 26, 46, 0.06);
+  --acento-suave: rgba(15, 122, 67, 0.1);
+  --acento-halo: rgba(15, 122, 67, 0.13);
+  --acento-borde: rgba(15, 122, 67, 0.45);
+  --cuenta-fondo: #1a1a2e;
+  --cuenta-borde: #343a52;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -38,6 +43,11 @@
     --acento-texto: #10101c;
     --gasto: #ff9b91;        /* 7,2:1 sobre el fondo oscuro */
     --sombra: 0 1px 2px rgba(0, 0, 0, 0.3), 0 4px 12px rgba(0, 0, 0, 0.25);
+    --acento-suave: rgba(21, 194, 107, 0.14);
+    --acento-halo: rgba(21, 194, 107, 0.16);
+    --acento-borde: rgba(21, 194, 107, 0.5);
+    --cuenta-fondo: #10101c;
+    --cuenta-borde: #2f3450;
   }
 }
 
@@ -81,6 +91,17 @@ h1, h2, h3, h4 {
 
 h1 { font-size: clamp(2rem, 8.5vw, 3.4rem); }
 h2 { font-size: clamp(1.5rem, 5.5vw, 2.1rem); margin-top: 0; }
+
+.etiqueta-seccion {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--acento);
+  margin-bottom: 0.6rem;
+}
+.portada .etiqueta-seccion { color: var(--verde); }
 h3 { font-size: 1.15rem; font-weight: 700; }
 h4 { font-size: 1rem; font-weight: 700; }
 
@@ -160,7 +181,8 @@ hr {
 
 .angosto { max-width: 44rem; }
 
-section { padding: 2.75rem 0; }
+section { padding: 3.25rem 0; }
+@media (min-width: 760px) { section { padding: 4.5rem 0; } }
 section.apretada { padding: 2rem 0; }
 
 .franja { background: var(--fondo-alt); }
@@ -288,8 +310,13 @@ section.apretada { padding: 2rem 0; }
 
 .portada {
   background: var(--azul);
+  background-image: radial-gradient(
+    80rem 32rem at 50% -14rem,
+    rgba(21, 194, 107, 0.16),
+    transparent 70%
+  );
   color: #f2f4f8;
-  padding: 2.5rem 0 2.75rem;
+  padding: 2.75rem 0 3rem;
 }
 .portada h1 { color: #ffffff; }
 .portada .entradilla {
@@ -316,6 +343,44 @@ section.apretada { padding: 2rem 0; }
   border-color: var(--verde);
 }
 
+@media (min-width: 760px) {
+  /* En pantalla ancha, el texto pegado a la izquierda dejaba medio hero
+     vacio y el sitio parecia una pagina de celular estirada. */
+  .portada {
+    padding: 4.75rem 0 5.25rem;
+    text-align: center;
+  }
+  .portada h1 {
+    max-width: 19ch;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .portada .entradilla {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .portada .acciones {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    max-width: none;
+    gap: 0.9rem;
+  }
+  .portada .acciones .boton {
+    width: auto;
+    min-width: 14rem;
+  }
+  /* La linea de "Gratis, en Google Play" se va sola a su propio renglon,
+     debajo de los dos botones. */
+  .portada .acciones .bajo-boton {
+    order: 3;
+    flex-basis: 100%;
+    text-align: center;
+    margin-top: 0.1rem;
+  }
+}
+
 /* --- Numeros de plata ---------------------------------------------------- */
 
 .plata {
@@ -325,11 +390,15 @@ section.apretada { padding: 2rem 0; }
 }
 
 .cuenta {
-  background: var(--superficie);
-  border: 1px solid var(--borde);
-  border-radius: 14px;
-  padding: 1.1rem 1.1rem 1.25rem;
-  box-shadow: var(--sombra);
+  background: var(--cuenta-fondo);
+  border: 1px solid var(--cuenta-borde);
+  border-radius: 18px;
+  padding: 1.4rem 1.3rem 1.5rem;
+  box-shadow: 0 10px 30px rgba(16, 16, 28, 0.22);
+  color: #ffffff;
+}
+@media (min-width: 760px) {
+  .cuenta { padding: 2rem 2.2rem 2.2rem; }
 }
 .cuenta dl { margin: 0; }
 .cuenta .fila {
@@ -337,42 +406,43 @@ section.apretada { padding: 2rem 0; }
   grid-template-columns: 1fr auto;
   gap: 0.25rem 0.75rem;
   align-items: baseline;
-  padding: 0.3rem 0;
+  padding: 0.35rem 0;
 }
-.cuenta dt { color: var(--texto-suave); }
+.cuenta dt { color: #c9cfdd; }
 .cuenta dd {
   margin: 0;
   text-align: right;
   font-variant-numeric: tabular-nums;
   font-weight: 700;
+  color: #ffffff;
 }
-.cuenta dd.resta { color: var(--gasto); }
+.cuenta dd.resta { color: #ff9b91; }
 .cuenta .fila.primera-resta,
 .cuenta .fila.total {
-  border-top: 1px solid var(--borde);
-  margin-top: 0.4rem;
-  padding-top: 0.7rem;
+  border-top: 1px solid var(--cuenta-borde);
+  margin-top: 0.5rem;
+  padding-top: 0.8rem;
 }
 .cuenta .fila.bruto dt,
 .cuenta .fila.bruto dd { font-size: 1.05rem; }
 .cuenta .fila.total { display: block; }
 .cuenta .fila.total dt {
   font-weight: 800;
-  color: var(--texto);
+  color: #ffffff;
   font-size: 1.05rem;
 }
 .cuenta .fila.total dd {
   text-align: left;
-  font-size: clamp(2.6rem, 14vw, 3.6rem);
+  font-size: clamp(2.8rem, 15vw, 4.2rem);
   font-weight: 800;
-  color: var(--acento);
-  letter-spacing: -0.04em;
+  color: var(--verde);
+  letter-spacing: -0.045em;
   line-height: 1;
 }
 .cuenta .porhora {
-  color: var(--texto-suave);
+  color: #c9cfdd;
   font-size: 0.95rem;
-  margin: 0.5rem 0 0;
+  margin: 0.6rem 0 0;
 }
 
 .aviso-ejemplo {
@@ -381,6 +451,21 @@ section.apretada { padding: 2rem 0; }
   color: var(--texto-suave);
   border-left: 3px solid var(--borde-fuerte);
   padding-left: 0.75rem;
+}
+
+/* --- Iconos -------------------------------------------------------------- */
+
+.icono { display: block; flex: none; }
+
+.icono-caja {
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 12px;
+  background: var(--acento-suave);
+  color: var(--acento);
+  margin-bottom: 0.85rem;
 }
 
 /* --- Rejillas y tarjetas ------------------------------------------------- */
@@ -400,16 +485,24 @@ section.apretada { padding: 2rem 0; }
 }
 
 .tarjeta {
+  position: relative;
   background: var(--superficie);
   border: 1px solid var(--borde);
-  border-radius: 14px;
-  padding: 1.1rem;
+  border-radius: 16px;
+  padding: 1.35rem;
+  box-shadow: var(--sombra);
+}
+.tarjeta.destacada {
+  border-color: var(--acento-borde);
 }
 .tarjeta h3 { margin-bottom: 0.35rem; }
 .tarjeta p { color: var(--texto-suave); margin: 0; }
 .tarjeta p + p { margin-top: 0.7rem; }
 .tarjeta .marca-solo-aqui {
-  display: inline-block;
+  /* Va arriba a la derecha para no robarle un renglon al icono. */
+  position: absolute;
+  top: 1.35rem;
+  right: 1.35rem;
   font-size: 0.72rem;
   font-weight: 800;
   text-transform: uppercase;
@@ -418,7 +511,99 @@ section.apretada { padding: 2rem 0; }
   border: 1px solid currentColor;
   border-radius: 999px;
   padding: 0.1rem 0.5rem;
-  margin-bottom: 0.5rem;
+}
+
+/* --- Pasos junto a la imagen del telefono -------------------------------- */
+
+.pasos-con-imagen {
+  display: grid;
+  gap: 2.25rem;
+  grid-template-columns: 1fr;
+  justify-items: center;
+}
+.pasos-con-imagen > * { min-width: 0; width: 100%; }
+@media (min-width: 900px) {
+  /* Sin esto, en escritorio la imagen dejaba un hueco de 640 px de alto. */
+  .pasos-con-imagen {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 3.5rem;
+  }
+  .pasos-con-imagen > .marco-telefono { width: auto; }
+}
+
+.marco-telefono {
+  display: flex;
+  justify-content: center;
+  border: 9px solid var(--azul);
+  border-radius: 34px;
+  background: var(--azul);
+  /* El anillo de afuera es para que en modo oscuro el marco no se pierda
+     contra el fondo, que es casi del mismo azul. */
+  box-shadow: 0 0 0 1px var(--borde), 0 16px 40px rgba(16, 16, 28, 0.28);
+  width: max-content;
+  max-width: 100%;
+  margin: 0 auto;
+}
+.marco-telefono .marcador,
+.marco-telefono img {
+  border-radius: 25px;
+  border-width: 1px;
+}
+
+/* --- Diagrama del peaje -------------------------------------------------- */
+
+.bloque-peaje {
+  margin-top: 2.75rem;
+  padding-top: 2.25rem;
+  border-top: 1px solid var(--borde);
+}
+.bloque-peaje h3 {
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+.bloque-peaje > p { max-width: 44rem; }
+
+.peaje-diagrama {
+  display: grid;
+  gap: 0.9rem;
+  grid-template-columns: 1fr;
+  margin-top: 1.25rem;
+  counter-reset: tramo;
+}
+@media (min-width: 720px) {
+  .peaje-diagrama { grid-template-columns: 1fr 1fr; gap: 1.1rem; }
+}
+.tramo {
+  position: relative;
+  background: var(--superficie);
+  border: 1px solid var(--borde);
+  border-radius: 16px;
+  padding: 1.1rem 1.15rem 1.2rem;
+  border-top: 4px solid var(--linea-tramo);
+}
+.tramo.mio { --linea-tramo: var(--gasto); }
+.tramo.reintegrado { --linea-tramo: var(--acento); }
+.tramo-cabeza {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  color: var(--linea-tramo);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+}
+.tramo h3 { margin-bottom: 0.3rem; font-size: 1.05rem; }
+.tramo p { color: var(--texto-suave); margin: 0; font-size: 0.95rem; }
+.tramo .quien {
+  display: inline-block;
+  margin-top: 0.7rem;
+  font-weight: 800;
+  color: var(--linea-tramo);
+  font-size: 0.95rem;
 }
 
 /* --- Pasos --------------------------------------------------------------- */
@@ -429,7 +614,7 @@ ol.pasos {
   margin: 0;
   counter-reset: paso;
   display: grid;
-  gap: 1rem;
+  gap: 1.5rem;
 }
 ol.pasos > li {
   counter-increment: paso;
@@ -451,6 +636,7 @@ ol.pasos > li::before {
   color: var(--acento-texto);
   font-weight: 800;
   font-size: 1.1rem;
+  box-shadow: 0 0 0 5px var(--acento-halo);
 }
 ol.pasos h3 { margin-bottom: 0.2rem; }
 ol.pasos p { color: var(--texto-suave); margin: 0; }

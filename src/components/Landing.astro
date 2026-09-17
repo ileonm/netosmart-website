@@ -3,6 +3,7 @@ import BotonDescarga from './BotonDescarga.astro';
 import Faq from './Faq.astro';
 import Marcador from './Marcador.astro';
 import Pendiente from './Pendiente.astro';
+import Icono from './Icono.astro';
 import { colones } from '../config/site';
 
 /**
@@ -46,6 +47,7 @@ const porHora = Math.round(neto / ejemplo.horas);
 
 <section id="ejemplo" class="franja">
   <div class="envoltura angosto">
+    <span class="etiqueta-seccion">El problema</span>
     <h2>Un día de diez horas, con los números puestos</h2>
     <p class="suave">
       Las apps te muestran lo que facturaste. La cuenta de verdad es esta otra,
@@ -89,7 +91,10 @@ const porHora = Math.round(neto / ejemplo.horas);
 </section>
 
 <section>
-  <div class="envoltura angosto">
+  <div class="envoltura">
+    <div class="pasos-con-imagen">
+      <div>
+    <span class="etiqueta-seccion">En tres pasos</span>
     <h2>Cómo funciona</h2>
     <ol class="pasos">
       <li>
@@ -121,31 +126,36 @@ const porHora = Math.round(neto / ejemplo.horas);
         </div>
       </li>
     </ol>
+      </div>
 
-    <div class="espacio">
-      <Marcador
-        ancho={320}
-        alto={640}
-        que="Pantalla de resumen del turno cerrado, con el neto del día"
-      />
+      <div class="marco-telefono">
+        <Marcador
+          ancho={258}
+          alto={516}
+          que="Pantalla de resumen del turno cerrado, con el neto del día"
+        />
+      </div>
     </div>
   </div>
 </section>
 
 <section class="franja">
   <div class="envoltura">
+    <span class="etiqueta-seccion">Lo que trae</span>
     <h2>Lo que hace</h2>
     <div class="rejilla tres">
-      <div class="tarjeta">
+      <div class="tarjeta destacada">
         <span class="marca-solo-aqui">Solo acá</span>
+        <div class="icono-caja"><Icono nombre="ojo" /></div>
         <h3>Lee tus ganancias sola</h3>
         <p>
           Ve el monto en la pantalla de Uber, DiDi e InDrive mientras trabajás,
           sin que anotés nada. Se puede apagar, y entonces todo se anota a mano.
         </p>
       </div>
-      <div class="tarjeta">
+      <div class="tarjeta destacada">
         <span class="marca-solo-aqui">Solo acá</span>
+        <div class="icono-caja"><Icono nombre="peaje" /></div>
         <h3>Peajes, y de quién es la plata</h3>
         <p>
           Separa el peaje que Uber te reintegra (cuando llevás pasajero) del que
@@ -153,8 +163,9 @@ const porHora = Math.round(neto / ejemplo.horas);
           verdad al final de la semana.
         </p>
       </div>
-      <div class="tarjeta">
+      <div class="tarjeta destacada">
         <span class="marca-solo-aqui">Solo acá</span>
+        <div class="icono-caja"><Icono nombre="reloj" /></div>
         <h3>El turno que cruza la medianoche</h3>
         <p>
           Lo parte y le da a cada día sus horas y su gasolina. Porque DiDi
@@ -163,6 +174,7 @@ const porHora = Math.round(neto / ejemplo.horas);
         </p>
       </div>
       <div class="tarjeta">
+        <div class="icono-caja"><Icono nombre="gasolina" /></div>
         <h3>Gasolina como vos la llevés</h3>
         <p>
           Por rayitas del tablero o contra factura. Las dos formas sirven, usá
@@ -170,6 +182,7 @@ const porHora = Math.round(neto / ejemplo.horas);
         </p>
       </div>
       <div class="tarjeta">
+        <div class="icono-caja"><Icono nombre="billete" /></div>
         <h3>Vueltos y extras en efectivo</h3>
         <p>
           Si el cliente te dejó el vuelto, se anota aparte de lo que te paga la
@@ -177,6 +190,7 @@ const porHora = Math.round(neto / ejemplo.horas);
         </p>
       </div>
       <div class="tarjeta">
+        <div class="icono-caja"><Icono nombre="casa" /></div>
         <h3>Llegada a la casa</h3>
         <p>
           Se da cuenta de que llegaste y te ofrece cerrar el turno, para que no
@@ -184,6 +198,7 @@ const porHora = Math.round(neto / ejemplo.horas);
         </p>
       </div>
       <div class="tarjeta">
+        <div class="icono-caja"><Icono nombre="alcancia" /></div>
         <h3>Apartados de la semana</h3>
         <p>
           Te recuerda apartar lo de mantenimiento, gasolina y peajes antes de
@@ -191,6 +206,7 @@ const porHora = Math.round(neto / ejemplo.horas);
         </p>
       </div>
       <div class="tarjeta">
+        <div class="icono-caja"><Icono nombre="carro" /></div>
         <h3>Cambio de aceite y varios carros</h3>
         <p>
           Lleva el aceite por vehículo. Si manejás más de un carro, cada uno
@@ -198,6 +214,7 @@ const porHora = Math.round(neto / ejemplo.horas);
         </p>
       </div>
       <div class="tarjeta">
+        <div class="icono-caja"><Icono nombre="sinsenal" /></div>
         <h3>Funciona sin señal</h3>
         <p>
           Lo que anotás manejando queda guardado en el teléfono y se sincroniza
@@ -205,11 +222,54 @@ const porHora = Math.round(neto / ejemplo.horas);
         </p>
       </div>
     </div>
+
+    <div class="bloque-peaje">
+      <h3>La diferencia del peaje, dibujada</h3>
+      <p class="suave">
+        Un mismo viaje tiene dos tramos, y el peaje no vale lo mismo en cada
+        uno. Neto Smart los separa.
+      </p>
+
+      <div class="peaje-diagrama">
+        <div class="tramo mio">
+          <p class="tramo-cabeza">
+            <Icono nombre="volante" tamano={18} />
+            Tramo 1, vas solo
+          </p>
+          <h3>Camino a recoger</h3>
+          <p>
+            Salís del punto donde estabas hasta donde está el pasajero. Si en
+            ese pedazo pasás por una caseta, ese peaje no se lo cobra nadie.
+          </p>
+          <span class="quien">Sale de tu bolsillo</span>
+        </div>
+
+        <div class="tramo reintegrado">
+          <p class="tramo-cabeza">
+            <Icono nombre="peaje" tamano={18} />
+            Tramo 2, con pasajero
+          </p>
+          <h3>Ya con el pasajero a bordo</h3>
+          <p>
+            Del punto donde lo recogiste hasta donde lo dejás. El peaje de este
+            pedazo la plataforma te lo devuelve.
+          </p>
+          <span class="quien">No es un gasto tuyo</span>
+        </div>
+      </div>
+
+      <p class="aviso-ejemplo">
+        Sin separarlos, los peajes del tramo 1 se pierden dentro del total y
+        parece que ganaste más de lo que ganaste. En una semana de Ruta 27, eso
+        es plata.
+      </p>
+    </div>
   </div>
 </section>
 
 <section>
   <div class="envoltura angosto">
+    <span class="etiqueta-seccion">De dónde sale</span>
     <h2>Por qué confiar</h2>
     <div class="rejilla dos">
       <div class="tarjeta">
@@ -265,6 +325,7 @@ const porHora = Math.round(neto / ejemplo.horas);
 
 <section class="franja">
   <div class="envoltura angosto">
+    <span class="etiqueta-seccion">Lo que más preguntan</span>
     <h2>Preguntas frecuentes</h2>
 
     <Faq pregunta="¿Por qué pide el permiso de accesibilidad?" abierta={true}>
