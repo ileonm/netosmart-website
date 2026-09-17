@@ -1,0 +1,26 @@
+---
+import type { GetStaticPaths } from 'astro';
+import Base from '../../layouts/Base.astro';
+import Landing from '../../components/Landing.astro';
+import { canales } from '../../config/canales';
+
+/**
+ * Una pagina por canal de lanzamiento. Muestra lo mismo que el inicio.
+ * Sirve solo para medir de donde viene la gente: cada canal aparece con su
+ * propia direccion en las estadisticas.
+ *
+ * No se indexan en Google (llevan noindex) y le dicen a Google que la pagina
+ * buena es "/", para no partir el posicionamiento en nueve copias.
+ */
+export const getStaticPaths = (() =>
+  canales.map((c) => ({ params: { canal: c.id } }))) satisfies GetStaticPaths;
+---
+
+<Base
+  titulo="Cuánto te queda limpio manejando en Costa Rica"
+  descripcion="App para conductores de Uber, DiDi e InDrive en Costa Rica. Descuenta gasolina, peajes, mantenimiento y desgaste, y te dice cuánto ganás de verdad en cada turno. Gratis, para Android."
+  canonica="/"
+  noIndexar={true}
+>
+  <Landing />
+</Base>

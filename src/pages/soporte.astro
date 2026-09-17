@@ -1,0 +1,182 @@
+---
+import Base from '../layouts/Base.astro';
+import Faq from '../components/Faq.astro';
+import Pendiente from '../components/Pendiente.astro';
+import { sitio } from '../config/site';
+
+const urlIssues = `${sitio.repoApp}/issues`;
+---
+
+<Base
+  titulo="Soporte y ayuda"
+  descripcion="Cómo pedir ayuda con Neto Smart, qué hacer si la app no anota las ganancias o no detecta un peaje, y cómo pedir que se borre tu cuenta."
+>
+  <section>
+    <div class="envoltura angosto">
+      <h1>Soporte</h1>
+      <p>
+        Si algo no le está sirviendo, escribinos. Del otro lado no hay un centro
+        de llamadas: hay un conductor que también maneja, así que la respuesta
+        puede tardar un poco, pero llega.
+      </p>
+
+      <div class="aviso">
+        <h2>Escribinos</h2>
+        <p>
+          Por correo:
+          {
+            sitio.correoContacto ? (
+              <a href={`mailto:${sitio.correoContacto}`}>
+                {sitio.correoContacto}
+              </a>
+            ) : (
+              <Pendiente que="correo de soporte" />
+            )
+          }
+        </p>
+        <p class="sin-margen">
+          Si sabés usar GitHub, también podés reportar el problema en
+          <a href={urlIssues} rel="noopener">la lista de errores del proyecto</a
+          >. Ahí queda público y cualquiera puede ver en qué va.
+        </p>
+      </div>
+
+      <h2>Qué contarnos</h2>
+      <p>
+        Entre más concreto, más rápido se arregla. Si podés, mandá esto:
+      </p>
+      <ul>
+        <li>Qué teléfono tenés y qué versión de Android.</li>
+        <li>
+          Qué versión de Neto Smart (aparece en la pantalla de configuración de
+          la app).
+        </li>
+        <li>Qué estabas haciendo cuando pasó.</li>
+        <li>Qué esperabas que pasara y qué pasó en vez de eso.</li>
+        <li>Una captura de pantalla, si se puede.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="franja">
+    <div class="envoltura angosto">
+      <h2>Problemas comunes</h2>
+
+      <Faq pregunta="No me está anotando las ganancias solas" abierta={true}>
+        <p>Revisá estas tres cosas, en este orden:</p>
+        <ol>
+          <li>
+            Que el permiso de accesibilidad esté prendido:
+            <strong>Ajustes</strong> de Android &gt;
+            <strong>Accesibilidad</strong> &gt; <strong>Neto Smart</strong>.
+            Android a veces lo apaga solo después de una actualización.
+          </li>
+          <li>Que el turno esté abierto. Con el turno cerrado no anota nada.</li>
+          <li>
+            Que el ahorro de batería no esté matando la app. En los ajustes de
+            batería, poné Neto Smart como <strong>sin restricciones</strong>.
+          </li>
+        </ol>
+        <p>
+          Si con eso no se arregla, escribinos y contanos en cuál app pasa
+          (Uber, DiDi o InDrive) y en cuál pantalla.
+        </p>
+      </Faq>
+
+      <Faq pregunta="No me preguntó por el peaje">
+        <p>
+          El aviso del peaje necesita dos cosas: el permiso de ubicación en
+          segundo plano prendido, y que esa caseta esté en el catálogo.
+        </p>
+        <p>
+          Si es una caseta que no reconoce, anotá el peaje a mano y escribinos
+          cuál es, para agregarla.
+        </p>
+      </Faq>
+
+      <Faq pregunta="No me ofreció cerrar el turno al llegar a la casa">
+        <p>
+          Revisá que la casa esté registrada como punto de llegada en la
+          configuración, y que el permiso de ubicación esté en
+          <strong>Permitir todo el tiempo</strong>. Con la opción "solo mientras
+          se usa la app", el aviso no llega cuando el teléfono está en el
+          bolsillo.
+        </p>
+        <p>El turno siempre se puede cerrar a mano desde la app.</p>
+      </Faq>
+
+      <Faq pregunta="Anoté algo sin señal y no lo veo">
+        <p>
+          Lo que anotás sin señal queda guardado en el teléfono y se sube cuando
+          vuelve la conexión. Abrí la app con datos o wifi y esperá unos
+          segundos.
+        </p>
+        <p>
+          Si después de eso sigue sin aparecer, escribinos antes de desinstalar
+          la app, porque al desinstalarla se borra lo que todavía no se subió.
+        </p>
+      </Faq>
+
+      <Faq pregunta="¿Cómo actualizo la app?">
+        <p>
+          Bajando la versión nueva del mismo lugar de siempre. Se instala encima
+          de la que tenés y no se pierde nada.
+          <a href="/descargar">Acá están los pasos</a>.
+        </p>
+        <p>
+          Mientras la app no esté en Play Store, las actualizaciones no llegan
+          solas.
+        </p>
+      </Faq>
+
+      <Faq pregunta="¿Cómo apago la lectura automática de ganancias?">
+        <p>
+          Desde la configuración de la app, o desde
+          <strong>Ajustes</strong> de Android &gt;
+          <strong>Accesibilidad</strong> &gt; <strong>Neto Smart</strong> &gt;
+          apagar. La app sigue funcionando y las ganancias las anotás a mano.
+        </p>
+        <p>
+          <a href="/accesibilidad">
+            Acá está la explicación de qué lee ese permiso
+          </a>.
+        </p>
+      </Faq>
+
+      <Faq pregunta="¿Cómo pido que borren mi cuenta?">
+        <p>
+          Mandá un correo desde la dirección de tu cuenta pidiendo que la
+          borren. Se elimina la cuenta y todo lo que tenga adentro: turnos,
+          gasolina, peajes, vehículos y apartados. Es definitivo.
+        </p>
+        <p>
+          Correo:
+          {
+            sitio.correoContacto ? (
+              <a href={`mailto:${sitio.correoContacto}`}>
+                {sitio.correoContacto}
+              </a>
+            ) : (
+              <Pendiente que="correo de contacto para borrado de cuenta" />
+            )
+          }
+        </p>
+      </Faq>
+
+      <Faq pregunta="Tengo una idea para la app">
+        <p>
+          Mandala. Buena parte de lo que hace la app hoy salió de cosas que
+          pasaron manejando. Si es algo que le pasa a todos los días de trabajo,
+          interesa.
+        </p>
+      </Faq>
+    </div>
+  </section>
+
+  <section>
+    <div class="envoltura angosto centrado">
+      <h2>¿Todavía no la tenés?</h2>
+      <a class="boton" href="/descargar">Ver cómo instalarla</a>
+    </div>
+  </section>
+</Base>

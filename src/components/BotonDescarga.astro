@@ -1,0 +1,36 @@
+---
+import { sitio } from '../config/site';
+
+interface Props {
+  texto?: string;
+  /** Si es false, no muestra la linea de "pesa 110 MB". */
+  detalle?: boolean;
+  ancho?: boolean;
+  /** true lleva a /descargar (con las instrucciones). false va directo al APK. */
+  aInstrucciones?: boolean;
+}
+
+const {
+  texto = 'Descargar Neto Smart',
+  detalle = true,
+  ancho = false,
+  aInstrucciones = true,
+} = Astro.props;
+
+const destino = aInstrucciones ? '/descargar' : sitio.urlDescarga;
+---
+
+<a
+  class:list={['boton', { ancho }]}
+  href={destino}
+  {...aInstrucciones ? {} : { rel: 'noopener' }}
+>
+  {texto}
+</a>
+{
+  detalle && (
+    <p class="bajo-boton">
+      Gratis. Para Android. Pesa unos {sitio.tamanoApk}, mejor con wifi.
+    </p>
+  )
+}

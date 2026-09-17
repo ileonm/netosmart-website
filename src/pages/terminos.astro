@@ -1,0 +1,146 @@
+---
+import Base from '../layouts/Base.astro';
+import Pendiente from '../components/Pendiente.astro';
+import { sitio } from '../config/site';
+---
+
+<Base
+  titulo="Términos de uso"
+  descripcion="Condiciones de uso de la aplicación Neto Smart: para qué sirve, qué no es, y qué responsabilidad asume cada parte."
+>
+  <section>
+    <div class="envoltura angosto legal">
+      <h1>Términos de uso</h1>
+      <p class="fecha">Última actualización: {sitio.fechaLegal}</p>
+
+      <div class="resumen-llano">
+        <h2>En corto</h2>
+        <p class="sin-margen">
+          Neto Smart es una herramienta para llevar sus propias cuentas. Es
+          gratis, está en pruebas de campo y puede tener errores. No es asesoría
+          contable ni tributaria, y no tiene relación con Uber, DiDi ni InDrive.
+          Las decisiones de plata las toma usted.
+        </p>
+      </div>
+
+      <h2>1. Qué es este servicio</h2>
+      <p>
+        Neto Smart es una aplicación para Android que le permite a una persona
+        conductora de plataformas registrar sus turnos, ingresos y gastos, y
+        calcular su ganancia neta. El uso de la aplicación implica la aceptación
+        de estos términos.
+      </p>
+      <p>
+        El responsable del servicio es
+        <Pendiente que="nombre o razón social del responsable" />.
+      </p>
+
+      <h2>2. Qué no es</h2>
+      <ul>
+        <li>
+          No es asesoría contable, financiera ni tributaria. Los cálculos que
+          hace son una ayuda para llevar sus cuentas, no un documento contable
+          ni una declaración ante ninguna autoridad.
+        </li>
+        <li>
+          No es una aplicación oficial de Uber, DiDi ni InDrive, ni tiene
+          relación, patrocinio ni autorización de esas empresas. Esas marcas
+          pertenecen a sus respectivos dueños y se mencionan solo para explicar
+          con cuáles aplicaciones funciona Neto Smart.
+        </li>
+        <li>No tramita pagos, ni cobros, ni reclamos ante las plataformas.</li>
+      </ul>
+
+      <h2>3. Está en pruebas de campo</h2>
+      <p>
+        La aplicación está en desarrollo activo y en pruebas con uso real. Puede
+        contener errores, puede dejar de funcionar temporalmente y puede cambiar
+        entre versiones. Se recomienda revisar los montos registrados antes de
+        tomar decisiones con base en ellos.
+      </p>
+
+      <h2>4. Uso correcto</h2>
+      <p>Al usar Neto Smart, usted se compromete a:</p>
+      <ul>
+        <li>Usarla para llevar sus propias cuentas.</li>
+        <li>
+          No intentar dañarla, alterarla para perjudicar a otras personas
+          usuarias, ni acceder a datos de terceros.
+        </li>
+        <li>
+          Manejar con responsabilidad. Ninguna función de la aplicación
+          justifica manipular el teléfono mientras conduce.
+        </li>
+      </ul>
+
+      <h2>5. Su cuenta y sus datos</h2>
+      <p>
+        Los registros que usted hace son suyos. El tratamiento de esos datos se
+        describe en la <a href="/privacidad">política de privacidad</a>, que
+        forma parte de estos términos. Usted puede pedir el borrado de su cuenta
+        en cualquier momento.
+      </p>
+      <p>
+        Es su responsabilidad cuidar el acceso a su cuenta y mantener su
+        teléfono con bloqueo de pantalla.
+      </p>
+
+      <h2>6. Precio</h2>
+      <p>
+        La aplicación se ofrece de forma gratuita y se financia con publicidad.
+        Está prevista una versión de pago sin anuncios, cuyo precio es
+        <Pendiente que="precio de la versión sin anuncios" />. Ningún cobro se
+        aplicará sin avisar antes y sin que la persona usuaria lo acepte de
+        manera expresa.
+      </p>
+
+      <h2>7. Responsabilidad</h2>
+      <p>
+        La aplicación se entrega "tal cual", sin garantía de que esté libre de
+        errores ni de que los cálculos sean exactos en todos los casos. En la
+        medida en que lo permita la ley, el responsable no asume responsabilidad
+        por decisiones económicas tomadas con base en la información mostrada
+        por la aplicación, ni por pérdida de datos, ni por interrupciones del
+        servicio.
+      </p>
+      <p>
+        Nada en estos términos limita los derechos que la legislación
+        costarricense de protección al consumidor le reconozca a la persona
+        usuaria.
+      </p>
+
+      <h2>8. Distribución</h2>
+      <p>
+        Hoy la aplicación se distribuye como archivo APK desde el repositorio
+        público del proyecto. Solo se considera oficial la descarga desde
+        <a href={sitio.urlDescarga} rel="noopener">ese enlace</a>. No se asume
+        responsabilidad por copias obtenidas en otros sitios.
+      </p>
+
+      <h2>9. Cambios en estos términos</h2>
+      <p>
+        Estos términos pueden cambiar. Cuando cambien, se actualiza la fecha de
+        arriba. Si el cambio es importante, se avisa dentro de la aplicación o
+        en este sitio.
+      </p>
+
+      <h2>10. Legislación aplicable</h2>
+      <p>
+        Estos términos se rigen por la legislación de la República de Costa
+        Rica.
+      </p>
+
+      <h2>11. Contacto</h2>
+      <p>
+        Consultas sobre estos términos:
+        {
+          sitio.correoContacto ? (
+            <a href={`mailto:${sitio.correoContacto}`}>{sitio.correoContacto}</a>
+          ) : (
+            <Pendiente que="correo de contacto" />
+          )
+        }
+      </p>
+    </div>
+  </section>
+</Base>

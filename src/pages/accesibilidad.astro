@@ -1,0 +1,154 @@
+---
+import Base from '../layouts/Base.astro';
+import { sitio, paquetesLeidos } from '../config/site';
+---
+
+<Base
+  titulo="Permiso de accesibilidad: qué lee la app y qué no"
+  descripcion="Divulgación completa del uso del servicio de accesibilidad en Neto Smart: lee el texto en pantalla de Uber, DiDi e InDrive para anotar tus ganancias. No lee mensajes, contraseñas ni ninguna otra app."
+>
+  <section>
+    <div class="envoltura angosto legal">
+      <h1>El permiso de accesibilidad</h1>
+      <p class="fecha">Última actualización: {sitio.fechaLegal}</p>
+
+      <div class="resumen-llano">
+        <h2>En corto</h2>
+        <ul class="sin-margen">
+          <li>
+            Neto Smart pide el permiso de accesibilidad de Android para leer el
+            monto que te muestran Uber, DiDi e InDrive, y anotarlo sin que lo
+            tengás que escribir vos.
+          </li>
+          <li>
+            Lee <strong>esas tres apps y nada más</strong>. Todo lo demás se
+            descarta antes de mirarlo.
+          </li>
+          <li>
+            <strong>No lee</strong> mensajes, contraseñas, ni lo que tecleás, ni
+            ninguna otra app del teléfono.
+          </li>
+          <li>
+            Lo podés apagar cuando querás. La app sigue funcionando y anotás las
+            ganancias a mano.
+          </li>
+        </ul>
+      </div>
+
+      <h2>Divulgación del uso del servicio de accesibilidad</h2>
+      <p>
+        Neto Smart utiliza la API de <code>AccessibilityService</code> de
+        Android. Esta API está diseñada para asistir a personas con
+        discapacidad, y Google exige que cualquier otro uso se divulgue de forma
+        clara. Esta página es esa divulgación.
+      </p>
+      <p>
+        <strong>Para qué la usa Neto Smart:</strong> para leer el texto que
+        aparece en la pantalla de tres aplicaciones de conducción y extraer de
+        ahí los montos de ganancia y el estado del viaje, de modo que la persona
+        conductora no tenga que anotar cada viaje a mano mientras maneja.
+      </p>
+      <p>
+        <strong>Por qué no hay otra forma:</strong> Uber, DiDi e InDrive no
+        ofrecen una manera pública de consultar las ganancias de una persona
+        conductora desde otra aplicación. La única forma de capturar el monto en
+        el momento es leyéndolo de la pantalla donde ya está a la vista.
+      </p>
+
+      <h2>De cuáles aplicaciones lee</h2>
+      <p>
+        Únicamente de estas tres, identificadas por su nombre de paquete de
+        Android:
+      </p>
+      <div class="tabla-envoltura">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Aplicación</th>
+              <th scope="col">Nombre de paquete</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              paquetesLeidos.map((p) => (
+                <tr>
+                  <td>{p.app}</td>
+                  <td><code>{p.paquete}</code></td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+      <p>
+        La comprobación del paquete es lo primero que hace el servicio. Si la
+        aplicación que está en pantalla no es una de esas tres, el evento se
+        descarta sin mirar su contenido. Da igual que sea WhatsApp, el
+        navegador, la banca o cualquier otra cosa.
+      </p>
+
+      <h2>Qué extrae exactamente</h2>
+      <ul class="marcas si">
+        <li>El total de ganancias del día.</li>
+        <li>El monto de cada viaje.</li>
+        <li>
+          Las señales de estado del viaje: si va en camino a recoger, si lleva
+          pasajero a bordo, y si el viaje se paga en efectivo.
+        </li>
+      </ul>
+      <p>
+        El estado del viaje es lo que le permite a la app distinguir un peaje
+        que la plataforma reintegra (se pasó con pasajero a bordo) de uno que
+        sale del bolsillo de la persona conductora (se pasó camino a recoger).
+        Esa diferencia es plata real al final de la semana.
+      </p>
+
+      <h2>Qué no hace</h2>
+      <ul class="marcas no">
+        <li>No lee mensajes de ninguna aplicación.</li>
+        <li>No lee contraseñas.</li>
+        <li>No registra lo que se teclea.</li>
+        <li>
+          No lee el navegador, la banca, las redes sociales, ni ninguna otra
+          app.
+        </li>
+        <li>No toma capturas de pantalla ni graba la pantalla.</li>
+        <li>
+          No envía a ningún servidor el texto leído. Lo que sale de esa lectura
+          son los montos que quedan anotados en tu propia cuenta.
+        </li>
+      </ul>
+
+      <h2>Cómo apagarlo</h2>
+      <p>Se puede quitar en cualquier momento, de dos maneras:</p>
+      <ol>
+        <li>
+          Desde la configuración de Neto Smart, apagando la captura automática
+          de ganancias.
+        </li>
+        <li>
+          Desde los ajustes de Android: <strong>Ajustes</strong> &gt;
+          <strong>Accesibilidad</strong> &gt; <strong>Neto Smart</strong> &gt;
+          apagar.
+        </li>
+      </ol>
+      <p>
+        Con el permiso apagado, la app sigue haciendo todo lo demás: turnos,
+        gasolina, peajes, apartados, mantenimiento y el cálculo del neto. Lo
+        único que cambia es que las ganancias las anotás vos al final de cada
+        viaje o al cerrar el turno.
+      </p>
+
+      <h2>Se puede revisar</h2>
+      <p>
+        El código de la app es público. Quien quiera comprobar qué hace el
+        servicio de accesibilidad puede leerlo directamente en
+        <a href={sitio.repoApp} rel="noopener">el repositorio del proyecto</a>.
+      </p>
+
+      <p class="espacio">
+        <a href="/privacidad">Ver la política de privacidad completa</a>
+      </p>
+    </div>
+  </section>
+</Base>

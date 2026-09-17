@@ -1,0 +1,29 @@
+---
+/**
+ * Hueco de imagen pendiente. Reserva el espacio exacto para que la pagina no
+ * brinque cuando se ponga la imagen de verdad.
+ *
+ * Cuando exista la imagen, se reemplaza este componente por:
+ *   <img src="/capturas/loquesea.webp" width="360" height="640"
+ *        loading="lazy" alt="Descripcion de lo que se ve" />
+ */
+interface Props {
+  ancho: number;
+  alto: number;
+  /** Que pantalla o ilustracion va aqui. */
+  que: string;
+}
+const { ancho, alto, que } = Astro.props;
+const proporcion = `${ancho} / ${alto}`;
+---
+
+<div
+  class="marcador"
+  style={`aspect-ratio: ${proporcion}; width: ${ancho}px; max-width: 100%;`}
+  role="img"
+  aria-label={`Imagen pendiente: ${que}`}
+>
+  <b>Imagen pendiente</b>
+  <span>{que}</span>
+  <span>{ancho} por {alto} px</span>
+</div>

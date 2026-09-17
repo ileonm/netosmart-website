@@ -1,0 +1,136 @@
+---
+import '../styles/global.css';
+import { sitio, navegacion } from '../config/site';
+
+interface Props {
+  titulo: string;
+  descripcion: string;
+  /** Ruta canonica. Si se omite, se usa la ruta actual. */
+  canonica?: string;
+  /** true en las paginas de canal, que son copias del inicio. */
+  noIndexar?: boolean;
+}
+
+const { titulo, descripcion, canonica, noIndexar = false } = Astro.props;
+
+const rutaActual = Astro.url.pathname.replace(/\/+$/, '') || '/';
+const urlCanonica = new URL(canonica ?? rutaActual, sitio.dominio).href;
+const urlImagen = new URL('/og.png', sitio.dominio).href;
+const tituloCompleto =
+  titulo === sitio.nombre ? titulo : `${titulo} | ${sitio.nombre}`;
+---
+
+<!doctype html>
+<html lang="es-CR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{tituloCompleto}</title>
+    <meta name="description" content={descripcion} />
+    <link rel="canonical" href={urlCanonica} />
+    {noIndexar && <meta name="robots" content="noindex, follow" />}
+    <meta name="theme-color" content="#1a1a2e" />
+    <meta name="color-scheme" content="light dark" />
+
+    <!-- Open Graph. Casi todas las visitas llegan por un enlace compartido. -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={sitio.nombre} />
+    <meta property="og:locale" content="es_CR" />
+    <meta property="og:title" content={tituloCompleto} />
+    <meta property="og:description" content={descripcion} />
+    <meta property="og:url" content={urlCanonica} />
+    <meta property="og:image" content={urlImagen} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="Neto Smart. Trabajaste diez horas. Cuanto te quedo."
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={tituloCompleto} />
+    <meta name="twitter:description" content={descripcion} />
+    <meta name="twitter:image" content={urlImagen} />
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/icono-180.png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+  </head>
+  <body>
+    <a class="saltar" href="#contenido">Saltar al contenido</a>
+
+    <header class="encabezado">
+      <div class="envoltura">
+        <a class="marca" href="/">
+          <span class="logo" aria-hidden="true">₡</span>
+          <span>Neto Smart</span>
+        </a>
+        <nav aria-label="Principal">
+          <ul>
+            <li>
+              <a
+                href="/descargar"
+                class="enlace-descarga"
+                aria-current={rutaActual === '/descargar' ? 'page' : undefined}
+              >
+                Descargar
+              </a>
+            </li>
+            <li>
+              <a
+                href="/soporte"
+                aria-current={rutaActual === '/soporte' ? 'page' : undefined}
+              >
+                Soporte
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="contenido">
+      <slot />
+    </main>
+
+    <footer class="pie">
+      <div class="envoltura">
+        <h2>Neto Smart</h2>
+        <p style="max-width: 34rem;">
+          Hecha en Costa Rica por un conductor de plataforma, para conductores
+          de plataforma. El codigo es publico.
+        </p>
+        <nav aria-label="Pie de pagina">
+          <ul>
+            {
+              navegacion.map((enlace) => (
+                <li>
+                  <a href={enlace.url}>{enlace.texto}</a>
+                </li>
+              ))
+            }
+            <li>
+              <a href={sitio.repoApp} rel="noopener">Codigo de la app</a>
+            </li>
+          </ul>
+        </nav>
+        <p class="sin-margen">
+          <small>
+            Neto Smart no tiene relacion con Uber, DiDi ni InDrive. Esas marcas
+            son de sus duenos.
+          </small>
+        </p>
+      </div>
+    </footer>
+
+    {
+      sitio.tokenAnalytics && (
+        <script
+          is:inline
+          defer
+          src="https://static.cloudflareinsights.com/beacon.min.js"
+          data-cf-beacon={`{"token": "${sitio.tokenAnalytics}"}`}
+        />
+      )
+    }
+  </body>
+</html>

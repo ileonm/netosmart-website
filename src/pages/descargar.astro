@@ -1,0 +1,220 @@
+---
+import Base from '../layouts/Base.astro';
+import Marcador from '../components/Marcador.astro';
+import Faq from '../components/Faq.astro';
+import { sitio } from '../config/site';
+---
+
+<Base
+  titulo="Cómo descargar e instalar Neto Smart"
+  descripcion="Pasos para instalar Neto Smart en Android desde GitHub. Te explicamos de frente la advertencia que va a salir y por qué, para que no te asustés a medio camino."
+>
+  <section>
+    <div class="envoltura angosto">
+      <h1>Descargar Neto Smart</h1>
+      <p>
+        Neto Smart todavía no está en Google Play. Se baja desde GitHub, que es
+        el mismo lugar donde está publicado el código de la app.
+      </p>
+
+      <a class="boton ancho" href={sitio.urlDescarga} rel="noopener">
+        Ir a la descarga en GitHub
+      </a>
+      <p class="bajo-boton">
+        Gratis. Solo Android. Pesa unos {sitio.tamanoApk}.
+      </p>
+
+      <div class="aviso ojo espacio">
+        <h2>Antes de arrancar, tres cosas</h2>
+        <ul class="sin-margen">
+          <li>
+            <strong>Pesa unos {sitio.tamanoApk}.</strong> Bajala con wifi, no
+            gastés datos en esto.
+          </li>
+          <li>
+            <strong>Te va a salir una advertencia que asusta</strong>, algo como
+            "por tu seguridad, tu teléfono no puede instalar apps desconocidas".
+            Es normal y le pasa a cualquier app que no venga de Play Store. Abajo
+            está el paso exacto para pasarla.
+          </li>
+          <li>
+            <strong>Es para Android.</strong> En iPhone no funciona.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="franja">
+    <div class="envoltura angosto">
+      <h2>Paso a paso</h2>
+
+      <ol class="pasos">
+        <li>
+          <div>
+            <h3>Conectate a wifi</h3>
+            <p>
+              Son unos {sitio.tamanoApk}. Con datos móviles se puede, pero se te
+              va un pedazo del paquete.
+            </p>
+          </div>
+        </li>
+
+        <li>
+          <div>
+            <h3>Tocá el botón de descarga</h3>
+            <p>
+              Te abre la página de la última versión en GitHub. Buscá el archivo
+              que termina en <code>.apk</code> y tocalo. Ese es el instalador.
+            </p>
+            <p>
+              <a href={sitio.urlDescarga} rel="noopener">
+                Abrir la última versión en GitHub
+              </a>
+            </p>
+          </div>
+        </li>
+
+        <li>
+          <div>
+            <h3>El navegador te va a preguntar si estás seguro</h3>
+            <p>
+              Chrome dice algo como "este tipo de archivo puede dañar tu
+              dispositivo". Tocá <strong>Descargar de todos modos</strong>. Lo
+              pregunta por cualquier archivo <code>.apk</code>, no por este en
+              particular.
+            </p>
+          </div>
+        </li>
+
+        <li>
+          <div>
+            <h3>Abrí el archivo cuando termine</h3>
+            <p>
+              Te aparece en las notificaciones, o lo encontrás en la carpeta
+              Descargas del teléfono. Tocalo para instalarlo.
+            </p>
+          </div>
+        </li>
+
+        <li>
+          <div>
+            <h3>Acá sale la advertencia grande</h3>
+            <p>
+              Dice algo como <strong
+                >"Por tu seguridad, tu teléfono no puede instalar apps
+                desconocidas de esta fuente"</strong
+              >. No es que la app tenga algo malo: Android te dice eso a
+              cualquier instalación que no venga de Play Store.
+            </p>
+            <p>
+              Tocá <strong>Configuración</strong> (o <strong>Ajustes</strong>),
+              prendé <strong>Permitir de esta fuente</strong> y volvé atrás con
+              la flechita. Ahí sigue la instalación.
+            </p>
+            <Marcador
+              ancho={320}
+              alto={420}
+              que="Pantalla de Android con el aviso de fuentes desconocidas y el interruptor Permitir de esta fuente"
+            />
+          </div>
+        </li>
+
+        <li>
+          <div>
+            <h3>Tocá Instalar</h3>
+            <p>
+              Puede que Play Protect diga que no reconoce la app. Es porque
+              todavía no está publicada en Play Store. Tocá <strong
+                >Instalar de todos modos</strong
+              >.
+            </p>
+            <Marcador
+              ancho={320}
+              alto={420}
+              que="Aviso de Play Protect con el botón Instalar de todos modos"
+            />
+          </div>
+        </li>
+
+        <li>
+          <div>
+            <h3>Abrila y seguí el asistente</h3>
+            <p>
+              La primera vez te va a pedir dos permisos, y cada uno te explica
+              para qué es: el de <a href="/accesibilidad">accesibilidad</a> (para
+              leer tus ganancias solas) y el de ubicación (para los peajes y la
+              llegada a la casa). Los dos se pueden dejar apagados y anotar todo
+              a mano.
+            </p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section>
+    <div class="envoltura angosto">
+      <h2>Preguntas sobre la instalación</h2>
+
+      <Faq pregunta="¿Por qué no está en Google Play?">
+        <p>
+          Por dos razones concretas. La app está en pruebas de campo, usándose
+          todos los días en turnos reales y corrigiéndose con lo que aparece. Y
+          la cuenta de desarrollador de Google cuesta plata que todavía no se ha
+          pagado.
+        </p>
+        <p>
+          Preferimos decirlo así, sin adornos. Cuando esté en Play Store se va a
+          anunciar acá mismo.
+        </p>
+      </Faq>
+
+      <Faq pregunta="¿Es peligroso instalar un APK?">
+        <p>
+          El riesgo real de un APK es no saber quién lo hizo. En este caso el
+          archivo se baja del repositorio público del proyecto, y el código de
+          la app está ahí mismo para que cualquiera lo revise.
+        </p>
+        <p>
+          Bajala solo desde
+          <a href={sitio.urlDescarga} rel="noopener">este enlace</a>. Si alguien
+          te pasa un archivo de Neto Smart por WhatsApp, no lo instalés: no hay
+          forma de saber qué le metieron.
+        </p>
+      </Faq>
+
+      <Faq pregunta="¿Cómo la actualizo después?">
+        <p>
+          Volviendo a este mismo enlace y bajando la versión nueva. Se instala
+          encima de la que tenés y no se pierde nada de lo anotado.
+        </p>
+        <p>
+          Mientras no esté en Play Store, las actualizaciones no llegan solas.
+        </p>
+      </Faq>
+
+      <Faq pregunta="Se me quedó a medias o me dio error">
+        <p>
+          Lo más común es que no haya espacio en el teléfono, o que la descarga
+          se haya cortado. Borrá el archivo, liberá espacio y bajalo de nuevo
+          con wifi.
+        </p>
+        <p>
+          Si aun así no instala, <a href="/soporte">escribinos por soporte</a> y
+          contanos qué teléfono tenés y qué dice el mensaje.
+        </p>
+      </Faq>
+    </div>
+  </section>
+
+  <section class="franja">
+    <div class="envoltura angosto centrado">
+      <h2>Listo para bajarla</h2>
+      <a class="boton" href={sitio.urlDescarga} rel="noopener">
+        Ir a la descarga en GitHub
+      </a>
+      <p class="bajo-boton">Unos {sitio.tamanoApk}. Mejor con wifi.</p>
+    </div>
+  </section>
+</Base>

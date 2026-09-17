@@ -1,0 +1,392 @@
+---
+import Base from '../layouts/Base.astro';
+import Pendiente from '../components/Pendiente.astro';
+import { sitio, paquetesLeidos } from '../config/site';
+---
+
+<Base
+  titulo="Política de privacidad"
+  descripcion="Qué datos lee Neto Smart, qué no lee, dónde se guardan y cómo pedir que se borren. Escrito para que lo entienda un conductor, con el detalle completo abajo."
+>
+  <section>
+    <div class="envoltura angosto legal">
+      <h1>Política de privacidad</h1>
+      <p class="fecha">Última actualización: {sitio.fechaLegal}</p>
+
+      <div class="resumen-llano">
+        <h2>En corto</h2>
+        <ul class="sin-margen">
+          <li>
+            Neto Smart lee el texto en pantalla de <strong>tres apps y nada
+            más</strong>: Uber Driver, DiDi Driver e InDrive. De ahí saca el
+            monto de sus ganancias. Todo lo demás que tengás abierto se descarta
+            antes de mirarlo.
+          </li>
+          <li>
+            <strong>No lee</strong> mensajes, contraseñas, ni lo que tecleás, ni
+            ninguna otra app del teléfono.
+          </li>
+          <li>
+            Usa la ubicación en segundo plano para dos cosas: darse cuenta de
+            que llegaste a la casa y de que pasaste por una caseta de peaje.
+            <strong>No guarda por dónde anduviste</strong> ni manda tu ubicación
+            a ningún servidor.
+          </li>
+          <li>
+            Tus datos quedan en tu teléfono y en una cuenta que es tuya,
+            protegida para que solo vos los podás leer.
+            <strong>No se venden ni se comparten con terceros.</strong>
+          </li>
+          <li>
+            Los dos permisos los podés apagar cuando querás, y la app sigue
+            funcionando anotando a mano.
+          </li>
+          <li>
+            Podés pedir que se borre tu cuenta con todo lo que tenga adentro.
+          </li>
+        </ul>
+      </div>
+
+      <nav aria-label="Contenido de esta página">
+        <ol class="indice">
+          <li><a href="#responsable">Quién responde por esto</a></li>
+          <li><a href="#que-recoge">Qué datos recoge la app</a></li>
+          <li><a href="#pantalla">Lectura de pantalla (accesibilidad)</a></li>
+          <li><a href="#ubicacion">Ubicación</a></li>
+          <li><a href="#no-hace">Lo que la app no hace</a></li>
+          <li><a href="#donde">Dónde se guardan los datos</a></li>
+          <li><a href="#terceros">Terceros y publicidad</a></li>
+          <li><a href="#derechos">Sus derechos y cómo borrar la cuenta</a></li>
+          <li><a href="#permisos">Permisos y cómo apagarlos</a></li>
+          <li><a href="#menores">Menores de edad</a></li>
+          <li><a href="#sitio">Este sitio web</a></li>
+          <li><a href="#cambios">Cambios a esta política</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ol>
+      </nav>
+
+      <h2 id="responsable">1. Quién responde por esto</h2>
+      <p>
+        Neto Smart es una aplicación para Android desarrollada de manera
+        independiente en Costa Rica. El responsable del tratamiento de los datos
+        es <Pendiente que="nombre o razón social del responsable" />.
+      </p>
+      <p>
+        Para cualquier consulta sobre esta política, el contacto está en la
+        <a href="#contacto">sección 13</a>.
+      </p>
+
+      <h2 id="que-recoge">2. Qué datos recoge la app</h2>
+      <p>
+        Neto Smart recoge únicamente lo necesario para calcular la ganancia neta
+        de su trabajo. En concreto:
+      </p>
+      <h3>2.1 Datos que usted anota</h3>
+      <ul>
+        <li>Turnos de trabajo: hora de inicio, hora de cierre y horas totales.</li>
+        <li>
+          Gasolina: cargas medidas por rayitas del tablero o por monto de
+          factura.
+        </li>
+        <li>
+          Peajes: monto, y si fue un peaje que la plataforma reintegra o uno que
+          pagó de su bolsillo.
+        </li>
+        <li>Ingresos en efectivo, vueltos y extras.</li>
+        <li>
+          Vehículos: los que registre, con sus datos de mantenimiento y cambio
+          de aceite.
+        </li>
+        <li>Apartados semanales de mantenimiento, gasolina y peajes.</li>
+        <li>
+          Puntos de referencia que registre, como la ubicación de su casa, para
+          los avisos de llegada.
+        </li>
+      </ul>
+
+      <h3>2.2 Datos leídos de la pantalla</h3>
+      <p>
+        Con el permiso de accesibilidad activado, la app lee montos y estados de
+        viaje de tres aplicaciones. El detalle completo está en la
+        <a href="#pantalla">sección 3</a>.
+      </p>
+
+      <h3>2.3 Datos de ubicación</h3>
+      <p>
+        Con el permiso de ubicación activado, la app detecta entradas y salidas
+        de zonas circulares definidas de antemano. El detalle está en la
+        <a href="#ubicacion">sección 4</a>.
+      </p>
+
+      <h3>2.4 Datos de la cuenta</h3>
+      <p>
+        Para guardar y sincronizar su información entre el teléfono y el
+        servidor, la app crea una cuenta de usuario. Esa cuenta es la que
+        identifica cuáles registros son suyos.
+      </p>
+
+      <h2 id="pantalla">3. Lectura de pantalla (servicio de accesibilidad)</h2>
+      <p>
+        Neto Smart usa un servicio de accesibilidad de Android
+        (<code>AccessibilityService</code>) para leer el texto que aparece en
+        pantalla. Es un permiso potente y por eso se explica con precisión.
+      </p>
+
+      <h3>3.1 De cuáles aplicaciones lee</h3>
+      <p>
+        Solamente de estas tres, identificadas por su nombre de paquete de
+        Android:
+      </p>
+      <div class="tabla-envoltura">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Aplicación</th>
+              <th scope="col">Nombre de paquete</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              paquetesLeidos.map((p) => (
+                <tr>
+                  <td>{p.app}</td>
+                  <td><code>{p.paquete}</code></td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+      <p>
+        Cualquier otra aplicación que esté abierta se descarta antes de mirar su
+        contenido. La comprobación del paquete ocurre primero: si no es una de
+        esas tres, el evento se desecha.
+      </p>
+
+      <h3>3.2 Qué extrae de esas tres aplicaciones</h3>
+      <ul class="marcas si">
+        <li>El total de ganancias del día.</li>
+        <li>El monto de cada viaje.</li>
+        <li>
+          Las señales de estado del viaje: si va en camino a recoger, si lleva
+          pasajero a bordo, y si el viaje se paga en efectivo.
+        </li>
+      </ul>
+      <p>
+        Esa información se usa para anotar sus ingresos sin que tenga que
+        escribirlos, y para saber si un peaje corresponde a un tramo con
+        pasajero (que la plataforma suele reintegrar) o a un tramo camino a
+        recoger (que sale de su bolsillo).
+      </p>
+
+      <h3>3.3 Qué no lee</h3>
+      <ul class="marcas no">
+        <li>No lee mensajes de ninguna aplicación.</li>
+        <li>No lee contraseñas.</li>
+        <li>No registra lo que usted teclea.</li>
+        <li>
+          No lee ninguna otra aplicación del teléfono, ni el navegador, ni la
+          banca, ni las redes sociales.
+        </li>
+        <li>
+          No toma capturas de pantalla ni graba lo que pasa en el teléfono.
+        </li>
+      </ul>
+
+      <h3>3.4 Se puede apagar</h3>
+      <p>
+        El permiso de accesibilidad se puede desactivar en cualquier momento
+        desde la configuración de la app o desde los ajustes de Android. Con el
+        permiso apagado, la app sigue funcionando y las ganancias se anotan a
+        mano. La explicación paso a paso está en la página de
+        <a href="/accesibilidad">permiso de accesibilidad</a>.
+      </p>
+
+      <h2 id="ubicacion">4. Ubicación</h2>
+      <p>
+        Neto Smart usa la ubicación, incluida la ubicación en segundo plano,
+        para dos finalidades y ninguna otra:
+      </p>
+      <ol>
+        <li>
+          <strong>Darse cuenta de que llegó a su casa</strong>, para ofrecerle
+          cerrar el turno.
+        </li>
+        <li>
+          <strong>Darse cuenta de que pasó por una caseta de peaje</strong>, para
+          preguntarle si lo anota.
+        </li>
+      </ol>
+      <p>
+        Funciona con geocercos: círculos alrededor de puntos definidos de
+        antemano, ya sea que usted mismo los haya registrado o que vengan del
+        catálogo de casetas de peaje. El sistema operativo avisa a la app cuando
+        el teléfono entra a uno de esos círculos. La app no consulta la
+        ubicación de forma continua.
+      </p>
+      <ul class="marcas no">
+        <li>No se guarda un recorrido ni un historial de rutas.</li>
+        <li>No se guarda un historial de por dónde anduvo.</li>
+        <li>No se envía su ubicación a ningún servidor.</li>
+      </ul>
+      <p>
+        El permiso de ubicación también se puede apagar. Sin él, los peajes y el
+        cierre del turno se registran a mano.
+      </p>
+
+      <h2 id="no-hace">5. Lo que la app no hace</h2>
+      <ul class="marcas no">
+        <li>No vende sus datos.</li>
+        <li>No comparte sus datos con terceros.</li>
+        <li>No publica nada a su nombre.</li>
+        <li>No lee ni envía sus contactos.</li>
+        <li>No accede a sus fotos ni a sus archivos personales.</li>
+        <li>No le cobra nada sin avisarle antes.</li>
+      </ul>
+
+      <h2 id="donde">6. Dónde se guardan los datos</h2>
+      <p>
+        Sus registros se guardan en dos lugares: en la base de datos local del
+        teléfono, y en una cuenta de Supabase asociada a usted. Supabase es el
+        servicio de base de datos que la app utiliza como respaldo y
+        sincronización.
+      </p>
+      <p>
+        El acceso está restringido por usuario: las reglas de seguridad de la
+        base de datos permiten que cada cuenta lea y escriba únicamente sus
+        propios registros. Ninguna otra persona usuaria de la app puede ver lo
+        suyo.
+      </p>
+      <p>
+        Los datos anotados sin conexión quedan en el teléfono y se sincronizan
+        cuando vuelve la señal.
+      </p>
+
+      <h2 id="terceros">7. Terceros y publicidad</h2>
+      <p>
+        <strong>Sus datos no se venden ni se comparten con terceros.</strong>
+      </p>
+      <p>
+        Hoy la app no muestra publicidad de terceros. Si en el futuro se incluye
+        publicidad, esta página se actualiza <strong>antes</strong> de que eso
+        ocurra, indicando qué proveedor se usa y qué datos recibe.
+      </p>
+      <p>
+        El único proveedor de servicios involucrado en el funcionamiento actual
+        es Supabase, que aloja la base de datos donde se guarda su cuenta.
+      </p>
+
+      <h2 id="derechos">8. Sus derechos y cómo borrar la cuenta</h2>
+      <p>
+        De acuerdo con la Ley de Protección de la Persona frente al tratamiento
+        de sus datos personales de Costa Rica (Ley 8968), usted puede:
+      </p>
+      <ul>
+        <li>Saber qué datos suyos están guardados.</li>
+        <li>Pedir que se corrijan si hay algo equivocado.</li>
+        <li>Pedir que se borren.</li>
+        <li>Retirar los permisos que haya dado, en cualquier momento.</li>
+      </ul>
+      <h3>Cómo pedir que se borre su cuenta</h3>
+      <p>
+        Escriba al correo de contacto desde la dirección asociada a su cuenta,
+        pidiendo la eliminación. Se borran la cuenta y todos los registros
+        asociados (turnos, gasolina, peajes, vehículos y apartados). El borrado
+        es definitivo y no se puede deshacer.
+      </p>
+      <p>
+        Correo para solicitudes de borrado:
+        {
+          sitio.correoContacto ? (
+            <a href={`mailto:${sitio.correoContacto}`}>{sitio.correoContacto}</a>
+          ) : (
+            <Pendiente que="correo de contacto para borrado de cuenta" />
+          )
+        }
+      </p>
+      <p>
+        También puede desinstalar la app, lo que elimina los datos guardados en
+        el teléfono. Eso por sí solo no borra la cuenta del servidor: para eso
+        hay que pedirlo por correo.
+      </p>
+
+      <h2 id="permisos">9. Permisos y cómo apagarlos</h2>
+      <div class="tabla-envoltura">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Permiso</th>
+              <th scope="col">Para qué</th>
+              <th scope="col">Si lo apaga</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Accesibilidad</td>
+              <td>Leer el monto en pantalla de Uber, DiDi e InDrive.</td>
+              <td>Las ganancias se anotan a mano.</td>
+            </tr>
+            <tr>
+              <td>Ubicación en segundo plano</td>
+              <td>Avisos de llegada a la casa y de paso por peaje.</td>
+              <td>Los peajes y el cierre de turno se anotan a mano.</td>
+            </tr>
+            <tr>
+              <td>Notificaciones</td>
+              <td>Preguntarle por el peaje o el cierre de turno.</td>
+              <td>No recibe avisos, la app funciona igual al abrirla.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        Todos se administran desde la configuración de la app o desde los
+        ajustes de Android.
+      </p>
+
+      <h2 id="menores">10. Menores de edad</h2>
+      <p>
+        Neto Smart está dirigida a personas que trabajan conduciendo para
+        plataformas, actividad que requiere ser mayor de edad. La app no está
+        dirigida a menores y no recoge datos a sabiendas de personas menores de
+        edad.
+      </p>
+
+      <h2 id="sitio">11. Este sitio web</h2>
+      <p>
+        Este sitio no guarda datos de sus visitas. No usa cookies, no tiene
+        formularios y no le pide ningún dato personal.
+      </p>
+      <p>
+        Para saber cuántas personas visitan el sitio se usa Cloudflare Web
+        Analytics, que mide de forma agregada y sin cookies, sin identificar a
+        nadie y sin seguir a la persona entre sitios.
+      </p>
+
+      <h2 id="cambios">12. Cambios a esta política</h2>
+      <p>
+        Si algo cambia en lo que la app lee, guarda o comparte, esta página se
+        actualiza y se cambia la fecha de arriba. Los cambios importantes, como
+        la incorporación de publicidad de terceros, se publican antes de que
+        entren en vigencia.
+      </p>
+
+      <h2 id="contacto">13. Contacto</h2>
+      <p>
+        Para consultas sobre privacidad, corrección de datos o borrado de
+        cuenta:
+        {
+          sitio.correoContacto ? (
+            <a href={`mailto:${sitio.correoContacto}`}>{sitio.correoContacto}</a>
+          ) : (
+            <Pendiente que="correo de contacto" />
+          )
+        }
+      </p>
+      <p>
+        El código de la app es público y se puede revisar en
+        <a href={sitio.repoApp} rel="noopener">GitHub</a>.
+      </p>
+    </div>
+  </section>
+</Base>

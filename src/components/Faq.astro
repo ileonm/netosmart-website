@@ -1,0 +1,15 @@
+---
+interface Props {
+  pregunta: string;
+  /** La primera de cada lista se puede abrir de entrada. */
+  abierta?: boolean;
+}
+const { pregunta, abierta = false } = Astro.props;
+---
+
+<details class="faq" open={abierta}>
+  <summary>{pregunta}</summary>
+  <div class="respuesta">
+    <slot />
+  </div>
+</details>

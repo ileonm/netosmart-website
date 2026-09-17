@@ -1,0 +1,364 @@
+---
+import BotonDescarga from './BotonDescarga.astro';
+import Faq from './Faq.astro';
+import Marcador from './Marcador.astro';
+import Pendiente from './Pendiente.astro';
+import { sitio, colones } from '../config/site';
+
+/**
+ * Cuerpo del inicio. Se usa en / y en las paginas de canal /g/<id>,
+ * para que todos los enlaces de lanzamiento muestren exactamente lo mismo.
+ */
+
+// Ejemplo ILUSTRATIVO. No son datos medidos ni un promedio.
+// Si se cambian estos numeros, la suma de abajo se recalcula sola.
+const ejemplo = {
+  horas: 10,
+  bruto: 58400,
+  gastos: [
+    { concepto: 'Gasolina (unos 17 litros)', monto: 13500 },
+    { concepto: 'Peajes que pagaste vos', monto: 1800 },
+    { concepto: 'Apartado de mantenimiento y llantas', monto: 4200 },
+    { concepto: 'Desgaste del carro', monto: 5300 },
+  ],
+};
+const totalGastos = ejemplo.gastos.reduce((s, g) => s + g.monto, 0);
+const neto = ejemplo.bruto - totalGastos;
+const porHora = Math.round(neto / ejemplo.horas);
+---
+
+<section class="portada">
+  <div class="envoltura">
+    <h1>Trabajaste diez horas. ¿Cuánto te quedó?</h1>
+    <p class="entradilla">
+      Neto Smart lleva la cuenta de lo que entra y de lo que sale (gasolina,
+      peajes, mantenimiento, desgaste) para que sepás cuánto te queda limpio al
+      cerrar el turno.
+    </p>
+    <div class="acciones">
+      <BotonDescarga ancho={true} />
+      <a class="boton secundario ancho" href="#ejemplo">
+        Ver la cuenta de un día
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="ejemplo" class="franja">
+  <div class="envoltura angosto">
+    <h2>Un día de diez horas, con los números puestos</h2>
+    <p class="suave">
+      Las apps te muestran lo que facturaste. La cuenta de verdad es esta otra,
+      y casi nadie la lleva.
+    </p>
+
+    <div class="cuenta">
+      <p class="solo-lectores">Cuenta de ejemplo de un turno de diez horas.</p>
+      <dl>
+        <div class="fila bruto">
+          <dt>Lo que te mostraron las apps</dt>
+          <dd>{colones(ejemplo.bruto)}</dd>
+        </div>
+
+        {
+          ejemplo.gastos.map((g, i) => (
+            <div class:list={['fila', { 'primera-resta': i === 0 }]}>
+              <dt>{g.concepto}</dt>
+              <dd class="resta">{colones(-g.monto)}</dd>
+            </div>
+          ))
+        }
+
+        <div class="fila total">
+          <dt>Te quedó limpio</dt>
+          <dd class="plata">{colones(neto)}</dd>
+        </div>
+      </dl>
+      <p class="porhora">
+        Eso son {colones(porHora)} la hora, después de descontar todo.
+      </p>
+    </div>
+
+    <p class="aviso-ejemplo">
+      Ejemplo ilustrativo. No es un promedio medido ni una promesa de ganancia.
+      Son montos de referencia para que se vea la forma de la cuenta. Tus
+      números van a ser otros, y por eso la app los saca de tu turno y no de una
+      tabla.
+    </p>
+  </div>
+</section>
+
+<section>
+  <div class="envoltura angosto">
+    <h2>Cómo funciona</h2>
+    <ol class="pasos">
+      <li>
+        <div>
+          <h3>Abrí el turno cuando salís</h3>
+          <p>
+            Un toque y la app empieza a contar las horas. No hay que llenar
+            nada.
+          </p>
+        </div>
+      </li>
+      <li>
+        <div>
+          <h3>Manejá normal</h3>
+          <p>
+            Ella va anotando sola lo que ganás en Uber, DiDi e InDrive, y te
+            pregunta por el peaje cuando pasás por la caseta. Si andás sin
+            señal, lo guarda y lo sube después.
+          </p>
+        </div>
+      </li>
+      <li>
+        <div>
+          <h3>Cerrá el turno y mirá el neto</h3>
+          <p>
+            Cuando llegás a la casa te ofrece cerrarlo. Ahí ves cuánto te quedó
+            de verdad y cuánto te salió la hora.
+          </p>
+        </div>
+      </li>
+    </ol>
+
+    <div class="espacio">
+      <Marcador
+        ancho={320}
+        alto={640}
+        que="Pantalla de resumen del turno cerrado, con el neto del día"
+      />
+    </div>
+  </div>
+</section>
+
+<section class="franja">
+  <div class="envoltura">
+    <h2>Lo que hace</h2>
+    <div class="rejilla tres">
+      <div class="tarjeta">
+        <span class="marca-solo-aqui">Solo acá</span>
+        <h3>Lee tus ganancias sola</h3>
+        <p>
+          Ve el monto en la pantalla de Uber, DiDi e InDrive mientras trabajás,
+          sin que anotés nada. Se puede apagar, y entonces todo se anota a mano.
+        </p>
+      </div>
+      <div class="tarjeta">
+        <span class="marca-solo-aqui">Solo acá</span>
+        <h3>Peajes, y de quién es la plata</h3>
+        <p>
+          Separa el peaje que Uber te reintegra (cuando llevás pasajero) del que
+          sale de tu bolsillo (camino a recoger). Esa diferencia es plata de
+          verdad al final de la semana.
+        </p>
+      </div>
+      <div class="tarjeta">
+        <span class="marca-solo-aqui">Solo acá</span>
+        <h3>El turno que cruza la medianoche</h3>
+        <p>
+          Lo parte y le da a cada día sus horas y su gasolina. Porque DiDi
+          cierra el día a medianoche y Uber a las cuatro de la mañana, y sin eso
+          las cuentas no cuadran.
+        </p>
+      </div>
+      <div class="tarjeta">
+        <h3>Gasolina como vos la llevés</h3>
+        <p>
+          Por rayitas del tablero o contra factura. Las dos formas sirven, usá
+          la que ya usás.
+        </p>
+      </div>
+      <div class="tarjeta">
+        <h3>Vueltos y extras en efectivo</h3>
+        <p>
+          Si el cliente te dejó el vuelto, se anota aparte de lo que te paga la
+          plataforma. Al final del día también es plata.
+        </p>
+      </div>
+      <div class="tarjeta">
+        <h3>Llegada a la casa</h3>
+        <p>
+          Se da cuenta de que llegaste y te ofrece cerrar el turno, para que no
+          se te quede abierto toda la noche.
+        </p>
+      </div>
+      <div class="tarjeta">
+        <h3>Apartados de la semana</h3>
+        <p>
+          Te recuerda apartar lo de mantenimiento, gasolina y peajes antes de
+          que te lo gastés.
+        </p>
+      </div>
+      <div class="tarjeta">
+        <h3>Cambio de aceite y varios carros</h3>
+        <p>
+          Lleva el aceite por vehículo. Si manejás más de un carro, cada uno
+          tiene sus cuentas aparte.
+        </p>
+      </div>
+      <div class="tarjeta">
+        <h3>Funciona sin señal</h3>
+        <p>
+          Lo que anotás manejando queda guardado en el teléfono y se sincroniza
+          cuando vuelve la conexión.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="envoltura angosto">
+    <h2>Por qué confiar</h2>
+    <div class="rejilla dos">
+      <div class="tarjeta">
+        <h3>La hizo un conductor, no una empresa</h3>
+        <p>
+          Neto Smart la escribió un conductor activo de San José que se cansó de
+          no saber cuánto ganaba de verdad. Cada cosa que hace la app salió de
+          un turno real: el peaje que se le olvidó anotar, el viaje que cruzó la
+          medianoche, la pregunta que llegó tarde.
+        </p>
+      </div>
+      <div class="tarjeta">
+        <h3>El código está a la vista</h3>
+        <p>
+          Cualquiera puede revisar qué hace la app por dentro. No hay nada
+          escondido.
+          <br />
+          <a href={sitio.repoApp} rel="noopener">Ver el código en GitHub</a>
+        </p>
+      </div>
+      <div class="tarjeta">
+        <h3>Tus datos son tuyos</h3>
+        <p>
+          No se venden ni se comparten con terceros. La app no guarda por dónde
+          anduviste.
+          <br />
+          <a href="/privacidad">Leer la política de privacidad</a>
+        </p>
+      </div>
+      <div class="tarjeta">
+        <h3>Está en pruebas de calle</h3>
+        <p>
+          Hoy la usa un conductor activo en San José, todos los días. No te
+          vamos a decir que tiene miles de usuarios, porque todavía no los
+          tiene.
+        </p>
+      </div>
+    </div>
+
+    {
+      /*
+      PENDIENTE DE CONTENIDO REAL: testimonios de conductores.
+      No hay ninguno todavia. Cuando existan (con nombre y permiso de la
+      persona), van aqui, en tarjetas como las de arriba. No inventar.
+      */
+    }
+  </div>
+</section>
+
+<section class="franja">
+  <div class="envoltura angosto">
+    <h2>Preguntas frecuentes</h2>
+
+    <Faq pregunta="¿Por qué pide el permiso de accesibilidad?" abierta={true}>
+      <p>
+        Es el permiso que le deja a la app leer lo que aparece en la pantalla.
+        Lo usa para una sola cosa: ver el monto que te muestran Uber, DiDi e
+        InDrive, y anotarlo sin que lo tengás que hacer vos.
+      </p>
+      <p>
+        Solo mira esas tres aplicaciones. Cualquier otra cosa que tengás abierta
+        se descarta antes de mirarla. No lee mensajes, ni contraseñas, ni lo que
+        tecleás.
+      </p>
+      <p>
+        Si no se lo querés dar, no se lo des. La app funciona igual y las
+        ganancias las anotás a mano.
+        <a href="/accesibilidad">Acá está la explicación completa</a>.
+      </p>
+    </Faq>
+
+    <Faq pregunta="¿Ven mis datos?">
+      <p>
+        No. Tus datos quedan en tu teléfono y en una cuenta que es tuya,
+        protegida para que solo vos puedas leerlos. No se venden ni se comparten
+        con terceros.
+      </p>
+      <p>
+        Tampoco se guarda un recorrido de por dónde anduviste. La ubicación se
+        usa para darse cuenta de que llegaste a la casa y de que pasaste por una
+        caseta de peaje, nada más.
+        <a href="/privacidad">Ver la política de privacidad</a>.
+      </p>
+    </Faq>
+
+    <Faq pregunta="¿Funciona sin internet?">
+      <p>
+        Sí. Lo que anotás manejando se guarda en el teléfono aunque andés sin
+        señal, y se sincroniza solo cuando vuelve la conexión. No se pierde
+        nada.
+      </p>
+    </Faq>
+
+    <Faq pregunta="¿Cuánto cuesta?">
+      <p>
+        La app es gratis y se mantiene con anuncios. Va a haber una versión de
+        pago sin anuncios.
+      </p>
+      <p>
+        <Pendiente que="el precio de la versión sin anuncios" /> Todavía no está
+        definido. Cuando se decida, se pone acá antes de cobrarle a nadie.
+      </p>
+    </Faq>
+
+    <Faq pregunta="¿Por qué no está en Play Store?">
+      <p>
+        Por dos razones, y ninguna es bonita de decir. La primera es que la app
+        está en pruebas de campo y se sigue puliendo con turnos reales. La
+        segunda es que la cuenta de desarrollador de Google es un costo que
+        todavía no se ha pagado.
+      </p>
+      <p>
+        Mientras tanto se baja desde GitHub, que es donde está el código.
+        <a href="/descargar">Acá están los pasos para instalarla</a>.
+      </p>
+    </Faq>
+
+    <Faq pregunta="¿Sirve para Uber, DiDi e InDrive al mismo tiempo?">
+      <p>
+        Sí. Si manejás en las tres, la app suma lo de las tres en el mismo turno
+        y te da un solo neto al final del día.
+      </p>
+    </Faq>
+
+    <Faq pregunta="¿Funciona en iPhone?">
+      <p>
+        No. Por ahora solo Android. El permiso que usa para leer las ganancias
+        no existe en iPhone.
+      </p>
+    </Faq>
+
+    <Faq pregunta="¿Me gasta la batería o los datos?">
+      <p>
+        Los datos casi no los toca: lo que anota pesa muy poco y se sincroniza
+        cuando hay conexión. La ubicación trabaja con geocercos (círculos
+        alrededor de la casa y de las casetas), que es la forma que menos
+        batería consume, no siguiéndote todo el tiempo.
+      </p>
+    </Faq>
+  </div>
+</section>
+
+<section>
+  <div class="envoltura angosto centrado">
+    <h2>Averiguá cuánto te queda limpio</h2>
+    <p class="suave">
+      Bajala, abrila el próximo turno y al cerrarlo vas a tener el número que
+      importa.
+    </p>
+    <BotonDescarga texto="Descargar Neto Smart" />
+  </div>
+</section>
