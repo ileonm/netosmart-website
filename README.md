@@ -48,6 +48,7 @@ Para cerrarlo, en la terminal apriete `Ctrl + C`.
 | La página de descarga | `src/pages/descargar.astro` |
 | Privacidad, accesibilidad, términos, soporte | `src/pages/*.astro` |
 | Colores y tipografía | `src/styles/global.css` |
+| El logo | `src/marca/` (ver `src/marca/LEEME.md`) |
 | La tarjeta que se ve al compartir por WhatsApp | `public/og.png` |
 
 Los textos están dentro de las etiquetas `<p>`, `<h1>`, `<h2>`, etc. Se cambia

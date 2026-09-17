@@ -51,7 +51,8 @@ const tituloCompleto =
     <meta name="twitter:description" content={descripcion} />
     <meta name="twitter:image" content={urlImagen} />
 
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/icono-32.png" type="image/png" sizes="32x32" />
+    <link rel="icon" href="/icono-192.png" type="image/png" sizes="192x192" />
     <link rel="apple-touch-icon" href="/icono-180.png" />
     <link rel="manifest" href="/manifest.webmanifest" />
   </head>
@@ -61,29 +62,17 @@ const tituloCompleto =
     <header class="encabezado">
       <div class="envoltura">
         <a class="marca" href="/">
-          <span class="logo" aria-hidden="true">₡</span>
+          <img class="logo" src="/logo-96.png" width="32" height="32" alt="" />
           <span>Neto Smart</span>
         </a>
         <nav aria-label="Principal">
-          <ul>
-            <li>
-              <a
-                href="/descargar"
-                class="enlace-descarga"
-                aria-current={rutaActual === '/descargar' ? 'page' : undefined}
-              >
-                Descargar
-              </a>
-            </li>
-            <li>
-              <a
-                href="/soporte"
-                aria-current={rutaActual === '/soporte' ? 'page' : undefined}
-              >
-                Soporte
-              </a>
-            </li>
-          </ul>
+          <a
+            href="/descargar"
+            class="enlace-descarga"
+            aria-current={rutaActual === '/descargar' ? 'page' : undefined}
+          >
+            Descargar
+          </a>
         </nav>
       </div>
     </header>

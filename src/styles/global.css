@@ -8,8 +8,8 @@
   /* Marca */
   --azul: #1a1a2e;
   --azul-hondo: #10101c;
-  --verde: #00c48c;        /* acento vivo: solo sobre fondo oscuro */
-  --verde-hondo: #00795a;  /* acento para fondo claro: 5,4:1 sobre blanco */
+  --verde: #15c26b;        /* verde del logo. Solo sobre fondo oscuro */
+  --verde-hondo: #0f7a43;  /* el mismo verde, oscurecido: 5,4:1 sobre blanco */
 
   /* Modo claro (por defecto) */
   --fondo: #ffffff;
@@ -190,24 +190,12 @@ section.apretada { padding: 2rem 0; }
   letter-spacing: -0.02em;
 }
 .marca .logo {
-  display: grid;
-  place-items: center;
-  width: 30px;
-  height: 30px;
-  border-radius: 8px;
-  background: var(--verde);
-  color: var(--azul-hondo);
-  font-size: 1rem;
-  font-weight: 800;
+  width: 32px;
+  height: 32px;
   flex: none;
+  display: block;
 }
-.encabezado nav ul {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.35rem 1rem;
-  list-style: none;
-  margin: 0;
-  padding: 0;
+.encabezado nav {
   font-size: 0.95rem;
 }
 .encabezado nav a {
