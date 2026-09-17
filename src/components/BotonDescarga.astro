@@ -3,10 +3,13 @@ import { sitio } from '../config/site';
 
 interface Props {
   texto?: string;
-  /** Si es false, no muestra la linea de "pesa 110 MB". */
+  /** Si es false, no muestra la linea de abajo ("Gratis. Para Android..."). */
   detalle?: boolean;
   ancho?: boolean;
-  /** true lleva a /descargar (con las instrucciones). false va directo al APK. */
+  /**
+   * true lleva a /descargar (la pagina con los primeros pasos).
+   * false manda directo a la tienda.
+   */
   aInstrucciones?: boolean;
 }
 
@@ -17,7 +20,7 @@ const {
   aInstrucciones = true,
 } = Astro.props;
 
-const destino = aInstrucciones ? '/descargar' : sitio.urlDescarga;
+const destino = aInstrucciones ? '/descargar' : sitio.urlPlayStore;
 ---
 
 <a
@@ -28,9 +31,18 @@ const destino = aInstrucciones ? '/descargar' : sitio.urlDescarga;
   {texto}
 </a>
 {
+  sitio.urlAppStore && (
+    <a class:list={['boton', 'secundario', { ancho }]} href={sitio.urlAppStore} rel="noopener">
+      Descargar para iPhone
+    </a>
+  )
+}
+{
   detalle && (
     <p class="bajo-boton">
-      Gratis. Para Android. Pesa unos {sitio.tamanoApk}, mejor con wifi.
+      {sitio.urlAppStore
+        ? 'Gratis. Para Android y para iPhone.'
+        : 'Gratis, en Google Play. La versión para iPhone viene en camino.'}
     </p>
   )
 }

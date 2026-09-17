@@ -22,14 +22,31 @@ export const sitio = {
   descripcionCorta:
     'App para conductores de Uber, DiDi e InDrive en Costa Rica. Lleva la cuenta de gasolina, peajes y desgaste para que sepas cuanto te queda limpio.',
 
-  /** Enlace que siempre apunta a la ultima version publicada del APK. */
-  urlDescarga: 'https://github.com/ileonm/platnings-app/releases/latest',
+  /**
+   * Identificador de la app. Es el mismo en Android y en iPhone, y sale del
+   * archivo app.json del repositorio de la app.
+   */
+  idApp: 'com.netosmart.app',
 
-  /** Codigo fuente publico de la app. */
-  repoApp: 'https://github.com/ileonm/platnings-app',
+  /**
+   * Ficha en Google Play. La direccion se arma sola con el identificador de
+   * arriba, asi que no hay que copiarla de ningun lado.
+   *
+   * OJO: este enlace solo funciona cuando la ficha ya este publicada en
+   * Google Play. Antes de eso, da pagina no encontrada.
+   */
+  urlPlayStore:
+    'https://play.google.com/store/apps/details?id=com.netosmart.app',
 
-  /** Peso aproximado del APK, para avisarle al usuario antes de bajarlo. */
-  tamanoApk: '110 MB',
+  /**
+   * Ficha en la App Store de iPhone. PENDIENTE: la version para iPhone
+   * todavia no sale.
+   *
+   * Cuando salga, se pone aca la direccion de la ficha y el sitio solo
+   * empieza a mostrar el boton de iPhone y a cambiar los textos que hoy
+   * dicen "viene en camino". Es una sola linea.
+   */
+  urlAppStore: PENDIENTE as string | null,
 
   /**
    * CORREO DE CONTACTO. PENDIENTE.

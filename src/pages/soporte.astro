@@ -3,8 +3,6 @@ import Base from '../layouts/Base.astro';
 import Faq from '../components/Faq.astro';
 import Pendiente from '../components/Pendiente.astro';
 import { sitio } from '../config/site';
-
-const urlIssues = `${sitio.repoApp}/issues`;
 ---
 
 <Base
@@ -35,9 +33,8 @@ const urlIssues = `${sitio.repoApp}/issues`;
           }
         </p>
         <p class="sin-margen">
-          Si sabés usar GitHub, también podés reportar el problema en
-          <a href={urlIssues} rel="noopener">la lista de errores del proyecto</a
-          >. Ahí queda público y cualquiera puede ver en qué va.
+          Contanos qué pasó con el mayor detalle que puedas. Abajo está la lista
+          de lo que sirve mandar.
         </p>
       </div>
 
@@ -119,13 +116,12 @@ const urlIssues = `${sitio.repoApp}/issues`;
 
       <Faq pregunta="¿Cómo actualizo la app?">
         <p>
-          Bajando la versión nueva del mismo lugar de siempre. Se instala encima
-          de la que tenés y no se pierde nada.
-          <a href="/descargar">Acá están los pasos</a>.
+          Sola. Google Play instala las versiones nuevas sin que hagás nada,
+          siempre que tengás prendidas las actualizaciones automáticas.
         </p>
         <p>
-          Mientras la app no esté en Play Store, las actualizaciones no llegan
-          solas.
+          Si querés forzarla, abrí Google Play, buscá Neto Smart y si dice
+          <strong>Actualizar</strong>, tocalo.
         </p>
       </Faq>
 
@@ -176,7 +172,7 @@ const urlIssues = `${sitio.repoApp}/issues`;
   <section>
     <div class="envoltura angosto centrado">
       <h2>¿Todavía no la tenés?</h2>
-      <a class="boton" href="/descargar">Ver cómo instalarla</a>
+      <a class="boton" href="/descargar">Ver cómo empezar</a>
     </div>
   </section>
 </Base>

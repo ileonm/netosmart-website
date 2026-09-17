@@ -1,155 +1,123 @@
 ---
 import Base from '../layouts/Base.astro';
-import Marcador from '../components/Marcador.astro';
 import Faq from '../components/Faq.astro';
 import { sitio } from '../config/site';
 ---
 
 <Base
-  titulo="Cómo descargar e instalar Neto Smart"
-  descripcion="Pasos para instalar Neto Smart en Android desde GitHub. Te explicamos de frente la advertencia que va a salir y por qué, para que no te asustés a medio camino."
+  titulo="Descargar Neto Smart"
+  descripcion="Bajá Neto Smart gratis desde Google Play y empezá a saber cuánto te queda limpio en cada turno. Para Android. La versión para iPhone viene en camino."
 >
   <section>
     <div class="envoltura angosto">
       <h1>Descargar Neto Smart</h1>
       <p>
-        Neto Smart todavía no está en Google Play. Se baja desde GitHub, que es
-        el mismo lugar donde está publicado el código de la app.
+        Está en Google Play, es gratis y se instala como cualquier otra app. No
+        hay que hacer nada raro.
       </p>
 
-      <a class="boton ancho" href={sitio.urlDescarga} rel="noopener">
-        Ir a la descarga en GitHub
+      <a class="boton ancho" href={sitio.urlPlayStore} rel="noopener">
+        Bajarla en Google Play
       </a>
       <p class="bajo-boton">
-        Gratis. Solo Android. Pesa unos {sitio.tamanoApk}.
+        Gratis. Para Android.
+        {
+          sitio.urlAppStore
+            ? ' También está para iPhone.'
+            : ' La versión para iPhone viene en camino.'
+        }
       </p>
 
-      <div class="aviso ojo espacio">
-        <h2>Antes de arrancar, tres cosas</h2>
-        <ul class="sin-margen">
-          <li>
-            <strong>Pesa unos {sitio.tamanoApk}.</strong> Bajala con wifi, no
-            gastés datos en esto.
-          </li>
-          <li>
-            <strong>Te va a salir una advertencia que asusta</strong>, algo como
-            "por tu seguridad, tu teléfono no puede instalar apps desconocidas".
-            Es normal y le pasa a cualquier app que no venga de Play Store. Abajo
-            está el paso exacto para pasarla.
-          </li>
-          <li>
-            <strong>Es para Android.</strong> En iPhone no funciona.
-          </li>
-        </ul>
-      </div>
+      {
+        sitio.urlAppStore && (
+          <p class="espacio">
+            <a class="boton secundario ancho" href={sitio.urlAppStore} rel="noopener">
+              Bajarla en la App Store
+            </a>
+          </p>
+        )
+      }
     </div>
   </section>
 
   <section class="franja">
     <div class="envoltura angosto">
-      <h2>Paso a paso</h2>
+      <h2>Lo que te va a pedir la primera vez</h2>
+      <p>
+        Instalarla toma un minuto. Lo que conviene saber de antemano es que al
+        abrirla te va a pedir varios permisos, uno detrás de otro. No es que la
+        app sea metida: cada uno sirve para algo concreto y acá está para qué.
+      </p>
+      <p class="suave">
+        Podés saltarte los que querás. La app funciona igual, solo que tenés que
+        anotar a mano lo que ese permiso hacía solo.
+      </p>
 
-      <ol class="pasos">
-        <li>
-          <div>
-            <h3>Conectate a wifi</h3>
-            <p>
-              Son unos {sitio.tamanoApk}. Con datos móviles se puede, pero se te
-              va un pedazo del paquete.
-            </p>
-          </div>
-        </li>
+      <div class="tabla-envoltura espacio">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Te pide</th>
+              <th scope="col">Para qué</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Notificaciones</td>
+              <td>
+                Avisarte de peajes, mantenimiento, gasolina y cuando llegás a la
+                casa con el turno abierto.
+              </td>
+            </tr>
+            <tr>
+              <td>Ubicación todo el tiempo</td>
+              <td>
+                Darse cuenta de que pasaste por una caseta y de que llegaste a
+                la casa, aunque tengás la app cerrada. Hay que escoger
+                <strong>Permitir todo el tiempo</strong>, si no, los avisos no
+                llegan con el teléfono en el bolsillo.
+              </td>
+            </tr>
+            <tr>
+              <td>Quitar el ahorro de batería</td>
+              <td>
+                Sin esto Android duerme la app y se detienen los avisos y el
+                conteo de horas.
+              </td>
+            </tr>
+            <tr>
+              <td>Alarmas exactas</td>
+              <td>Que los recordatorios suenen a la hora, sin atrasarse.</td>
+            </tr>
+            <tr>
+              <td>Aparecer encima de otras apps</td>
+              <td>
+                La burbujita flotante para volver a Neto Smart rápido mientras
+                andás trabajando, como la de Uber y DiDi.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
-        <li>
-          <div>
-            <h3>Tocá el botón de descarga</h3>
-            <p>
-              Te abre la página de la última versión en GitHub. Buscá el archivo
-              que termina en <code>.apk</code> y tocalo. Ese es el instalador.
-            </p>
-            <p>
-              <a href={sitio.urlDescarga} rel="noopener">
-                Abrir la última versión en GitHub
-              </a>
-            </p>
-          </div>
-        </li>
-
-        <li>
-          <div>
-            <h3>El navegador te va a preguntar si estás seguro</h3>
-            <p>
-              Chrome dice algo como "este tipo de archivo puede dañar tu
-              dispositivo". Tocá <strong>Descargar de todos modos</strong>. Lo
-              pregunta por cualquier archivo <code>.apk</code>, no por este en
-              particular.
-            </p>
-          </div>
-        </li>
-
-        <li>
-          <div>
-            <h3>Abrí el archivo cuando termine</h3>
-            <p>
-              Te aparece en las notificaciones, o lo encontrás en la carpeta
-              Descargas del teléfono. Tocalo para instalarlo.
-            </p>
-          </div>
-        </li>
-
-        <li>
-          <div>
-            <h3>Acá sale la advertencia grande</h3>
-            <p>
-              Dice algo como <strong
-                >"Por tu seguridad, tu teléfono no puede instalar apps
-                desconocidas de esta fuente"</strong
-              >. No es que la app tenga algo malo: Android te dice eso a
-              cualquier instalación que no venga de Play Store.
-            </p>
-            <p>
-              Tocá <strong>Configuración</strong> (o <strong>Ajustes</strong>),
-              prendé <strong>Permitir de esta fuente</strong> y volvé atrás con
-              la flechita. Ahí sigue la instalación.
-            </p>
-            <Marcador
-              ancho={320}
-              alto={420}
-              que="Pantalla de Android con el aviso de fuentes desconocidas y el interruptor Permitir de esta fuente"
-            />
-          </div>
-        </li>
-
-        <li>
-          <div>
-            <h3>Tocá Instalar</h3>
-            <p>
-              Puede que Play Protect diga que no reconoce la app. Es porque
-              todavía no está publicada en Play Store. Tocá <strong
-                >Instalar de todos modos</strong
-              >.
-            </p>
-            <Marcador
-              ancho={320}
-              alto={420}
-              que="Aviso de Play Protect con el botón Instalar de todos modos"
-            />
-          </div>
-        </li>
-
-        <li>
-          <div>
-            <h3>Abrila y seguí el asistente</h3>
-            <p>
-              La primera vez te va a pedir dos permisos, y cada uno te explica
-              para qué es: el de <a href="/accesibilidad">accesibilidad</a> (para
-              leer tus ganancias solas) y el de ubicación (para los peajes y la
-              llegada a la casa). Los dos se pueden dejar apagados y anotar todo
-              a mano.
-            </p>
-          </div>
-        </li>
-      </ol>
+      <div class="aviso espacio">
+        <h3>La lectura automática de ganancias va aparte</h3>
+        <p>
+          Ese es el permiso de accesibilidad, y no está en esa lista de arriba.
+          Se prende cuando vos querás, desde la pantalla de captura de ganancias
+          dentro de la app.
+        </p>
+        <p>
+          Es el permiso que más desconfianza da, así que hay una página entera
+          explicando qué lee y qué no:
+          <a href="/accesibilidad">leer qué lee la app</a>.
+        </p>
+        <p class="sin-margen">
+          Esa función todavía está en pruebas. Lo que lee de cada plataforma
+          conviene revisarlo al cerrar el turno, y siempre se puede corregir a
+          mano.
+        </p>
+      </div>
     </div>
   </section>
 
@@ -157,52 +125,47 @@ import { sitio } from '../config/site';
     <div class="envoltura angosto">
       <h2>Preguntas sobre la instalación</h2>
 
-      <Faq pregunta="¿Por qué no está en Google Play?">
+      <Faq pregunta="¿Cuándo sale para iPhone?" abierta={true}>
         <p>
-          Por dos razones concretas. La app está en pruebas de campo, usándose
-          todos los días en turnos reales y corrigiéndose con lo que aparece. Y
-          la cuenta de desarrollador de Google cuesta plata que todavía no se ha
-          pagado.
+          Está en camino, pero no le vamos a poner fecha porque no la tenemos.
+          Preferimos eso a prometer un mes y no cumplirlo.
         </p>
         <p>
-          Preferimos decirlo así, sin adornos. Cuando esté en Play Store se va a
-          anunciar acá mismo.
+          Por ahora Neto Smart es para Android. Cuando la versión de iPhone esté
+          lista, se anuncia en esta misma página.
         </p>
       </Faq>
 
-      <Faq pregunta="¿Es peligroso instalar un APK?">
+      <Faq pregunta="¿Cuánto cuesta?">
         <p>
-          El riesgo real de un APK es no saber quién lo hizo. En este caso el
-          archivo se baja del repositorio público del proyecto, y el código de
-          la app está ahí mismo para que cualquiera lo revise.
-        </p>
-        <p>
-          Bajala solo desde
-          <a href={sitio.urlDescarga} rel="noopener">este enlace</a>. Si alguien
-          te pasa un archivo de Neto Smart por WhatsApp, no lo instalés: no hay
-          forma de saber qué le metieron.
+          Bajarla y usarla es gratis. Se mantiene con anuncios, y va a haber una
+          versión de pago para quien no los quiera ver.
         </p>
       </Faq>
 
-      <Faq pregunta="¿Cómo la actualizo después?">
+      <Faq pregunta="¿Me gasta muchos datos?">
         <p>
-          Volviendo a este mismo enlace y bajando la versión nueva. Se instala
-          encima de la que tenés y no se pierde nada de lo anotado.
-        </p>
-        <p>
-          Mientras no esté en Play Store, las actualizaciones no llegan solas.
+          Casi nada. Lo que anota pesa muy poco, y si andás sin señal se guarda
+          en el teléfono y se sube después.
         </p>
       </Faq>
 
-      <Faq pregunta="Se me quedó a medias o me dio error">
+      <Faq pregunta="¿Cómo la actualizo?">
         <p>
-          Lo más común es que no haya espacio en el teléfono, o que la descarga
-          se haya cortado. Borrá el archivo, liberá espacio y bajalo de nuevo
-          con wifi.
+          Sola. Google Play instala las versiones nuevas sin que hagás nada,
+          siempre que tengás las actualizaciones automáticas prendidas.
+        </p>
+      </Faq>
+
+      <Faq pregunta="No me aparece en Google Play">
+        <p>
+          Puede ser que tu teléfono tenga una versión de Android más vieja que la
+          que la app necesita. Si no te aparece buscándola por nombre, probá
+          abriendo el botón de arriba, que lleva directo a la ficha.
         </p>
         <p>
-          Si aun así no instala, <a href="/soporte">escribinos por soporte</a> y
-          contanos qué teléfono tenés y qué dice el mensaje.
+          Si aun así no te deja instalarla,
+          <a href="/soporte">escribinos</a> y contanos qué teléfono tenés.
         </p>
       </Faq>
     </div>
@@ -210,11 +173,11 @@ import { sitio } from '../config/site';
 
   <section class="franja">
     <div class="envoltura angosto centrado">
-      <h2>Listo para bajarla</h2>
-      <a class="boton" href={sitio.urlDescarga} rel="noopener">
-        Ir a la descarga en GitHub
+      <h2>Empezá con el próximo turno</h2>
+      <a class="boton" href={sitio.urlPlayStore} rel="noopener">
+        Bajarla en Google Play
       </a>
-      <p class="bajo-boton">Unos {sitio.tamanoApk}. Mejor con wifi.</p>
+      <p class="bajo-boton">Gratis. Para Android.</p>
     </div>
   </section>
 </Base>

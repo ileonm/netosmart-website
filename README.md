@@ -42,7 +42,7 @@ Para cerrarlo, en la terminal apriete `Ctrl + C`.
 
 | Qué quiere cambiar | Archivo |
 | --- | --- |
-| Dominio, correo de contacto, precio, peso del APK | `src/config/site.ts` |
+| Dominio, correo de contacto, precio, enlaces a las tiendas | `src/config/site.ts` |
 | Los grupos de WhatsApp y Facebook que se están midiendo | `src/config/canales.ts` |
 | El texto del inicio (titular, ejemplo, tarjetas, preguntas) | `src/components/Landing.astro` |
 | La página de descarga | `src/pages/descargar.astro` |

@@ -3,7 +3,7 @@ import BotonDescarga from './BotonDescarga.astro';
 import Faq from './Faq.astro';
 import Marcador from './Marcador.astro';
 import Pendiente from './Pendiente.astro';
-import { sitio, colones } from '../config/site';
+import { colones } from '../config/site';
 
 /**
  * Cuerpo del inicio. Se usa en / y en las paginas de canal /g/<id>,
@@ -222,12 +222,12 @@ const porHora = Math.round(neto / ejemplo.horas);
         </p>
       </div>
       <div class="tarjeta">
-        <h3>El código está a la vista</h3>
+        <h3>Te decimos exactamente qué lee</h3>
         <p>
-          Cualquiera puede revisar qué hace la app por dentro. No hay nada
-          escondido.
+          Hay una página entera que explica, app por app, qué mira Neto Smart
+          en la pantalla y qué no mira. Sin letra chiquita.
           <br />
-          <a href={sitio.repoApp} rel="noopener">Ver el código en GitHub</a>
+          <a href="/accesibilidad">Ver qué lee y qué no</a>
         </p>
       </div>
       <div class="tarjeta">
@@ -314,16 +314,11 @@ const porHora = Math.round(neto / ejemplo.horas);
       </p>
     </Faq>
 
-    <Faq pregunta="¿Por qué no está en Play Store?">
+    <Faq pregunta="¿Qué pasa si cambio de teléfono?">
       <p>
-        Por dos razones, y ninguna es bonita de decir. La primera es que la app
-        está en pruebas de campo y se sigue puliendo con turnos reales. La
-        segunda es que la cuenta de desarrollador de Google es un costo que
-        todavía no se ha pagado.
-      </p>
-      <p>
-        Mientras tanto se baja desde GitHub, que es donde está el código.
-        <a href="/descargar">Acá están los pasos para instalarla</a>.
+        Nada se pierde. Lo que anotás queda guardado en tu cuenta, no solo en el
+        teléfono. Instalás la app en el aparato nuevo, entrás con la misma
+        cuenta y ahí están tus turnos, tus carros y tus apartados.
       </p>
     </Faq>
 
@@ -336,8 +331,12 @@ const porHora = Math.round(neto / ejemplo.horas);
 
     <Faq pregunta="¿Funciona en iPhone?">
       <p>
-        No. Por ahora solo Android. El permiso que usa para leer las ganancias
-        no existe en iPhone.
+        Todavía no, pero viene en camino. Por ahora la app está en Google Play,
+        para Android.
+      </p>
+      <p>
+        No ponemos fecha porque no la tenemos. Cuando la versión de iPhone esté
+        lista, se anuncia acá mismo.
       </p>
     </Faq>
 
