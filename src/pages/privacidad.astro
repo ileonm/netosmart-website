@@ -90,7 +90,8 @@ import { sitio, paquetesLeidos } from '../config/site';
         </li>
         <li>
           Peajes: monto, y si fue un peaje que la plataforma reintegra o uno que
-          pagó de su bolsillo.
+          pagó de su bolsillo. Los dos se guardan, porque el dispositivo de
+          peaje se debita en ambos casos.
         </li>
         <li>Ingresos en efectivo, vueltos y extras.</li>
         <li>
@@ -174,9 +175,9 @@ import { sitio, paquetesLeidos } from '../config/site';
       </ul>
       <p>
         Esa información se usa para anotar sus ingresos sin que tenga que
-        escribirlos, y para saber si un peaje corresponde a un tramo con
-        pasajero (que la plataforma suele reintegrar) o a un tramo camino a
-        recoger (que sale de su bolsillo).
+        escribirlos, y para saber de cuál aplicación y de qué momento del viaje
+        viene cada peaje, porque de eso depende si la plataforma se lo reintegra
+        o si sale de su bolsillo.
       </p>
 
       <h3>3.3 Qué no lee</h3>

@@ -158,9 +158,9 @@ const porHora = Math.round(neto / ejemplo.horas);
         <div class="icono-caja"><Icono nombre="peaje" /></div>
         <h3>Peajes, y de quién es la plata</h3>
         <p>
-          Separa el peaje que Uber te reintegra (cuando llevás pasajero) del que
-          sale de tu bolsillo (camino a recoger). Esa diferencia es plata de
-          verdad al final de la semana.
+          Uber, DiDi e InDrive tratan el peaje de tres formas distintas. La app
+          sabe en cuál ibas y lo anota donde corresponde, para que el neto no
+          salga inflado ni desinflado.
         </p>
       </div>
       <div class="tarjeta destacada">
@@ -224,45 +224,87 @@ const porHora = Math.round(neto / ejemplo.horas);
     </div>
 
     <div class="bloque-peaje">
-      <h3>La diferencia del peaje, dibujada</h3>
+      <h3>El peaje no vale lo mismo en cada app</h3>
       <p class="suave">
-        Un mismo viaje tiene dos tramos, y el peaje no vale lo mismo en cada
-        uno. Neto Smart los separa.
+        Un peaje de {colones(380)} es siempre {colones(380)} en la caseta. Pero en
+        la cuenta del día vale distinto según en cuál app ibas, y esa es la
+        parte que casi nadie lleva bien.
       </p>
 
       <div class="peaje-diagrama">
-        <div class="tramo mio">
-          <p class="tramo-cabeza">
-            <Icono nombre="volante" tamano={18} />
-            Tramo 1, vas solo
-          </p>
-          <h3>Camino a recoger</h3>
+        <div class="tramo no-resta">
+          <p class="tramo-app">Uber</p>
+          <span class="veredicto">No resta del neto</span>
           <p>
-            Salís del punto donde estabas hasta donde está el pasajero. Si en
-            ese pedazo pasás por una caseta, ese peaje no se lo cobra nadie.
+            Uber sabe que pasaste, se lo cobra al pasajero y te lo devuelve.
+            Pero ese reintegro no viene dentro del monto de ganancias del día:
+            te llega aparte.
           </p>
-          <span class="quien">Sale de tu bolsillo</span>
+          <p>
+            Por eso restarlo sería descontarte plata que ya te devolvieron.
+          </p>
+          <p class="ojo-con-esto">
+            <strong>Ojo:</strong> solo el del tramo con el pasajero arriba. El
+            de camino a recogerlo lo pagás vos y Uber no lo cubre.
+          </p>
         </div>
 
-        <div class="tramo reintegrado">
-          <p class="tramo-cabeza">
-            <Icono nombre="peaje" tamano={18} />
-            Tramo 2, con pasajero
-          </p>
-          <h3>Ya con el pasajero a bordo</h3>
+        <div class="tramo si-resta">
+          <p class="tramo-app">DiDi</p>
+          <span class="veredicto">Sí resta del neto</span>
           <p>
-            Del punto donde lo recogiste hasta donde lo dejás. El peaje de este
-            pedazo la plataforma te lo devuelve.
+            DiDi también sabe, también se lo cobra al pasajero y también te lo
+            devuelve. La diferencia está en dónde te lo devuelve: metido dentro
+            del monto de ganancias que ya te mostró.
           </p>
-          <span class="quien">No es un gasto tuyo</span>
+          <p>
+            Como ese ingreso ya quedó contado arriba, el peaje se resta abajo y
+            la cuenta queda pareja.
+          </p>
+          <p class="ojo-con-esto">
+            <strong>Ojo:</strong> si no lo restás, ese día se ve mejor de lo que
+            fue.
+          </p>
+        </div>
+
+        <div class="tramo depende">
+          <p class="tramo-app">InDrive</p>
+          <span class="veredicto">Depende de cómo lo arreglés</span>
+          <p>
+            InDrive ni se entera de que pasaste por una caseta, y nunca se lo
+            cobra al pasajero. Ahí queda entre ustedes dos.
+          </p>
+          <p>
+            Si lo pagás vos y nadie te lo devuelve, resta. Si el pasajero lo
+            paga en la caseta, o te lo devuelve al final del viaje, no resta.
+          </p>
+          <p class="ojo-con-esto">
+            <strong>Por eso</strong> la app te deja decir que no hubo cobro, para
+            los viajes donde el peaje no te costó nada.
+          </p>
         </div>
       </div>
 
-      <p class="aviso-ejemplo">
-        Sin separarlos, los peajes del tramo 1 se pierden dentro del total y
-        parece que ganaste más de lo que ganaste. En una semana de Ruta 27, eso
-        es plata.
-      </p>
+      <div class="peaje-notas">
+        <div class="peaje-nota">
+          <h4>Cuando no se sabe, se anota como gasto</h4>
+          <p>
+            Si la app no logra confirmar que ese peaje era de los que te
+            reintegran, lo cuenta como gasto suyo. Marcarlo de gasto por error
+            se ve en la pantalla y lo corregís. Marcarlo de reintegrado por
+            error te infla el neto en silencio y no lo notás nunca.
+          </p>
+        </div>
+        <div class="peaje-nota">
+          <h4>El Quick Pass se debita igual</h4>
+          <p>
+            Resten del neto o no, todos los peajes salieron del dispositivo y
+            hay que volver a abonarlo. Por eso se guardan los dos tipos, aunque
+            solo uno reste.
+          </p>
+        </div>
+      </div>
+    </div>
     </div>
   </div>
 </section>

@@ -22,6 +22,7 @@
   --acento: var(--verde-hondo);
   --acento-texto: #ffffff;
   --gasto: #a3201a;        /* 6,4:1 sobre blanco */
+  --ojo: #8a5a00;          /* 5,9:1 sobre blanco */
   --sombra: 0 1px 2px rgba(26, 26, 46, 0.06), 0 4px 12px rgba(26, 26, 46, 0.06);
   --acento-suave: rgba(15, 122, 67, 0.1);
   --acento-halo: rgba(15, 122, 67, 0.13);
@@ -42,6 +43,7 @@
     --acento: var(--verde);
     --acento-texto: #10101c;
     --gasto: #ff9b91;        /* 7,2:1 sobre el fondo oscuro */
+    --ojo: #ffc75a;          /* 10:1 sobre la superficie oscura */
     --sombra: 0 1px 2px rgba(0, 0, 0, 0.3), 0 4px 12px rgba(0, 0, 0, 0.25);
     --acento-suave: rgba(21, 194, 107, 0.14);
     --acento-halo: rgba(21, 194, 107, 0.16);
@@ -570,41 +572,66 @@ section.apretada { padding: 2rem 0; }
   gap: 0.9rem;
   grid-template-columns: 1fr;
   margin-top: 1.25rem;
-  counter-reset: tramo;
 }
-@media (min-width: 720px) {
-  .peaje-diagrama { grid-template-columns: 1fr 1fr; gap: 1.1rem; }
+@media (min-width: 900px) {
+  .peaje-diagrama { grid-template-columns: repeat(3, 1fr); gap: 1.1rem; }
 }
 .tramo {
-  position: relative;
+  display: flex;
+  flex-direction: column;
   background: var(--superficie);
   border: 1px solid var(--borde);
   border-radius: 16px;
-  padding: 1.1rem 1.15rem 1.2rem;
+  padding: 1.15rem 1.2rem 1.25rem;
   border-top: 4px solid var(--linea-tramo);
+  box-shadow: var(--sombra);
 }
-.tramo.mio { --linea-tramo: var(--gasto); }
-.tramo.reintegrado { --linea-tramo: var(--acento); }
-.tramo-cabeza {
-  display: flex;
-  align-items: center;
-  gap: 0.55rem;
-  color: var(--linea-tramo);
-  font-size: 0.78rem;
+.tramo.no-resta { --linea-tramo: var(--acento); }
+.tramo.si-resta { --linea-tramo: var(--gasto); }
+.tramo.depende { --linea-tramo: var(--ojo); }
+
+.tramo-app {
+  font-size: 1.15rem;
   font-weight: 800;
-  letter-spacing: 0.08em;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.15rem;
+}
+.tramo .veredicto {
+  display: block;
+  color: var(--linea-tramo);
+  font-weight: 800;
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.7rem;
 }
-.tramo h3 { margin-bottom: 0.3rem; font-size: 1.05rem; }
-.tramo p { color: var(--texto-suave); margin: 0; font-size: 0.95rem; }
-.tramo .quien {
-  display: inline-block;
-  margin-top: 0.7rem;
-  font-weight: 800;
-  color: var(--linea-tramo);
-  font-size: 0.95rem;
+.tramo p { color: var(--texto-suave); margin: 0 0 0.7rem; font-size: 0.95rem; }
+.tramo p:last-child { margin-bottom: 0; }
+.tramo .ojo-con-esto {
+  margin-top: auto;
+  padding-top: 0.8rem;
+  border-top: 1px dashed var(--borde);
+  font-size: 0.9rem;
 }
+.tramo .ojo-con-esto strong { color: var(--texto); }
+
+.peaje-notas {
+  display: grid;
+  gap: 0.9rem;
+  grid-template-columns: 1fr;
+  margin-top: 1.25rem;
+}
+@media (min-width: 720px) {
+  .peaje-notas { grid-template-columns: 1fr 1fr; }
+}
+.peaje-nota {
+  background: var(--fondo-alt);
+  border: 1px solid var(--borde);
+  border-radius: 14px;
+  padding: 1rem 1.1rem;
+}
+.peaje-nota h4 { margin-bottom: 0.3rem; }
+.peaje-nota p { margin: 0; color: var(--texto-suave); font-size: 0.95rem; }
 
 /* --- Pasos --------------------------------------------------------------- */
 

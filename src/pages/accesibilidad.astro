@@ -97,10 +97,18 @@ import { sitio, paquetesLeidos } from '../config/site';
         </li>
       </ul>
       <p>
-        El estado del viaje es lo que le permite a la app distinguir un peaje
-        que la plataforma reintegra (se pasó con pasajero a bordo) de uno que
-        sale del bolsillo de la persona conductora (se pasó camino a recoger).
-        Esa diferencia es plata real al final de la semana.
+        Saber de cuál de las tres aplicaciones viene el viaje, y en qué estado
+        está, es lo que le permite a la app anotar cada peaje donde corresponde.
+        Las tres lo tratan distinto: en un viaje de Uber con el pasajero a
+        bordo, el peaje se reintegra aparte de las ganancias y no resta del
+        neto; camino a recoger, en un viaje de DiDi o en uno de InDrive, sale
+        del bolsillo de la persona conductora y sí resta.
+      </p>
+      <p>
+        Cuando no se puede confirmar, se anota como gasto, que es el lado
+        seguro: un peaje marcado de gasto por error se ve en pantalla y se
+        corrige, mientras que uno marcado de reintegrado por error infla la
+        ganancia sin que nadie lo note.
       </p>
 
       <h2>Qué no hace</h2>
