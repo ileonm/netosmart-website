@@ -20,17 +20,7 @@ esté publicada y visible en Costa Rica, ese enlace da página no encontrada.
 desde un teléfono que no sea el tuyo.** Un conductor que hace clic en
 "Descargar" y cae en un error de Google no vuelve.
 
-### 2. Correo de contacto
-
-**Dónde se pone:** `src/config/site.ts`, línea `correoContacto`.
-
-**Qué bloquea:** la página de soporte, el borrado de cuenta en la política de
-privacidad, y la publicación en Google Play (Google exige un contacto real en
-la política). Aparece marcado como pendiente en tres lugares del sitio.
-
-Sirve un correo normal, no hace falta uno del dominio.
-
-### 3. Nombre o razón social del responsable
+### 2. Nombre o razón social del responsable
 
 **Dónde se pone:** `src/pages/privacidad.astro` (sección 1) y
 `src/pages/terminos.astro` (sección 1). Busque la palabra `Pendiente`.
@@ -43,16 +33,21 @@ una empresa.
 
 ## Bloquea que el sitio se vea bien compartido
 
-### 4. Dominio propio
+### 3. Dominio propio
 
 **Dónde se pone:** `src/config/site.ts`, línea `dominio`. Una sola línea.
+
+**Ojo con esto:** el correo de contacto es `contacto@netosmart.com`. Si ese
+correo ya funciona, quiere decir que el dominio **netosmart.com ya es suyo**, y
+entonces este pendiente se cierra hoy mismo cambiando esa línea y agregando el
+dominio en Cloudflare Pages. Hay que confirmarlo antes de repartir enlaces.
 
 Mientras tanto el sitio funciona con la dirección que da Cloudflare
 (`netosmart-website.pages.dev`). Los enlaces de lanzamiento ya están hechos con
 esa dirección, así que si el dominio cambia después hay que volver a repartir
-los enlaces. Si se puede comprar antes del lanzamiento, mejor.
+los enlaces.
 
-### 5. Token de estadísticas
+### 4. Token de estadísticas
 
 **Dónde se pone:** `src/config/site.ts`, línea `tokenAnalytics`.
 
@@ -64,7 +59,7 @@ están en la sección 7 del README. Es gratis.
 
 ## Decisiones que hay que tomar
 
-### 6. Qué se promete de la versión para iPhone
+### 5. Qué se promete de la versión para iPhone
 
 Hoy el sitio dice, en tres lugares, que la versión de iPhone "viene en camino"
 y que no hay fecha. Eso es lo seguro mientras no haya una.
@@ -80,13 +75,30 @@ algo que no va a pasar.
 empieza a mostrar el botón de iPhone y a cambiar los textos que hoy dicen
 "viene en camino". Es una línea.
 
-### 7. Precio de la versión sin anuncios
+### 6. Precio de la versión sin anuncios
 
 **Dónde se pone:** `src/config/site.ts`, línea `precioPro`.
 
 Sale marcado como pendiente en la pregunta "¿Cuánto cuesta?" del inicio y en la
 sección 6 de los términos. El sitio ya dice que es gratis con anuncios y que va
 a haber una versión de pago, que es lo honesto mientras no haya precio.
+
+---
+
+### 7. Registro de la marca
+
+**Dónde se pone:** `src/config/site.ts`, línea `simboloMarca`.
+
+Hoy el pie dice **Neto Smart™**. El símbolo (TM) es el que corresponde a una
+marca que se está usando pero que todavía no está registrada, y se puede usar
+sin trámite.
+
+**No lo cambie a (R) mientras no tenga el registro en el Registro de la
+Propiedad Industrial.** Usar (R) sin registro es declarar algo falso, y en un
+sitio cuyo argumento es la honestidad es justo lo que no conviene.
+
+El día que salga el registro, se cambia esa línea por `'\u00AE'` y el pie
+cambia solo en las seis páginas.
 
 ---
 
@@ -138,5 +150,9 @@ diga algo y dé permiso para publicarlo con su nombre, va ahí.
 - **Cifras de ahorro o de ganancia.** El ejemplo del inicio está marcado como
   ilustrativo y dice explícitamente que no es un promedio medido.
 - **Fecha para la versión de iPhone.** El sitio dice de frente que no hay fecha.
+- **Que la marca no está registrada.** El pie lleva el símbolo (TM), que es lo
+  correcto para una marca sin registrar, pero el sitio no anuncia que no lo
+  está. Ningún sitio lo hace, y decirlo solo invita a que alguien más corra a
+  registrarla.
 - **Teléfono, cédula jurídica y dirección.** No se inventó ninguno. Si hacen
   falta después, se agregan en los términos.

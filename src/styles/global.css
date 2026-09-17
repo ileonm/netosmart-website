@@ -239,6 +239,13 @@ section.apretada { padding: 2rem 0; }
   gap: 0.5rem 1.25rem;
 }
 .pie h2 { font-size: 1rem; color: #ffffff; }
+.pie .legal-pie {
+  border-top: 1px solid #343a52;
+  margin-top: 1.4rem;
+  padding-top: 1rem;
+  color: #aeb6c8;
+}
+.pie .legal-pie p { margin-bottom: 0.4rem; }
 
 /* --- Botones ------------------------------------------------------------- */
 

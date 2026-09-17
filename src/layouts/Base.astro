@@ -13,6 +13,9 @@ interface Props {
 
 const { titulo, descripcion, canonica, noIndexar = false } = Astro.props;
 
+// Se calcula al construir el sitio, asi que se actualiza solo en cada despliegue.
+const anio = new Date().getFullYear();
+
 const rutaActual = Astro.url.pathname.replace(/\/+$/, '') || '/';
 const urlCanonica = new URL(canonica ?? rutaActual, sitio.dominio).href;
 const urlImagen = new URL('/og.png', sitio.dominio).href;
@@ -99,12 +102,31 @@ const tituloCompleto =
             }
           </ul>
         </nav>
-        <p class="sin-margen">
-          <small>
-            Neto Smart no tiene relacion con Uber, DiDi ni InDrive. Esas marcas
-            son de sus duenos.
-          </small>
-        </p>
+        {
+          sitio.correoContacto && (
+            <p>
+              <a href={`mailto:${sitio.correoContacto}`}>
+                {sitio.correoContacto}
+              </a>
+            </p>
+          )
+        }
+
+        <div class="legal-pie">
+          <p>
+            <small>
+              &copy; {anio} Neto Smart{sitio.simboloMarca}. Todos los derechos
+              reservados.
+            </small>
+          </p>
+          <p class="sin-margen">
+            <small>
+              Neto Smart no tiene relación con Uber, DiDi ni InDrive. Esas
+              marcas son de sus dueños y se mencionan solo para explicar con
+              cuáles aplicaciones funciona.
+            </small>
+          </p>
+        </div>
       </div>
     </footer>
 

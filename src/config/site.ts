@@ -19,9 +19,6 @@ export const sitio = {
    */
   dominio: 'https://netosmart-website.pages.dev',
 
-  descripcionCorta:
-    'App para conductores de Uber, DiDi e InDrive en Costa Rica. Lleva la cuenta de gasolina, peajes y desgaste para que sepas cuanto te queda limpio.',
-
   /**
    * Identificador de la app. Es el mismo en Android y en iPhone, y sale del
    * archivo app.json del repositorio de la app.
@@ -49,11 +46,10 @@ export const sitio = {
   urlAppStore: PENDIENTE as string | null,
 
   /**
-   * CORREO DE CONTACTO. PENDIENTE.
-   * Bloquea: pagina de soporte, borrado de cuenta y la publicacion en
-   * Google Play (la politica de privacidad necesita un contacto real).
+   * Correo de contacto. Sale en soporte, en privacidad (para el borrado de
+   * cuenta) y en el pie de todas las paginas.
    */
-  correoContacto: PENDIENTE as string | null,
+  correoContacto: 'contacto@netosmart.com' as string | null,
 
   /**
    * PRECIO de la version sin anuncios. PENDIENTE de decision.
@@ -70,6 +66,16 @@ export const sitio = {
 
   /** Fecha de la ultima revision de las paginas legales. */
   fechaLegal: '17 de setiembre de 2026',
+
+  /**
+   * Simbolo de marca que acompana al nombre en el pie.
+   *
+   * Hoy va (TM), que es el que se usa para una marca que se esta usando pero
+   * que todavia no esta registrada. NO cambiar a (R) hasta tener el registro
+   * en el Registro de la Propiedad Industrial: usar (R) sin registro es
+   * declarar algo falso.
+   */
+  simboloMarca: '\u2122',
 } as const;
 
 /** Paquetes de Android que la app lee. Se usan en privacidad y accesibilidad. */
@@ -85,7 +91,7 @@ export const navegacion = [
   { texto: 'Soporte', url: '/soporte' },
   { texto: 'Privacidad', url: '/privacidad' },
   { texto: 'Accesibilidad', url: '/accesibilidad' },
-  { texto: 'Terminos', url: '/terminos' },
+  { texto: 'Términos', url: '/terminos' },
 ] as const;
 
 /** Formatea un numero como colones de Costa Rica: ₡12.500,50 */
