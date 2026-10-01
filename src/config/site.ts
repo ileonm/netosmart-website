@@ -52,10 +52,23 @@ export const sitio = {
   correoContacto: 'contacto@netosmart.com' as string | null,
 
   /**
-   * PRECIO de la version sin anuncios. PENDIENTE de decision.
-   * Ejemplo de valor cuando se defina: '₡1.500 al mes'.
+   * PRECIO de Premium. Decidido: ₡2.500 al mes.
+   *
+   * El precio queda fijo para cada cuenta: si un dia sube, solo lo pagan las
+   * cuentas nuevas. Si hay que cambiarlo, es esta linea y los textos que lo
+   * mencionan salen solos.
    */
-  precioPro: PENDIENTE as string | null,
+  precioPremium: '₡2.500 al mes',
+
+  /** Dias de prueba de Premium, sin tarjeta. Una por persona. */
+  diasPrueba: 14,
+
+  /** Minutos que hay que quedarse en un lugar de descanso para que la app
+   *  pregunte si se termina el turno. */
+  minutosDescanso: 7,
+
+  /** Minutos en un lavacar para que la app recuerde anotar el lavado. */
+  minutosLavacar: 15,
 
   /**
    * Token de Cloudflare Web Analytics.
@@ -65,7 +78,7 @@ export const sitio = {
   tokenAnalytics: PENDIENTE as string | null,
 
   /** Fecha de la ultima revision de las paginas legales. */
-  fechaLegal: '17 de setiembre de 2026',
+  fechaLegal: '1 de octubre de 2026',
 
   /**
    * Simbolo de marca que acompana al nombre en el pie.
