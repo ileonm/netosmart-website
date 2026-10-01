@@ -6,7 +6,7 @@ import { sitio } from '../config/site';
 
 <Base
   titulo="Términos de uso"
-  descripcion="Condiciones de uso de la aplicación Neto Smart: para qué sirve, qué no es, y qué responsabilidad asume cada parte."
+  descripcion="Condiciones de uso de la aplicación Neto Smart: qué es, qué no es, cómo funcionan el plan Gratis y Premium, la prueba de 14 días y qué responsabilidad asume cada parte."
 >
   <section>
     <div class="envoltura angosto legal">
@@ -15,20 +15,32 @@ import { sitio } from '../config/site';
 
       <div class="resumen-llano">
         <h2>En corto</h2>
-        <p class="sin-margen">
-          Neto Smart es una herramienta para llevar sus propias cuentas. Es
-          gratis, está en pruebas de campo y puede tener errores. No es asesoría
-          contable ni tributaria, y no tiene relación con Uber, DiDi ni InDrive.
-          Las decisiones de plata las toma usted.
-        </p>
+        <ul class="sin-margen">
+          <li>
+            Neto Smart es una herramienta para llevar tus propias cuentas. Tiene
+            un plan <strong>Gratis para siempre</strong> y uno
+            <strong>Premium a {sitio.precioPremium}</strong>.
+          </li>
+          <li>
+            Premium se prueba {sitio.diasPrueba} días sin tarjeta, una vez por
+            persona. No hay cobro automático, el precio queda fijo para tu
+            cuenta y, si Premium vence, <strong>no se borra nada</strong>.
+          </li>
+          <li>
+            Está en pruebas de campo y puede tener errores. No es asesoría
+            contable ni tributaria, y no tiene relación con Uber, DiDi ni
+            InDrive.
+          </li>
+          <li>Las decisiones de plata las tomás vos.</li>
+        </ul>
       </div>
 
       <h2>1. Qué es este servicio</h2>
       <p>
         Neto Smart es una aplicación para Android que le permite a una persona
         conductora de plataformas registrar sus turnos, ingresos y gastos, y
-        calcular su ganancia neta. El uso de la aplicación implica la aceptación
-        de estos términos.
+        calcular su ganancia neta. Usar la aplicación implica aceptar estos
+        términos.
       </p>
       <p>
         El responsable del servicio es
@@ -39,7 +51,7 @@ import { sitio } from '../config/site';
       <ul>
         <li>
           No es asesoría contable, financiera ni tributaria. Los cálculos que
-          hace son una ayuda para llevar sus cuentas, no un documento contable
+          hace son una ayuda para llevar tus cuentas, no un documento contable
           ni una declaración ante ninguna autoridad.
         </li>
         <li>
@@ -55,48 +67,90 @@ import { sitio } from '../config/site';
       <p>
         La aplicación está en desarrollo activo y en pruebas con uso real. Puede
         contener errores, puede dejar de funcionar temporalmente y puede cambiar
-        entre versiones. Se recomienda revisar los montos registrados antes de
-        tomar decisiones con base en ellos.
+        entre versiones. La lectura automática en particular puede equivocarse:
+        conviene revisar los montos antes de tomar decisiones con base en ellos,
+        y siempre se pueden corregir a mano.
       </p>
 
       <h2>4. Uso correcto</h2>
-      <p>Al usar Neto Smart, usted se compromete a:</p>
+      <p>Al usar Neto Smart, te comprometés a:</p>
       <ul>
-        <li>Usarla para llevar sus propias cuentas.</li>
+        <li>Usarla para llevar tus propias cuentas.</li>
         <li>
           No intentar dañarla, alterarla para perjudicar a otras personas
           usuarias, ni acceder a datos de terceros.
         </li>
         <li>
           Manejar con responsabilidad. Ninguna función de la aplicación
-          justifica manipular el teléfono mientras conduce.
+          justifica manipular el teléfono mientras conducís.
         </li>
       </ul>
 
-      <h2>5. Su cuenta y sus datos</h2>
+      <h2>5. Tu cuenta y tus datos</h2>
       <p>
-        Los registros que usted hace son suyos. El tratamiento de esos datos se
+        Los registros que hacés son tuyos. El tratamiento de esos datos se
         describe en la <a href="/privacidad">política de privacidad</a>, que
-        forma parte de estos términos. Usted puede pedir el borrado de su cuenta
-        en cualquier momento.
+        forma parte de estos términos. Podés borrar tu cuenta en cualquier
+        momento, desde la app o sin ella, como explica la página de
+        <a href="/borrar-cuenta">borrar mi cuenta</a>.
       </p>
       <p>
-        Es su responsabilidad cuidar el acceso a su cuenta y mantener su
+        Es tu responsabilidad cuidar el acceso a tu cuenta y mantener tu
         teléfono con bloqueo de pantalla.
       </p>
 
-      <h2>6. Precio</h2>
+      <h2 id="planes">6. Planes y precio</h2>
+
+      <h3>6.1 Plan Gratis</h3>
       <p>
-        La aplicación se ofrece de forma gratuita y se financia con publicidad.
-        Está prevista una versión de pago sin anuncios, cuyo precio es
-        <Pendiente que="precio de la versión sin anuncios" />. Ningún cobro se
-        aplicará sin avisar antes y sin que la persona usuaria lo acepte de
-        manera expresa.
+        Es gratis para siempre. Incluye anotar a mano tus ganancias y gastos, con
+        la analítica básica, y todo lo que la tabla de
+        <a href="/#precio">qué incluye cada plan</a> marca como incluido.
+      </p>
+
+      <h3>6.2 Premium</h3>
+      <p>
+        Premium cuesta {sitio.precioPremium} y hace solo lo que en el plan Gratis
+        anotás a mano: la lectura automática de Uber, DiDi e InDrive, los peajes
+        detectados, el cierre del turno en un lugar de descanso, el aviso de
+        vuelto, el recordatorio del lavado, varios carros y los reportes que
+        comparan. El detalle completo está en la tabla de
+        <a href="/#precio">qué incluye cada plan</a>.
+      </p>
+
+      <h3>6.3 Prueba de {sitio.diasPrueba} días</h3>
+      <p>
+        La prueba es de {sitio.diasPrueba} días, sin tarjeta, y se te ofrece al
+        terminar la configuración inicial. Es <strong>una por persona</strong>:
+        para controlarlo se pide la cédula o el DIMEX, que es opcional si no
+        querés probar Premium. No se guarda el número, sino una huella cifrada
+        (ver la <a href="/privacidad#cedula">política de privacidad</a>).
+      </p>
+
+      <h3>6.4 El precio queda fijo</h3>
+      <p>
+        El precio queda fijo para cada cuenta. Si un día sube, solo lo pagan las
+        cuentas nuevas.
+      </p>
+
+      <h3>6.5 Sin renovación automática</h3>
+      <p>
+        Premium no se renueva solo ni se cobra sin que lo pidás. Cada mes lo
+        renovás vos, a propósito. Ningún cobro se aplica sin avisarte antes y sin
+        que lo aceptés de manera expresa. Se paga desde la app.
+      </p>
+
+      <h3>6.6 Cuando Premium vence</h3>
+      <p>
+        <strong>Al vencer no se borra nada, nunca.</strong> Volvés al plan Gratis
+        con todo tu historial. Si tenías varios carros, escogés con cuál seguís;
+        los otros quedan guardados y vuelven si renovás. Un turno que empezó con
+        Premium termina con Premium.
       </p>
 
       <h2>7. Responsabilidad</h2>
       <p>
-        La aplicación se entrega "tal cual", sin garantía de que esté libre de
+        La aplicación se entrega «tal cual», sin garantía de que esté libre de
         errores ni de que los cálculos sean exactos en todos los casos. En la
         medida en que lo permita la ley, el responsable no asume responsabilidad
         por decisiones económicas tomadas con base en la información mostrada
@@ -105,8 +159,7 @@ import { sitio } from '../config/site';
       </p>
       <p>
         Nada en estos términos limita los derechos que la legislación
-        costarricense de protección al consumidor le reconozca a la persona
-        usuaria.
+        costarricense de protección al consumidor te reconozca.
       </p>
 
       <h2>8. Distribución</h2>
@@ -121,8 +174,9 @@ import { sitio } from '../config/site';
       <h2>9. Cambios en estos términos</h2>
       <p>
         Estos términos pueden cambiar. Cuando cambien, se actualiza la fecha de
-        arriba. Si el cambio es importante, se avisa dentro de la aplicación o
-        en este sitio.
+        arriba. Si el cambio es importante, se avisa dentro de la aplicación o en
+        este sitio. Un cambio en el precio no afecta a las cuentas que ya
+        existen, como dice la sección 6.4.
       </p>
 
       <h2>10. Legislación aplicable</h2>
