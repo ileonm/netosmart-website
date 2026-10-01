@@ -22,7 +22,11 @@ interface Props {
     | 'sinsenal'
     | 'turno'
     | 'volante'
-    | 'neto';
+    | 'neto'
+    | 'pin'
+    | 'gota'
+    | 'rayo'
+    | 'barras';
   tamano?: number;
 }
 const { nombre, tamano = 24 } = Astro.props;
@@ -51,6 +55,14 @@ const trazos: Record<Props['nombre'], string> = {
   turno: '<circle cx="12" cy="12" r="9"/><path d="M10 8.5l6 3.5-6 3.5Z"/>',
   // Un volante
   volante: '<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/><path d="M12 3v6M4.2 16.5l5.2-3M19.8 16.5l-5.2-3"/>',
+  // Un lugar marcado en el mapa
+  pin: '<path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/>',
+  // Una gota, para el lavado
+  gota: '<path d="M12 3s6 6.2 6 10.5A6 6 0 0 1 6 13.5C6 9.2 12 3 12 3Z"/><path d="M9.3 14.2a2.7 2.7 0 0 0 2.4 2.5"/>',
+  // Un rayo, para los electricos
+  rayo: '<path d="M13 2 4 14h7l-1 8 9-12h-7Z"/>',
+  // Barras, para los reportes
+  barras: '<path d="M5 20V11M11 20V4M17 20v-6"/><path d="M2 20h20"/>',
   // Una cuenta cerrada, con el visto bueno
   neto: '<rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h4"/><path d="M8.5 16.5l2 2 4-4"/>',
 };

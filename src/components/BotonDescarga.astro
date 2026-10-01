@@ -41,8 +41,8 @@ const destino = aInstrucciones ? '/descargar' : sitio.urlPlayStore;
   detalle && (
     <p class="bajo-boton">
       {sitio.urlAppStore
-        ? 'Gratis. Para Android y para iPhone.'
-        : 'Gratis, en Google Play. La versión para iPhone viene en camino.'}
+        ? `Gratis en Google Play y en la App Store. Premium con ${sitio.diasPrueba} días de prueba, sin tarjeta.`
+        : `Gratis en Google Play. Premium con ${sitio.diasPrueba} días de prueba, sin tarjeta. La versión para iPhone viene en camino.`}
     </p>
   )
 }

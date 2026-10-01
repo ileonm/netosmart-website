@@ -101,18 +101,20 @@ const porHora = Math.round(neto / ejemplo.horas);
         <div>
           <h3>Abrí el turno cuando salís</h3>
           <p>
-            Un toque y la app empieza a contar las horas. No hay que llenar
-            nada.
+            Un toque y la app empieza a contar las horas. Con Premium, si
+            arranca un viaje y no tenés turno abierto, te pregunta si querés
+            abrirlo.
           </p>
         </div>
       </li>
       <li>
         <div>
-          <h3>Manejá normal</h3>
+          <h3>Manejá. Las cuentas las llevamos nosotros</h3>
           <p>
-            Ella va anotando sola lo que ganás en Uber, DiDi e InDrive, y te
-            pregunta por el peaje cuando pasás por la caseta. Si andás sin
-            señal, lo guarda y lo sube después.
+            Con Premium, la app anota sola lo que ganás en Uber, DiDi e InDrive
+            y te pregunta con un toque por cada peaje. Con el plan gratis lo
+            anotás vos, y la app hace las cuentas. Si andás sin señal, lo
+            guarda y lo sube después.
           </p>
         </div>
       </li>
@@ -120,8 +122,11 @@ const porHora = Math.round(neto / ejemplo.horas);
         <div>
           <h3>Cerrá el turno y mirá el neto</h3>
           <p>
-            Cuando llegás a la casa te ofrece cerrarlo. Ahí ves cuánto te quedó
-            de verdad y cuánto te salió la hora.
+            Si te quedás un rato en un lugar de descanso (tu casa, la soda donde
+            almorzás), te pregunta si terminás el turno y lo cierra a la hora en
+            que llegaste. Ahí ves cuánto te quedó de verdad, los gastos del día
+            desglosados y cuánto te salió la hora. Si todavía falta algo, como
+            la gasolina sin medir, te lo avisa.
           </p>
         </div>
       </li>
@@ -145,80 +150,94 @@ const porHora = Math.round(neto / ejemplo.horas);
     <h2>Lo que hace</h2>
     <div class="rejilla tres">
       <div class="tarjeta destacada">
-        <span class="marca-solo-aqui">Solo acá</span>
+        <div class="etiquetas"><span class="etiqueta">Solo acá</span><span class="etiqueta premium">Premium</span></div>
         <div class="icono-caja"><Icono nombre="ojo" /></div>
-        <h3>Lee tus ganancias sola</h3>
+        <h3>Tus ganancias se anotan solas</h3>
         <p>
-          Ve el monto en la pantalla de Uber, DiDi e InDrive mientras trabajás,
-          sin que anotés nada. Se puede apagar, y entonces todo se anota a mano.
+          Leemos lo que ganaste en Uber, DiDi e InDrive. Nada de copiar números manualmente al final del día. Se puede apagar, y entonces las anotás a mano.
         </p>
       </div>
       <div class="tarjeta destacada">
-        <span class="marca-solo-aqui">Solo acá</span>
+        <div class="etiquetas"><span class="etiqueta">Solo acá</span><span class="etiqueta premium">Premium</span></div>
         <div class="icono-caja"><Icono nombre="peaje" /></div>
-        <h3>Peajes, y de quién es la plata</h3>
+        <h3>Los peajes se detectan solos</h3>
         <p>
-          Uber, DiDi e InDrive tratan el peaje de tres formas distintas. La app
-          sabe en cuál ibas y lo anota donde corresponde, para que el neto no
-          salga inflado ni desinflado.
+          Pasás por la caseta y te preguntamos con un toque si la pagaste. Con el turno abierto, la app mira el GPS y pregunta apenas cruzás, con un ding suave, y no cuenta una rampa por la que pasás de largo en la autopista. Cada total de peajes trae la lista de cada uno. Más abajo está de quién es la plata en cada app.
         </p>
       </div>
       <div class="tarjeta destacada">
-        <span class="marca-solo-aqui">Solo acá</span>
+        <div class="etiquetas"><span class="etiqueta">Solo acá</span></div>
         <div class="icono-caja"><Icono nombre="reloj" /></div>
         <h3>El turno que cruza la medianoche</h3>
         <p>
-          Lo parte y le da a cada día sus horas y su gasolina. Porque DiDi
-          cierra el día a medianoche y Uber a las cuatro de la mañana, y sin eso
-          las cuentas no cuadran.
+          Lo parte y le da a cada día sus horas y su gasolina. Porque DiDi cierra el día a medianoche y Uber a las cuatro de la mañana, y sin eso las cuentas no cuadran.
+        </p>
+      </div>
+      <div class="tarjeta">
+        <div class="etiquetas"><span class="etiqueta premium">Premium</span></div>
+        <div class="icono-caja"><Icono nombre="pin" /></div>
+        <h3>El turno se cierra al llegar a descansar</h3>
+        <p>
+          Marcás hasta cinco lugares de descanso: tu casa, la soda donde almorzás, la casa de tu mamá. Con el turno abierto, si te quedás {sitio.minutosDescanso} minutos en uno te preguntamos «¿Terminás el turno?» y lo cerramos a la hora en que llegaste. Los marcás en un mapa de Google, con la dirección y botones para ir con Waze o Maps.
+        </p>
+      </div>
+      <div class="tarjeta">
+        <div class="etiquetas"><span class="etiqueta premium">Premium</span></div>
+        <div class="icono-caja"><Icono nombre="gota" /></div>
+        <h3>El lavado no se te olvida</h3>
+        <p>
+          Marcás hasta cinco lavacares. Si pasás {sitio.minutosLavacar} minutos en uno, te recordamos anotar el lavado. Y si tenés el turno abierto, antes te preguntamos si terminás el turno.
+        </p>
+      </div>
+      <div class="tarjeta">
+        <div class="etiquetas"><span class="etiqueta premium">Premium</span></div>
+        <div class="icono-caja"><Icono nombre="billete" /></div>
+        <h3>El efectivo no se te escapa</h3>
+        <p>
+          Si el cliente te dejó el vuelto, se anota como extra, aparte de lo que te paga la plataforma. Te avisamos para que no se te olvide.
         </p>
       </div>
       <div class="tarjeta">
         <div class="icono-caja"><Icono nombre="gasolina" /></div>
         <h3>Gasolina como vos la llevés</h3>
         <p>
-          Por rayitas del tablero o contra factura. Las dos formas sirven, usá
-          la que ya usás.
+          Por rayitas del tablero o contra factura: las dos formas sirven, usá la que ya usás. Los precios de la gasolina, el diésel y el gas se ponen solos según los ajustes de ARESEP y RECOPE. Lo que se calcula así lleva un aviso de que es aproximado.
         </p>
       </div>
       <div class="tarjeta">
-        <div class="icono-caja"><Icono nombre="billete" /></div>
-        <h3>Vueltos y extras en efectivo</h3>
+        <div class="icono-caja"><Icono nombre="rayo" /></div>
+        <h3>Eléctricos de verdad</h3>
         <p>
-          Si el cliente te dejó el vuelto, se anota aparte de lo que te paga la
-          plataforma. Al final del día también es plata.
-        </p>
-      </div>
-      <div class="tarjeta">
-        <div class="icono-caja"><Icono nombre="casa" /></div>
-        <h3>Llegada a la casa</h3>
-        <p>
-          Se da cuenta de que llegaste y te ofrece cerrar el turno, para que no
-          se te quede abierto toda la noche.
-        </p>
-      </div>
-      <div class="tarjeta">
-        <div class="icono-caja"><Icono nombre="alcancia" /></div>
-        <h3>Apartados de la semana</h3>
-        <p>
-          Te recuerda apartar lo de mantenimiento, gasolina y peajes antes de
-          que te lo gastés.
+          La batería en kWh, con el nivel al iniciar y al terminar cada carga. Carga en casa con la tarifa de tu distribuidora (ICE, CNFL, Coopelesca y demás), carga afuera y cargas gratis, que cuentan ₡0. El precio de la luz también se pone solo.
         </p>
       </div>
       <div class="tarjeta">
         <div class="icono-caja"><Icono nombre="carro" /></div>
-        <h3>Cambio de aceite y varios carros</h3>
+        <h3>Mi garaje, con la placa</h3>
         <p>
-          Lleva el aceite por vehículo. Si manejás más de un carro, cada uno
-          tiene sus cuentas aparte.
+          Con la placa intentamos llenarte los datos del carro; si no, son cuatro campos. Hay un catálogo de marcas y modelos, y la capacidad del tanque o de la batería sale de una tabla o la buscamos en la web con IA (hasta cinco búsquedas por conductor). Con Premium, todos tus carros, cada uno con sus cuentas.
+        </p>
+      </div>
+      <div class="tarjeta">
+        <div class="etiquetas"><span class="etiqueta premium">Premium</span></div>
+        <div class="icono-caja"><Icono nombre="barras" /></div>
+        <h3>Tu semana contra la anterior</h3>
+        <p>
+          Reportes completos: tu semana contra la anterior, y cualquier rango de fechas que querás revisar. El neto de hoy, de la semana y del mes lo ves siempre, también en el plan gratis.
+        </p>
+      </div>
+      <div class="tarjeta">
+        <div class="icono-caja"><Icono nombre="alcancia" /></div>
+        <h3>Apartados y cambio de aceite</h3>
+        <p>
+          Te recuerda apartar lo de mantenimiento, gasolina y peajes antes de que te lo gastés. En el aceite, te propone lo de la vez pasada de ese carro y opciones rápidas de cada cuánto cambiarlo (km o meses).
         </p>
       </div>
       <div class="tarjeta">
         <div class="icono-caja"><Icono nombre="sinsenal" /></div>
         <h3>Funciona sin señal</h3>
         <p>
-          Lo que anotás manejando queda guardado en el teléfono y se sincroniza
-          cuando vuelve la conexión.
+          Lo que anotás manejando queda guardado en el teléfono y se sincroniza cuando vuelve la conexión.
         </p>
       </div>
     </div>
@@ -353,8 +372,8 @@ const porHora = Math.round(neto / ejemplo.horas);
       <div class="tarjeta">
         <h3>Te decimos exactamente qué lee</h3>
         <p>
-          Hay una página entera que explica, app por app, qué mira Neto Smart
-          en la pantalla y qué no mira. Sin letra chiquita.
+          Hay una página entera que explica qué mira Neto Smart en la pantalla,
+          qué no mira y cuándo. Sin letra chiquita.
           <br />
           <a href="/accesibilidad">Ver qué lee y qué no</a>
         </p>
@@ -362,10 +381,30 @@ const porHora = Math.round(neto / ejemplo.horas);
       <div class="tarjeta">
         <h3>Tus datos son tuyos</h3>
         <p>
-          No se venden ni se comparten con terceros. La app no guarda por dónde
-          anduviste.
+          No se venden ni se usan para publicidad. Los pocos servicios externos
+          que reciben algo, y solo lo mínimo, están todos nombrados en la
+          política. La app no guarda por dónde anduviste.
           <br />
           <a href="/privacidad">Leer la política de privacidad</a>
+        </p>
+      </div>
+      <div class="tarjeta">
+        <h3>Sin trampas en el precio</h3>
+        <p>
+          La prueba de {sitio.diasPrueba} días no pide tarjeta. No hay cobro
+          automático ni renovación sorpresa, y si Premium vence no se borra
+          nada.
+          <br />
+          <a href="#precio">Ver qué incluye cada plan</a>
+        </p>
+      </div>
+      <div class="tarjeta">
+        <h3>Te vas cuando querás</h3>
+        <p>
+          Borrás tu cuenta desde la app, al instante, con todo lo que tenga
+          adentro.
+          <br />
+          <a href="/borrar-cuenta">Cómo borrar la cuenta</a>
         </p>
       </div>
       <div class="tarjeta">
@@ -395,14 +434,16 @@ const porHora = Math.round(neto / ejemplo.horas);
 
     <Faq pregunta="¿Por qué pide el permiso de accesibilidad?" abierta={true}>
       <p>
-        Es el permiso que le deja a la app leer lo que aparece en la pantalla.
-        Lo usa para una sola cosa: ver el monto que te muestran Uber, DiDi e
-        InDrive, y anotarlo sin que lo tengás que hacer vos.
+        Es el permiso que le deja a la app leer el texto que aparece en la
+        pantalla. Se usa solo en Uber, DiDi e InDrive, para ver cuánto ganaste y
+        en qué momento del viaje vas, y anotarlo sin que lo tengás que hacer
+        vos. Es parte de la lectura automática, o sea de Premium.
       </p>
       <p>
-        Solo mira esas tres aplicaciones. Cualquier otra cosa que tengás abierta
-        se descarta antes de mirarla. No lee mensajes, ni contraseñas, ni lo que
-        tecleás.
+        Cualquier otra app que tengás abierta se descarta antes de mirarla. No
+        lee mensajes, ni contraseñas, ni lo que tecleás. DiDi no muestra su
+        monto como texto, así que ese se lee de otra forma (mirá la pregunta de
+        abajo).
       </p>
       <p>
         Si no se lo querés dar, no se lo des. La app funciona igual y las
@@ -411,17 +452,53 @@ const porHora = Math.round(neto / ejemplo.horas);
       </p>
     </Faq>
 
-    <Faq pregunta="¿Ven mis datos?">
+    <Faq pregunta="¿Qué es la captura de pantalla que pide para DiDi?">
       <p>
-        No. Tus datos quedan en tu teléfono y en una cuenta que es tuya,
-        protegida para que solo vos puedas leerlos. No se venden ni se comparten
-        con terceros.
+        DiDi no muestra su monto como texto, así que no se puede leer por
+        accesibilidad. Cuando tocás «leer DiDi», Android te pide permiso para
+        capturar la pantalla. Mientras está activa, la app mira la pantalla cada
+        1,5 segundos y lee el monto con reconocimiento de texto{' '}
+        <strong>dentro de tu teléfono</strong> (Google ML Kit): la imagen no se
+        manda a ningún lado.
       </p>
       <p>
-        Tampoco se guarda un recorrido de por dónde anduviste. La ubicación se
-        usa para darse cuenta de que llegaste a la casa y de que pasaste por una
-        caseta de peaje, nada más.
+        Se detiene sola apenas encuentra el monto, o a los 25 segundos. No guarda
+        las imágenes. Mientras corre ves una notificación con «Detener ahora», y
+        solo pasa cuando vos lo pedís.
+        <a href="/privacidad#captura">Los detalles están en la política</a>.
+      </p>
+    </Faq>
+
+    <Faq pregunta="¿Ven mis datos?">
+      <p>
+        Tus datos quedan en tu teléfono y en una cuenta que es tuya, protegida
+        para que solo vos puedas leerla. No se venden ni se usan para
+        publicidad. Lo único que nos llega es lo que vos decidís mandar, como un
+        diagnóstico o un comprobante.
+      </p>
+      <p>
+        Algunos servicios externos reciben lo mínimo para hacer su trabajo (por
+        ejemplo, la placa va al Registro Nacional para buscar tu carro), y están
+        todos nombrados en la política. Tampoco se guarda un recorrido de por
+        dónde anduviste, ni se manda tu ubicación en vivo a ningún servidor.
         <a href="/privacidad">Ver la política de privacidad</a>.
+      </p>
+    </Faq>
+
+    <Faq pregunta="¿Usa mi ubicación todo el tiempo? ¿Me gasta la batería?">
+      <p>
+        Con el turno abierto y Premium, la app mira el GPS más seguido para
+        darse cuenta de que cruzaste una caseta: una posición por segundo cuando
+        estás cerca de una, una cada diez segundos cuando estás lejos. Mientras
+        tanto ves una notificación fija que dice «Neto Smart está atento a los
+        peajes». Al cerrar el turno, se apaga.
+      </p>
+      <p>
+        Fuera del turno no se vigila nada, salvo los lavacares que marcaste, con
+        la ubicación de bajo consumo de Android, sin encender el GPS. Usar el GPS
+        más seguido gasta más batería que no usarlo: es el precio de que los
+        peajes se detecten solos, y si no lo querés, apagás el permiso y los
+        anotás a mano. Los datos casi no los toca.
       </p>
     </Faq>
 
@@ -440,8 +517,56 @@ const porHora = Math.round(neto / ejemplo.horas);
         probás {sitio.diasPrueba} días sin tarjeta.
       </p>
       <p>
-        <a href="#precio">Acá está qué incluye cada uno</a>. Si Premium vence,
-        no se borra nada: volvés al plan gratis con todo tu historial.
+        <a href="#precio">Acá está qué incluye cada uno</a>. Se paga desde la
+        app.
+      </p>
+    </Faq>
+
+    <Faq pregunta="¿Qué pasa cuando vence Premium?">
+      <p>
+        No se borra nada, nunca. Volvés al plan gratis con todo tu historial. Si
+        tenías varios carros, escogés con cuál seguís; los otros quedan
+        guardados y vuelven si renovás. Un turno que empezó con Premium termina
+        con Premium.
+      </p>
+      <p>
+        No hay cobro automático: cada mes lo renovás vos, a propósito. Y el
+        precio queda fijo para tu cuenta; si un día sube, solo lo pagan las
+        cuentas nuevas.
+      </p>
+    </Faq>
+
+    <Faq pregunta="¿Por qué me pide la cédula?">
+      <p>
+        Solo para la prueba gratis de {sitio.diasPrueba} días de Premium, que es
+        una por persona. La cédula (o el DIMEX) es opcional en el perfil: si no
+        querés probar Premium, no hace falta darla.
+      </p>
+      <p>
+        No guardamos el número: guardamos una huella cifrada que no se puede
+        deshacer para recuperarlo. El nombre y la cédula quedan fijos; para
+        cambiarlos, escribinos por soporte.
+        <a href="/privacidad#cedula">Más en la política</a>.
+      </p>
+    </Faq>
+
+    <Faq pregunta="¿Con la placa me llena los datos del carro?">
+      <p>
+        Lo intenta. La app consulta la placa en el Registro Nacional y, si
+        responde, llena marca, modelo, año, forma, color y motor. Pero a veces
+        el sitio del Registro bloquea las consultas automáticas, y entonces lo
+        llenás a mano: son cuatro campos.
+      </p>
+      <p>
+        De lo que devuelve el Registro guardamos solo los datos del vehículo; lo
+        del dueño se descarta.
+      </p>
+    </Faq>
+
+    <Faq pregunta="¿Sirve para Uber, DiDi e InDrive al mismo tiempo?">
+      <p>
+        Sí. Si manejás en las tres, la app suma lo de las tres en el mismo turno
+        y te da un solo neto al final del día.
       </p>
     </Faq>
 
@@ -453,10 +578,11 @@ const porHora = Math.round(neto / ejemplo.horas);
       </p>
     </Faq>
 
-    <Faq pregunta="¿Sirve para Uber, DiDi e InDrive al mismo tiempo?">
+    <Faq pregunta="¿Puedo borrar mi cuenta?">
       <p>
-        Sí. Si manejás en las tres, la app suma lo de las tres en el mismo turno
-        y te da un solo neto al final del día.
+        Sí, desde la app y al instante: Configuración, Mi perfil, Zona de
+        peligro. Si ya no tenés la app, también se puede pedir sin ella.
+        <a href="/borrar-cuenta">Acá están los pasos</a>.
       </p>
     </Faq>
 
@@ -466,17 +592,10 @@ const porHora = Math.round(neto / ejemplo.horas);
         para Android.
       </p>
       <p>
-        No ponemos fecha porque no la tenemos. Cuando la versión de iPhone esté
-        lista, se anuncia acá mismo.
-      </p>
-    </Faq>
-
-    <Faq pregunta="¿Me gasta la batería o los datos?">
-      <p>
-        Los datos casi no los toca: lo que anota pesa muy poco y se sincroniza
-        cuando hay conexión. La ubicación trabaja con geocercos (círculos
-        alrededor de la casa y de las casetas), que es la forma que menos
-        batería consume, no siguiéndote todo el tiempo.
+        No ponemos fecha porque no la tenemos, y tampoco prometemos todavía qué
+        va a hacer: lo automático de la versión de Android depende de permisos
+        que iPhone no tiene. Cuando la versión de iPhone esté lista, se anuncia
+        acá mismo.
       </p>
     </Faq>
   </div>
@@ -484,7 +603,7 @@ const porHora = Math.round(neto / ejemplo.horas);
 
 <section>
   <div class="envoltura angosto centrado">
-    <h2>Averiguá cuánto te queda limpio</h2>
+    <h2>Vos manejá. Las cuentas las llevamos nosotros.</h2>
     <p class="suave">
       Bajala, abrila el próximo turno y al cerrarlo vas a tener el número que
       importa.
