@@ -52,6 +52,14 @@ export const sitio = {
   correoContacto: 'contacto@netosmart.com' as string | null,
 
   /**
+   * WhatsApp de soporte, solo los digitos y con el codigo de pais (506 es Costa
+   * Rica). Sale en soporte y en el pie. Es para AYUDA con la app: no es una
+   * forma de pago (el sitio solo dice "se paga desde la app") ni el canal para
+   * pedir borrado o datos personales, que van por correo.
+   */
+  whatsapp: '50663420635' as string | null,
+
+  /**
    * RESPONSABLE de los datos y del servicio: nombre de la persona o razon
    * social de la empresa. PENDIENTE.
    *
@@ -125,4 +133,18 @@ export function colones(monto: number): string {
   return decimal === '00'
     ? `${signo}₡${conPuntos}`
     : `${signo}₡${conPuntos},${decimal}`;
+}
+
+/** Muestra un numero de WhatsApp legible: 50663420635 pasa a +506 6342 0635 */
+export function telefonoLegible(digitos: string): string {
+  // Espacios que no se separan (\u00A0): que el numero no se parta en dos renglones.
+  return `+${digitos.slice(0, 3)}\u00A0${digitos.slice(3, 7)}\u00A0${digitos.slice(7)}`;
+}
+
+/** Enlace que abre WhatsApp con un primer mensaje ya escrito. */
+export function urlWhatsapp(
+  digitos: string,
+  mensaje = 'Hola, necesito ayuda con Neto Smart.'
+): string {
+  return `https://wa.me/${digitos}?text=${encodeURIComponent(mensaje)}`;
 }

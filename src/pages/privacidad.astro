@@ -1,7 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import Pendiente from '../components/Pendiente.astro';
-import { sitio, paquetesLeidos } from '../config/site';
+import { sitio, paquetesLeidos, telefonoLegible } from '../config/site';
 ---
 
 <Base
@@ -435,8 +435,14 @@ import { sitio, paquetesLeidos } from '../config/site';
             </tr>
             <tr role="row">
               <td role="cell" data-label="Servicio">WhatsApp</td>
-              <td role="cell" data-label="Para qué">Mandar un comprobante de pago o el diagnóstico.</td>
-              <td role="cell" data-label="Qué recibe">Solo si vos decidís mandarlos.</td>
+              <td role="cell" data-label="Para qué">
+                Hablar con soporte, y mandar el diagnóstico o un comprobante de
+                pago.
+              </td>
+              <td role="cell" data-label="Qué recibe">
+                Lo que vos escribís y mandás, y tu número de teléfono. Solo si
+                vos decidís escribir.
+              </td>
             </tr>
           </tbody>
         </table>
@@ -577,6 +583,15 @@ import { sitio, paquetesLeidos } from '../config/site';
           )
         }
       </p>
+      {
+        sitio.whatsapp && (
+          <p>
+            Para ayuda con la app (no para pedir tus datos ni el borrado de la
+            cuenta, que van por correo), también hay WhatsApp:
+            <strong>{telefonoLegible(sitio.whatsapp)}</strong>.
+          </p>
+        )
+      }
     </div>
   </section>
 </Base>

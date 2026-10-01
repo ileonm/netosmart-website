@@ -1,7 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import Pendiente from '../components/Pendiente.astro';
-import { sitio } from '../config/site';
+import { sitio, telefonoLegible } from '../config/site';
 ---
 
 <Base
@@ -196,6 +196,14 @@ import { sitio } from '../config/site';
           )
         }
       </p>
+      {
+        sitio.whatsapp && (
+          <p>
+            Para ayuda con la app, también por WhatsApp:
+            <strong>{telefonoLegible(sitio.whatsapp)}</strong>.
+          </p>
+        )
+      }
     </div>
   </section>
 </Base>

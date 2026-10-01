@@ -264,6 +264,7 @@ section.apretada { padding: 2rem 0; }
   gap: 0.5rem 1.25rem;
 }
 .pie h2 { font-size: 1rem; color: #ffffff; }
+.pie .contacto-pie { line-height: 1.8; }
 .pie .legal-pie {
   border-top: 1px solid #343a52;
   margin-top: 1.4rem;
@@ -285,7 +286,9 @@ section.apretada { padding: 2rem 0; }
   font-size: 1.05rem;
   line-height: 1.25;
   text-decoration: none;
-  padding: 0.95rem 1.5rem;
+  /* El relleno de los lados crece con la letra: con letra muy grande en un
+     telefono angosto empujaba el boton fuera de su caja. */
+  padding: 0.95rem min(1.5rem, 5vw);
   border-radius: 10px;
   border: 2px solid transparent;
   min-height: 48px;

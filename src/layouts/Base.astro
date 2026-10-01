@@ -1,6 +1,6 @@
 ---
 import '../styles/global.css';
-import { sitio, navegacion } from '../config/site';
+import { sitio, navegacion, telefonoLegible, urlWhatsapp } from '../config/site';
 
 interface Props {
   titulo: string;
@@ -101,15 +101,26 @@ const tituloCompleto =
             }
           </ul>
         </nav>
-        {
-          sitio.correoContacto && (
-            <p>
+        <p class="contacto-pie">
+          {
+            sitio.whatsapp && (
+              <>
+                Soporte por WhatsApp:{' '}
+                <a href={urlWhatsapp(sitio.whatsapp)} rel="noopener">
+                  {telefonoLegible(sitio.whatsapp)}
+                </a>
+                <br />
+              </>
+            )
+          }
+          {
+            sitio.correoContacto && (
               <a href={`mailto:${sitio.correoContacto}`}>
                 {sitio.correoContacto}
               </a>
-            </p>
-          )
-        }
+            )
+          }
+        </p>
 
         <div class="legal-pie">
           <p>

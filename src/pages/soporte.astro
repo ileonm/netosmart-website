@@ -2,12 +2,12 @@
 import Base from '../layouts/Base.astro';
 import Faq from '../components/Faq.astro';
 import Pendiente from '../components/Pendiente.astro';
-import { sitio } from '../config/site';
+import { sitio, telefonoLegible, urlWhatsapp } from '../config/site';
 ---
 
 <Base
   titulo="Soporte y ayuda"
-  descripcion="Cómo pedir ayuda con Neto Smart: qué hacer si no anota las ganancias, no detecta un peaje o no lee DiDi, cómo mandar un diagnóstico y cómo borrar tu cuenta."
+  descripcion="Pedí ayuda con Neto Smart por WhatsApp o por correo, y mirá qué hacer si no anota las ganancias, no detecta un peaje o no lee DiDi, cómo mandar un diagnóstico y cómo borrar tu cuenta."
 >
   <section>
     <div class="envoltura angosto">
@@ -19,6 +19,20 @@ import { sitio } from '../config/site';
 
       <div class="aviso">
         <h2>Escribinos</h2>
+        {
+          sitio.whatsapp && (
+            <>
+              <p>
+                <a class="boton" href={urlWhatsapp(sitio.whatsapp)} rel="noopener">
+                  Escribir por WhatsApp
+                </a>
+              </p>
+              <p>
+                O guardá este número: <strong>{telefonoLegible(sitio.whatsapp)}</strong>.
+              </p>
+            </>
+          )
+        }
         <p>
           Por correo:
           {
@@ -65,7 +79,8 @@ import { sitio } from '../config/site';
       <p>
         Ese registro <strong>no sale del teléfono</strong> a menos que vos lo
         mandés: en Configuración tocás <strong>Enviar diagnóstico</strong> y
-        decidís por dónde sale. Si no lo mandás, nadie lo ve.
+        decidís por dónde sale, por ejemplo por WhatsApp al número de soporte.
+        Si no lo mandás, nadie lo ve.
       </p>
     </div>
   </section>
