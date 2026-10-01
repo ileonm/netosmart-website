@@ -1,0 +1,116 @@
+---
+import { sitio } from '../config/site';
+
+/**
+ * Plan Gratis contra Premium. Se usa en el inicio y en la pagina de descarga.
+ *
+ * El precio y los dias de prueba salen de src/config/site.ts, asi que si
+ * cambian se corrige en un solo lugar.
+ *
+ * Aqui NO se dice como se paga (ni SINPE ni WhatsApp): solo "se paga desde la
+ * app", para que el texto siga siendo cierto si en la version de Google Play el
+ * pago termina siendo por el sistema de pagos de Google.
+ */
+
+type Celda = boolean | string;
+const filas: { que: string; gratis: Celda; premium: Celda }[] = [
+  { que: 'Anotar ganancias y gastos a mano', gratis: true, premium: true },
+  { que: 'Lectura automática de Uber, DiDi e InDrive', gratis: false, premium: true },
+  { que: 'Aviso de vuelto en efectivo y extras', gratis: false, premium: true },
+  { que: 'Aviso «¿abrir turno?» si arranca un viaje sin turno', gratis: false, premium: true },
+  { que: 'Peajes detectados solos al pasar por la caseta', gratis: false, premium: true },
+  { que: 'Cierre del turno al llegar a un lugar de descanso', gratis: false, premium: true },
+  { que: 'Recordatorio de anotar el lavado en el lavacar', gratis: false, premium: true },
+  { que: 'Gasolina, cargas de eléctricos, aceite y costos fijos', gratis: true, premium: true },
+  { que: 'Precios de gasolina y luz al día, automáticos', gratis: true, premium: true },
+  { que: 'Carros', gratis: '1', premium: 'Varios' },
+  { que: 'Neto de hoy, semana y mes; ₡ por hora; lo que se resta', gratis: true, premium: true },
+  { que: 'Comparar contra el período anterior y fechas a elección', gratis: false, premium: true },
+  { que: 'Historial completo', gratis: true, premium: true },
+];
+---
+
+<div class="precios">
+  <div class="planes">
+    <div class="plan">
+      <h3>Gratis</h3>
+      <p class="plan-precio">Para siempre</p>
+      <p>Todo a mano, con la analítica básica.</p>
+    </div>
+    <div class="plan plan-premium">
+      <h3>Premium</h3>
+      <p class="plan-precio">{sitio.precioPremium}</p>
+      <p>Lo hace solo. {sitio.diasPrueba} días de prueba, sin tarjeta.</p>
+    </div>
+  </div>
+
+  <div class="tabla-envoltura" tabindex="0" role="region" aria-label="Comparación de planes">
+    <table class="precios-tabla">
+      <caption class="solo-lectores">Qué incluye el plan Gratis y qué incluye Premium</caption>
+      <thead>
+        <tr>
+          <th scope="col">Qué hace</th>
+          <th scope="col">Gratis</th>
+          <th scope="col" class="col-premium">Premium</th>
+        </tr>
+      </thead>
+      <tbody>
+        {
+          filas.map((f) => (
+            <tr>
+              <th scope="row">{f.que}</th>
+              <td>
+                {typeof f.gratis === 'string' ? (
+                  f.gratis
+                ) : f.gratis ? (
+                  <>
+                    <span aria-hidden="true" class="si">✓</span>
+                    <span class="solo-lectores">Sí</span>
+                  </>
+                ) : (
+                  <span class="no">No</span>
+                )}
+              </td>
+              <td class="col-premium">
+                {typeof f.premium === 'string' ? (
+                  f.premium
+                ) : f.premium ? (
+                  <>
+                    <span aria-hidden="true" class="si">✓</span>
+                    <span class="solo-lectores">Sí</span>
+                  </>
+                ) : (
+                  <span class="no">No</span>
+                )}
+              </td>
+            </tr>
+          ))
+        }
+      </tbody>
+    </table>
+  </div>
+
+  <ul class="reglas-precio">
+    <li>
+      <strong>{sitio.diasPrueba} días de prueba, sin tarjeta.</strong> Una por
+      persona: para eso se pide la cédula, y no se guarda el número (más en la
+      <a href="/privacidad#cedula">política de privacidad</a>). La prueba se te
+      ofrece al terminar la configuración inicial.
+    </li>
+    <li>
+      <strong>El precio queda fijo para tu cuenta.</strong> Si un día sube, solo
+      lo pagan las cuentas nuevas.
+    </li>
+    <li>
+      <strong>Sin cobro automático ni renovación sorpresa.</strong> Cada mes lo
+      renovás vos, a propósito.
+    </li>
+    <li>
+      <strong>Si Premium vence, no se borra nada.</strong> Volvés al plan gratis
+      con todo tu historial. Si tenías varios carros, escogés con cuál seguís;
+      los otros quedan guardados y vuelven si renovás. Un turno que empezó con
+      Premium termina con Premium.
+    </li>
+    <li>Se paga desde la app.</li>
+  </ul>
+</div>

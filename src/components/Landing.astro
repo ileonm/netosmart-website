@@ -2,9 +2,9 @@
 import BotonDescarga from './BotonDescarga.astro';
 import Faq from './Faq.astro';
 import Marcador from './Marcador.astro';
-import Pendiente from './Pendiente.astro';
+import Precios from './Precios.astro';
 import Icono from './Icono.astro';
-import { colones } from '../config/site';
+import { sitio, colones } from '../config/site';
 
 /**
  * Cuerpo del inicio. Se usa en / y en las paginas de canal /g/<id>,
@@ -320,6 +320,18 @@ const porHora = Math.round(neto / ejemplo.horas);
   </div>
 </section>
 
+<section id="precio">
+  <div class="envoltura angosto">
+    <span class="etiqueta-seccion">Lo que cuesta</span>
+    <h2>Lo manual es gratis. Lo automático es Premium.</h2>
+    <p class="suave">
+      El gratis es manual; Premium lo hace solo.
+      <strong>Vos manejá. Las cuentas las llevamos nosotros.</strong>
+    </p>
+    <Precios />
+  </div>
+</section>
+
 <section>
   <div class="envoltura angosto">
     <span class="etiqueta-seccion">De dónde sale</span>
@@ -423,12 +435,13 @@ const porHora = Math.round(neto / ejemplo.horas);
 
     <Faq pregunta="¿Cuánto cuesta?">
       <p>
-        La app es gratis y se mantiene con anuncios. Va a haber una versión de
-        pago sin anuncios.
+        El plan Gratis es gratis para siempre: todo a mano, con la analítica
+        básica. Premium, que lo hace solo, cuesta {sitio.precioPremium}, y lo
+        probás {sitio.diasPrueba} días sin tarjeta.
       </p>
       <p>
-        <Pendiente que="el precio de la versión sin anuncios" /> Todavía no está
-        definido. Cuando se decida, se pone acá antes de cobrarle a nadie.
+        <a href="#precio">Acá está qué incluye cada uno</a>. Si Premium vence,
+        no se borra nada: volvés al plan gratis con todo tu historial.
       </p>
     </Faq>
 

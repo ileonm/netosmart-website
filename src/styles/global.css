@@ -404,12 +404,17 @@ section.apretada { padding: 2rem 0; }
 }
 .cuenta dl { margin: 0; }
 .cuenta .fila {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 0.25rem 0.75rem;
+  /* Flex que envuelve, no rejilla de dos columnas: con letra muy grande el
+     monto baja a su propio renglon en vez de empujar la pagina a un lado. */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
   align-items: baseline;
+  gap: 0.1rem 0.75rem;
   padding: 0.35rem 0;
 }
+.cuenta .fila dt { flex: 1 1 8rem; min-width: 0; }
+.cuenta .fila dd { flex: 0 0 auto; margin-left: auto; }
 .cuenta dt { color: #c9cfdd; }
 .cuenta dd {
   margin: 0;
@@ -811,7 +816,7 @@ ul.no li::before { content: '\2715'; color: var(--gasto); }
 
 /* --- Tablas -------------------------------------------------------------- */
 
-.tabla-envoltura { overflow-x: auto; }
+.tabla-envoltura { overflow-x: auto; position: relative; }
 table {
   border-collapse: collapse;
   width: 100%;
@@ -824,6 +829,61 @@ th, td {
   vertical-align: top;
 }
 th { font-weight: 700; }
+
+/* --- Precios -------------------------------------------------------------- */
+
+.planes {
+  display: grid;
+  gap: 0.9rem;
+  grid-template-columns: 1fr;
+  margin: 1.25rem 0 1.5rem;
+}
+@media (min-width: 560px) { .planes { grid-template-columns: 1fr 1fr; } }
+.plan {
+  background: var(--superficie);
+  border: 1px solid var(--borde);
+  border-radius: 16px;
+  padding: 1.15rem 1.25rem 1.25rem;
+}
+.plan h3 { margin-bottom: 0.1rem; }
+.plan p { margin: 0; color: var(--texto-suave); }
+.plan .plan-precio {
+  color: var(--texto);
+  font-size: 1.7rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  margin-bottom: 0.4rem;
+}
+.plan-premium { border: 2px solid var(--acento); }
+.plan-premium .plan-precio { color: var(--acento); }
+
+.precios-tabla { font-size: 0.93rem; }
+@media (max-width: 559px) {
+  .precios-tabla { font-size: 0.86rem; }
+  .precios-tabla th, .precios-tabla td { padding-top: 0.5rem; padding-bottom: 0.5rem; }
+  .precios-tabla th[scope='row'] { padding-left: 0.1rem; padding-right: 0.5rem; }
+}
+.precios-tabla th[scope='row'] { font-weight: 400; }
+.precios-tabla thead th { white-space: nowrap; }
+.precios-tabla th:not(:first-child),
+.precios-tabla td {
+  text-align: center;
+  width: 1%;
+  white-space: nowrap;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+@media (min-width: 560px) {
+  .precios-tabla th:not(:first-child),
+  .precios-tabla td { padding-left: 1.1rem; padding-right: 1.1rem; }
+}
+.precios-tabla .col-premium { background: var(--acento-suave); }
+.precios-tabla .si { color: var(--acento); font-weight: 800; font-size: 1.05rem; }
+.precios-tabla .no { color: var(--texto-suave); font-size: 0.85rem; }
+
+.reglas-precio { margin: 1.5rem 0 0; padding-left: 1.2em; }
+.reglas-precio li { margin-bottom: 0.7rem; }
 
 /* --- Legales ------------------------------------------------------------- */
 
