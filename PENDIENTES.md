@@ -202,33 +202,44 @@ archivo.
 
 ## Bloquea que la gente confíe
 
-### 14. Tres capturas de la app
+### 14. Capturas de la app (falta una, y hay una opcional)
 
-Hay tres huecos marcados como «Imagen pendiente» en el inicio. Son pantallas
-reales de la app, no dibujos:
+Son pantallas reales de la app, no dibujos. Estado:
 
-| Pantalla | Dónde va |
-| --- | --- |
-| El **turno cerrado**, con el neto del día a la vista | Junto a «Cómo funciona» |
-| **Mi garaje**, con un carro cargado a partir de la placa | En «Lo que hace», a la izquierda |
-| **Premium**, con la prueba de 14 días | En «Lo que hace», a la derecha |
+| Pantalla | Estado | Dónde va |
+| --- | --- | --- |
+| **Premium**, con la prueba de 14 días | **Lista** (`public/capturas/premium.webp`) | En «Lo que hace», a la derecha |
+| **Resumen del día / turno cerrado**, con el neto a la vista | Falta | Junto a «Cómo funciona» |
+| **Mi garaje** | Falta | En «Lo que hace», a la izquierda |
+| La pregunta **«¿Quién lo paga?»** del peaje de InDrive, con sus tres botones | Opcional | Junto al diagrama de peajes |
+
+**Cuál pantalla es «Mi garaje».** Son dos pantallas distintas dentro de lo mismo:
+la **lista** de carros (con la placa grande, «En uso», Editar, Borrar y «Agregar
+un carro»), y el **formulario de agregar o editar** un carro. La tarjeta del
+sitio dice «con la placa intentamos llenarte los datos; si no, son cuatro
+campos», así que la captura que la respalda es **el formulario con los datos ya
+llenos a partir de una placa**. Si la consulta al Registro Nacional está
+bloqueando ese día y no se llena, usá la **lista** con dos carros, que también
+sirve porque muestra los varios carros de Premium.
 
 **Cómo ponerlas, paso a paso:**
-1. Sacá la captura en el teléfono y pasala a WebP (se puede con cualquier
-   convertidor en línea). Que tenga la misma proporción que el hueco: 1 de ancho
-   por 2 de alto (por ejemplo 516 por 1032 píxeles).
-2. Guardá el archivo en la carpeta `public/capturas/` (si no existe, creala) con
-   un nombre sin tildes ni espacios: `turno-cerrado.webp`, `mi-garaje.webp`,
-   `premium.webp`.
+1. Sacá la captura en el teléfono, con datos de prueba (no tu placa ni tus
+   montos reales), en modo claro y con la barra de estado limpia. Recortá la
+   barra de arriba y la de abajo para que quede casi 1 de ancho por 2 de alto.
+2. Pasala a WebP (cualquier convertidor en línea sirve) a 516 píxeles de ancho, y
+   guardala en `public/capturas/` con un nombre sin tildes ni espacios:
+   `turno-cerrado.webp`, `mi-garaje.webp`.
 3. Abrí `src/components/Landing.astro` y buscá el bloque `<Marcador ... />` de
    esa pantalla.
-4. Cambialo por esto, con el nombre del archivo que corresponda:
+4. Cambialo por esto, con el nombre del archivo y la altura que le toque (el
+   alto sale de la proporción real de tu imagen; con 516 de ancho y 1015 de alto
+   son 258 por 508):
 
    ```astro
    <img
      src="/capturas/mi-garaje.webp"
      width="258"
-     height="516"
+     height="508"
      loading="lazy"
      alt="Describí acá lo que se ve en la pantalla"
    />
@@ -236,7 +247,25 @@ reales de la app, no dibujos:
 5. Guardá y subí el cambio (sección 4 del README).
 
 El texto de `alt` es lo que escucha una persona con lector de pantalla: describí
-lo que se ve, no «captura de pantalla».
+lo que se ve, no «captura de pantalla». Si los montos de la captura son de
+ejemplo, agregá al lado una nota «datos de ejemplo», como la del resumen del
+inicio.
+
+**Google Play pide además sus propias capturas** para publicar la ficha: mínimo
+dos de teléfono, y un gráfico destacado de 1024 por 500. Se pueden reusar estas
+mismas.
+
+**Tres cosas que se ven en la captura de Premium** y conviene revisar en la app
+(el sitio las muestra tal cual):
+- El precio sale como **«₡2,500»** (con coma). El sitio usa **«₡2.500»**, con
+  punto, que es el formato de Costa Rica. Conviene que la app diga lo mismo.
+- La tarjeta **«El turno se cierra al llegar a descansar»** empieza con «Y si
+  arrancás un viaje sin turno abierto…»: parece que le falta la primera frase
+  (la del lugar de descanso).
+- La app dice «Ninguno se te olvida» (peajes) y «ya se paga solo» (el precio).
+  El sitio evita las dos: no promete que ningún peaje se escape, y no dice que
+  Premium se pague solo. Si Google o un conductor las leen literalmente, son
+  frases que se pueden discutir.
 
 ### 15. Testimonios de conductores
 
