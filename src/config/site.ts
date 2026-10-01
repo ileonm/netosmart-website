@@ -52,6 +52,15 @@ export const sitio = {
   correoContacto: 'contacto@netosmart.com' as string | null,
 
   /**
+   * RESPONSABLE de los datos y del servicio: nombre de la persona o razon
+   * social de la empresa. PENDIENTE.
+   *
+   * Bloquea: privacidad y terminos (Google los revisa y piden un responsable).
+   * Puede ser el nombre de una persona, no hace falta una empresa.
+   */
+  responsable: PENDIENTE as string | null,
+
+  /**
    * PRECIO de Premium. Decidido: ₡2.500 al mes.
    *
    * El precio queda fijo para cada cuenta: si un dia sube, solo lo pagan las

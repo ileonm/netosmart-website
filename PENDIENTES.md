@@ -1,134 +1,230 @@
-# Lo que falta llenar
+# Lo que falta
 
-Ordenado por lo que bloquea más. Nada de esto se inventó en el sitio: donde
-falta un dato, sale un marcador amarillo que dice **Pendiente**.
+Ordenado por lo que bloquea más. Nada de esto se inventó en el sitio: donde falta
+un dato sale un marcador amarillo que dice **Pendiente**. Hoy hay **uno solo**
+visible, el del responsable (punto 2).
+
+**La regla de fondo: la app y el sitio salen juntos, cuando la app esté
+publicada en Google Play.** Antes de eso no se despliega el sitio, no se conecta
+el dominio y no se reparte ningún enlace.
 
 ---
 
-## Bloquea publicar el sitio
+## Bloquea el lanzamiento
 
 ### 1. La ficha de Google Play tiene que estar viva
 
-**Dónde se pone:** nada que poner. La dirección se arma sola con el
-identificador de la app (`com.netosmart.app`), en `src/config/site.ts`.
+**Qué hacer:** cuando Google apruebe la app, abrí esta dirección en un teléfono
+que **no sea el tuyo**:
 
-**Qué bloquea:** todo. Los botones de descarga del sitio llevan a
-`play.google.com/store/apps/details?id=com.netosmart.app`. Mientras la ficha no
-esté publicada y visible en Costa Rica, ese enlace da página no encontrada.
+`https://play.google.com/store/apps/details?id=com.netosmart.app`
 
-**No repartás los enlaces de lanzamiento antes de comprobar que la ficha abre
-desde un teléfono que no sea el tuyo.** Un conductor que hace clic en
-"Descargar" y cae en un error de Google no vuelve.
+Si abre la ficha de Neto Smart, listo. Si da «no encontrada», todavía no está
+publicada o no se ve en Costa Rica.
 
-### 2. Nombre o razón social del responsable
+**Por qué importa:** todos los botones de descarga del sitio llevan ahí. Un
+conductor que toca «Descargar» y cae en un error no vuelve.
 
-**Dónde se pone:** `src/pages/privacidad.astro` (sección 1) y
-`src/pages/terminos.astro` (sección 1). Busque la palabra `Pendiente`.
+**Nada que cambiar en el código:** la dirección se arma sola con el
+identificador `com.netosmart.app`.
 
-**Qué bloquea:** la política de privacidad y los términos quedan incompletos
-para el revisor de Google. Puede ser el nombre de una persona, no hace falta
-una empresa.
+### 2. El nombre del responsable
+
+**Qué hacer:**
+1. Abrí el archivo `src/config/site.ts`.
+2. Buscá la línea `responsable: PENDIENTE as string | null,`.
+3. Cambiala por tu nombre o el de la empresa, entre comillas:
+
+   ```ts
+   responsable: 'Tu Nombre Completo' as string | null,
+   ```
+4. Guardá y subí el cambio (sección 4 del README).
+
+**Qué bloquea:** la privacidad y los términos quedan incompletos para el
+revisor de Google. Puede ser el nombre de una persona; no hace falta empresa.
+Cuando lo cambiés, desaparece el último marcador amarillo del sitio.
+
+### 3. Cómo se paga Premium en la versión de la tienda (hay que confirmarlo)
+
+El sitio dice solo «**se paga desde la app**», a propósito. No nombra SINPE ni
+WhatsApp.
+
+Google Play obliga a cobrar las compras dentro de la app con su propio sistema
+de pagos. Hoy el pago es por SINPE Móvil con comprobante por WhatsApp, y en la
+versión de la tienda puede terminar siendo por Google Play. **Confirmalo antes
+de lanzar.**
+
+Si el pago termina siendo por Google Play, hay que revisar estos textos, porque
+dicen cosas que dejarían de ser ciertas:
+- `src/pages/privacidad.astro`, sección 11 (**Pagos**): dice que «algunos pagos
+  los confirma una persona del equipo», y agregar a Google Play en la tabla de
+  la sección 10.
+- `src/pages/terminos.astro`, sección 6.5.
+- La tabla de servicios externos de privacidad (sección 10).
+
+### 4. La dirección de «borrar cuenta» en la ficha de Play
+
+Google exige que la ficha tenga una página web donde se pueda pedir el borrado
+de la cuenta sin tener la app. Esa página ya existe: `/borrar-cuenta`.
+
+**Qué hacer:** en Play Console, donde Google pide la dirección web para eliminar
+la cuenta (está en la parte de seguridad de los datos), pegá:
+
+`<tu dominio>/borrar-cuenta`
+
+Y en el campo de política de privacidad, `<tu dominio>/privacidad`. El dominio es
+el del punto 6: no lo pegues hasta que ese punto esté resuelto.
+
+### 5. Comprobar que el sitio dice lo mismo que hace la app
+
+Esta es la lista más importante antes de mandar la app a revisión. **El
+repositorio de la app que pude leer termina el 23 de setiembre y no tiene
+varias de las cosas que el sitio ahora describe**: salieron de tu mensaje del 1
+de octubre. Los números están puestos tal cual los diste. Antes de enviar a
+Google, alguien tiene que confirmar cada línea contra la versión que se sube:
+
+| Qué dice el sitio | Dónde |
+| --- | --- |
+| Lugares de descanso: hasta 5, círculo de 50 m, pregunta a los 7 minutos | privacidad 5.2, inicio, soporte, `site.ts` |
+| Casetas y lavacares: círculo de 80 m; lavacar pregunta a los 15 minutos; hasta 5 lavacares | privacidad 5.2, inicio, soporte, `site.ts` |
+| Vigía de peajes: con turno abierto y Premium, 1 posición por segundo cerca de una caseta y 1 cada 10 segundos lejos; notificación fija «Neto Smart está atento a los peajes»; se apaga al cerrar el turno | privacidad 5.1, inicio, soporte |
+| Los lavacares se vigilan también fuera del turno, con la ubicación de bajo consumo, sin encender el GPS, y es lo único que se vigila sin turno | privacidad 5.2, inicio |
+| Los lugares que se marcan se guardan con la configuración (en la cuenta) | privacidad 5.3 |
+| Cédula o DIMEX opcional; no se guarda el número, sino una huella cifrada irreversible; nombre y cédula quedan fijos | privacidad 7, terminos 6.3, inicio |
+| La huella de la cédula **sobrevive** al borrado de la cuenta | privacidad 7, `/borrar-cuenta` |
+| Anthropic recibe solo marca, modelo, año y tipo de energía; el Registro Nacional recibe la placa y de lo que devuelve solo se guardan datos del vehículo (sin número de serie) | privacidad 10 |
+| El registro de diagnóstico se guarda en el teléfono y solo sale con el botón «Enviar diagnóstico» | privacidad 6, accesibilidad, soporte |
+| Borrar la cuenta: Configuración, Mi perfil, Zona de peligro, al instante | privacidad 12, `/borrar-cuenta`, soporte |
+| Premium: ₡2.500 al mes, 14 días de prueba sin tarjeta, una por persona, precio fijo por cuenta, sin renovación automática, al vencer no se borra nada, un turno con Premium termina con Premium | inicio, descargar, términos 6 |
+| Con varios carros, al vencer se escoge con cuál seguir y los otros vuelven al renovar | inicio, soporte, términos 6.6 |
+
+**Lo que sí se comprobó en el código de la app** (el 23 de setiembre): la
+captura de DiDi mira la pantalla cada 1,5 segundos, se detiene sola a los 25
+segundos y corre como servicio en primer plano de tipo captura de pantalla, con
+el texto leído por Google ML Kit dentro del teléfono.
+
+**Dos cosas que no coinciden del todo con tu mensaje, para que decidás:**
+- Dijiste que DiDi se lee por captura y no por accesibilidad. En el código que
+  vi, el servicio de accesibilidad **todavía declara el paquete de DiDi**
+  (`accessibility_service_config.xml`) y lee de él señales de estado del viaje.
+  Por eso el sitio dice que **el monto** de DiDi no se lee por accesibilidad,
+  sin decir que accesibilidad ya no lo toca, y la tabla de paquetes de
+  `/accesibilidad` y de privacidad sigue listando los tres. **Si en la versión
+  nueva ya sacaste DiDi del servicio, hay que sacarlo de la tabla**: está en
+  `src/config/site.ts`, en la lista `paquetesLeidos`.
+- La propia app marcaba la captura de ganancias como «beta» el 23 de
+  setiembre. El sitio dejó de decir «todavía está en pruebas». Si sigue siendo
+  beta, conviene volver a decirlo.
+
+### 6. Dominio
+
+El correo es `contacto@netosmart.com` y el plan de lanzamiento habla de
+`netosmart.app`. **Confirmá cuál de los dos es tuyo** antes de repartir enlaces.
+
+**Qué hacer** cuando lo tengas: sección 6 del README (una línea en `site.ts` y
+agregar el dominio en Cloudflare Pages).
+
+**Por qué antes de repartir:** los enlaces de `ENLACES.md` están hechos con la
+dirección de Cloudflare (`netosmart-website.pages.dev`). Si el dominio cambia
+después de repartirlos, hay que repartirlos de nuevo.
+
+### 7. Token de estadísticas
+
+Sin esto no sabés cuál grupo de WhatsApp o Facebook trajo gente, que es
+justamente lo que se quiere medir en el lanzamiento. Pasos en la sección 7 del
+README. Es gratis y no usa cookies.
 
 ---
 
-## Bloquea que el sitio se vea bien compartido
+## Decisiones tuyas
 
-### 3. Dominio propio
+### 8. Qué va a hacer la versión de iPhone
 
-**Dónde se pone:** `src/config/site.ts`, línea `dominio`. Una sola línea.
+Hoy el sitio dice, en varios lugares, que iPhone «viene en camino» y que no hay
+fecha, y que lo automático de la versión de Android depende de permisos que
+iPhone no tiene. **No promete nada de lo automático para iPhone.**
 
-**Ojo con esto:** el correo de contacto es `contacto@netosmart.com`. Si ese
-correo ya funciona, quiere decir que el dominio **netosmart.com ya es suyo**, y
-entonces este pendiente se cierra hoy mismo cambiando esa línea y agregando el
-dominio en Cloudflare Pages. Hay que confirmarlo antes de repartir enlaces.
-
-Mientras tanto el sitio funciona con la dirección que da Cloudflare
-(`netosmart-website.pages.dev`). Los enlaces de lanzamiento ya están hechos con
-esa dirección, así que si el dominio cambia después hay que volver a repartir
-los enlaces.
-
-### 4. Token de estadísticas
-
-**Dónde se pone:** `src/config/site.ts`, línea `tokenAnalytics`.
-
-**Qué bloquea:** sin esto no se sabe cuál grupo de WhatsApp o Facebook trajo
-gente, que es justamente lo que se quiere medir en el lanzamiento. Los pasos
-están en la sección 7 del README. Es gratis.
-
----
-
-## Decisiones que hay que tomar
-
-### 5. Qué se promete de la versión para iPhone
-
-Hoy el sitio dice, en tres lugares, que la versión de iPhone "viene en camino"
-y que no hay fecha. Eso es lo seguro mientras no haya una.
-
-Lo que falta decidir es **qué va a hacer esa versión**. La lectura automática de
-ganancias usa un permiso de Android que en iPhone no existe, así que la app de
-iPhone no va a poder leer los montos igual. Antes de anunciarla hay que decidir
-si en iPhone se anota todo a mano, o si hay otro camino, y decirlo claro en el
-sitio. Si se anuncia sin aclararlo, el conductor de iPhone la baja esperando
-algo que no va a pasar.
+Lo que falta decidir es qué va a hacer esa versión sin la lectura automática de
+ganancias. Hasta que lo decidás, el sitio no puede prometer más.
 
 **Cuando salga:** se llena `urlAppStore` en `src/config/site.ts` y el sitio solo
-empieza a mostrar el botón de iPhone y a cambiar los textos que hoy dicen
-"viene en camino". Es una línea.
+empieza a mostrar el botón de iPhone y a cambiar los textos que hoy dicen «viene
+en camino». Es una línea. (La razón de negocio, la cuenta de Apple y la Mac, no
+está en el sitio y no hace falta que esté.)
 
-### 6. Precio de la versión sin anuncios
+### 9. En cuánto tiempo se atiende un borrado por correo
 
-**Dónde se pone:** `src/config/site.ts`, línea `precioPro`.
+`/borrar-cuenta` dice que se contesta por correo cuando esté hecho, y **no
+promete un plazo**, porque no está decidido. Google suele querer uno. Conviene
+decidir un número de días y agregarlo en esa página. Desde la app el borrado es
+instantáneo, así que esto solo aplica a quien ya no tiene la app.
 
-Sale marcado como pendiente en la pregunta "¿Cuánto cuesta?" del inicio y en la
-sección 6 de los términos. El sitio ya dice que es gratis con anuncios y que va
-a haber una versión de pago, que es lo honesto mientras no haya precio.
+### 10. Consulta legal sobre la base de datos
 
----
+Falta una consulta legal sobre inscribir la base de datos ante la PRODHAB
+(Ley 8968). El sitio cita esa ley en la política de privacidad y **no dice que
+la base esté inscrita**, porque no lo está.
 
-### 7. Registro de la marca
+### 11. El registro de la marca
 
-**Dónde se pone:** `src/config/site.ts`, línea `simboloMarca`.
+Hoy el pie dice **Neto Smart™**. El ™ es el símbolo de una marca que se usa pero
+no está registrada, y se puede poner sin trámite. **No lo cambies a ® mientras
+no tengás el registro** en el Registro de la Propiedad Industrial: usar ® sin
+registro es declarar algo falso.
 
-Hoy el pie dice **Neto Smart™**. El símbolo (TM) es el que corresponde a una
-marca que se está usando pero que todavía no está registrada, y se puede usar
-sin trámite.
+El día que salga: en `src/config/site.ts`, la línea `simboloMarca`, cambiala por
+`'®'`. El pie cambia solo en todas las páginas.
 
-**No lo cambie a (R) mientras no tenga el registro en el Registro de la
-Propiedad Industrial.** Usar (R) sin registro es declarar algo falso, y en un
-sitio cuyo argumento es la honestidad es justo lo que no conviene.
+### 12. `app-ads.txt`
 
-El día que salga el registro, se cambia esa línea por `'\u00AE'` y el pie
-cambia solo en las seis páginas.
+Solo hace falta cuando la app muestre anuncios. Hoy no los muestra, y el sitio
+no dice que los tenga. Si algún día hay anuncios, la política de privacidad
+(sección 10) dice que se actualiza **antes**, y ahí también se agrega este
+archivo.
 
 ---
 
 ## Bloquea que la gente confíe
 
-### 8. Captura de la app
+### 13. Tres capturas de la app
 
-**Dónde va:** `src/components/Landing.astro`, después de los tres pasos de
-"Cómo funciona". Marcador de 320 por 640 px.
+Hay tres huecos marcados como «Imagen pendiente» en el inicio. Son pantallas
+reales de la app, no dibujos:
 
-Tiene que ser la pantalla de resumen del turno cerrado, con el neto del día a
-la vista. Es la única imagen que falta en el sitio, y es la prueba de que la
-app hace lo que el titular promete.
+| Pantalla | Dónde va |
+| --- | --- |
+| El **turno cerrado**, con el neto del día a la vista | Junto a «Cómo funciona» |
+| **Mi garaje**, con un carro cargado a partir de la placa | En «Lo que hace», a la izquierda |
+| **Premium**, con la prueba de 14 días | En «Lo que hace», a la derecha |
 
-**Cómo ponerla:** guarde la imagen en `public/capturas/`, en formato WebP, y
-reemplace el bloque `<Marcador ... />` por:
+**Cómo ponerlas, paso a paso:**
+1. Sacá la captura en el teléfono y pasala a WebP (se puede con cualquier
+   convertidor en línea). Que tenga la misma proporción que el hueco: 1 de ancho
+   por 2 de alto (por ejemplo 516 por 1032 píxeles).
+2. Guardá el archivo en la carpeta `public/capturas/` (si no existe, creala) con
+   un nombre sin tildes ni espacios: `turno-cerrado.webp`, `mi-garaje.webp`,
+   `premium.webp`.
+3. Abrí `src/components/Landing.astro` y buscá el bloque `<Marcador ... />` de
+   esa pantalla.
+4. Cambialo por esto, con el nombre del archivo que corresponda:
 
-```astro
-<img
-  src="/capturas/turno-cerrado.webp"
-  width="320"
-  height="640"
-  loading="lazy"
-  alt="Describa acá lo que se ve en la pantalla"
-/>
-```
+   ```astro
+   <img
+     src="/capturas/mi-garaje.webp"
+     width="258"
+     height="516"
+     loading="lazy"
+     alt="Describí acá lo que se ve en la pantalla"
+   />
+   ```
+5. Guardá y subí el cambio (sección 4 del README).
 
-### 9. Testimonios de conductores
+El texto de `alt` es lo que escucha una persona con lector de pantalla: describí
+lo que se ve, no «captura de pantalla».
 
-**Dónde van:** `src/components/Landing.astro`, sección "Por qué confiar". Hay un
+### 14. Testimonios de conductores
+
+**Dónde van:** `src/components/Landing.astro`, sección «Por qué confiar». Hay un
 comentario en el código que marca el lugar.
 
 No hay ninguno todavía y no se inventó ninguno. Cuando un conductor de verdad
@@ -139,20 +235,24 @@ diga algo y dé permiso para publicarlo con su nombre, va ahí.
 ## Lo que se decidió no poner, a propósito
 
 - **El enlace al código de la app.** El repositorio `ileonm/platnings-app` es
-  privado. Decir "el código está a la vista" y enlazar algo que le da error a
-  todo el mundo es peor que no decir nada. Si algún día el repositorio se hace
-  público, se puede volver a poner y es un buen argumento.
-- **Descarga por APK.** Se quitó toda la instalación por archivo. Si alguna vez
-  hace falta repartir un APK para pruebas, que sea por aparte y no desde el
-  sitio público.
+  privado. Decir «el código está a la vista» y enlazar algo que le da error a
+  todo el mundo es peor que no decir nada.
+- **Descarga por APK.** Se quitó toda la instalación por archivo. Si hace falta
+  repartir un APK para pruebas, que sea por aparte y no desde el sitio público.
+- **Anuncios.** Están en pausa, sin fecha. El sitio no dice que la app los tenga.
+- **SINPE y WhatsApp como forma de pago.** El sitio dice solo «se paga desde la
+  app» (punto 3). WhatsApp aparece en la política de privacidad únicamente como
+  el medio por el que el conductor puede mandar un comprobante o el diagnóstico.
+- **«No se comparten con terceros».** Esa frase ya no era exacta (la placa va al
+  Registro Nacional; marca, modelo y año van a Anthropic). Ahora el sitio dice
+  que los datos no se venden ni se usan para publicidad, y nombra los servicios
+  externos uno por uno.
+- **Fecha para iPhone**, y qué hará la versión de iPhone. El sitio dice de frente
+  que no hay fecha.
 - **Cantidad de usuarios.** El sitio dice que hoy la usa un conductor activo en
   San José, porque eso es lo que hay.
 - **Cifras de ahorro o de ganancia.** El ejemplo del inicio está marcado como
-  ilustrativo y dice explícitamente que no es un promedio medido.
-- **Fecha para la versión de iPhone.** El sitio dice de frente que no hay fecha.
-- **Que la marca no está registrada.** El pie lleva el símbolo (TM), que es lo
-  correcto para una marca sin registrar, pero el sitio no anuncia que no lo
-  está. Ningún sitio lo hace, y decirlo solo invita a que alguien más corra a
-  registrarla.
-- **Teléfono, cédula jurídica y dirección.** No se inventó ninguno. Si hacen
-  falta después, se agregan en los términos.
+  ilustrativo y dice que no es un promedio medido.
+- **Que la marca no está registrada.** El pie lleva ™, pero el sitio no anuncia
+  que no lo esté: decirlo solo invita a que alguien más corra a registrarla.
+- **Teléfono, cédula jurídica y dirección.** No se inventó ninguno.

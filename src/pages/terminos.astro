@@ -44,7 +44,7 @@ import { sitio } from '../config/site';
       </p>
       <p>
         El responsable del servicio es
-        <Pendiente que="nombre o razón social del responsable" />.
+        {sitio.responsable ?? <Pendiente que="nombre o razón social del responsable" />}.
       </p>
 
       <h2>2. Qué no es</h2>
