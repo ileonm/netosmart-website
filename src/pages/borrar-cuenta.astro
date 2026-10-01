@@ -1,0 +1,99 @@
+---
+import Base from '../layouts/Base.astro';
+import Pendiente from '../components/Pendiente.astro';
+import { sitio } from '../config/site';
+---
+
+<Base
+  titulo="Borrar mi cuenta"
+  descripcion="Cómo borrar tu cuenta de Neto Smart y todo lo que tiene adentro, desde la app o por correo, y qué se borra y qué no."
+>
+  <section>
+    <div class="envoltura angosto legal">
+      <h1>Borrar mi cuenta</h1>
+      <p class="fecha">Última actualización: {sitio.fechaLegal}</p>
+
+      <div class="resumen-llano">
+        <h2>En corto</h2>
+        <ul class="sin-margen">
+          <li>
+            Podés borrar tu cuenta cuando querás, <strong>desde la app y al
+            instante</strong>: Configuración, Mi perfil, Zona de peligro.
+          </li>
+          <li>
+            Si ya no tenés la app, pedilo por correo desde la dirección de tu
+            cuenta.
+          </li>
+          <li>
+            Se borra <strong>todo</strong> lo que tenía adentro. Es definitivo y
+            no se puede deshacer.
+          </li>
+          <li>
+            Lo único que queda es una huella cifrada que marca que ya usaste la
+            prueba gratis, y está explicada abajo.
+          </li>
+        </ul>
+      </div>
+
+      <h2>Desde la app</h2>
+      <p>Es la forma más rápida, y se hace al instante:</p>
+      <ol>
+        <li>Abrí Neto Smart.</li>
+        <li>Entrá a <strong>Configuración</strong>.</li>
+        <li>Tocá <strong>Mi perfil</strong>.</li>
+        <li>Bajá hasta <strong>Zona de peligro</strong>.</li>
+        <li>Tocá la opción de borrar la cuenta y confirmá.</li>
+      </ol>
+
+      <h2>Si ya no tenés la app o no podés entrar</h2>
+      <p>
+        Escribí a
+        {
+          sitio.correoContacto ? (
+            <a href={`mailto:${sitio.correoContacto}`}>{sitio.correoContacto}</a>
+          ) : (
+            <Pendiente que="correo de contacto" />
+          )
+        }
+        desde el correo con el que creaste la cuenta, y pedí que la borren. Así
+        sabemos que la cuenta es tuya. Te contestamos por el mismo correo
+        cuando esté hecho.
+      </p>
+
+      <h2>Qué se borra</h2>
+      <p>
+        Todo lo que la cuenta tenía adentro: tus turnos, tus ganancias, tus
+        gastos, tus peajes, tus cargas de gasolina o de batería, tus carros,
+        tus apartados, tus lugares de descanso y tus lavacares, tu perfil y la
+        cuenta misma.
+      </p>
+      <p>
+        Es definitivo y no se puede deshacer. Si querés quedarte con algo,
+        anotalo antes.
+      </p>
+
+      <h2>Qué no se borra</h2>
+      <p>
+        <strong>La huella cifrada de la cédula</strong>, si en algún momento la
+        diste para probar Premium. No es tu número de cédula ni se puede usar
+        para recuperarlo: es solo una marca que dice que esa persona ya usó la
+        prueba gratis. Existe para que borrar la cuenta y abrir otra no repita
+        la prueba, que es una por persona.
+      </p>
+      <p>
+        Si nunca diste la cédula, no hay nada de esto: se borra todo.
+      </p>
+
+      <h2>Desinstalar la app no alcanza</h2>
+      <p>
+        Desinstalarla borra lo que quedó en el teléfono, pero tu cuenta sigue
+        existiendo. Para que se borre de verdad, usá alguna de las dos formas de
+        arriba.
+      </p>
+
+      <p class="espacio">
+        <a href="/privacidad">Ver la política de privacidad completa</a>
+      </p>
+    </div>
+  </section>
+</Base>

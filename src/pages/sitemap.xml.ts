@@ -13,6 +13,7 @@ const rutas = [
   { url: '/accesibilidad', prioridad: '0.6' },
   { url: '/privacidad', prioridad: '0.5' },
   { url: '/terminos', prioridad: '0.3' },
+  { url: '/borrar-cuenta', prioridad: '0.3' },
 ];
 
 export const GET: APIRoute = () => {

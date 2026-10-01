@@ -105,6 +105,7 @@ export const navegacion = [
   { texto: 'Privacidad', url: '/privacidad' },
   { texto: 'Accesibilidad', url: '/accesibilidad' },
   { texto: 'Términos', url: '/terminos' },
+  { texto: 'Borrar mi cuenta', url: '/borrar-cuenta' },
 ] as const;
 
 /** Formatea un numero como colones de Costa Rica: ₡12.500,50 */
