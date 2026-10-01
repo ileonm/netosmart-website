@@ -1,26 +1,28 @@
 ---
 import Base from '../layouts/Base.astro';
 import Faq from '../components/Faq.astro';
+import Precios from '../components/Precios.astro';
 import { sitio } from '../config/site';
 ---
 
 <Base
   titulo="Descargar Neto Smart"
-  descripcion="Bajá Neto Smart gratis desde Google Play y empezá a saber cuánto te queda limpio en cada turno. Para Android. La versión para iPhone viene en camino."
+  descripcion="Bajá Neto Smart desde Google Play, gratis, y probá Premium 14 días sin tarjeta. Para Android. La versión para iPhone viene en camino."
 >
   <section>
     <div class="envoltura angosto">
       <h1>Descargar Neto Smart</h1>
       <p>
-        Está en Google Play, es gratis y se instala como cualquier otra app. No
-        hay que hacer nada raro.
+        Está en Google Play y se instala como cualquier otra app. No hay que
+        hacer nada raro.
       </p>
 
       <a class="boton ancho" href={sitio.urlPlayStore} rel="noopener">
         Bajarla en Google Play
       </a>
       <p class="bajo-boton">
-        Gratis. Para Android.
+        Gratis. Para Android. Premium se prueba {sitio.diasPrueba} días, sin
+        tarjeta.
         {
           sitio.urlAppStore
             ? ' También está para iPhone.'
@@ -42,11 +44,75 @@ import { sitio } from '../config/site';
 
   <section class="franja">
     <div class="envoltura angosto">
-      <h2>Lo que te va a pedir la primera vez</h2>
+      <span class="etiqueta-seccion">Antes de salir a manejar</span>
+      <h2>La primera vez que la abrís</h2>
+      <p class="suave">
+        Instalarla toma un minuto. La configuración inicial, un par más. Esto es
+        lo que te va a pasar, en orden.
+      </p>
+
+      <ol class="pasos">
+        <li>
+          <div>
+            <h3>Creá tu cuenta</h3>
+            <p>
+              Es para que lo que anotás no viva solo en el teléfono. Si mañana
+              cambiás de aparato, entrás con la misma cuenta y ahí está todo.
+            </p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <h3>Poné tu carro, empezando por la placa</h3>
+            <p>
+              Con la placa intentamos llenarte los datos; si no, son cuatro
+              campos. Si manejás un eléctrico, ponés los kWh de la batería.
+            </p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <h3>Decidí los permisos</h3>
+            <p>
+              Te los pide uno por uno y cada uno explica para qué es. Abajo
+              está la lista completa.
+            </p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <h3>Marcá tus lugares de descanso</h3>
+            <p>
+              Hasta cinco: tu casa, la soda donde almorzás, la casa de tu mamá.
+              Así la app te pregunta si terminás el turno cuando te quedás en
+              uno. Es opcional.
+            </p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <h3>Probá Premium, si querés</h3>
+            <p>
+              Al terminar la configuración inicial te ofrecemos
+              {sitio.diasPrueba} días de Premium, sin tarjeta. La prueba es una
+              por persona, y por eso se pide la cédula o el DIMEX. Es opcional:
+              si no querés probar Premium, no hace falta dártela.
+              <a href="/privacidad#cedula">Qué hacemos con ella</a>.
+            </p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section>
+    <div class="envoltura angosto">
+      <span class="etiqueta-seccion">Los permisos</span>
+      <h2>Lo que te va a pedir, y para qué</h2>
       <p>
-        Instalarla toma un minuto. Lo que conviene saber de antemano es que al
-        abrirla te va a pedir varios permisos, uno detrás de otro. No es que la
-        app sea metida: cada uno sirve para algo concreto y acá está para qué.
+        Al abrirla te va a pedir varios permisos, uno detrás de otro. No es que
+        la app sea metida: cada uno sirve para algo concreto, y acá está para
+        qué.
       </p>
       <p class="suave">
         Podés saltarte los que querás. La app funciona igual, solo que tenés que
@@ -65,16 +131,18 @@ import { sitio } from '../config/site';
             <tr>
               <td>Notificaciones</td>
               <td>
-                Avisarte de peajes, mantenimiento, gasolina y cuando llegás a la
-                casa con el turno abierto.
+                Avisarte de peajes, mantenimiento, gasolina y cuando te quedás
+                en un lugar de descanso con el turno abierto.
               </td>
             </tr>
             <tr>
               <td>Ubicación todo el tiempo</td>
               <td>
-                Darse cuenta de que pasaste por una caseta y de que llegaste a
-                la casa, aunque tengás la app cerrada. Hay que escoger
-                <strong>Permitir todo el tiempo</strong>, si no, los avisos no
+                Con el turno abierto, darse cuenta de que cruzaste una caseta y
+                de que te quedaste en un lugar de descanso. Y darse cuenta de
+                que estás en un lavacar que marcaste, que es lo único que se
+                vigila fuera del turno. Hay que escoger
+                <strong>Permitir todo el tiempo</strong>; si no, los avisos no
                 llegan con el teléfono en el bolsillo.
               </td>
             </tr>
@@ -93,7 +161,16 @@ import { sitio } from '../config/site';
               <td>Aparecer encima de otras apps</td>
               <td>
                 La burbujita flotante para volver a Neto Smart rápido mientras
-                andás trabajando, como la de Uber y DiDi.
+                andás trabajando, como la de Uber y DiDi. Se queda donde la
+                dejás, y todo aviso flotante se cierra con la X.
+              </td>
+            </tr>
+            <tr>
+              <td>Captura de pantalla (solo para DiDi)</td>
+              <td>
+                Solo cuando tocás «leer DiDi». La app mira la pantalla un
+                momento, lee el monto dentro del teléfono y se detiene sola. No
+                guarda las imágenes.
               </td>
             </tr>
           </tbody>
@@ -103,9 +180,9 @@ import { sitio } from '../config/site';
       <div class="aviso espacio">
         <h3>La lectura automática de ganancias va aparte</h3>
         <p>
-          Ese es el permiso de accesibilidad, y no está en esa lista de arriba.
-          Se prende cuando vos querás, desde la pantalla de captura de ganancias
-          dentro de la app.
+          El permiso de accesibilidad no está en esa lista. Se prende cuando vos
+          querás, desde la pantalla de captura de ganancias dentro de la app, y
+          es parte de Premium.
         </p>
         <p>
           Es el permiso que más desconfianza da, así que hay una página entera
@@ -113,16 +190,28 @@ import { sitio } from '../config/site';
           <a href="/accesibilidad">leer qué lee la app</a>.
         </p>
         <p class="sin-margen">
-          Esa función todavía está en pruebas. Lo que lee de cada plataforma
-          conviene revisarlo al cerrar el turno, y siempre se puede corregir a
-          mano.
+          Lo que lee de cada plataforma conviene revisarlo al cerrar el turno, y
+          siempre se puede corregir a mano.
         </p>
       </div>
     </div>
   </section>
 
+  <section class="franja" id="precio">
+    <div class="envoltura angosto">
+      <span class="etiqueta-seccion">Lo que cuesta</span>
+      <h2>Lo manual es gratis. Lo automático es Premium.</h2>
+      <p class="suave">
+        El gratis es manual; Premium lo hace solo.
+        <strong>Vos manejá. Las cuentas las llevamos nosotros.</strong>
+      </p>
+      <Precios />
+    </div>
+  </section>
+
   <section>
     <div class="envoltura angosto">
+      <span class="etiqueta-seccion">Antes de bajarla</span>
       <h2>Preguntas sobre la instalación</h2>
 
       <Faq pregunta="¿Cuándo sale para iPhone?" abierta={true}>
@@ -131,15 +220,21 @@ import { sitio } from '../config/site';
           Preferimos eso a prometer un mes y no cumplirlo.
         </p>
         <p>
-          Por ahora Neto Smart es para Android. Cuando la versión de iPhone esté
-          lista, se anuncia en esta misma página.
+          Por ahora Neto Smart es para Android. Tampoco prometemos todavía qué
+          va a hacer la versión de iPhone: lo automático de la de Android
+          depende de permisos que iPhone no tiene. Cuando esté lista, se anuncia
+          en esta misma página.
         </p>
       </Faq>
 
       <Faq pregunta="¿Cuánto cuesta?">
         <p>
-          Bajarla y usarla es gratis. Se mantiene con anuncios, y va a haber una
-          versión de pago para quien no los quiera ver.
+          El plan Gratis es gratis para siempre. Premium cuesta
+          {sitio.precioPremium} y lo probás {sitio.diasPrueba} días sin tarjeta.
+          Se paga desde la app.
+        </p>
+        <p>
+          <a href="#precio">Acá está qué incluye cada uno</a>.
         </p>
       </Faq>
 
@@ -159,8 +254,8 @@ import { sitio } from '../config/site';
 
       <Faq pregunta="No me aparece en Google Play">
         <p>
-          Puede ser que tu teléfono tenga una versión de Android más vieja que la
-          que la app necesita. Si no te aparece buscándola por nombre, probá
+          Puede ser que tu teléfono tenga una versión de Android más vieja que
+          la que la app necesita. Si no te aparece buscándola por nombre, probá
           abriendo el botón de arriba, que lleva directo a la ficha.
         </p>
         <p>
@@ -173,11 +268,13 @@ import { sitio } from '../config/site';
 
   <section class="franja">
     <div class="envoltura angosto centrado">
-      <h2>Empezá con el próximo turno</h2>
+      <h2>Vos manejá. Las cuentas las llevamos nosotros.</h2>
       <a class="boton" href={sitio.urlPlayStore} rel="noopener">
         Bajarla en Google Play
       </a>
-      <p class="bajo-boton">Gratis. Para Android.</p>
+      <p class="bajo-boton">
+        Gratis. Premium con {sitio.diasPrueba} días de prueba, sin tarjeta.
+      </p>
     </div>
   </section>
 </Base>

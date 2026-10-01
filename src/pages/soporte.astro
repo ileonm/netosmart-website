@@ -7,15 +7,14 @@ import { sitio } from '../config/site';
 
 <Base
   titulo="Soporte y ayuda"
-  descripcion="Cómo pedir ayuda con Neto Smart, qué hacer si la app no anota las ganancias o no detecta un peaje, y cómo pedir que se borre tu cuenta."
+  descripcion="Cómo pedir ayuda con Neto Smart: qué hacer si no anota las ganancias, no detecta un peaje o no lee DiDi, cómo mandar un diagnóstico y cómo borrar tu cuenta."
 >
   <section>
     <div class="envoltura angosto">
       <h1>Soporte</h1>
       <p>
-        Si algo no le está sirviendo, escribinos. Del otro lado no hay un centro
-        de llamadas: hay un conductor que también maneja, así que la respuesta
-        puede tardar un poco, pero llega.
+        Si algo no te está sirviendo, escribinos. Del otro lado no hay un centro
+        de llamadas, así que la respuesta puede tardar un poco, pero llega.
       </p>
 
       <div class="aviso">
@@ -51,17 +50,38 @@ import { sitio } from '../config/site';
         <li>Qué estabas haciendo cuando pasó.</li>
         <li>Qué esperabas que pasara y qué pasó en vez de eso.</li>
         <li>Una captura de pantalla, si se puede.</li>
+        <li>
+          Si es algo de lecturas (ganancias o peajes), el diagnóstico. Abajo
+          está cómo.
+        </li>
       </ul>
+
+      <h2 id="diagnostico">El diagnóstico</h2>
+      <p>
+        La app guarda en tu teléfono un registro de lo que leyó (el texto de las
+        pantallas de Uber, DiDi e InDrive) y de dónde pasaste cerca de una
+        caseta. Sirve para arreglar fallas, y casi siempre es lo que más ayuda.
+      </p>
+      <p>
+        Ese registro <strong>no sale del teléfono</strong> a menos que vos lo
+        mandés: en Configuración tocás <strong>Enviar diagnóstico</strong> y
+        decidís por dónde sale. Si no lo mandás, nadie lo ve.
+      </p>
     </div>
   </section>
 
   <section class="franja">
     <div class="envoltura angosto">
+      <span class="etiqueta-seccion">Lo que más pasa</span>
       <h2>Problemas comunes</h2>
 
       <Faq pregunta="No me está anotando las ganancias solas" abierta={true}>
-        <p>Revisá estas tres cosas, en este orden:</p>
+        <p>Revisá estas cuatro cosas, en este orden:</p>
         <ol>
+          <li>
+            Que tengás Premium. La lectura automática es de Premium: si la prueba
+            se venció, volvés al plan gratis y las ganancias se anotan a mano.
+          </li>
           <li>
             Que el permiso de accesibilidad esté prendido:
             <strong>Ajustes</strong> de Android &gt;
@@ -76,30 +96,83 @@ import { sitio } from '../config/site';
         </ol>
         <p>
           Si con eso no se arregla, escribinos y contanos en cuál app pasa
-          (Uber, DiDi o InDrive) y en cuál pantalla.
+          (Uber, DiDi o InDrive) y en cuál pantalla. Mandá el diagnóstico.
+        </p>
+      </Faq>
+
+      <Faq pregunta="No me lee lo de DiDi">
+        <p>
+          DiDi no muestra su monto como texto, así que no se lee por
+          accesibilidad. Se lee con una captura de pantalla que vos pedís: tocá
+          «leer DiDi» y aceptá el permiso que te pide Android.
+        </p>
+        <p>
+          La app lee el monto dentro del teléfono, no guarda las imágenes y se
+          detiene sola cuando lo encuentra o a los 25 segundos. Si no lo
+          encuentra, anotalo a mano y escribinos con el diagnóstico.
         </p>
       </Faq>
 
       <Faq pregunta="No me preguntó por el peaje">
+        <p>Para que la app pregunte por un peaje necesita varias cosas:</p>
+        <ul>
+          <li>Premium.</li>
+          <li>
+            El turno abierto. Mientras está abierto ves una notificación fija
+            que dice «Neto Smart está atento a los peajes». Si no la ves, la
+            app no está vigilando.
+          </li>
+          <li>
+            La ubicación en <strong>Permitir todo el tiempo</strong>. Con
+            «solo mientras se usa la app» no llega con el teléfono en el
+            bolsillo.
+          </li>
+          <li>
+            Que esa caseta esté en el catálogo. Si no la reconoce, anotá el
+            peaje a mano y escribinos cuál es, para agregarla.
+          </li>
+        </ul>
         <p>
-          El aviso del peaje necesita dos cosas: el permiso de ubicación en
-          segundo plano prendido, y que esa caseta esté en el catálogo.
-        </p>
-        <p>
-          Si es una caseta que no reconoce, anotá el peaje a mano y escribinos
-          cuál es, para agregarla.
+          Una rampa por la que pasás de largo en la autopista no cuenta como
+          peaje, a propósito.
         </p>
       </Faq>
 
-      <Faq pregunta="No me ofreció cerrar el turno al llegar a la casa">
-        <p>
-          Revisá que la casa esté registrada como punto de llegada en la
-          configuración, y que el permiso de ubicación esté en
-          <strong>Permitir todo el tiempo</strong>. Con la opción "solo mientras
-          se usa la app", el aviso no llega cuando el teléfono está en el
-          bolsillo.
-        </p>
+      <Faq pregunta="No me ofreció cerrar el turno en un lugar de descanso">
+        <ul>
+          <li>
+            Que el lugar esté marcado en <strong>Configuración</strong>. Podés
+            tener hasta cinco.
+          </li>
+          <li>Que el turno estuviera abierto, y que tengás Premium.</li>
+          <li>
+            Que te hayás quedado {sitio.minutosDescanso} minutos. Pasar de largo
+            no cuenta.
+          </li>
+          <li>La ubicación en <strong>Permitir todo el tiempo</strong>.</li>
+        </ul>
         <p>El turno siempre se puede cerrar a mano desde la app.</p>
+      </Faq>
+
+      <Faq pregunta="No me recordó anotar el lavado">
+        <p>
+          El lavacar tiene que estar marcado en Configuración (hasta cinco),
+          tenés que tener Premium y la ubicación en
+          <strong>Permitir todo el tiempo</strong>, y quedarte
+          {sitio.minutosLavacar} minutos. Si no, anotá el lavado a mano.
+        </p>
+      </Faq>
+
+      <Faq pregunta="Con la placa no me llenó los datos del carro">
+        <p>
+          La app consulta la placa en el Registro Nacional, y a veces el sitio
+          del Registro bloquea las consultas automáticas. Cuando pasa, lo
+          llenás a mano: son cuatro campos.
+        </p>
+        <p>
+          Si querés, probá de nuevo más tarde. Si siempre falla con la misma
+          placa, escribinos y la revisamos.
+        </p>
       </Faq>
 
       <Faq pregunta="Anoté algo sin señal y no lo veo">
@@ -111,6 +184,32 @@ import { sitio } from '../config/site';
         <p>
           Si después de eso sigue sin aparecer, escribinos antes de desinstalar
           la app, porque al desinstalarla se borra lo que todavía no se subió.
+        </p>
+      </Faq>
+
+      <Faq pregunta="Se me venció Premium">
+        <p>
+          No se borra nada. Volvés al plan gratis con todo tu historial. Si
+          tenías varios carros, escogés con cuál seguís; los otros quedan
+          guardados y vuelven si renovás. Un turno que empezó con Premium
+          termina con Premium.
+        </p>
+        <p>
+          Para renovar, se paga desde la app. No hay cobro automático: cada mes
+          lo renovás vos, a propósito. Si pagaste y no se activó, escribinos con
+          la fecha y el monto.
+        </p>
+      </Faq>
+
+      <Faq pregunta="Me dice que ya usé la prueba, o quiero cambiar mi nombre o cédula">
+        <p>
+          La prueba de {sitio.diasPrueba} días es una por persona, y se controla
+          con una huella cifrada de la cédula. Si abriste otra cuenta, esa huella
+          marca que la prueba ya se usó. Si creés que es un error, escribinos.
+        </p>
+        <p>
+          El nombre y la cédula quedan fijos una vez puestos. Para cambiarlos,
+          también escribinos.
         </p>
       </Faq>
 
@@ -139,30 +238,21 @@ import { sitio } from '../config/site';
         </p>
       </Faq>
 
-      <Faq pregunta="¿Cómo pido que borren mi cuenta?">
+      <Faq pregunta="¿Cómo borro mi cuenta?">
         <p>
-          Mandá un correo desde la dirección de tu cuenta pidiendo que la
-          borren. Se elimina la cuenta y todo lo que tenga adentro: turnos,
-          gasolina, peajes, vehículos y apartados. Es definitivo.
+          Desde la app y al instante: Configuración, Mi perfil, Zona de peligro.
+          Se borra todo lo que tenía adentro.
         </p>
         <p>
-          Correo:
-          {
-            sitio.correoContacto ? (
-              <a href={`mailto:${sitio.correoContacto}`}>
-                {sitio.correoContacto}
-              </a>
-            ) : (
-              <Pendiente que="correo de contacto para borrado de cuenta" />
-            )
-          }
+          Si ya no tenés la app, también se puede pedir sin ella.
+          <a href="/borrar-cuenta">Acá están los pasos</a>.
         </p>
       </Faq>
 
       <Faq pregunta="Tengo una idea para la app">
         <p>
           Mandala. Buena parte de lo que hace la app hoy salió de cosas que
-          pasaron manejando. Si es algo que le pasa a todos los días de trabajo,
+          pasaron manejando. Si es algo que te pasa todos los días de trabajo,
           interesa.
         </p>
       </Faq>
