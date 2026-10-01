@@ -575,6 +575,26 @@ section.apretada { padding: 2rem 0; }
   border-width: 1px;
 }
 
+/* --- Dos pantallas de la app, lado a lado -------------------------------- */
+
+.pantallas {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  justify-items: center;
+  margin: 2.5rem auto 0;
+  max-width: 36rem;
+}
+.pantallas figure { margin: 0; width: 100%; max-width: 276px; }
+.pantallas figcaption {
+  margin-top: 0.7rem;
+  text-align: center;
+  font-weight: 700;
+  color: var(--texto-suave);
+}
+.pantallas .marco-telefono { width: 100%; }
+.pantallas .marcador { font-size: 0.78rem; padding: 0.5rem; overflow: hidden; }
+
 /* --- Diagrama del peaje -------------------------------------------------- */
 
 .bloque-peaje {
