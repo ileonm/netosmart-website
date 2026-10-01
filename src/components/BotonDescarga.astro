@@ -1,38 +1,27 @@
 ---
 import { sitio } from '../config/site';
+import InsigniaPlay from './InsigniaPlay.astro';
 
+/**
+ * El bloque de descarga: la insignia de Google Play y, debajo, una linea que
+ * dice lo que el conductor quiere saber antes de tocarla.
+ */
 interface Props {
-  texto?: string;
-  /** Si es false, no muestra la linea de abajo ("Gratis. Para Android..."). */
+  /** Si es false, no muestra la linea de abajo. */
   detalle?: boolean;
-  ancho?: boolean;
-  /**
-   * true lleva a /descargar (la pagina con los primeros pasos).
-   * false manda directo a la tienda.
-   */
-  aInstrucciones?: boolean;
+  /** Enlace a /descargar, donde se explica que permisos pide la app. */
+  masInfo?: boolean;
+  /** true para los que quedan debajo de la primera pantalla. */
+  diferida?: boolean;
 }
 
-const {
-  texto = 'Descargar Neto Smart',
-  detalle = true,
-  ancho = false,
-  aInstrucciones = true,
-} = Astro.props;
-
-const destino = aInstrucciones ? '/descargar' : sitio.urlPlayStore;
+const { detalle = true, masInfo = true, diferida = false } = Astro.props;
 ---
 
-<a
-  class:list={['boton', { ancho }]}
-  href={destino}
-  {...aInstrucciones ? {} : { rel: 'noopener' }}
->
-  {texto}
-</a>
+<InsigniaPlay diferida={diferida} />
 {
   sitio.urlAppStore && (
-    <a class:list={['boton', 'secundario', { ancho }]} href={sitio.urlAppStore} rel="noopener">
+    <a class="boton secundario" href={sitio.urlAppStore} rel="noopener">
       Descargar para iPhone
     </a>
   )
@@ -43,6 +32,12 @@ const destino = aInstrucciones ? '/descargar' : sitio.urlPlayStore;
       {sitio.urlAppStore
         ? `Gratis en Google Play y en la App Store. Premium con ${sitio.diasPrueba} días de prueba, sin tarjeta.`
         : `Gratis en Google Play. Premium con ${sitio.diasPrueba} días de prueba, sin tarjeta. La versión para iPhone viene en camino.`}
+      {masInfo && (
+        <>
+          {' '}
+          <a href="/descargar">Qué te va a pedir la app</a>.
+        </>
+      )}
     </p>
   )
 }

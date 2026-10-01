@@ -54,7 +54,7 @@ Para cerrarlo, en la terminal apretá `Ctrl + C`.
 
 | Qué querés cambiar | Archivo |
 | --- | --- |
-| Precio de Premium, días de prueba, minutos de espera, correo, nombre del responsable, dominio, enlaces a las tiendas | `src/config/site.ts` |
+| Precio de Premium, días de prueba, minutos de espera, correo, número de WhatsApp, nombre del responsable, dominio, enlaces a las tiendas | `src/config/site.ts` |
 | Los grupos de WhatsApp y Facebook que se están midiendo | `src/config/canales.ts` |
 | El texto del inicio (titular, ejemplo, tarjetas, preguntas) | `src/components/Landing.astro` |
 | La tabla de Gratis contra Premium | `src/components/Precios.astro` |
@@ -181,7 +181,7 @@ la App Store:
 3. Subí el cambio.
 
 El botón de iPhone aparece solo y los textos que decían «viene en camino»
-cambian. Antes, mirá la decisión pendiente en PENDIENTES.md (punto 8): qué va a
+cambian. Antes, mirá la decisión pendiente en PENDIENTES.md (punto 9): qué va a
 hacer esa versión sin la lectura automática.
 
 ## 10. Lo que todavía hace falta llenar
@@ -219,3 +219,14 @@ pasos de cada cosa. Incluye cómo poner las capturas de la app.
   `#15c26b`, con una versión oscurecida del verde para el modo claro.
 - La app se distribuye por Google Play. El enlace se arma solo con el
   identificador `com.netosmart.app`, así que no hay nada que copiar y pegar.
+- El botón de descarga es la insignia oficial de Google Play
+  (`public/google-play-es.png`), que no se modifica; el pie lleva la línea de
+  atribución de marca que Google pide. Ver `src/marca/LEEME.md`.
+- El encabezado muestra cuatro links de la página (Cómo funciona, Precio,
+  Preguntas, Soporte) solo en pantalla ancha; en el celular queda el logo y el
+  botón. Los links escondidos usan `display: none`, así que el teclado no los
+  recorre.
+- El número de WhatsApp de soporte está en `site.ts` (`whatsapp`, solo dígitos
+  con código de país). De ahí salen el botón de soporte, el pie y los enlaces
+  `wa.me` con el primer mensaje ya escrito. Si lo ponés en `null`, desaparece de
+  todas las páginas.

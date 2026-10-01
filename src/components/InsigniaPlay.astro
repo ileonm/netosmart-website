@@ -1,0 +1,30 @@
+---
+import { sitio } from '../config/site';
+
+/**
+ * La insignia OFICIAL de Google Play ("Descargar en Google Play"), en espanol.
+ *
+ * Es el archivo original de Google (public/google-play-es.png) y NO se toca: no
+ * se redibuja, no se recolorea, no se le pone sombra ni filtros. Google tiene
+ * reglas de uso de marca para esta insignia, y una de ellas es la linea de
+ * atribucion que va en el pie (ver Base.astro).
+ *
+ * Siempre enlaza a la ficha de la app en Google Play.
+ */
+interface Props {
+  /** true para las que quedan debajo de la primera pantalla. */
+  diferida?: boolean;
+}
+const { diferida = false } = Astro.props;
+---
+
+<a class="insignia" href={sitio.urlPlayStore} rel="noopener">
+  <img
+    src="/google-play-es.png"
+    width="165"
+    height="64"
+    alt="Descargar en Google Play"
+    loading={diferida ? 'lazy' : undefined}
+    decoding="async"
+  />
+</a>

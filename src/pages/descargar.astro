@@ -2,6 +2,7 @@
 import Base from '../layouts/Base.astro';
 import Faq from '../components/Faq.astro';
 import Precios from '../components/Precios.astro';
+import InsigniaPlay from '../components/InsigniaPlay.astro';
 import { sitio } from '../config/site';
 ---
 
@@ -17,9 +18,7 @@ import { sitio } from '../config/site';
         hacer nada raro.
       </p>
 
-      <a class="boton ancho" href={sitio.urlPlayStore} rel="noopener">
-        Bajarla en Google Play
-      </a>
+      <InsigniaPlay />
       <p class="bajo-boton">
         Gratis. Para Android. Premium se prueba {sitio.diasPrueba} días, sin
         tarjeta.
@@ -269,9 +268,7 @@ import { sitio } from '../config/site';
   <section class="franja">
     <div class="envoltura angosto centrado">
       <h2>Vos manejá. Las cuentas las llevamos nosotros.</h2>
-      <a class="boton" href={sitio.urlPlayStore} rel="noopener">
-        Bajarla en Google Play
-      </a>
+      <InsigniaPlay diferida={true} />
       <p class="bajo-boton">
         Gratis. Premium con {sitio.diasPrueba} días de prueba, sin tarjeta.
       </p>

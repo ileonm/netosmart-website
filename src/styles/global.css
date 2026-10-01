@@ -291,6 +291,21 @@ section.apretada { padding: 2rem 0; }
 }
 .pie .legal-pie p { margin-bottom: 0.4rem; }
 
+/* --- Insignia de Google Play ----------------------------------------------- */
+/* Es el archivo oficial de Google: no se le aplican filtros, sombras ni colores. */
+
+.insignia {
+  display: inline-block;
+  line-height: 0;
+  border-radius: 10px;
+  align-self: flex-start;
+}
+.insignia img { display: block; width: auto; height: 64px; }
+.portada .bajo-boton a { color: var(--verde); }
+@media (min-width: 760px) {
+  .portada .acciones .insignia { align-self: center; }
+}
+
 /* --- Botones ------------------------------------------------------------- */
 
 .boton {
@@ -400,8 +415,10 @@ section.apretada { padding: 2rem 0; }
   .portada .acciones .bajo-boton {
     order: 3;
     flex-basis: 100%;
+    max-width: 38rem;
+    margin: 0.1rem auto 0;
     text-align: center;
-    margin-top: 0.1rem;
+    text-wrap: balance;
   }
 }
 

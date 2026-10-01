@@ -21,3 +21,15 @@ Colores exactos del logo, medidos del archivo:
 
 Si algún día cambia el logo de la app, se reemplazan estos dos archivos y se
 vuelve a correr el generador.
+
+## La insignia de Google Play
+
+`public/google-play-es.png` es la insignia **oficial** de Google, en español
+(«Descargar en Google Play»), tal como la entrega Google. **No se toca**: no se
+redibuja, no se recolorea y no se le ponen sombras ni filtros. Si hay que
+cambiarla, se vuelve a bajar la oficial del generador de insignias de Google
+Play (<https://play.google.com/intl/es-419/badges/>).
+
+Google pide además una línea de atribución de la marca, que ya está en el pie de
+todas las páginas: «Google Play y el logotipo de Google Play son marcas
+registradas de Google LLC».
