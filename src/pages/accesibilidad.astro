@@ -5,7 +5,7 @@ import { sitio, paquetesLeidos } from '../config/site';
 
 <Base
   titulo="Permiso de accesibilidad: qué lee la app y qué no"
-  descripcion="Divulgación completa del uso del servicio de accesibilidad en Neto Smart: lee el texto en pantalla de Uber, DiDi e InDrive para anotar tus ganancias. No lee mensajes, contraseñas ni ninguna otra app."
+  descripcion="Divulgación completa del uso del servicio de accesibilidad en Neto Smart: lee el texto en pantalla de Uber, DiDi e InDrive. Para DiDi hay además una captura de pantalla que pedís vos. No lee mensajes, contraseñas ni ninguna otra app."
 >
   <section>
     <div class="envoltura angosto legal">
@@ -16,21 +16,28 @@ import { sitio, paquetesLeidos } from '../config/site';
         <h2>En corto</h2>
         <ul class="sin-margen">
           <li>
-            Neto Smart pide el permiso de accesibilidad de Android para leer el
-            monto que te muestran Uber, DiDi e InDrive, y anotarlo sin que lo
-            tengás que escribir vos.
+            Neto Smart pide el permiso de accesibilidad de Android para leer lo
+            que te muestran Uber, DiDi e InDrive (cuánto ganaste y en qué
+            momento del viaje vas) y anotarlo sin que lo escribás vos. Es parte
+            de Premium.
           </li>
           <li>
             Lee <strong>esas tres apps y nada más</strong>. Todo lo demás se
             descarta antes de mirarlo.
           </li>
           <li>
-            <strong>No lee</strong> mensajes, contraseñas, ni lo que tecleás, ni
-            ninguna otra app del teléfono.
+            <strong>No lee</strong> mensajes, ni contraseñas, ni lo que
+            tecleás, ni ninguna otra app del teléfono.
           </li>
           <li>
-            Lo podés apagar cuando querás. La app sigue funcionando y anotás las
-            ganancias a mano.
+            El servicio de accesibilidad <strong>no toma capturas de
+            pantalla</strong>. Pero DiDi no muestra su monto como texto, y para
+            ese monto la app tiene una captura de pantalla aparte, que solo se
+            activa cuando vos tocás «leer DiDi». Está explicada más abajo.
+          </li>
+          <li>
+            Lo podés apagar cuando querás. La app sigue funcionando y anotás
+            las ganancias a mano.
           </li>
         </ul>
       </div>
@@ -43,16 +50,16 @@ import { sitio, paquetesLeidos } from '../config/site';
         clara. Esta página es esa divulgación.
       </p>
       <p>
-        <strong>Para qué la usa Neto Smart:</strong> para leer el texto que
-        aparece en la pantalla de tres aplicaciones de conducción y extraer de
-        ahí los montos de ganancia y el estado del viaje, de modo que la persona
-        conductora no tenga que anotar cada viaje a mano mientras maneja.
+        <strong>Para qué lo usa Neto Smart:</strong> para leer el texto que
+        aparece en la pantalla de tres aplicaciones de conducción y sacar de ahí
+        los montos de ganancia y el estado del viaje, de modo que no tengás que
+        anotar cada viaje a mano mientras manejás.
       </p>
       <p>
         <strong>Por qué no hay otra forma:</strong> Uber, DiDi e InDrive no
-        ofrecen una manera pública de consultar las ganancias de una persona
-        conductora desde otra aplicación. La única forma de capturar el monto en
-        el momento es leyéndolo de la pantalla donde ya está a la vista.
+        ofrecen una manera pública de consultar tus ganancias desde otra
+        aplicación. La única forma de capturar el monto en el momento es
+        leyéndolo de la pantalla donde ya está a la vista.
       </p>
 
       <h2>De cuáles aplicaciones lee</h2>
@@ -87,7 +94,8 @@ import { sitio, paquetesLeidos } from '../config/site';
         navegador, la banca o cualquier otra cosa.
       </p>
 
-      <h2>Qué extrae exactamente</h2>
+      <h2>Qué saca exactamente</h2>
+      <p>De las pantallas de esas tres apps, cuando muestran el dato como texto:</p>
       <ul class="marcas si">
         <li>El total de ganancias del día.</li>
         <li>El monto de cada viaje.</li>
@@ -97,12 +105,20 @@ import { sitio, paquetesLeidos } from '../config/site';
         </li>
       </ul>
       <p>
+        <strong>El monto de DiDi es la excepción.</strong> Las pantallas de
+        ganancias de DiDi no muestran su texto, así que ese monto no se lee por
+        accesibilidad: se lee con la captura de pantalla que se explica en la
+        sección siguiente.
+      </p>
+      <p>
         Saber de cuál de las tres aplicaciones viene el viaje, y en qué estado
         está, es lo que le permite a la app anotar cada peaje donde corresponde.
-        Las tres lo tratan distinto: en un viaje de Uber con el pasajero a
-        bordo, el peaje se reintegra aparte de las ganancias y no resta del
-        neto; camino a recoger, en un viaje de DiDi o en uno de InDrive, sale
-        del bolsillo de la persona conductora y sí resta.
+        Las tres lo tratan distinto: en Uber, con el pasajero a bordo, el peaje
+        se reintegra aparte de las ganancias y no resta del neto, mientras que
+        camino a recoger sale del bolsillo de quien conduce y sí resta. En DiDi
+        el reintegro viene metido dentro de las ganancias, así que el peaje sí
+        resta. Y en InDrive, que ni se entera de que pasaste por una caseta, la
+        app te pregunta quién lo paga.
       </p>
       <p>
         Cuando no se puede confirmar, se anota como gasto, que es el lado
@@ -110,6 +126,38 @@ import { sitio, paquetesLeidos } from '../config/site';
         corrige, mientras que uno marcado de reintegrado por error infla la
         ganancia sin que nadie lo note.
       </p>
+
+      <h2 id="captura">La captura de pantalla de DiDi (no es accesibilidad)</h2>
+      <p>
+        Esto es aparte del permiso de accesibilidad y funciona distinto, así que
+        se explica por separado.
+      </p>
+      <ul>
+        <li>
+          <strong>Cuándo pasa:</strong> solo cuando vos tocás «leer DiDi».
+          Entonces Android te pide permiso para capturar la pantalla.
+        </li>
+        <li>
+          <strong>Qué hace:</strong> mientras está activa, la app mira la
+          pantalla cada 1,5 segundos y lee el monto con reconocimiento de texto.
+        </li>
+        <li>
+          <strong>Dónde se lee:</strong> dentro de tu teléfono, con Google ML
+          Kit. La imagen no se manda a ningún servidor ni a ningún tercero.
+        </li>
+        <li>
+          <strong>Cuánto dura:</strong> se detiene sola apenas encuentra el
+          monto, o a los 25 segundos si no lo encuentra.
+        </li>
+        <li>
+          <strong>Qué guarda:</strong> no guarda las imágenes. Lo único que
+          queda es el monto leído.
+        </li>
+        <li>
+          <strong>Cómo la ves:</strong> mientras corre hay una notificación con
+          el botón «Detener ahora».
+        </li>
+      </ul>
 
       <h2>Qué no hace</h2>
       <ul class="marcas no">
@@ -120,12 +168,23 @@ import { sitio, paquetesLeidos } from '../config/site';
           No lee el navegador, la banca, las redes sociales, ni ninguna otra
           app.
         </li>
-        <li>No toma capturas de pantalla ni graba la pantalla.</li>
         <li>
-          No envía a ningún servidor el texto leído. Lo que sale de esa lectura
-          son los montos que quedan anotados en tu propia cuenta.
+          El servicio de accesibilidad no toma capturas de pantalla ni graba la
+          pantalla. La única captura que existe es la de DiDi, descrita arriba, y
+          solo si la pedís.
+        </li>
+        <li>
+          No manda a ningún servidor el texto que lee. Lo que sale de esa
+          lectura son los montos que quedan anotados en tu propia cuenta.
         </li>
       </ul>
+      <p>
+        El texto leído de las pantallas sí queda en un registro de diagnóstico
+        <strong>dentro de tu teléfono</strong>, para poder arreglar fallas. Ese
+        registro no sale de ahí a menos que vos lo mandés a soporte con el botón
+        «Enviar diagnóstico».
+        <a href="/privacidad#diagnostico">Más en la política de privacidad</a>.
+      </p>
 
       <h2>Cómo apagarlo</h2>
       <p>Se puede quitar en cualquier momento, de dos maneras:</p>
@@ -144,7 +203,8 @@ import { sitio, paquetesLeidos } from '../config/site';
         Con el permiso apagado, la app sigue haciendo todo lo demás: turnos,
         gasolina, peajes, apartados, mantenimiento y el cálculo del neto. Lo
         único que cambia es que las ganancias las anotás vos al final de cada
-        viaje o al cerrar el turno.
+        viaje o al cerrar el turno. La captura de DiDi no se queda prendida: se
+        apaga sola, y si no querés usarla, no toqués «leer DiDi».
       </p>
 
       <p class="espacio">
