@@ -69,13 +69,34 @@ const tituloCompleto =
           <span>Neto Smart</span>
         </a>
         <nav aria-label="Principal">
-          <a
-            href="/descargar"
-            class="enlace-descarga"
-            aria-current={rutaActual === '/descargar' ? 'page' : undefined}
-          >
-            Descargar
-          </a>
+          <ul>
+            <li class="solo-escritorio">
+              <a href="/#como-funciona">Cómo funciona</a>
+            </li>
+            <li class="solo-escritorio">
+              <a href="/#precio">Precio</a>
+            </li>
+            <li class="solo-escritorio">
+              <a href="/#preguntas">Preguntas</a>
+            </li>
+            <li class="solo-escritorio">
+              <a
+                href="/soporte"
+                aria-current={rutaActual === '/soporte' ? 'page' : undefined}
+              >
+                Soporte
+              </a>
+            </li>
+            <li>
+              <a
+                href="/descargar"
+                class="enlace-descarga"
+                aria-current={rutaActual === '/descargar' ? 'page' : undefined}
+              >
+                Descargar
+              </a>
+            </li>
+          </ul>
         </nav>
       </div>
     </header>

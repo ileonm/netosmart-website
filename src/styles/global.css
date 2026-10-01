@@ -223,6 +223,24 @@ section.apretada { padding: 2rem 0; }
 .encabezado nav {
   font-size: 0.95rem;
 }
+.encabezado nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.35rem 1.4rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.encabezado nav li { margin: 0; }
+/* En el celular el encabezado ya esta lleno con el logo y el boton: los links
+   de la pagina solo aparecen en pantalla ancha. Escondidos con display:none no
+   reciben el foco del teclado, asi que no estorban. */
+.encabezado .solo-escritorio { display: none; }
+@media (min-width: 760px) {
+  .encabezado .solo-escritorio { display: block; }
+}
 .encabezado nav a {
   color: #dfe3ee;
   text-decoration: none;
