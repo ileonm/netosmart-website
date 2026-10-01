@@ -617,11 +617,16 @@ section.apretada { padding: 2rem 0; }
 
 .pantallas {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1rem;
+  /* Una columna en el celular: una captura es sobre todo texto y a media
+     columna no se lee. Dos columnas desde que hay lugar. */
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.75rem 1rem;
   justify-items: center;
   margin: 2.5rem auto 0;
   max-width: 36rem;
+}
+@media (min-width: 600px) {
+  .pantallas { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 .pantallas figure { margin: 0; width: 100%; max-width: 276px; }
 .pantallas figcaption {
