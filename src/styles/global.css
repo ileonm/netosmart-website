@@ -622,6 +622,7 @@ section.apretada { padding: 2rem 0; }
   grid-template-columns: minmax(0, 1fr);
   gap: 1.75rem 1rem;
   justify-items: center;
+  align-items: start;
   margin: 2.5rem auto 0;
   max-width: 36rem;
 }

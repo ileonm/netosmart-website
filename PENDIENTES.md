@@ -210,17 +210,24 @@ Son pantallas reales de la app, no dibujos. Estado:
 | --- | --- | --- |
 | **Premium**, con la prueba de 14 días | **Lista** (`public/capturas/premium.webp`) | En «Lo que hace», a la derecha |
 | **Resumen del día / turno cerrado**, con el neto a la vista | Falta | Junto a «Cómo funciona» |
-| **Mi garaje** | Falta | En «Lo que hace», a la izquierda |
+| **Mi garaje** (la lista de carros) | **Lista** (`public/capturas/mi-garaje.webp`), con las placas y el aceite tapados | En «Lo que hace», a la izquierda |
 | La pregunta **«¿Quién lo paga?»** del peaje de InDrive, con sus tres botones | Opcional | Junto al diagrama de peajes |
 
 **Cuál pantalla es «Mi garaje».** Son dos pantallas distintas dentro de lo mismo:
-la **lista** de carros (con la placa grande, «En uso», Editar, Borrar y «Agregar
-un carro»), y el **formulario de agregar o editar** un carro. La tarjeta del
-sitio dice «con la placa intentamos llenarte los datos; si no, son cuatro
-campos», así que la captura que la respalda es **el formulario con los datos ya
-llenos a partir de una placa**. Si la consulta al Registro Nacional está
-bloqueando ese día y no se llena, usá la **lista** con dos carros, que también
-sirve porque muestra los varios carros de Premium.
+la **lista** de carros y el **formulario de agregar o editar** un carro. La que
+está puesta es la **lista**: muestra dos carros, uno a gasolina y uno eléctrico,
+el costo por barra o por punto de batería, el aceite y el botón de agregar, así
+que respalda «varios carros» y «eléctricos de verdad». **No muestra la placa
+llenando los datos**, que es lo que dice la otra frase de la tarjeta («con la
+placa intentamos llenarte los datos»). Si algún día querés mostrar eso, hace
+falta una captura del **formulario** ya lleno a partir de una placa.
+
+**Los datos reales de esa captura están tapados.** La captura original traía dos
+placas reales y la fecha y el kilometraje del aceite. Se taparon con barras
+sólidas (no con desenfoque, que a veces se puede deshacer), y la original **no
+está en el repositorio**: solo está la versión tapada. Siguen visibles las
+marcas y modelos, los costos y el resto de la pantalla. Si preferís que no se
+vean barras, sacá la captura de nuevo con un carro de prueba y la reemplazamos.
 
 **Cómo ponerlas, paso a paso:**
 1. Sacá la captura en el teléfono, con datos de prueba (no tu placa ni tus
@@ -257,8 +264,11 @@ mismas.
 
 **Tres cosas que se ven en la captura de Premium** y conviene revisar en la app
 (el sitio las muestra tal cual):
-- El precio sale como **«₡2,500»** (con coma). El sitio usa **«₡2.500»**, con
-  punto, que es el formato de Costa Rica. Conviene que la app diga lo mismo.
+- Los montos salen con coma: **«₡2,500»** en Premium y **«₡2,828 por barra»** en
+  Mi garaje. El sitio usa **«₡2.500»**, con punto, que es el formato de Costa
+  Rica. Y en la misma pantalla de Mi garaje el kilometraje sale con punto
+  (por ejemplo, **«123.456 km»**), así que la app mezcla los dos formatos. Conviene que diga lo
+  mismo en todos lados.
 - La tarjeta **«El turno se cierra al llegar a descansar»** empieza con «Y si
   arrancás un viaje sin turno abierto…»: parece que le falta la primera frase
   (la del lugar de descanso).

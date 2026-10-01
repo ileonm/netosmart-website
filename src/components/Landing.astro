@@ -242,20 +242,16 @@ const porHora = Math.round(neto / ejemplo.horas);
       </div>
     </div>
 
-    {
-      /*
-      PENDIENTE DE CONTENIDO REAL: la captura de Mi garaje (la de Premium ya
-      esta puesta). Cuando exista, se reemplaza el <Marcador ... /> por una <img>
-      del mismo tamaño (ver PENDIENTES.md). No inventar pantallas.
-      */
-    }
     <div class="pantallas">
       <figure>
         <div class="marco-telefono">
-          <Marcador
-            ancho={258}
-            alto={508}
-            que="Pantalla de Mi garaje, con un carro cargado a partir de la placa"
+          <img
+            src="/capturas/mi-garaje.webp"
+            width="258"
+            height="392"
+            loading="lazy"
+            decoding="async"
+            alt="Pantalla Mi garaje de la app, con dos carros: uno a gasolina, con su costo por barra del tanque, y uno eléctrico, con su costo por punto de batería. Cada carro muestra su aceite y un botón para anotar un tanque o una carga, y abajo está el botón para agregar un carro. Las placas están tapadas."
           />
         </div>
         <figcaption>Mi garaje</figcaption>
