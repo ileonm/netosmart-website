@@ -120,24 +120,24 @@ import { sitio } from '../config/site';
       </p>
 
       <div class="tabla-envoltura espacio">
-        <table>
-          <thead>
-            <tr>
-              <th scope="col">Te pide</th>
-              <th scope="col">Para qué</th>
+        <table class="tabla-apilada" role="table">
+          <thead role="rowgroup">
+            <tr role="row">
+              <th scope="col" role="columnheader">Te pide</th>
+              <th scope="col" role="columnheader">Para qué</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <td>Notificaciones</td>
-              <td>
+          <tbody role="rowgroup">
+            <tr role="row">
+              <td role="cell" data-label="Te pide">Notificaciones</td>
+              <td role="cell" data-label="Para qué">
                 Avisarte de peajes, mantenimiento, gasolina y cuando te quedás
                 en un lugar de descanso con el turno abierto.
               </td>
             </tr>
-            <tr>
-              <td>Ubicación todo el tiempo</td>
-              <td>
+            <tr role="row">
+              <td role="cell" data-label="Te pide">Ubicación todo el tiempo</td>
+              <td role="cell" data-label="Para qué">
                 Con el turno abierto, darse cuenta de que cruzaste una caseta y
                 de que te quedaste en un lugar de descanso. Y darse cuenta de
                 que estás en un lavacar que marcaste, que es lo único que se
@@ -146,28 +146,28 @@ import { sitio } from '../config/site';
                 llegan con el teléfono en el bolsillo.
               </td>
             </tr>
-            <tr>
-              <td>Quitar el ahorro de batería</td>
-              <td>
+            <tr role="row">
+              <td role="cell" data-label="Te pide">Quitar el ahorro de batería</td>
+              <td role="cell" data-label="Para qué">
                 Sin esto Android duerme la app y se detienen los avisos y el
                 conteo de horas.
               </td>
             </tr>
-            <tr>
-              <td>Alarmas exactas</td>
-              <td>Que los recordatorios suenen a la hora, sin atrasarse.</td>
+            <tr role="row">
+              <td role="cell" data-label="Te pide">Alarmas exactas</td>
+              <td role="cell" data-label="Para qué">Que los recordatorios suenen a la hora, sin atrasarse.</td>
             </tr>
-            <tr>
-              <td>Aparecer encima de otras apps</td>
-              <td>
+            <tr role="row">
+              <td role="cell" data-label="Te pide">Aparecer encima de otras apps</td>
+              <td role="cell" data-label="Para qué">
                 La burbujita flotante para volver a Neto Smart rápido mientras
                 andás trabajando, como la de Uber y DiDi. Se queda donde la
                 dejás, y todo aviso flotante se cierra con la X.
               </td>
             </tr>
-            <tr>
-              <td>Captura de pantalla (solo para DiDi)</td>
-              <td>
+            <tr role="row">
+              <td role="cell" data-label="Te pide">Captura de pantalla (solo para DiDi)</td>
+              <td role="cell" data-label="Para qué">
                 Solo cuando tocás «leer DiDi». La app mira la pantalla un
                 momento, lee el monto dentro del teléfono y se detiene sola. No
                 guarda las imágenes.

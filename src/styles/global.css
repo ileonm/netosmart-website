@@ -847,6 +847,48 @@ th, td {
 }
 th { font-weight: 700; }
 
+/* --- Tablas que se apilan en pantalla angosta ---------------------------- */
+/* Una tabla de tres columnas con texto largo no cabe en 360 px, y con letra
+   grande no cabe ni la de dos. Apilar cada fila como tarjeta nunca desborda,
+   se use el tamaño de letra que se use. Las celdas llevan data-label y la tabla
+   lleva roles ARIA, porque display:block le quita su semantica a la tabla. */
+@media (max-width: 639px) {
+  .tabla-apilada,
+  .tabla-apilada tbody,
+  .tabla-apilada tr,
+  .tabla-apilada td { display: block; width: auto; }
+  .tabla-apilada thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+  .tabla-apilada tr {
+    border: 1px solid var(--borde);
+    border-radius: 12px;
+    background: var(--superficie);
+    padding: 0.75rem 0.9rem;
+    margin-bottom: 0.75rem;
+  }
+  .tabla-apilada td { border: 0; padding: 0.2rem 0; }
+  .tabla-apilada td:first-child {
+    font-weight: 700;
+    font-size: 1.02rem;
+    padding-bottom: 0.35rem;
+  }
+  .tabla-apilada td + td::before {
+    content: attr(data-label);
+    display: block;
+    margin-top: 0.35rem;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--texto-suave);
+  }
+}
+
 /* --- Precios -------------------------------------------------------------- */
 
 .planes {
@@ -877,11 +919,6 @@ th { font-weight: 700; }
 .plan-premium .plan-precio { color: var(--acento); }
 
 .precios-tabla { font-size: 0.93rem; }
-@media (max-width: 559px) {
-  .precios-tabla { font-size: 0.86rem; }
-  .precios-tabla th, .precios-tabla td { padding-top: 0.5rem; padding-bottom: 0.5rem; }
-  .precios-tabla th[scope='row'] { padding-left: 0.1rem; padding-right: 0.5rem; }
-}
 .precios-tabla th[scope='row'] { font-weight: 400; }
 .precios-tabla thead th { white-space: nowrap; }
 .precios-tabla th:not(:first-child),
@@ -899,6 +936,47 @@ th { font-weight: 700; }
 .precios-tabla .col-premium { background: var(--acento-suave); }
 .precios-tabla .si { color: var(--acento); font-weight: 800; font-size: 1.05rem; }
 .precios-tabla .no { color: var(--texto-suave); font-size: 0.85rem; }
+
+@media (max-width: 559px) {
+  .precios-tabla,
+  .precios-tabla tbody { display: block; }
+  .precios-tabla thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+  .precios-tabla tr {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.3rem 1rem;
+    padding: 0.7rem 0.1rem;
+    border-bottom: 1px solid var(--borde);
+  }
+  .precios-tabla th[scope='row'] {
+    flex: 1 0 100%;
+    border: 0;
+    padding: 0;
+    text-align: left;
+  }
+  .precios-tabla td {
+    flex: 0 0 auto;
+    width: auto;
+    border: 0;
+    padding: 0.1rem 0.6rem;
+    border-radius: 8px;
+    white-space: normal;
+    text-align: left;
+  }
+  .precios-tabla td::before {
+    content: attr(data-label) ': ';
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--texto-suave);
+  }
+}
 
 .reglas-precio { margin: 1.5rem 0 0; padding-left: 1.2em; }
 .reglas-precio li { margin-bottom: 0.7rem; }

@@ -6,7 +6,7 @@ import { sitio, paquetesLeidos } from '../config/site';
 
 <Base
   titulo="Política de privacidad"
-  descripcion="Qué datos lee Neto Smart, qué no lee, dónde se guardan y cómo pedir que se borren. Escrito para que lo entienda un conductor, con el detalle completo abajo."
+  descripcion="Qué datos lee Neto Smart, qué no lee, dónde se guardan, qué servicios externos reciben algo y cómo borrar tu cuenta. Escrito para que lo entienda un conductor, con el detalle completo abajo."
 >
   <section>
     <div class="envoltura angosto legal">
@@ -18,31 +18,37 @@ import { sitio, paquetesLeidos } from '../config/site';
         <ul class="sin-margen">
           <li>
             Neto Smart lee el texto en pantalla de <strong>tres apps y nada
-            más</strong>: Uber Driver, DiDi Driver e InDrive. De ahí saca el
-            monto de sus ganancias. Todo lo demás que tengás abierto se descarta
-            antes de mirarlo.
+            más</strong>: Uber Driver, DiDi Driver e InDrive. De ahí saca tus
+            ganancias y en qué momento del viaje vas. No lee mensajes,
+            contraseñas ni lo que tecleás, ni ninguna otra app.
           </li>
           <li>
-            <strong>No lee</strong> mensajes, contraseñas, ni lo que tecleás, ni
-            ninguna otra app del teléfono.
+            DiDi no muestra su monto como texto. Cuando tocás «leer DiDi», la app
+            <strong>captura la pantalla</strong> un momento (hasta 25
+            segundos), lee el monto <strong>dentro de tu teléfono</strong> y no
+            guarda ni manda la imagen.
           </li>
           <li>
-            Usa la ubicación en segundo plano para dos cosas: darse cuenta de
-            que llegaste a la casa y de que pasaste por una caseta de peaje.
+            Con el turno abierto y Premium, la app consulta tu
+            <strong>GPS seguido</strong> para darse cuenta de que cruzaste una
+            caseta, con una notificación fija, y se apaga al cerrar el turno.
             <strong>No guarda por dónde anduviste</strong> ni manda tu ubicación
-            a ningún servidor.
+            en vivo a ningún servidor.
+          </li>
+          <li>
+            Guarda en tu teléfono un <strong>registro de diagnóstico</strong> con
+            lo que leyó y dónde pasaste cerca de una caseta. No sale de ahí a
+            menos que vos lo mandés.
           </li>
           <li>
             Tus datos quedan en tu teléfono y en una cuenta que es tuya,
-            protegida para que solo vos los podás leer.
-            <strong>No se venden ni se comparten con terceros.</strong>
+            protegida para que solo vos los podás leer. No se venden ni se usan
+            para publicidad. Unos pocos servicios externos reciben lo mínimo que
+            necesitan, y están todos nombrados abajo.
           </li>
           <li>
-            Los dos permisos los podés apagar cuando querás, y la app sigue
-            funcionando anotando a mano.
-          </li>
-          <li>
-            Podés pedir que se borre tu cuenta con todo lo que tenga adentro.
+            Los permisos los podés apagar cuando querás, y la cuenta la borrás
+            desde la app, al instante.
           </li>
         </ul>
       </div>
@@ -52,11 +58,15 @@ import { sitio, paquetesLeidos } from '../config/site';
           <li><a href="#responsable">Quién responde por esto</a></li>
           <li><a href="#que-recoge">Qué datos recoge la app</a></li>
           <li><a href="#pantalla">Lectura de pantalla (accesibilidad)</a></li>
+          <li><a href="#captura">Captura de pantalla de DiDi</a></li>
           <li><a href="#ubicacion">Ubicación</a></li>
+          <li><a href="#diagnostico">Registro de diagnóstico</a></li>
+          <li><a href="#cedula">Cédula o DIMEX</a></li>
           <li><a href="#no-hace">Lo que la app no hace</a></li>
           <li><a href="#donde">Dónde se guardan los datos</a></li>
-          <li><a href="#terceros">Terceros y publicidad</a></li>
-          <li><a href="#derechos">Sus derechos y cómo borrar la cuenta</a></li>
+          <li><a href="#terceros">Servicios de terceros</a></li>
+          <li><a href="#pagos">Pagos</a></li>
+          <li><a href="#derechos">Tus derechos y cómo borrar la cuenta</a></li>
           <li><a href="#permisos">Permisos y cómo apagarlos</a></li>
           <li><a href="#menores">Menores de edad</a></li>
           <li><a href="#sitio">Este sitio web</a></li>
@@ -67,70 +77,67 @@ import { sitio, paquetesLeidos } from '../config/site';
 
       <h2 id="responsable">1. Quién responde por esto</h2>
       <p>
-        Neto Smart es una aplicación para Android desarrollada de manera
-        independiente en Costa Rica. El responsable del tratamiento de los datos
-        es <Pendiente que="nombre o razón social del responsable" />.
+        Neto Smart es una aplicación para Android desarrollada en Costa Rica. El
+        responsable del tratamiento de los datos es
+        <Pendiente que="nombre o razón social del responsable" />.
       </p>
       <p>
         Para cualquier consulta sobre esta política, el contacto está en la
-        <a href="#contacto">sección 13</a>.
+        <a href="#contacto">sección 17</a>.
       </p>
 
       <h2 id="que-recoge">2. Qué datos recoge la app</h2>
       <p>
-        Neto Smart recoge únicamente lo necesario para calcular la ganancia neta
-        de su trabajo. En concreto:
+        Neto Smart recoge lo necesario para calcular tu ganancia neta. En
+        concreto:
       </p>
-      <h3>2.1 Datos que usted anota</h3>
+      <h3>2.1 Datos que vos anotás</h3>
       <ul>
-        <li>Turnos de trabajo: hora de inicio, hora de cierre y horas totales.</li>
+        <li>Turnos: hora de inicio, hora de cierre y horas totales.</li>
         <li>
-          Gasolina: cargas medidas por rayitas del tablero o por monto de
-          factura.
+          Gasolina y cargas: cargas medidas por rayitas del tablero o por monto
+          de factura, y, en eléctricos, los kWh, el nivel de la batería al
+          iniciar y al terminar cada carga, y si fue en casa, afuera o gratis.
         </li>
         <li>
           Peajes: monto, y si fue un peaje que la plataforma reintegra o uno que
-          pagó de su bolsillo. Los dos se guardan, porque el dispositivo de
-          peaje se debita en ambos casos.
+          pagaste vos. Se guardan los dos, porque el dispositivo de peaje se
+          debita en ambos casos.
         </li>
         <li>Ingresos en efectivo, vueltos y extras.</li>
         <li>
-          Vehículos: los que registre, con sus datos de mantenimiento y cambio
-          de aceite.
+          Vehículos: placa, marca, estilo, año, carrocería, combustible,
+          cilindrada, color y el código del motor, más el cambio de aceite, los
+          costos fijos y los lavados de cada uno.
         </li>
         <li>Apartados semanales de mantenimiento, gasolina y peajes.</li>
         <li>
-          Puntos de referencia que registre, como la ubicación de su casa, para
-          los avisos de llegada.
+          Los lugares que marcás: tus lugares de descanso (hasta cinco) y tus
+          lavacares (hasta cinco), con su ubicación y una dirección corta.
         </li>
       </ul>
 
-      <h3>2.2 Datos leídos de la pantalla</h3>
+      <h3>2.2 Datos de tu perfil y tu cuenta</h3>
       <p>
-        Con el permiso de accesibilidad activado, la app lee montos y estados de
-        viaje de tres aplicaciones. El detalle completo está en la
-        <a href="#pantalla">sección 3</a>.
+        Para guardar y sincronizar tu información entre el teléfono y el
+        servidor, la app crea una cuenta. En el perfil van tu nombre y, si
+        querés, tu cédula o DIMEX (ver la <a href="#cedula">sección 7</a>).
       </p>
 
-      <h3>2.3 Datos de ubicación</h3>
+      <h3>2.3 Datos leídos de la pantalla, de la ubicación y de diagnóstico</h3>
       <p>
-        Con el permiso de ubicación activado, la app detecta entradas y salidas
-        de zonas circulares definidas de antemano. El detalle está en la
-        <a href="#ubicacion">sección 4</a>.
-      </p>
-
-      <h3>2.4 Datos de la cuenta</h3>
-      <p>
-        Para guardar y sincronizar su información entre el teléfono y el
-        servidor, la app crea una cuenta de usuario. Esa cuenta es la que
-        identifica cuáles registros son suyos.
+        Están explicados cada uno en su sección: la <a href="#pantalla">lectura
+        de pantalla</a>, la <a href="#captura">captura de DiDi</a>, la
+        <a href="#ubicacion">ubicación</a> y el
+        <a href="#diagnostico">registro de diagnóstico</a>.
       </p>
 
       <h2 id="pantalla">3. Lectura de pantalla (servicio de accesibilidad)</h2>
       <p>
         Neto Smart usa un servicio de accesibilidad de Android
         (<code>AccessibilityService</code>) para leer el texto que aparece en
-        pantalla. Es un permiso potente y por eso se explica con precisión.
+        pantalla. Es un permiso potente y por eso se explica con precisión. La
+        lectura automática es parte de Premium.
       </p>
 
       <h3>3.1 De cuáles aplicaciones lee</h3>
@@ -164,7 +171,7 @@ import { sitio, paquetesLeidos } from '../config/site';
         esas tres, el evento se desecha.
       </p>
 
-      <h3>3.2 Qué extrae de esas tres aplicaciones</h3>
+      <h3>3.2 Qué saca de esas tres aplicaciones</h3>
       <ul class="marcas si">
         <li>El total de ganancias del día.</li>
         <li>El monto de cada viaje.</li>
@@ -174,129 +181,302 @@ import { sitio, paquetesLeidos } from '../config/site';
         </li>
       </ul>
       <p>
-        Esa información se usa para anotar sus ingresos sin que tenga que
+        Esto es cuando la aplicación muestra el dato como texto. <strong>El
+        monto de DiDi es la excepción</strong>: sus pantallas de ganancias no
+        muestran texto, y ese monto se lee con la captura de la
+        <a href="#captura">sección 4</a>, no por accesibilidad.
+      </p>
+      <p>
+        Esa información se usa para anotar tus ingresos sin que tengás que
         escribirlos, y para saber de cuál aplicación y de qué momento del viaje
-        viene cada peaje, porque de eso depende si la plataforma se lo reintegra
-        o si sale de su bolsillo.
+        viene cada peaje, porque de eso depende si la plataforma te lo
+        reintegra o si sale de tu bolsillo.
       </p>
 
       <h3>3.3 Qué no lee</h3>
       <ul class="marcas no">
         <li>No lee mensajes de ninguna aplicación.</li>
         <li>No lee contraseñas.</li>
-        <li>No registra lo que usted teclea.</li>
+        <li>No registra lo que tecleás.</li>
         <li>
           No lee ninguna otra aplicación del teléfono, ni el navegador, ni la
           banca, ni las redes sociales.
         </li>
         <li>
-          No toma capturas de pantalla ni graba lo que pasa en el teléfono.
+          El servicio de accesibilidad no toma capturas de pantalla. La única
+          captura que existe es la de DiDi, y la explica la sección 4.
         </li>
       </ul>
 
       <h3>3.4 Se puede apagar</h3>
       <p>
-        El permiso de accesibilidad se puede desactivar en cualquier momento
-        desde la configuración de la app o desde los ajustes de Android. Con el
-        permiso apagado, la app sigue funcionando y las ganancias se anotan a
-        mano. La explicación paso a paso está en la página de
+        El permiso se desactiva en cualquier momento desde la configuración de
+        la app o desde los ajustes de Android. Con el permiso apagado, la app
+        sigue funcionando y las ganancias se anotan a mano. La explicación paso
+        a paso está en la página de
         <a href="/accesibilidad">permiso de accesibilidad</a>.
       </p>
 
-      <h2 id="ubicacion">4. Ubicación</h2>
+      <h2 id="captura">4. Captura de pantalla de DiDi</h2>
+      <p>
+        DiDi no muestra su monto de ganancias como texto, así que no se puede
+        leer por accesibilidad. Para ese monto la app usa una captura de
+        pantalla, que es un mecanismo aparte y funciona así:
+      </p>
+      <ul>
+        <li>
+          <strong>Solo cuando vos la pedís.</strong> Pasa cuando tocás «leer
+          DiDi». Android te pide permiso para capturar la pantalla.
+        </li>
+        <li>
+          <strong>Qué hace.</strong> Mientras está activa, la app mira la
+          pantalla cada 1,5 segundos y lee el monto con reconocimiento de
+          texto.
+        </li>
+        <li>
+          <strong>Dentro de tu teléfono.</strong> El reconocimiento de texto lo
+          hace Google ML Kit en el propio aparato. La imagen no se envía a
+          ningún servidor ni a ningún tercero.
+        </li>
+        <li>
+          <strong>Se detiene sola.</strong> Apenas encuentra el monto, o a los
+          25 segundos si no lo encuentra.
+        </li>
+        <li>
+          <strong>No guarda las imágenes.</strong> Lo único que queda es el
+          monto leído.
+        </li>
+        <li>
+          <strong>Se nota.</strong> Mientras corre ves una notificación con el
+          botón «Detener ahora».
+        </li>
+      </ul>
+      <p>
+        Si no querés usarla, no toqués «leer DiDi» y anotás ese monto a mano.
+      </p>
+
+      <h2 id="ubicacion">5. Ubicación</h2>
       <p>
         Neto Smart usa la ubicación, incluida la ubicación en segundo plano,
-        para dos finalidades y ninguna otra:
+        para estas cosas y ninguna otra:
       </p>
       <ol>
         <li>
-          <strong>Darse cuenta de que llegó a su casa</strong>, para ofrecerle
-          cerrar el turno.
+          <strong>Darse cuenta de que cruzaste una caseta de peaje</strong>, para
+          preguntarte si la pagaste.
         </li>
         <li>
-          <strong>Darse cuenta de que pasó por una caseta de peaje</strong>, para
-          preguntarle si lo anota.
+          <strong>Darse cuenta de que te quedaste en uno de tus lugares de
+          descanso</strong>, para preguntarte si terminás el turno.
+        </li>
+        <li>
+          <strong>Darse cuenta de que estás en un lavacar que marcaste</strong>,
+          para recordarte anotar el lavado.
         </li>
       </ol>
+
+      <h3>5.1 El GPS seguido (con el turno abierto y Premium)</h3>
       <p>
-        Funciona con geocercos: círculos alrededor de puntos definidos de
-        antemano, ya sea que usted mismo los haya registrado o que vengan del
-        catálogo de casetas de peaje. El sistema operativo avisa a la app cuando
-        el teléfono entra a uno de esos círculos. La app no consulta la
-        ubicación de forma continua.
-      </p>
-      <ul class="marcas no">
-        <li>No se guarda un recorrido ni un historial de rutas.</li>
-        <li>No se guarda un historial de por dónde anduvo.</li>
-        <li>No se envía su ubicación a ningún servidor.</li>
-      </ul>
-      <p>
-        El permiso de ubicación también se puede apagar. Sin él, los peajes y el
-        cierre del turno se registran a mano.
+        Con el turno abierto y Premium, un servicio en primer plano recibe el GPS
+        seguido: <strong>una posición por segundo</strong> cuando estás cerca de
+        una caseta, y <strong>una cada diez segundos</strong> cuando estás
+        lejos. Es para darse cuenta de que cruzaste una caseta apenas pasa.
+        Mientras tanto ves una notificación fija que dice «Neto Smart está
+        atento a los peajes». Se apaga al cerrar el turno.
       </p>
 
-      <h2 id="no-hace">5. Lo que la app no hace</h2>
+      <h3>5.2 Los geocercos</h3>
+      <p>
+        Además, la app usa geocercos: círculos alrededor de puntos que vos
+        marcaste o que vienen del catálogo de casetas. El teléfono avisa cuando
+        entra a uno. Hoy hay:
+      </p>
+      <ul>
+        <li>Tus lugares de descanso: hasta cinco, círculo de 50 metros.</li>
+        <li>Las casetas y los lavacares: círculo de 80 metros.</li>
+      </ul>
+      <p>
+        Los lugares de descanso y las casetas se vigilan <strong>solo con el
+        turno abierto</strong>. Los lavacares también se vigilan fuera del
+        turno, con la ubicación de bajo consumo de Android, sin encender el GPS:
+        es lo único que se vigila sin turno.
+      </p>
+
+      <h3>5.3 Lo que no se guarda</h3>
       <ul class="marcas no">
-        <li>No vende sus datos.</li>
-        <li>No comparte sus datos con terceros.</li>
-        <li>No publica nada a su nombre.</li>
-        <li>No lee ni envía sus contactos.</li>
-        <li>No accede a sus fotos ni a sus archivos personales.</li>
-        <li>No le cobra nada sin avisarle antes.</li>
+        <li>No se guarda un recorrido ni un historial de por dónde anduviste.</li>
+        <li>No se manda tu ubicación en vivo a ningún servidor.</li>
+      </ul>
+      <p>
+        Los lugares que marcás (tu casa, un lavacar) se guardan con tu
+        configuración, porque la app los necesita para avisarte. Eso no es tu
+        posición del momento. La dirección corta que se muestra, como «Pozos,
+        Santa Ana», la saca el geocodificador de tu teléfono.
+      </p>
+      <p>
+        El permiso de ubicación también se puede apagar. Sin él, los peajes, el
+        cierre del turno y el lavado se anotan a mano.
+      </p>
+
+      <h2 id="diagnostico">6. Registro de diagnóstico</h2>
+      <p>
+        La app guarda <strong>en tu teléfono</strong> un registro de lo que leyó
+        (el texto de las pantallas de Uber, DiDi e InDrive) y de dónde pasaste
+        cerca de una caseta. Sirve para encontrar y arreglar fallas.
+      </p>
+      <p>
+        Ese registro <strong>no sale del teléfono</strong> a menos que vos lo
+        mandés a soporte con el botón «Enviar diagnóstico». Si lo mandás, lo
+        recibe quien te ayuda con el problema, por el medio que elijás. Si no lo
+        mandás, nadie lo ve.
+      </p>
+
+      <h2 id="cedula">7. Cédula o DIMEX</h2>
+      <ul>
+        <li>
+          Es <strong>opcional</strong> en el perfil. Se pide para la prueba
+          gratis de Premium, que es una por persona.
+        </li>
+        <li>
+          <strong>No se guarda el número.</strong> Se guarda una huella cifrada
+          que no se puede deshacer para recuperarlo.
+        </li>
+        <li>
+          El nombre y la cédula quedan fijos una vez puestos. Los cambios se
+          piden por soporte.
+        </li>
+        <li>
+          Si borrás la cuenta, la huella queda, y solo sirve para marcar que esa
+          persona ya usó la prueba, de modo que borrar la cuenta y abrir otra no
+          la repita.
+        </li>
       </ul>
 
-      <h2 id="donde">6. Dónde se guardan los datos</h2>
+      <h2 id="no-hace">8. Lo que la app no hace</h2>
+      <ul class="marcas no">
+        <li>No vende tus datos.</li>
+        <li>No usa tus datos para publicidad.</li>
+        <li>No publica nada a tu nombre.</li>
+        <li>No lee ni envía tus contactos.</li>
+        <li>No accede a tus fotos ni a tus archivos personales.</li>
+        <li>No te cobra nada sin avisarte antes.</li>
+      </ul>
+
+      <h2 id="donde">9. Dónde se guardan los datos</h2>
       <p>
-        Sus registros se guardan en dos lugares: en la base de datos local del
-        teléfono, y en una cuenta de Supabase asociada a usted. Supabase es el
-        servicio de base de datos que la app utiliza como respaldo y
-        sincronización.
+        Tus registros se guardan en dos lugares: en la base de datos local del
+        teléfono, y en una cuenta de Supabase asociada a vos. Supabase es el
+        servicio de base de datos que la app usa como respaldo y sincronización.
       </p>
       <p>
         El acceso está restringido por usuario: las reglas de seguridad de la
         base de datos permiten que cada cuenta lea y escriba únicamente sus
         propios registros. Ninguna otra persona usuaria de la app puede ver lo
-        suyo.
+        tuyo.
       </p>
       <p>
-        Los datos anotados sin conexión quedan en el teléfono y se sincronizan
-        cuando vuelve la señal.
+        Lo que anotás sin conexión queda en el teléfono y se sincroniza cuando
+        vuelve la señal.
       </p>
 
-      <h2 id="terceros">7. Terceros y publicidad</h2>
+      <h2 id="terceros">10. Servicios de terceros</h2>
       <p>
-        <strong>Sus datos no se venden ni se comparten con terceros.</strong>
+        <strong>Tus datos no se venden ni se usan para publicidad.</strong> Para
+        funcionar, la app usa unos pocos servicios externos. Cada uno recibe solo
+        lo que necesita:
       </p>
+      <div class="tabla-envoltura">
+        <table class="tabla-apilada" role="table">
+          <thead role="rowgroup">
+            <tr role="row">
+              <th scope="col" role="columnheader">Servicio</th>
+              <th scope="col" role="columnheader">Para qué</th>
+              <th scope="col" role="columnheader">Qué recibe</th>
+            </tr>
+          </thead>
+          <tbody role="rowgroup">
+            <tr role="row">
+              <td role="cell" data-label="Servicio">Supabase</td>
+              <td role="cell" data-label="Para qué">Base de datos y cuentas.</td>
+              <td role="cell" data-label="Qué recibe">Tus registros y tu cuenta, protegidos para que solo vos los leás.</td>
+            </tr>
+            <tr role="row">
+              <td role="cell" data-label="Servicio">Anthropic (Claude)</td>
+              <td role="cell" data-label="Para qué">
+                Buscar la capacidad del tanque o de la batería de un modelo, y
+                los precios de combustible y de luz.
+              </td>
+              <td role="cell" data-label="Qué recibe">
+                Solo marca, modelo, año y tipo de energía. Ningún dato personal.
+              </td>
+            </tr>
+            <tr role="row">
+              <td role="cell" data-label="Servicio">Registro Nacional</td>
+              <td role="cell" data-label="Para qué">Llenar los datos del carro a partir de la placa.</td>
+              <td role="cell" data-label="Qué recibe">
+                La placa. Del resultado se guardan solo los datos del vehículo
+                (marca, estilo, año, carrocería, combustible, cilindrada, color
+                y el código del motor, sin el número de serie); lo del dueño se
+                descarta.
+              </td>
+            </tr>
+            <tr role="row">
+              <td role="cell" data-label="Servicio">Google ML Kit</td>
+              <td role="cell" data-label="Para qué">Reconocimiento de texto para la captura de DiDi.</td>
+              <td role="cell" data-label="Qué recibe">Nada: funciona dentro de tu teléfono.</td>
+            </tr>
+            <tr role="row">
+              <td role="cell" data-label="Servicio">Google Maps</td>
+              <td role="cell" data-label="Para qué">El mapa para marcar tus lugares de descanso y tus lavacares.</td>
+              <td role="cell" data-label="Qué recibe">
+                Lo propio de mostrar un mapa. La dirección corta («Pozos, Santa
+                Ana») la saca el geocodificador de tu teléfono.
+              </td>
+            </tr>
+            <tr role="row">
+              <td role="cell" data-label="Servicio">WhatsApp</td>
+              <td role="cell" data-label="Para qué">Mandar un comprobante de pago o el diagnóstico.</td>
+              <td role="cell" data-label="Qué recibe">Solo si vos decidís mandarlos.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
       <p>
-        Hoy la app no muestra publicidad de terceros. Si en el futuro se incluye
-        publicidad, esta página se actualiza <strong>antes</strong> de que eso
-        ocurra, indicando qué proveedor se usa y qué datos recibe.
-      </p>
-      <p>
-        El único proveedor de servicios involucrado en el funcionamiento actual
-        es Supabase, que aloja la base de datos donde se guarda su cuenta.
+        Hoy la app no muestra publicidad. Si en el futuro se incluye, esta
+        página se actualiza <strong>antes</strong> de que eso ocurra, indicando
+        qué proveedor se usa y qué datos recibe.
       </p>
 
-      <h2 id="derechos">8. Sus derechos y cómo borrar la cuenta</h2>
+      <h2 id="pagos">11. Pagos</h2>
+      <p>
+        Premium se paga desde la app. De cada pago la app guarda la fecha, el
+        monto y el plan, y nada de datos de tarjetas ni de cuentas bancarias.
+        Algunos pagos los confirma una persona del equipo antes de activar el
+        plan.
+      </p>
+
+      <h2 id="derechos">12. Tus derechos y cómo borrar la cuenta</h2>
       <p>
         De acuerdo con la Ley de Protección de la Persona frente al tratamiento
-        de sus datos personales de Costa Rica (Ley 8968), usted puede:
+        de sus datos personales de Costa Rica (Ley 8968), podés:
       </p>
       <ul>
-        <li>Saber qué datos suyos están guardados.</li>
+        <li>Saber qué datos tuyos están guardados.</li>
         <li>Pedir que se corrijan si hay algo equivocado.</li>
         <li>Pedir que se borren.</li>
-        <li>Retirar los permisos que haya dado, en cualquier momento.</li>
+        <li>Retirar los permisos que hayás dado, en cualquier momento.</li>
       </ul>
-      <h3>Cómo pedir que se borre su cuenta</h3>
+      <h3>Cómo borrar tu cuenta</h3>
       <p>
-        Escriba al correo de contacto desde la dirección asociada a su cuenta,
-        pidiendo la eliminación. Se borran la cuenta y todos los registros
-        asociados (turnos, gasolina, peajes, vehículos y apartados). El borrado
-        es definitivo y no se puede deshacer.
+        Desde la app, <strong>al instante</strong>: Configuración, Mi perfil,
+        Zona de peligro. Se borra todo lo que la cuenta tenía adentro: turnos,
+        gasolina y cargas, peajes, carros, apartados, lugares y lavacares. Es
+        definitivo y no se puede deshacer.
       </p>
       <p>
-        Correo para solicitudes de borrado:
+        Si ya no tenés la app, también podés pedirlo sin ella: están los pasos
+        en la página de <a href="/borrar-cuenta">borrar mi cuenta</a>, o por
+        correo desde la dirección de tu cuenta:
         {
           sitio.correoContacto ? (
             <a href={`mailto:${sitio.correoContacto}`}>{sitio.correoContacto}</a>
@@ -306,36 +486,49 @@ import { sitio, paquetesLeidos } from '../config/site';
         }
       </p>
       <p>
-        También puede desinstalar la app, lo que elimina los datos guardados en
-        el teléfono. Eso por sí solo no borra la cuenta del servidor: para eso
-        hay que pedirlo por correo.
+        Lo único que queda es la huella cifrada de la cédula, si la diste, por
+        la razón de la <a href="#cedula">sección 7</a>. Desinstalar la app borra
+        lo del teléfono, pero no la cuenta.
       </p>
 
-      <h2 id="permisos">9. Permisos y cómo apagarlos</h2>
+      <h2 id="permisos">13. Permisos y cómo apagarlos</h2>
       <div class="tabla-envoltura">
-        <table>
-          <thead>
-            <tr>
-              <th scope="col">Permiso</th>
-              <th scope="col">Para qué</th>
-              <th scope="col">Si lo apaga</th>
+        <table class="tabla-apilada" role="table">
+          <thead role="rowgroup">
+            <tr role="row">
+              <th scope="col" role="columnheader">Permiso</th>
+              <th scope="col" role="columnheader">Para qué</th>
+              <th scope="col" role="columnheader">Si lo apagás</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <td>Accesibilidad</td>
-              <td>Leer el monto en pantalla de Uber, DiDi e InDrive.</td>
-              <td>Las ganancias se anotan a mano.</td>
+          <tbody role="rowgroup">
+            <tr role="row">
+              <td role="cell" data-label="Permiso">Accesibilidad</td>
+              <td role="cell" data-label="Para qué">Leer el monto y el estado del viaje en Uber, DiDi e InDrive.</td>
+              <td role="cell" data-label="Si lo apagás">Las ganancias se anotan a mano.</td>
             </tr>
-            <tr>
-              <td>Ubicación en segundo plano</td>
-              <td>Avisos de llegada a la casa y de paso por peaje.</td>
-              <td>Los peajes y el cierre de turno se anotan a mano.</td>
+            <tr role="row">
+              <td role="cell" data-label="Permiso">Captura de pantalla</td>
+              <td role="cell" data-label="Para qué">Leer el monto de DiDi, solo cuando tocás «leer DiDi».</td>
+              <td role="cell" data-label="Si lo apagás">El monto de DiDi se anota a mano.</td>
             </tr>
-            <tr>
-              <td>Notificaciones</td>
-              <td>Preguntarle por el peaje o el cierre de turno.</td>
-              <td>No recibe avisos, la app funciona igual al abrirla.</td>
+            <tr role="row">
+              <td role="cell" data-label="Permiso">Ubicación en segundo plano</td>
+              <td role="cell" data-label="Para qué">
+                Avisos de peaje, de lugar de descanso y de lavacar, y el GPS
+                seguido con el turno abierto.
+              </td>
+              <td role="cell" data-label="Si lo apagás">Los peajes, el cierre de turno y el lavado se anotan a mano.</td>
+            </tr>
+            <tr role="row">
+              <td role="cell" data-label="Permiso">Notificaciones</td>
+              <td role="cell" data-label="Para qué">Preguntarte por el peaje, el cierre del turno o el lavado.</td>
+              <td role="cell" data-label="Si lo apagás">No recibís avisos; la app funciona igual al abrirla.</td>
+            </tr>
+            <tr role="row">
+              <td role="cell" data-label="Permiso">Aparecer encima de otras apps</td>
+              <td role="cell" data-label="Para qué">La burbuja para volver a la app rápido.</td>
+              <td role="cell" data-label="Si lo apagás">No aparece la burbuja; la app funciona igual.</td>
             </tr>
           </tbody>
         </table>
@@ -345,7 +538,7 @@ import { sitio, paquetesLeidos } from '../config/site';
         ajustes de Android.
       </p>
 
-      <h2 id="menores">10. Menores de edad</h2>
+      <h2 id="menores">14. Menores de edad</h2>
       <p>
         Neto Smart está dirigida a personas que trabajan conduciendo para
         plataformas, actividad que requiere ser mayor de edad. La app no está
@@ -353,10 +546,10 @@ import { sitio, paquetesLeidos } from '../config/site';
         edad.
       </p>
 
-      <h2 id="sitio">11. Este sitio web</h2>
+      <h2 id="sitio">15. Este sitio web</h2>
       <p>
-        Este sitio no guarda datos de sus visitas. No usa cookies, no tiene
-        formularios y no le pide ningún dato personal.
+        Este sitio no guarda datos de tus visitas. No usa cookies, no tiene
+        formularios y no te pide ningún dato personal.
       </p>
       <p>
         Para saber cuántas personas visitan el sitio se usa Cloudflare Web
@@ -364,15 +557,15 @@ import { sitio, paquetesLeidos } from '../config/site';
         nadie y sin seguir a la persona entre sitios.
       </p>
 
-      <h2 id="cambios">12. Cambios a esta política</h2>
+      <h2 id="cambios">16. Cambios a esta política</h2>
       <p>
         Si algo cambia en lo que la app lee, guarda o comparte, esta página se
         actualiza y se cambia la fecha de arriba. Los cambios importantes, como
-        la incorporación de publicidad de terceros, se publican antes de que
-        entren en vigencia.
+        la incorporación de publicidad de terceros o de otro servicio externo,
+        se publican antes de que entren en vigencia.
       </p>
 
-      <h2 id="contacto">13. Contacto</h2>
+      <h2 id="contacto">17. Contacto</h2>
       <p>
         Para consultas sobre privacidad, corrección de datos o borrado de
         cuenta:

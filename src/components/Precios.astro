@@ -45,21 +45,21 @@ const filas: { que: string; gratis: Celda; premium: Celda }[] = [
   </div>
 
   <div class="tabla-envoltura" tabindex="0" role="region" aria-label="Comparación de planes">
-    <table class="precios-tabla">
+    <table class="precios-tabla" role="table">
       <caption class="solo-lectores">Qué incluye el plan Gratis y qué incluye Premium</caption>
-      <thead>
-        <tr>
-          <th scope="col">Qué hace</th>
-          <th scope="col">Gratis</th>
-          <th scope="col" class="col-premium">Premium</th>
+      <thead role="rowgroup">
+        <tr role="row">
+          <th scope="col" role="columnheader">Qué hace</th>
+          <th scope="col" role="columnheader">Gratis</th>
+          <th scope="col" role="columnheader" class="col-premium">Premium</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody role="rowgroup">
         {
           filas.map((f) => (
-            <tr>
-              <th scope="row">{f.que}</th>
-              <td>
+            <tr role="row">
+              <th scope="row" role="rowheader">{f.que}</th>
+              <td role="cell" data-label="Gratis">
                 {typeof f.gratis === 'string' ? (
                   f.gratis
                 ) : f.gratis ? (
@@ -71,7 +71,7 @@ const filas: { que: string; gratis: Celda; premium: Celda }[] = [
                   <span class="no">No</span>
                 )}
               </td>
-              <td class="col-premium">
+              <td role="cell" data-label="Premium" class="col-premium">
                 {typeof f.premium === 'string' ? (
                   f.premium
                 ) : f.premium ? (
