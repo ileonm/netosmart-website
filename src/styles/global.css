@@ -411,12 +411,15 @@ section.apretada { padding: 2rem 0; }
     min-width: 14rem;
   }
   /* La linea de "Gratis, en Google Play" se va sola a su propio renglon,
-     debajo de los dos botones. */
+     debajo de los botones. */
   .portada .acciones .bajo-boton {
     order: 3;
-    flex-basis: 100%;
-    max-width: 38rem;
-    margin: 0.1rem auto 0;
+    flex: 0 0 100%;
+    box-sizing: border-box;
+    /* El ancho del texto se limita con relleno y no con max-width: con
+       max-width, la linea cabia al lado de un solo boton y no bajaba. */
+    padding: 0 max(0px, calc((100% - 38rem) / 2));
+    margin: 0.1rem 0 0;
     text-align: center;
     text-wrap: balance;
   }
