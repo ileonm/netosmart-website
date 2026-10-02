@@ -202,14 +202,14 @@ archivo.
 
 ## Bloquea que la gente confíe
 
-### 14. Capturas de la app (falta una, y hay una opcional)
+### 14. Capturas de la app (están las tres principales, y hay una opcional)
 
 Son pantallas reales de la app, no dibujos. Estado:
 
 | Pantalla | Estado | Dónde va |
 | --- | --- | --- |
 | **Premium**, con la prueba de 14 días | **Lista** (`public/capturas/premium.webp`) | En «Lo que hace», a la derecha |
-| **Resumen del día / turno cerrado**, con el neto a la vista | Falta | Junto a «Cómo funciona» |
+| **Hoy**, con el neto del día a la vista | **Lista** (`public/capturas/turno-hoy.webp`), con el nombre del saludo tapado | Junto a «Cómo funciona» |
 | **Mi garaje** (la lista de carros) | **Lista** (`public/capturas/mi-garaje.webp`), con las placas y el aceite tapados | En «Lo que hace», a la izquierda |
 | La pregunta **«¿Quién lo paga?»** del peaje de InDrive, con sus tres botones | Opcional | Junto al diagrama de peajes |
 
@@ -229,13 +229,23 @@ está en el repositorio**: solo está la versión tapada. Siguen visibles las
 marcas y modelos, los costos y el resto de la pantalla. Si preferís que no se
 vean barras, sacá la captura de nuevo con un carro de prueba y la reemplazamos.
 
+**La captura de «Hoy».** Es la pantalla de inicio con el turno ya cerrado: el
+neto en grande, el bruto, las horas, lo que sale por hora, lo de cada app y los
+gastos desglosados. Se tapó con una barra sólida **solo tu nombre** del saludo
+(«Buenas noches, ...»); la original no está en el repositorio. **Ojo con dos
+cosas que sí se ven:** los montos son de un día real (₡22,769 de neto) y sale el
+modelo del carro, sin placa. Si no querés mostrar montos tuyos, sacala de nuevo
+con datos de prueba. Además, esta pantalla escribe los montos con coma
+(₡22,769) y el sitio los escribe con punto (₡22.769): es el mismo detalle de
+formato de la app que está anotado más abajo.
+
 **Cómo ponerlas, paso a paso:**
 1. Sacá la captura en el teléfono, con datos de prueba (no tu placa ni tus
    montos reales), en modo claro y con la barra de estado limpia. Recortá la
    barra de arriba y la de abajo para que quede casi 1 de ancho por 2 de alto.
 2. Pasala a WebP (cualquier convertidor en línea sirve) a 516 píxeles de ancho, y
    guardala en `public/capturas/` con un nombre sin tildes ni espacios:
-   `turno-cerrado.webp`, `mi-garaje.webp`.
+   `turno-hoy.webp`, `mi-garaje.webp`.
 3. Abrí `src/components/Landing.astro` y buscá el bloque `<Marcador ... />` de
    esa pantalla.
 4. Cambialo por esto, con el nombre del archivo y la altura que le toque (el

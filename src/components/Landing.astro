@@ -1,7 +1,6 @@
 ---
 import BotonDescarga from './BotonDescarga.astro';
 import Faq from './Faq.astro';
-import Marcador from './Marcador.astro';
 import Precios from './Precios.astro';
 import Icono from './Icono.astro';
 import { sitio, colones } from '../config/site';
@@ -134,10 +133,13 @@ const porHora = Math.round(neto / ejemplo.horas);
       </div>
 
       <div class="marco-telefono">
-        <Marcador
-          ancho={258}
-          alto={516}
-          que="Pantalla de resumen del turno cerrado, con el neto del día"
+        <img
+          src="/capturas/turno-hoy.webp"
+          width="258"
+          height="448"
+          loading="lazy"
+          decoding="async"
+          alt="Pantalla Hoy de la app con el turno cerrado: el neto del día en grande, el bruto, las horas trabajadas y lo que sale por hora, lo ganado en DiDi, Uber e InDrive, y los gastos del día separados en combustible, peajes, costos fijos y mantenimiento. El nombre en el saludo está tapado."
         />
       </div>
     </div>
