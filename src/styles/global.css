@@ -602,7 +602,7 @@ section.apretada { padding: 2rem 0; }
   /* El anillo de afuera es para que en modo oscuro el marco no se pierda
      contra el fondo, que es casi del mismo azul. */
   box-shadow: 0 0 0 1px var(--borde), 0 16px 40px rgba(16, 16, 28, 0.28);
-  width: min(276px, 100%);
+  width: min(300px, 100%);
   box-sizing: border-box;
   margin: 0 auto;
 }
@@ -629,7 +629,7 @@ section.apretada { padding: 2rem 0; }
 @media (min-width: 600px) {
   .pantallas { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
-.pantallas figure { margin: 0; width: 100%; max-width: 276px; }
+.pantallas figure { margin: 0; width: 100%; max-width: 300px; }
 .pantallas figcaption {
   margin-top: 0.7rem;
   text-align: center;

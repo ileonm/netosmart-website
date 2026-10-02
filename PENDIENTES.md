@@ -229,6 +229,14 @@ está en el repositorio**: solo está la versión tapada. Siguen visibles las
 marcas y modelos, los costos y el resto de la pantalla. Si preferís que no se
 vean barras, sacá la captura de nuevo con un carro de prueba y la reemplazamos.
 
+**Las tres capturas tienen la misma forma de teléfono (1440 por 3120) y la barra
+de estado de Android está dibujada, no capturada.** Para que se vean como un
+teléfono real, se les agregó arriba la hora, la señal, el wifi, la batería y el
+punto de la cámara. Es decoración: la hora (10:35) y la batería son fijas, no
+vienen de tu teléfono. Lo de adentro de cada pantalla sí es real. Si algún día
+sacás las capturas con la barra de estado incluida, se pueden reemplazar tal
+cual y se quita el dibujo.
+
 **La captura de «Hoy».** Es la pantalla de inicio con el turno ya cerrado: el
 neto en grande, el bruto, las horas, lo que sale por hora, lo de cada app y los
 gastos desglosados. Se tapó con una barra sólida **solo tu nombre** del saludo
