@@ -1,8 +1,7 @@
 # Lo que falta
 
 Ordenado por lo que bloquea más. Nada de esto se inventó en el sitio: donde falta
-un dato sale un marcador amarillo que dice **Pendiente**. Hoy hay **uno solo**
-visible, el del responsable (punto 2).
+un dato sale un marcador amarillo que dice **Pendiente**. Hoy no queda ninguno visible.
 
 **La regla de fondo:** el sitio se publica ya (Google Play pide la privacidad y
 el borrado de cuenta para revisar la app), pero ningún enlace se reparte hasta
@@ -29,21 +28,11 @@ error no vuelve.
 **Nada que cambiar en el código:** la dirección se arma sola con el
 identificador `com.netosmart.app`.
 
-### 2. El nombre del responsable
+### 2. El nombre del responsable: resuelto (5-oct)
 
-**Qué hacer:**
-1. Abrí el archivo `src/config/site.ts`.
-2. Buscá la línea `responsable: PENDIENTE as string | null,`.
-3. Cambiala por tu nombre o el de la empresa, entre comillas:
-
-   ```ts
-   responsable: 'Tu Nombre Completo' as string | null,
-   ```
-4. Guardá y subí el cambio (sección 4 del README).
-
-**Qué bloquea:** la privacidad y los términos quedan incompletos para el
-revisor de Google. Puede ser el nombre de una persona; no hace falta empresa.
-Cuando lo cambiés, desaparece el último marcador amarillo del sitio.
+Isaac Leon Murillo, como persona física. Cuando exista la sociedad, se cambia
+la línea `responsable` de `src/config/site.ts` por la razón social y la cédula
+jurídica, y se actualiza la fecha `fechaLegal`.
 
 ### 3. Cómo se paga Pro: resuelto (5-oct)
 
@@ -132,12 +121,9 @@ App Store hay que usar la insignia oficial de Apple (con sus propias reglas), qu
 se agrega ese día en lugar del botón de texto. (La razón de negocio, la cuenta de Apple y la Mac, no
 está en el sitio y no hace falta que esté.)
 
-### 10. En cuánto tiempo se atiende un borrado por correo
+### 10. Plazo de un borrado por correo: resuelto (5-oct)
 
-`/borrar-cuenta` dice que se contesta por correo cuando esté hecho, y **no
-promete un plazo**, porque no está decidido. Google suele querer uno. Conviene
-decidir un número de días y agregarlo en esa página. Desde la app el borrado es
-instantáneo, así que esto solo aplica a quien ya no tiene la app.
+30 días como máximo. Lo dicen `/borrar-cuenta` y la privacidad (sección 12).
 
 ### 11. Consulta legal sobre la base de datos
 

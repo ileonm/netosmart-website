@@ -65,7 +65,9 @@ export const sitio = {
    * Bloquea: privacidad y terminos (Google los revisa y piden un responsable).
    * Puede ser el nombre de una persona, no hace falta una empresa.
    */
-  responsable: PENDIENTE as string | null,
+  // Persona fisica por ahora (5-oct): todavia no hay sociedad. Cuando exista,
+  // se cambia por la razon social y la cedula juridica.
+  responsable: 'Isaac Leon Murillo' as string | null,
 
   /**
    * PRECIO de Neto Smart Pro. Decidido: ₡2.500 al mes, el mismo que cobra
