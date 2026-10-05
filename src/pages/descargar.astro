@@ -8,7 +8,7 @@ import { sitio } from '../config/site';
 
 <Base
   titulo="Descargar Neto Smart"
-  descripcion="Bajá Neto Smart desde Google Play, gratis, y probá Premium 14 días sin tarjeta. Para Android. La versión para iPhone viene en camino."
+  descripcion="Bajá Neto Smart desde Google Play, gratis, y probá Pro 14 días sin tarjeta. Para Android. La versión para iPhone viene en camino."
 >
   <section>
     <div class="envoltura angosto">
@@ -20,7 +20,7 @@ import { sitio } from '../config/site';
 
       <InsigniaPlay />
       <p class="bajo-boton">
-        Gratis. Para Android. Premium se prueba {sitio.diasPrueba} días, sin
+        Gratis. Para Android. Pro se prueba {sitio.diasPrueba} días, sin
         tarjeta.
         {
           sitio.urlAppStore
@@ -57,6 +57,7 @@ import { sitio } from '../config/site';
             <p>
               Es para que lo que anotás no viva solo en el teléfono. Si mañana
               cambiás de aparato, entrás con la misma cuenta y ahí está todo.
+              Te llega un código de 6 números al correo para confirmarla.
             </p>
           </div>
         </li>
@@ -90,12 +91,12 @@ import { sitio } from '../config/site';
         </li>
         <li>
           <div>
-            <h3>Probá Premium, si querés</h3>
+            <h3>Probá Pro, si querés</h3>
             <p>
               Al terminar la configuración inicial te ofrecemos
-              {sitio.diasPrueba} días de Premium, sin tarjeta. La prueba es una
+              {sitio.diasPrueba} días de Pro, sin tarjeta. La prueba es una
               por persona, y por eso se pide la cédula o el DIMEX. Es opcional:
-              si no querés probar Premium, no hace falta dártela.
+              si no querés probar Pro, no hace falta dártela.
               <a href="/privacidad#cedula">Qué hacemos con ella</a>.
             </p>
           </div>
@@ -179,9 +180,10 @@ import { sitio } from '../config/site';
       <div class="aviso espacio">
         <h3>La lectura automática de ganancias va aparte</h3>
         <p>
-          El permiso de accesibilidad no está en esa lista. Se prende cuando vos
-          querás, desde la pantalla de captura de ganancias dentro de la app, y
-          es parte de Premium.
+          El permiso de accesibilidad no está en esa lista. La configuración
+          inicial te lo ofrece en el paso «Leer tus ganancias», con la
+          explicación antes, y lo podés dejar para después: está en
+          Configuración → Lectura automática. Es parte de Pro.
         </p>
         <p>
           Es el permiso que más desconfianza da, así que hay una página entera
@@ -199,9 +201,9 @@ import { sitio } from '../config/site';
   <section class="franja" id="precio">
     <div class="envoltura angosto">
       <span class="etiqueta-seccion">Lo que cuesta</span>
-      <h2>Lo manual es gratis. Lo automático es Premium.</h2>
+      <h2>Lo manual es gratis. Lo automático es Pro.</h2>
       <p class="suave">
-        El gratis es manual; Premium lo hace solo.
+        El gratis es manual; Pro lo hace solo.
         <strong>Vos manejá. Las cuentas las llevamos nosotros.</strong>
       </p>
       <Precios />
@@ -228,9 +230,10 @@ import { sitio } from '../config/site';
 
       <Faq pregunta="¿Cuánto cuesta?">
         <p>
-          El plan Gratis es gratis para siempre. Premium cuesta
+          El plan Gratis es gratis para siempre. Pro cuesta
           {sitio.precioPremium} y lo probás {sitio.diasPrueba} días sin tarjeta.
-          Se paga desde la app.
+          Se paga desde la app, con Google Play, y la suscripción se cancela
+          cuando querás.
         </p>
         <p>
           <a href="#precio">Acá está qué incluye cada uno</a>.
@@ -270,7 +273,7 @@ import { sitio } from '../config/site';
       <h2>Vos manejá. Las cuentas las llevamos nosotros.</h2>
       <InsigniaPlay diferida={true} />
       <p class="bajo-boton">
-        Gratis. Premium con {sitio.diasPrueba} días de prueba, sin tarjeta.
+        Gratis. Pro con {sitio.diasPrueba} días de prueba, sin tarjeta.
       </p>
     </div>
   </section>

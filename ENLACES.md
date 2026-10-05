@@ -1,8 +1,10 @@
 # Enlaces para el lanzamiento
 
 > **No repartas ninguno de estos enlaces antes de que la app esté publicada en
-> Google Play.** La app y el sitio salen juntos. Un enlace repartido antes lleva
-> a un botón de descarga que todavía da error (ver PENDIENTES.md, punto 1).
+> Google Play para todo el público** (producción, no prueba cerrada). El sitio ya
+> puede estar arriba, porque Google pide la privacidad y el borrado de cuenta,
+> pero un enlace repartido antes lleva a un botón de descarga que todavía da
+> error (ver PENDIENTES.md, punto 1).
 
 El lanzamiento va grupo por grupo. Para saber cuál grupo trae gente y cuál no,
 **cada grupo lleva su propio enlace**. Todos muestran exactamente la misma
@@ -14,23 +16,20 @@ Copiá el enlace de la fila que corresponda y pegalo en ese grupo. Nada más.
 
 ## Los enlaces
 
-> Estos enlaces empiezan con `netosmart-website.pages.dev`, que es la dirección
-> que da Cloudflare. **Si vas a usar un dominio propio, conectalo antes de
-> repartir** (sección 6 del README): cuando el principio cambie, la parte de
-> `/g/loquesea` se mantiene igual, pero los enlaces que ya repartiste habría que
-> repartirlos de nuevo.
+> Estos enlaces usan el dominio propio, `netosmart.com`. Funcionan cuando el
+> dominio esté conectado en Cloudflare Pages (sección 6 del README).
 
 | Dónde lo vas a pegar | Enlace para copiar |
 | --- | --- |
-| Mensajes de WhatsApp uno a uno | `https://netosmart-website.pages.dev/g/wa-directo` |
-| Grupo de WhatsApp 1 | `https://netosmart-website.pages.dev/g/wa-grupo-1` |
-| Grupo de WhatsApp 2 | `https://netosmart-website.pages.dev/g/wa-grupo-2` |
-| Grupo de Facebook 1 | `https://netosmart-website.pages.dev/g/fb-grupo-1` |
-| Grupo de Facebook 2 | `https://netosmart-website.pages.dev/g/fb-grupo-2` |
-| Publicación en el perfil personal | `https://netosmart-website.pages.dev/g/fb-perfil` |
-| Grupo de Telegram 1 | `https://netosmart-website.pages.dev/g/tg-grupo-1` |
-| Calcomanía o papelito en el carro | `https://netosmart-website.pages.dev/g/calcomania` |
-| Compañeros, de boca en boca | `https://netosmart-website.pages.dev/g/boca-a-boca` |
+| Mensajes de WhatsApp uno a uno | `https://netosmart.com/g/wa-directo` |
+| Grupo de WhatsApp 1 | `https://netosmart.com/g/wa-grupo-1` |
+| Grupo de WhatsApp 2 | `https://netosmart.com/g/wa-grupo-2` |
+| Grupo de Facebook 1 | `https://netosmart.com/g/fb-grupo-1` |
+| Grupo de Facebook 2 | `https://netosmart.com/g/fb-grupo-2` |
+| Publicación en el perfil personal | `https://netosmart.com/g/fb-perfil` |
+| Grupo de Telegram 1 | `https://netosmart.com/g/tg-grupo-1` |
+| Calcomanía o papelito en el carro | `https://netosmart.com/g/calcomania` |
+| Compañeros, de boca en boca | `https://netosmart.com/g/boca-a-boca` |
 
 ## Cómo ver los resultados
 
@@ -56,7 +55,7 @@ sección 7 del [README](README.md).
    El nombre va en minúscula, sin espacios, sin tildes y sin eñes.
 
 3. Subí el cambio (sección 4 del README). En un par de minutos el enlace nuevo
-   `https://netosmart-website.pages.dev/g/fb-grupo-3` ya funciona.
+   `https://netosmart.com/g/fb-grupo-3` ya funciona.
 
 ## Un par de consejos
 

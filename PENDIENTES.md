@@ -4,9 +4,9 @@ Ordenado por lo que bloquea más. Nada de esto se inventó en el sitio: donde fa
 un dato sale un marcador amarillo que dice **Pendiente**. Hoy hay **uno solo**
 visible, el del responsable (punto 2).
 
-**La regla de fondo: la app y el sitio salen juntos, cuando la app esté
-publicada en Google Play.** Antes de eso no se despliega el sitio, no se conecta
-el dominio y no se reparte ningún enlace.
+**La regla de fondo:** el sitio se publica ya (Google Play pide la privacidad y
+el borrado de cuenta para revisar la app), pero ningún enlace se reparte hasta
+que la app esté en Google Play para todo el público.
 
 ---
 
@@ -45,23 +45,13 @@ identificador `com.netosmart.app`.
 revisor de Google. Puede ser el nombre de una persona; no hace falta empresa.
 Cuando lo cambiés, desaparece el último marcador amarillo del sitio.
 
-### 3. Cómo se paga Premium en la versión de la tienda (hay que confirmarlo)
+### 3. Cómo se paga Pro: resuelto (5-oct)
 
-El sitio dice solo «**se paga desde la app**», a propósito. No nombra SINPE.
-WhatsApp aparece como canal de **ayuda**, no como forma de pago.
-
-Google Play obliga a cobrar las compras dentro de la app con su propio sistema
-de pagos. Hoy el pago es por SINPE Móvil con comprobante por WhatsApp, y en la
-versión de la tienda puede terminar siendo por Google Play. **Confirmalo antes
-de lanzar.**
-
-Si el pago termina siendo por Google Play, hay que revisar estos textos, porque
-dicen cosas que dejarían de ser ciertas:
-- `src/pages/privacidad.astro`, sección 11 (**Pagos**): dice que «algunos pagos
-  los confirma una persona del equipo», y agregar a Google Play en la tabla de
-  la sección 10.
-- `src/pages/terminos.astro`, sección 6.5.
-- La tabla de servicios externos de privacidad (sección 10).
+Pro se paga con una **suscripción mensual de Google Play** que se renueva sola
+hasta que se cancela en Google Play. El sitio ya lo dice así en el inicio,
+descargar, soporte, términos (6.5) y privacidad (11), con cómo cancelar, y que
+borrar la cuenta no cancela la suscripción. Google Play y RevenueCat están en la
+tabla de servicios externos.
 
 ### 4. La dirección de «borrar cuenta» en la ficha de Play
 
@@ -69,65 +59,39 @@ Google exige que la ficha tenga una página web donde se pueda pedir el borrado
 de la cuenta sin tener la app. Esa página ya existe: `/borrar-cuenta`.
 
 **Qué hacer:** en Play Console, donde Google pide la dirección web para eliminar
-la cuenta (está en la parte de seguridad de los datos), pegá:
+la cuenta (en la parte de seguridad de los datos), pegá
+`https://netosmart.com/borrar-cuenta`. Y en el campo de política de privacidad,
+`https://netosmart.com/privacidad`. **El sitio tiene que estar publicado antes
+de mandar la app a revisión.**
 
-`<tu dominio>/borrar-cuenta`
+### 5. El sitio contra la app: revisado el 5-oct
 
-Y en el campo de política de privacidad, `<tu dominio>/privacidad`. El dominio es
-el del punto 6: no lo pegues hasta que ese punto esté resuelto.
+Se comparó cada línea de esta lista contra el código de la app del 5-oct y coincide:
 
-### 5. Comprobar que el sitio dice lo mismo que hace la app
+- Lugares de descanso: hasta 5, círculo de 50 m, pregunta a los 7 minutos.
+- Lavacares: hasta 5, círculo de 80 m; sin turno, pregunta a los 15 minutos.
+- Vigía de peajes: 1 posición por segundo cerca de una caseta, 1 cada 10
+  segundos lejos, con notificación fija.
+- DiDi: el monto se lee con captura de pantalla (ML Kit, dentro del teléfono);
+  el servicio de accesibilidad sigue declarando los tres paquetes, por las
+  señales de estado del viaje. La tabla de paquetes está bien.
+- Cédula: solo la huella; la huella sobrevive al borrado (tabla de historial),
+  para que la prueba sea una por persona.
+- Borrar la cuenta: Configuración → Mi perfil → Zona de peligro, al instante.
+- Pro: 14 días de prueba sin tarjeta, una por persona; al vencer se escoge con
+  cuál carro seguir.
 
-Esta es la lista más importante antes de mandar la app a revisión. **El
-repositorio de la app que pude leer termina el 23 de setiembre y no tiene
-varias de las cosas que el sitio ahora describe**: salieron de tu mensaje del 1
-de octubre. Los números están puestos tal cual los diste. Antes de enviar a
-Google, alguien tiene que confirmar cada línea contra la versión que se sube:
+Lo que se agregó al sitio el 5-oct, porque la app lo hace ahora: los correos
+(códigos de 6 números, bienvenida, avisos de Pro y de seguridad, novedades solo
+si se marcan), «un teléfono a la vez» (identificador de instalación, marca y
+modelo), cambiar la contraseña, el paso «Leer tus ganancias» de la
+configuración inicial, y Brevo, Google Play, RevenueCat y Cloudflare en la
+tabla de servicios externos.
 
-| Qué dice el sitio | Dónde |
-| --- | --- |
-| Lugares de descanso: hasta 5, círculo de 50 m, pregunta a los 7 minutos | privacidad 5.2, inicio, soporte, `site.ts` |
-| Casetas y lavacares: círculo de 80 m; lavacar pregunta a los 15 minutos; hasta 5 lavacares | privacidad 5.2, inicio, soporte, `site.ts` |
-| Vigía de peajes: con turno abierto y Premium, 1 posición por segundo cerca de una caseta y 1 cada 10 segundos lejos; notificación fija «Neto Smart está atento a los peajes»; se apaga al cerrar el turno | privacidad 5.1, inicio, soporte |
-| Los lavacares se vigilan también fuera del turno, con la ubicación de bajo consumo, sin encender el GPS, y es lo único que se vigila sin turno | privacidad 5.2, inicio |
-| Los lugares que se marcan se guardan con la configuración (en la cuenta) | privacidad 5.3 |
-| Cédula o DIMEX opcional; no se guarda el número, sino una huella cifrada irreversible; nombre y cédula quedan fijos | privacidad 7, terminos 6.3, inicio |
-| La huella de la cédula **sobrevive** al borrado de la cuenta | privacidad 7, `/borrar-cuenta` |
-| Anthropic recibe solo marca, modelo, año y tipo de energía; el Registro Nacional recibe la placa y de lo que devuelve solo se guardan datos del vehículo (sin número de serie) | privacidad 10 |
-| El registro de diagnóstico se guarda en el teléfono y solo sale con el botón «Enviar diagnóstico» | privacidad 6, accesibilidad, soporte |
-| Borrar la cuenta: Configuración, Mi perfil, Zona de peligro, al instante | privacidad 12, `/borrar-cuenta`, soporte |
-| Premium: ₡2.500 al mes, 14 días de prueba sin tarjeta, una por persona, precio fijo por cuenta, sin renovación automática, al vencer no se borra nada, un turno con Premium termina con Premium | inicio, descargar, términos 6 |
-| Con varios carros, al vencer se escoge con cuál seguir y los otros vuelven al renovar | inicio, soporte, términos 6.6 |
+### 6. Dominio: resuelto
 
-**Lo que sí se comprobó en el código de la app** (el 23 de setiembre): la
-captura de DiDi mira la pantalla cada 1,5 segundos, se detiene sola a los 25
-segundos y corre como servicio en primer plano de tipo captura de pantalla, con
-el texto leído por Google ML Kit dentro del teléfono.
-
-**Dos cosas que no coinciden del todo con tu mensaje, para que decidás:**
-- Dijiste que DiDi se lee por captura y no por accesibilidad. En el código que
-  vi, el servicio de accesibilidad **todavía declara el paquete de DiDi**
-  (`accessibility_service_config.xml`) y lee de él señales de estado del viaje.
-  Por eso el sitio dice que **el monto** de DiDi no se lee por accesibilidad,
-  sin decir que accesibilidad ya no lo toca, y la tabla de paquetes de
-  `/accesibilidad` y de privacidad sigue listando los tres. **Si en la versión
-  nueva ya sacaste DiDi del servicio, hay que sacarlo de la tabla**: está en
-  `src/config/site.ts`, en la lista `paquetesLeidos`.
-- La propia app marcaba la captura de ganancias como «beta» el 23 de
-  setiembre. El sitio dejó de decir «todavía está en pruebas». Si sigue siendo
-  beta, conviene volver a decirlo.
-
-### 6. Dominio
-
-El correo es `contacto@netosmart.com` y el plan de lanzamiento habla de
-`netosmart.app`. **Confirmá cuál de los dos es tuyo** antes de repartir enlaces.
-
-**Qué hacer** cuando lo tengas: sección 6 del README (una línea en `site.ts` y
-agregar el dominio en Cloudflare Pages).
-
-**Por qué antes de repartir:** los enlaces de `ENLACES.md` están hechos con la
-dirección de Cloudflare (`netosmart-website.pages.dev`). Si el dominio cambia
-después de repartirlos, hay que repartirlos de nuevo.
+Es `netosmart.com`. Ya está en `src/config/site.ts` y en `ENLACES.md`. Falta
+solo conectarlo en Cloudflare Pages (README, sección 6).
 
 ### 7. Token de estadísticas
 
@@ -208,7 +172,7 @@ Son pantallas reales de la app, no dibujos. Estado:
 
 | Pantalla | Estado | Dónde va |
 | --- | --- | --- |
-| **Premium**, con la prueba de 14 días | **Lista** (`public/capturas/premium.webp`) | En «Lo que hace», a la derecha |
+| **Pro** (la pantalla de Premium), con la prueba de 14 días | **Lista, pero vieja: todavía dice «Premium». Hay que sacarla de nuevo** (`public/capturas/premium.webp`) | En «Lo que hace», a la derecha |
 | **Hoy**, con el neto del día a la vista | **Lista** (`public/capturas/turno-hoy.webp`), con el nombre del saludo tapado | Junto a «Cómo funciona» |
 | **Mi garaje** (la lista de carros) | **Lista** (`public/capturas/mi-garaje.webp`), con las placas y el aceite tapados | En «Lo que hace», a la izquierda |
 | La pregunta **«¿Quién lo paga?»** del peaje de InDrive, con sus tres botones | Opcional | Junto al diagrama de peajes |

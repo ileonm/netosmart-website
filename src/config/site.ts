@@ -12,12 +12,11 @@ export const sitio = {
   nombre: 'Neto Smart',
 
   /**
-   * DOMINIO. Todavia no hay dominio propio comprado.
-   * Mientras tanto se usa la direccion que Cloudflare Pages asigna sola
-   * al proyecto. Cuando se compre el dominio, se cambia SOLO esta linea
-   * (y en Cloudflare Pages se agrega el dominio personalizado).
+   * DOMINIO. netosmart.com (comprado en Spaceship, DNS en Cloudflare). Si
+   * algun dia cambia, se cambia SOLO esta linea (y en Cloudflare Pages se
+   * agrega el dominio personalizado).
    */
-  dominio: 'https://netosmart-website.pages.dev',
+  dominio: 'https://netosmart.com',
 
   /**
    * Identificador de la app. Es el mismo en Android y en iPhone, y sale del
@@ -69,7 +68,8 @@ export const sitio = {
   responsable: PENDIENTE as string | null,
 
   /**
-   * PRECIO de Premium. Decidido: ₡2.500 al mes.
+   * PRECIO de Neto Smart Pro. Decidido: ₡2.500 al mes, el mismo que cobra
+   * Google Play (suscripcion premium_mensual).
    *
    * El precio queda fijo para cada cuenta: si un dia sube, solo lo pagan las
    * cuentas nuevas. Si hay que cambiarlo, es esta linea y los textos que lo
@@ -77,7 +77,7 @@ export const sitio = {
    */
   precioPremium: '₡2.500 al mes',
 
-  /** Dias de prueba de Premium, sin tarjeta. Una por persona. */
+  /** Dias de prueba de Pro, sin tarjeta. Una por persona. */
   diasPrueba: 14,
 
   /** Minutos que hay que quedarse en un lugar de descanso para que la app
@@ -95,7 +95,7 @@ export const sitio = {
   tokenAnalytics: PENDIENTE as string | null,
 
   /** Fecha de la ultima revision de las paginas legales. */
-  fechaLegal: '1 de octubre de 2026',
+  fechaLegal: '5 de octubre de 2026',
 
   /**
    * Simbolo de marca que acompana al nombre en el pie.

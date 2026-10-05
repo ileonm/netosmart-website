@@ -2,14 +2,14 @@
 import { sitio } from '../config/site';
 
 /**
- * Plan Gratis contra Premium. Se usa en el inicio y en la pagina de descarga.
+ * Plan Gratis contra Neto Smart Pro. Se usa en el inicio y en la pagina de descarga.
  *
  * El precio y los dias de prueba salen de src/config/site.ts, asi que si
  * cambian se corrige en un solo lugar.
  *
- * Aqui NO se dice como se paga (ni SINPE ni WhatsApp): solo "se paga desde la
- * app", para que el texto siga siendo cierto si en la version de Google Play el
- * pago termina siendo por el sistema de pagos de Google.
+ * Pro se paga con una suscripcion mensual de Google Play (desde el 3-oct), que
+ * se renueva sola hasta que se cancela en Google Play. El sitio no menciona
+ * otros medios de pago.
  */
 
 type Celda = boolean | string;
@@ -38,7 +38,7 @@ const filas: { que: string; gratis: Celda; premium: Celda }[] = [
       <p>Todo a mano, con la analítica básica.</p>
     </div>
     <div class="plan plan-premium">
-      <h3>Premium</h3>
+      <h3>Neto Smart Pro</h3>
       <p class="plan-precio">{sitio.precioPremium}</p>
       <p>Lo hace solo. {sitio.diasPrueba} días de prueba, sin tarjeta.</p>
     </div>
@@ -46,12 +46,12 @@ const filas: { que: string; gratis: Celda; premium: Celda }[] = [
 
   <div class="tabla-envoltura" tabindex="0" role="region" aria-label="Comparación de planes">
     <table class="precios-tabla" role="table">
-      <caption class="solo-lectores">Qué incluye el plan Gratis y qué incluye Premium</caption>
+      <caption class="solo-lectores">Qué incluye el plan Gratis y qué incluye Pro</caption>
       <thead role="rowgroup">
         <tr role="row">
           <th scope="col" role="columnheader">Qué hace</th>
           <th scope="col" role="columnheader">Gratis</th>
-          <th scope="col" role="columnheader" class="col-premium">Premium</th>
+          <th scope="col" role="columnheader" class="col-premium">Pro</th>
         </tr>
       </thead>
       <tbody role="rowgroup">
@@ -71,7 +71,7 @@ const filas: { que: string; gratis: Celda; premium: Celda }[] = [
                   <span class="no">No</span>
                 )}
               </td>
-              <td role="cell" data-label="Premium" class="col-premium">
+              <td role="cell" data-label="Pro" class="col-premium">
                 {typeof f.premium === 'string' ? (
                   f.premium
                 ) : f.premium ? (
@@ -95,22 +95,24 @@ const filas: { que: string; gratis: Celda; premium: Celda }[] = [
       <strong>{sitio.diasPrueba} días de prueba, sin tarjeta.</strong> Una por
       persona: para eso se pide la cédula, y no se guarda el número (más en la
       <a href="/privacidad#cedula">política de privacidad</a>). La prueba se te
-      ofrece al terminar la configuración inicial.
+      ofrece al terminar la configuración inicial, y al terminar no se cobra
+      nada solo: si no te suscribís, seguís en el plan gratis.
     </li>
     <li>
       <strong>El precio queda fijo para tu cuenta.</strong> Si un día sube, solo
       lo pagan las cuentas nuevas.
     </li>
     <li>
-      <strong>Sin cobro automático ni renovación sorpresa.</strong> Cada mes lo
-      renovás vos, a propósito.
+      <strong>Se paga con Google Play, mes a mes.</strong> La suscripción se
+      renueva sola cada mes hasta que la cancelés, cuando querás, en Google
+      Play → Pagos y suscripciones. Si la cancelás, Pro sigue hasta el final
+      del mes que ya pagaste.
     </li>
     <li>
-      <strong>Si Premium vence, no se borra nada.</strong> Volvés al plan gratis
+      <strong>Si Pro vence, no se borra nada.</strong> Volvés al plan gratis
       con todo tu historial. Si tenías varios carros, escogés con cuál seguís;
       los otros quedan guardados y vuelven si renovás. Un turno que empezó con
-      Premium termina con Premium.
+      Pro termina con Pro.
     </li>
-    <li>Se paga desde la app.</li>
   </ul>
 </div>

@@ -11,12 +11,16 @@ hay que cambiar está en **un solo archivo**: `src/config/site.ts`.
 
 ## 0. Antes de publicar nada
 
-**La app y el sitio salen juntos, cuando la app esté publicada en Google Play.**
-Hasta entonces:
+**El sitio se publica ya; los enlaces se reparten cuando la app esté en
+Google Play para todo el público.** Google Play pide, para revisar la app, la
+política de privacidad (`/privacidad`) y la página para borrar la cuenta
+(`/borrar-cuenta`) en un sitio que funcione. Por eso:
 
-- no publiques el sitio en Cloudflare (sección 5),
-- no conectes el dominio (sección 6),
-- no repartas ningún enlace (`ENLACES.md`).
+- publicá el sitio en Cloudflare (sección 5) y conectá el dominio (sección 6)
+  ahora,
+- pero no repartas ningún enlace (`ENLACES.md`) hasta que la app esté en
+  producción: antes de eso el botón de descarga lleva a una ficha que la gente
+  todavía no puede ver.
 
 Lo que falta antes de ese día está en **[PENDIENTES.md](PENDIENTES.md)**, en
 orden de qué bloquea qué. Leelo primero.
@@ -54,10 +58,10 @@ Para cerrarlo, en la terminal apretá `Ctrl + C`.
 
 | Qué querés cambiar | Archivo |
 | --- | --- |
-| Precio de Premium, días de prueba, minutos de espera, correo, número de WhatsApp, nombre del responsable, dominio, enlaces a las tiendas | `src/config/site.ts` |
+| Precio de Pro, días de prueba, minutos de espera, correo, número de WhatsApp, nombre del responsable, dominio, enlaces a las tiendas | `src/config/site.ts` |
 | Los grupos de WhatsApp y Facebook que se están midiendo | `src/config/canales.ts` |
 | El texto del inicio (titular, ejemplo, tarjetas, preguntas) | `src/components/Landing.astro` |
-| La tabla de Gratis contra Premium | `src/components/Precios.astro` |
+| La tabla de Gratis contra Pro | `src/components/Precios.astro` |
 | La página de descarga | `src/pages/descargar.astro` |
 | Privacidad, accesibilidad, términos, soporte, borrar cuenta | `src/pages/*.astro` |
 | Colores y tipografía | `src/styles/global.css` |
@@ -67,7 +71,7 @@ Para cerrarlo, en la terminal apretá `Ctrl + C`.
 Los textos están dentro de las etiquetas `<p>`, `<h1>`, `<h2>`, etc. Se cambia lo
 que está entre las etiquetas, sin tocar las etiquetas.
 
-### Cambiar el precio de Premium
+### Cambiar el precio de Pro
 
 1. Abrí `src/config/site.ts`.
 2. Buscá la línea `precioPremium: '₡2.500 al mes',`.
@@ -78,7 +82,8 @@ que está entre las etiquetas, sin tocar las etiquetas.
 El inicio, descargar, las preguntas frecuentes y los términos toman el precio de
 ahí, así que cambia en todos lados a la vez.
 
-**Ojo:** esto cambia lo que dice el sitio, **no lo que cobra la app**. Y los
+**Ojo:** esto cambia lo que dice el sitio, **no lo que cobra la app**. Lo que
+se cobra es el precio de la suscripción en Play Console. Y los
 términos dicen que el precio queda fijo para cada cuenta que ya existe: si lo
 subís, tiene que subir solo para las cuentas nuevas.
 
@@ -96,8 +101,7 @@ git push
 
 ## 5. Publicarlo en Cloudflare Pages (la primera vez)
 
-**No hagas esto hasta que la app esté en Google Play** (sección 0). Se hace una
-sola vez.
+Se hace una sola vez.
 
 1. Entrá a <https://dash.cloudflare.com> y creá una cuenta gratis si no tenés.
 2. En el menú de la izquierda, buscá **Workers & Pages**.
@@ -110,6 +114,8 @@ sola vez.
    - **Build command**: `npm run build`
    - **Build output directory**: `dist`
    - **Root directory**: dejalo en blanco
+   - **Production branch**: `claude/neto-smart-website-gnhpqy` (es la única
+     rama del repositorio; Cloudflare a veces propone `main`, que no existe)
 7. Botón **Save and Deploy**. Esperá un par de minutos.
 8. Cuando termine, te da una dirección tipo
    `https://netosmart-website.pages.dev`. Abrila: ese ya es el sitio.
@@ -118,28 +124,18 @@ A partir de ahí, cada `git push` vuelve a publicar solo.
 
 ## 6. Conectar el dominio propio
 
-Primero confirmá cuál dominio es tuyo: el correo es `contacto@netosmart.com` y
-el plan de lanzamiento habla de `netosmart.app` (ver PENDIENTES.md, punto 6).
+El dominio es **netosmart.com**: está en Cloudflare (los DNS ya apuntan ahí) y
+`src/config/site.ts` ya lo tiene puesto.
 
-1. En Cloudflare, entrá al proyecto: **Workers & Pages** >
-   **netosmart-website** > pestaña **Custom domains**.
-2. **Set up a domain**, escribí el dominio y seguí los pasos que te indique.
-3. Abrí `src/config/site.ts` y cambiá **la línea del dominio**:
-
-   ```ts
-   dominio: 'https://netosmart-website.pages.dev',
-   ```
-
-   por el dominio de verdad, por ejemplo:
-
-   ```ts
-   dominio: 'https://netosmart.app',
-   ```
-
-4. Subí el cambio (sección 4). Eso arregla solo las direcciones de las tarjetas
-   de WhatsApp, el mapa del sitio y el `robots.txt`.
-5. **Hacelo antes de repartir los enlaces de `ENLACES.md`.** Si el dominio
-   cambia después, hay que repartirlos de nuevo.
+1. **Antes:** Cloudflare → `netosmart.com` → **DNS → Records**. Borrá los dos
+   registros **A** que dejó Spaceship (los de la página de estacionamiento),
+   el de `netosmart.com` y el de `www` si existe. **No toqués** los registros
+   **MX** ni los **TXT**: son los del correo (Email Routing y Brevo).
+2. **Workers & Pages** > **netosmart-website** > pestaña **Custom domains** >
+   **Set up a custom domain** → `netosmart.com` → **Activate domain**.
+   Cloudflare crea solo el registro que hace falta.
+3. Repetí con `www.netosmart.com`.
+4. En unos minutos `https://netosmart.com` abre el sitio, con candado.
 
 ## 7. Prender las estadísticas (Cloudflare Web Analytics)
 

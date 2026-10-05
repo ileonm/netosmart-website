@@ -29,7 +29,7 @@ import { sitio, paquetesLeidos, telefonoLegible } from '../config/site';
             guarda ni manda la imagen.
           </li>
           <li>
-            Con el turno abierto y Premium, la app consulta tu
+            Con el turno abierto y Pro, la app consulta tu
             <strong>GPS seguido</strong> para darse cuenta de que cruzaste una
             caseta, con una notificación fija, y se apaga al cerrar el turno.
             <strong>No guarda por dónde anduviste</strong> ni manda tu ubicación
@@ -45,6 +45,10 @@ import { sitio, paquetesLeidos, telefonoLegible } from '../config/site';
             protegida para que solo vos los podás leer. No se venden ni se usan
             para publicidad. Unos pocos servicios externos reciben lo mínimo que
             necesitan, y están todos nombrados abajo.
+          </li>
+          <li>
+            Te escribimos al correo solo por tu cuenta (códigos y avisos de
+            seguridad) y por Pro. Las novedades, solo si las marcás.
           </li>
           <li>
             Los permisos los podés apagar cuando querás, y la cuenta la borrás
@@ -97,7 +101,9 @@ import { sitio, paquetesLeidos, telefonoLegible } from '../config/site';
         <li>
           Gasolina y cargas: cargas medidas por rayitas del tablero o por monto
           de factura, y, en eléctricos, los kWh, el nivel de la batería al
-          iniciar y al terminar cada carga, y si fue en casa, afuera o gratis.
+          iniciar y al terminar cada carga, y si fue en casa, afuera o gratis. Si
+          llevás la cuenta de la tarjeta de crédito, también si cada carga se
+          pagó con ella.
         </li>
         <li>
           Peajes: monto, y si fue un peaje que la plataforma reintegra o uno que
@@ -120,11 +126,51 @@ import { sitio, paquetesLeidos, telefonoLegible } from '../config/site';
       <h3>2.2 Datos de tu perfil y tu cuenta</h3>
       <p>
         Para guardar y sincronizar tu información entre el teléfono y el
-        servidor, la app crea una cuenta. En el perfil van tu nombre y, si
-        querés, tu cédula o DIMEX (ver la <a href="#cedula">sección 7</a>).
+        servidor, la app crea una cuenta con tu correo y una contraseña. La
+        contraseña no la vemos: se guarda cifrada. En el perfil van tu nombre y
+        apellido, tu teléfono si lo querés poner, y, si querés, tu cédula o
+        DIMEX (ver la <a href="#cedula">sección 7</a>). También se guarda si
+        aceptaste recibir novedades por correo.
       </p>
 
-      <h3>2.3 Datos leídos de la pantalla, de la ubicación y de diagnóstico</h3>
+      <h3>2.3 El teléfono en el que está abierta tu cuenta</h3>
+      <p>
+        Tu cuenta funciona en un teléfono a la vez. Para eso se guarda un
+        identificador que la app inventa al instalarse (no es el número del
+        teléfono, ni el IMEI, ni ningún identificador de publicidad) y la marca
+        y el modelo del teléfono, por ejemplo «Samsung SM-A515F». Cuando la
+        cuenta se abre en otro teléfono, el anterior se cierra solo y te
+        mandamos un correo con la marca y el modelo del nuevo, por si no fuiste
+        vos.
+      </p>
+
+      <h3>2.4 Los correos que te mandamos</h3>
+      <ul>
+        <li>
+          <strong>De tu cuenta:</strong> el código para confirmarla, el código
+          para cambiar la contraseña y el de un correo nuevo.
+        </li>
+        <li>
+          <strong>De seguridad:</strong> cuando cambia tu contraseña y cuando tu
+          cuenta se abre en otro teléfono.
+        </li>
+        <li>
+          <strong>De Pro:</strong> la bienvenida, el aviso de que la prueba o un
+          Pro que no se renueva solo está por terminar, el de que volviste al
+          plan gratis, y el de un problema con el cobro de Google Play.
+        </li>
+        <li>
+          <strong>Novedades:</strong> solo si las marcaste al crear la cuenta o
+          en Mi perfil, y las podés apagar ahí mismo cuando querás.
+        </li>
+      </ul>
+      <p>
+        Salen de <strong>no-reply@netosmart.com</strong>. Para contestarnos,
+        escribí a la dirección de contacto de la <a href="#contacto">sección
+        17</a>.
+      </p>
+
+      <h3>2.5 Datos leídos de la pantalla, de la ubicación y de diagnóstico</h3>
       <p>
         Están explicados cada uno en su sección: la <a href="#pantalla">lectura
         de pantalla</a>, la <a href="#captura">captura de DiDi</a>, la
@@ -137,7 +183,7 @@ import { sitio, paquetesLeidos, telefonoLegible } from '../config/site';
         Neto Smart usa un servicio de accesibilidad de Android
         (<code>AccessibilityService</code>) para leer el texto que aparece en
         pantalla. Es un permiso potente y por eso se explica con precisión. La
-        lectura automática es parte de Premium.
+        lectura automática es parte de Pro.
       </p>
 
       <h3>3.1 De cuáles aplicaciones lee</h3>
@@ -275,9 +321,9 @@ import { sitio, paquetesLeidos, telefonoLegible } from '../config/site';
         </li>
       </ol>
 
-      <h3>5.1 El GPS seguido (con el turno abierto y Premium)</h3>
+      <h3>5.1 El GPS seguido (con el turno abierto y Pro)</h3>
       <p>
-        Con el turno abierto y Premium, un servicio en primer plano recibe el GPS
+        Con el turno abierto y Pro, un servicio en primer plano recibe el GPS
         seguido: <strong>una posición por segundo</strong> cuando estás cerca de
         una caseta, y <strong>una cada diez segundos</strong> cuando estás
         lejos. Es para darse cuenta de que cruzaste una caseta apenas pasa.
@@ -335,7 +381,7 @@ import { sitio, paquetesLeidos, telefonoLegible } from '../config/site';
       <ul>
         <li>
           Es <strong>opcional</strong> en el perfil. Se pide para la prueba
-          gratis de Premium, que es una por persona.
+          gratis de Pro, que es una por persona.
         </li>
         <li>
           <strong>No se guarda el número.</strong> Se guarda una huella cifrada
@@ -376,7 +422,8 @@ import { sitio, paquetesLeidos, telefonoLegible } from '../config/site';
       </p>
       <p>
         Lo que anotás sin conexión queda en el teléfono y se sincroniza cuando
-        vuelve la señal.
+        vuelve la señal. Todo lo que viaja entre la app y el servidor va
+        cifrado.
       </p>
 
       <h2 id="terceros">10. Servicios de terceros</h2>
@@ -404,10 +451,12 @@ import { sitio, paquetesLeidos, telefonoLegible } from '../config/site';
               <td role="cell" data-label="Servicio">Anthropic (Claude)</td>
               <td role="cell" data-label="Para qué">
                 Buscar la capacidad del tanque o de la batería de un modelo, y
-                los precios de combustible y de luz.
+                mantener al día los precios de combustible y de luz y las
+                tarifas de los peajes.
               </td>
               <td role="cell" data-label="Qué recibe">
-                Solo marca, modelo, año y tipo de energía. Ningún dato personal.
+                De tu cuenta, solo marca, modelo, año y tipo de energía del carro
+                que buscás. Ningún dato personal.
               </td>
             </tr>
             <tr role="row">
@@ -434,6 +483,36 @@ import { sitio, paquetesLeidos, telefonoLegible } from '../config/site';
               </td>
             </tr>
             <tr role="row">
+              <td role="cell" data-label="Servicio">Google Play</td>
+              <td role="cell" data-label="Para qué">Cobrar la suscripción a Pro.</td>
+              <td role="cell" data-label="Qué recibe">
+                El pago lo hacés directamente con Google. Nosotros no vemos tu
+                tarjeta ni tu cuenta de Google: solo nos llega si la suscripción
+                está activa.
+              </td>
+            </tr>
+            <tr role="row">
+              <td role="cell" data-label="Servicio">RevenueCat</td>
+              <td role="cell" data-label="Para qué">Saber si tu suscripción de Google Play está activa.</td>
+              <td role="cell" data-label="Qué recibe">
+                El identificador de tu cuenta y el historial de compras de la
+                suscripción. No recibe tu nombre ni tu correo.
+              </td>
+            </tr>
+            <tr role="row">
+              <td role="cell" data-label="Servicio">Brevo</td>
+              <td role="cell" data-label="Para qué">Mandar los correos de la <a href="#que-recoge">sección 2.4</a>.</td>
+              <td role="cell" data-label="Qué recibe">Tu correo, tu nombre y el texto del correo que te mandamos.</td>
+            </tr>
+            <tr role="row">
+              <td role="cell" data-label="Servicio">Cloudflare</td>
+              <td role="cell" data-label="Para qué">Publicar este sitio y recibir los correos que nos escribís.</td>
+              <td role="cell" data-label="Qué recibe">
+                Lo propio de servir una página, y los correos que mandás a
+                nuestra dirección de contacto.
+              </td>
+            </tr>
+            <tr role="row">
               <td role="cell" data-label="Servicio">WhatsApp</td>
               <td role="cell" data-label="Para qué">
                 Hablar con soporte, y mandar el diagnóstico o un comprobante de
@@ -455,10 +534,15 @@ import { sitio, paquetesLeidos, telefonoLegible } from '../config/site';
 
       <h2 id="pagos">11. Pagos</h2>
       <p>
-        Premium se paga desde la app. De cada pago la app guarda la fecha, el
-        monto y el plan, y nada de datos de tarjetas ni de cuentas bancarias.
-        Algunos pagos los confirma una persona del equipo antes de activar el
-        plan.
+        Pro se paga desde la app con una suscripción de Google Play. El cobro lo
+        hace Google: nosotros no vemos ni guardamos datos de tu tarjeta ni de tu
+        cuenta de Google. De la suscripción guardamos si está activa, hasta qué
+        fecha y si se renueva sola.
+      </p>
+      <p>
+        Si en algún caso pagás por otro medio acordado con soporte, guardamos la
+        fecha, el monto y la referencia del pago, y nada de cuentas bancarias.
+        Esos pagos se confirman a mano o con el aviso del banco.
       </p>
 
       <h2 id="derechos">12. Tus derechos y cómo borrar la cuenta</h2>
@@ -528,13 +612,20 @@ import { sitio, paquetesLeidos, telefonoLegible } from '../config/site';
             </tr>
             <tr role="row">
               <td role="cell" data-label="Permiso">Notificaciones</td>
-              <td role="cell" data-label="Para qué">Preguntarte por el peaje, el cierre del turno o el lavado.</td>
+              <td role="cell" data-label="Para qué">
+                Preguntarte por el peaje, el cierre del turno o el lavado,
+                avisarte si un viaje quedó sin anotar, y los recordatorios que
+                vos activás.
+              </td>
               <td role="cell" data-label="Si lo apagás">No recibís avisos; la app funciona igual al abrirla.</td>
             </tr>
             <tr role="row">
               <td role="cell" data-label="Permiso">Aparecer encima de otras apps</td>
-              <td role="cell" data-label="Para qué">La burbuja para volver a la app rápido.</td>
-              <td role="cell" data-label="Si lo apagás">No aparece la burbuja; la app funciona igual.</td>
+              <td role="cell" data-label="Para qué">
+                La burbuja para volver a la app rápido, y la tarjeta para
+                contestar lo del peaje sin salir de la app de viajes.
+              </td>
+              <td role="cell" data-label="Si lo apagás">No aparecen la burbuja ni la tarjeta; las preguntas llegan como notificación.</td>
             </tr>
           </tbody>
         </table>

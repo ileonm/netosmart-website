@@ -94,7 +94,7 @@ import { sitio, telefonoLegible, urlWhatsapp } from '../config/site';
         <p>Revisá estas cuatro cosas, en este orden:</p>
         <ol>
           <li>
-            Que tengás Premium. La lectura automática es de Premium: si la prueba
+            Que tengás Pro. La lectura automática es de Pro: si la prueba
             se venció, volvés al plan gratis y las ganancias se anotan a mano.
           </li>
           <li>
@@ -131,7 +131,7 @@ import { sitio, telefonoLegible, urlWhatsapp } from '../config/site';
       <Faq pregunta="No me preguntó por el peaje">
         <p>Para que la app pregunte por un peaje necesita varias cosas:</p>
         <ul>
-          <li>Premium.</li>
+          <li>Pro.</li>
           <li>
             El turno abierto. Mientras está abierto ves una notificación fija
             que dice «Neto Smart está atento a los peajes». Si no la ves, la
@@ -159,7 +159,7 @@ import { sitio, telefonoLegible, urlWhatsapp } from '../config/site';
             Que el lugar esté marcado en <strong>Configuración</strong>. Podés
             tener hasta cinco.
           </li>
-          <li>Que el turno estuviera abierto, y que tengás Premium.</li>
+          <li>Que el turno estuviera abierto, y que tengás Pro.</li>
           <li>
             Que te hayás quedado {sitio.minutosDescanso} minutos. Pasar de largo
             no cuenta.
@@ -172,7 +172,7 @@ import { sitio, telefonoLegible, urlWhatsapp } from '../config/site';
       <Faq pregunta="No me recordó anotar el lavado">
         <p>
           El lavacar tiene que estar marcado en Configuración (hasta cinco),
-          tenés que tener Premium y la ubicación en
+          tenés que tener Pro y la ubicación en
           <strong>Permitir todo el tiempo</strong>, y quedarte
           {sitio.minutosLavacar} minutos. Si no, anotá el lavado a mano.
         </p>
@@ -202,17 +202,16 @@ import { sitio, telefonoLegible, urlWhatsapp } from '../config/site';
         </p>
       </Faq>
 
-      <Faq pregunta="Se me venció Premium">
+      <Faq pregunta="Se me venció Pro">
         <p>
           No se borra nada. Volvés al plan gratis con todo tu historial. Si
           tenías varios carros, escogés con cuál seguís; los otros quedan
-          guardados y vuelven si renovás. Un turno que empezó con Premium
-          termina con Premium.
+          guardados y vuelven si renovás. Un turno que empezó con Pro
+          termina con Pro.
         </p>
         <p>
-          Para renovar, se paga desde la app. No hay cobro automático: cada mes
-          lo renovás vos, a propósito. Si pagaste y no se activó, escribinos con
-          la fecha y el monto.
+          Para volver a Pro: en la app, Configuración → Neto Smart Pro. Si te
+          suscribiste y no se activó, escribinos con la fecha.
         </p>
       </Faq>
 
@@ -225,6 +224,60 @@ import { sitio, telefonoLegible, urlWhatsapp } from '../config/site';
         <p>
           El nombre y la cédula quedan fijos una vez puestos. Para cambiarlos,
           también escribinos.
+        </p>
+      </Faq>
+
+      <Faq pregunta="¿Cómo cancelo Pro?">
+        <p>
+          La suscripción es de Google Play, así que se cancela ahí: abrí la app
+          de Google Play, tocá tu foto arriba a la derecha → Pagos y
+          suscripciones → Suscripciones → Neto Smart → Cancelar.
+        </p>
+        <p>
+          Pro sigue hasta el final del mes que ya pagaste. Borrar la cuenta o
+          desinstalar la app no cancela la suscripción: hay que cancelarla en
+          Google Play.
+        </p>
+      </Faq>
+
+      <Faq pregunta="No me llega el código al correo">
+        <p>
+          Al crear la cuenta o cambiar la contraseña te mandamos un código de 6
+          números desde <strong>no-reply@netosmart.com</strong>. El código viene
+          en el asunto, así que se ve en la notificación sin abrir el correo.
+        </p>
+        <p>
+          Si no aparece en un par de minutos, revisá spam y promociones, y
+          confirmá que escribiste bien el correo. En la app hay un botón para
+          mandar otro código. Cada código sirve por una hora.
+        </p>
+      </Faq>
+
+      <Faq pregunta="Olvidé mi contraseña, o la quiero cambiar">
+        <p>
+          Si no podés entrar: en la pantalla de entrada tocá «¿Olvidaste tu
+          contraseña?», escribí el código que te llega al correo y poné una
+          nueva.
+        </p>
+        <p>
+          Si ya estás adentro: Configuración → Mi perfil → Cambiar contraseña.
+          Cada vez que la contraseña cambia te mandamos un aviso al correo, por
+          si no fuiste vos.
+        </p>
+      </Faq>
+
+      <Faq pregunta="Me sacó de la cuenta: «Tu cuenta se abrió en otro teléfono»">
+        <p>
+          Neto Smart funciona en un teléfono a la vez. Cuando alguien entra con
+          tu cuenta en otro teléfono, el anterior se cierra solo, después de
+          subir lo que tuviera pendiente, y te llega un correo con el modelo del
+          teléfono nuevo.
+        </p>
+        <p>
+          Si fuiste vos (por ejemplo, cambiaste de teléfono o reinstalaste la
+          app), no tenés que hacer nada. Si no fuiste vos, cambiá la contraseña
+          ya con «¿Olvidaste tu contraseña?»: al entrar de nuevo, el otro
+          teléfono se cierra. Y escribinos.
         </p>
       </Faq>
 
