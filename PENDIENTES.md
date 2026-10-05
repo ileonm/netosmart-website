@@ -77,10 +77,24 @@ modelo), cambiar la contraseña, el paso «Leer tus ganancias» de la
 configuración inicial, y Brevo, Google Play, RevenueCat y Cloudflare en la
 tabla de servicios externos.
 
-### 6. Dominio: resuelto
+### 6. Dominio y hosting: el sitio va en Vercel
 
-Es `netosmart.com`. Ya está en `src/config/site.ts` y en `ENLACES.md`. Falta
-solo conectarlo en Cloudflare Pages (README, sección 6).
+El dominio es `netosmart.com`. Ya está en `src/config/site.ts` y en
+`ENLACES.md`. El sitio se publica en **Vercel** (README, sección 5) y el dominio
+se conecta ahí, apuntando el DNS desde Cloudflare (README, sección 6). El DNS y
+el correo se quedan en Cloudflare, y las estadísticas también.
+
+**Falta:** publicar en Vercel y conectar el dominio. El repositorio ya está
+listo: trae `vercel.json` con las cabeceras de seguridad y de caché.
+
+**Una decisión tuya antes de repartir enlaces: el plan de Vercel.** El plan
+gratis (**Hobby**) es, según las condiciones de Vercel, para uso personal y sin
+fines de lucro. Este sitio es el de una app que cobra una suscripción, o sea uso
+comercial, y para eso Vercel pide el plan **Pro** (de pago). Leé las condiciones
+vigentes en vercel.com/legal/terms antes de decidir; no lo resolvimos acá porque
+es una decisión de plata y de cumplimiento tuya. Si preferís no pagar,
+el sitio también se podría publicar en otro hosting estático sin cambiar el
+código, porque es un sitio sin servidor.
 
 ### 7. Token de estadísticas
 
