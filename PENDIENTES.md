@@ -82,11 +82,20 @@ tabla de servicios externos.
 Es `netosmart.com`. Ya está en `src/config/site.ts` y en `ENLACES.md`. Falta
 solo conectarlo en Cloudflare Pages (README, sección 6).
 
-### 7. Token de estadísticas
+### 7. Token de estadísticas: puesto
 
-Sin esto no sabés cuál grupo de WhatsApp o Facebook trajo gente, que es
-justamente lo que se quiere medir en el lanzamiento. Pasos en la sección 7 del
-README. Es gratis y no usa cookies.
+El token de Cloudflare Web Analytics ya está en `tokenAnalytics` de
+`src/config/site.ts`, así que el sitio carga el script de medición. Con eso se
+sabe cuál grupo de WhatsApp o Facebook trajo gente, que es justamente lo que se
+quiere medir en el lanzamiento. Es gratis y no usa cookies.
+
+**Falta comprobarlo una vez publicado:** abrí `https://netosmart.com` en tu
+teléfono y, unos minutos después, mirá Cloudflare > **Analytics & Logs** > **Web
+Analytics**: tiene que aparecer una visita. Para ver que se separen los grupos,
+abrí también `https://netosmart.com/g/wa-grupo-1` y confirmá que aparece como
+otra página. Si a la hora no aparece nada, revisá que el nombre del sitio en
+Cloudflare sea exactamente `netosmart.com`. Pasos de referencia en la sección 7
+del README.
 
 ### 8. Alguien tiene que contestar el WhatsApp de soporte
 

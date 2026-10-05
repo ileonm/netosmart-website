@@ -94,7 +94,7 @@ export const sitio = {
    * Se saca en el panel de Cloudflare: Analytics -> Web Analytics.
    * Mientras sea null, el sitio no carga ningun script de medicion.
    */
-  tokenAnalytics: PENDIENTE as string | null,
+  tokenAnalytics: '44ec51eca021444a83f4c28feebd6d2b' as string | null,
 
   /** Fecha de la ultima revision de las paginas legales. */
   fechaLegal: '5 de octubre de 2026',

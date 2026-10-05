@@ -139,6 +139,9 @@ El dominio es **netosmart.com**: está en Cloudflare (los DNS ya apuntan ahí) y
 
 ## 7. Prender las estadísticas (Cloudflare Web Analytics)
 
+**Ya está hecho:** el token está puesto en `src/config/site.ts`. Esta sección queda
+por si algún día hay que cambiarlo (por ejemplo, si cambia el dominio).
+
 Es gratis, no usa cookies y no identifica a nadie, así que no hace falta el
 cartelito de cookies.
 
@@ -191,9 +194,12 @@ pasos de cada cosa. Incluye cómo poner las capturas de la app.
 
 - Astro 5, TypeScript en modo estricto, sin framework de UI.
 - CSS propio, sin Tailwind. El CSS va incrustado en cada página.
-- **Cero JavaScript en el navegador.** Las preguntas frecuentes usan
-  `<details>` nativo. El sitio se lee completo con JavaScript apagado.
-- Tipografía del sistema, sin fuentes externas ni peticiones a otros dominios.
+- **Cero JavaScript propio.** Las preguntas frecuentes usan `<details>` nativo.
+  El sitio se lee completo con JavaScript apagado. La única excepción es el
+  script de Cloudflare Web Analytics (`static.cloudflareinsights.com`), que se
+  carga con `defer` solo si hay token en `site.ts` y que no usa cookies.
+- Tipografía del sistema, sin fuentes externas. La única petición a otro
+  dominio es la de las estadísticas de Cloudflare.
 - Cada página pesa entre 22 y 52 KB ya con el CSS adentro (el inicio es la más
   pesada). La única imagen de la primera carga es el logo, de unos 4 KB.
 - Lighthouse en móvil: 100 en rendimiento, accesibilidad, buenas prácticas y
