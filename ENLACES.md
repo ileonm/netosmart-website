@@ -17,7 +17,7 @@ Copiá el enlace de la fila que corresponda y pegalo en ese grupo. Nada más.
 ## Los enlaces
 
 > Estos enlaces usan el dominio propio, `netosmart.com`. Funcionan cuando el
-> dominio esté conectado en Vercel (secciones 5 y 6 del README).
+> dominio esté conectado en Cloudflare Pages (sección 6 del README).
 
 | Dónde lo vas a pegar | Enlace para copiar |
 | --- | --- |

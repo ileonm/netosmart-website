@@ -12,9 +12,9 @@ export const sitio = {
   nombre: 'Neto Smart',
 
   /**
-   * DOMINIO. netosmart.com (comprado en Spaceship, DNS en Cloudflare, sitio
-   * publicado en Vercel). Si algun dia cambia, se cambia SOLO esta linea (y en
-   * Vercel se agrega el dominio nuevo en Settings -> Domains).
+   * DOMINIO. netosmart.com (comprado en Spaceship, DNS en Cloudflare). Si
+   * algun dia cambia, se cambia SOLO esta linea (y en Cloudflare Pages se
+   * agrega el dominio personalizado).
    */
   dominio: 'https://netosmart.com',
 

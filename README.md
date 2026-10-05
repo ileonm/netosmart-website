@@ -16,7 +16,7 @@ Google Play para todo el público.** Google Play pide, para revisar la app, la
 política de privacidad (`/privacidad`) y la página para borrar la cuenta
 (`/borrar-cuenta`) en un sitio que funcione. Por eso:
 
-- publicá el sitio en Vercel (sección 5) y conectá el dominio (sección 6)
+- publicá el sitio en Cloudflare (sección 5) y conectá el dominio (sección 6)
   ahora,
 - pero no repartas ningún enlace (`ENLACES.md`) hasta que la app esté en
   producción: antes de eso el botón de descarga lleva a una ficha que la gente
@@ -89,7 +89,7 @@ subís, tiene que subir solo para las cuentas nuevas.
 
 ## 4. Subir los cambios
 
-Cada vez que se sube un cambio a GitHub, Vercel vuelve a publicar el sitio
+Cada vez que se sube un cambio a GitHub, Cloudflare vuelve a publicar el sitio
 solo, en un par de minutos. No hay que hacer nada más. (Si todavía no lo
 publicaste por primera vez, ver la sección 0.)
 
@@ -99,97 +99,54 @@ git commit -m "Cambié tal cosa"
 git push
 ```
 
-## 5. Publicarlo en Vercel (la primera vez)
+## 5. Publicarlo en Cloudflare Pages (la primera vez)
 
-Se hace una sola vez. El sitio se publica en **Vercel**; el dominio y el correo
-siguen en Cloudflare (sección 6). El archivo `vercel.json` ya trae todo lo que
-Vercel necesita (cómo se construye el sitio, de dónde sale y las cabeceras de
-seguridad), así que no hay que configurar nada a mano.
+Se hace una sola vez.
 
-1. Entrá a <https://vercel.com> y tocá **Sign Up**. Escogé **Continue with
-   GitHub**, así Vercel ve tus repositorios sin otra contraseña.
-2. En el panel, botón **Add New...** y luego **Project**.
-3. En la lista **Import Git Repository** buscá **netosmart-website** y tocá
-   **Import**. Si no aparece, tocá **Adjust GitHub App Permissions** y dale
-   acceso a ese repositorio.
-4. En la pantalla de configuración:
-   - **Framework Preset**: tiene que decir `Astro` (lo detecta solo).
-   - **Build Command**, **Output Directory** e **Install Command**: dejalos como
-     están. Vienen de `vercel.json` (`npm run build` y `dist`).
-   - **Root Directory**: dejalo en blanco.
-5. Botón **Deploy**. Esperá un par de minutos.
-6. Cuando termine, te muestra una dirección tipo
-   `https://netosmart-website.vercel.app`. Abrila: ese ya es el sitio.
-7. **Revisá la rama de producción.** Entrá al proyecto y andá a **Settings** >
-   **Git** > **Production Branch**. Tiene que decir
-   `claude/neto-smart-website-gnhpqy`, que es la única rama del repositorio. Si
-   dice otra cosa, cambiala y tocá **Save**. De esa rama sale lo que ve la
-   gente; cualquier otra rama que algún día se cree queda como vista previa.
+1. Entrá a <https://dash.cloudflare.com> y creá una cuenta gratis si no tenés.
+2. En el menú de la izquierda, buscá **Workers & Pages**.
+3. Botón **Create** y luego la pestaña **Pages**.
+4. **Connect to Git**. Cloudflare te va a pedir permiso para ver tus
+   repositorios de GitHub. Dáselo.
+5. Escogé el repositorio **netosmart-website**.
+6. En la pantalla de configuración poné exactamente esto:
+   - **Framework preset**: `Astro`
+   - **Build command**: `npm run build`
+   - **Build output directory**: `dist`
+   - **Root directory**: dejalo en blanco
+   - **Production branch**: `claude/neto-smart-website-gnhpqy` (es la única
+     rama del repositorio; Cloudflare a veces propone `main`, que no existe)
+7. Botón **Save and Deploy**. Esperá un par de minutos.
+8. Cuando termine, te da una dirección tipo
+   `https://netosmart-website.pages.dev`. Abrila: ese ya es el sitio.
 
-A partir de ahí, cada `git push` a esa rama vuelve a publicar solo.
-
-**Ojo con el plan.** El plan gratis de Vercel (**Hobby**) es, según sus
-condiciones, para uso personal y sin fines de lucro. Un sitio de una app que
-cobra una suscripción es un uso comercial, y para eso Vercel pide el plan
-**Pro** (de pago). Lo escribimos en PENDIENTES.md para que lo decidas con las
-condiciones vigentes a la vista antes de repartir los enlaces.
+A partir de ahí, cada `git push` vuelve a publicar solo.
 
 ## 6. Conectar el dominio propio
 
-El dominio es **netosmart.com**. Se compró en Spaceship, **los DNS están en
-Cloudflare** (ahí también está el correo) y `src/config/site.ts` ya lo tiene
-puesto. Primero se le dice a Vercel que el dominio es suyo y después se apunta
-el DNS en Cloudflare.
+El dominio es **netosmart.com**: está en Cloudflare (los DNS ya apuntan ahí) y
+`src/config/site.ts` ya lo tiene puesto.
 
-**En Vercel**
-
-1. Proyecto **netosmart-website** > **Settings** > **Domains**.
-2. Escribí `netosmart.com` y tocá **Add**. Escogé la opción recomendada, la que
-   deja a `netosmart.com` como dirección principal.
-3. Escribí `www.netosmart.com` y tocá **Add**. Escogé **Redirect to
-   netosmart.com**, para que `www` lleve siempre a la dirección sin `www`.
-4. Vercel va a mostrar, para cada dominio, un cartel rojo de **Invalid
-   Configuration** con los registros DNS que faltan. Dejá esa pantalla abierta:
-   los valores exactos están ahí.
-
-**En Cloudflare** (<https://dash.cloudflare.com> > `netosmart.com` > **DNS** >
-**Records**)
-
-5. Borrá los dos registros **A** que dejó Spaceship (los de la página de
-   estacionamiento): el de `netosmart.com` y el de `www` si existe.
-6. Creá los registros que Vercel te indicó en el paso 4. Lo normal es un
-   registro **A** para `netosmart.com` y un **CNAME** para `www`. Copiá el valor
-   tal cual lo muestra Vercel.
-7. En cada uno, el **Proxy status** tiene que decir **DNS only** (la nube
-   **gris**, no la naranja). Con la nube naranja, el certificado de Vercel no se
-   puede emitir bien.
-8. **No toqués los registros MX ni los TXT.** Son los del correo (Cloudflare
-   Email Routing) y los de Brevo. Si se borran, deja de llegar y de salir el
-   correo.
-
-**Para terminar**
-
-9. Volvé a Vercel > **Settings** > **Domains** y esperá a que los dos dominios
-   muestren **Valid Configuration**. Puede tardar unos minutos.
-10. Abrí `https://netosmart.com`: tiene que mostrar el sitio, con candado. Abrí
-    también `https://www.netosmart.com` y comprobá que te lleva a
-    `https://netosmart.com`.
+1. **Antes:** Cloudflare → `netosmart.com` → **DNS → Records**. Borrá los dos
+   registros **A** que dejó Spaceship (los de la página de estacionamiento),
+   el de `netosmart.com` y el de `www` si existe. **No toqués** los registros
+   **MX** ni los **TXT**: son los del correo (Email Routing y Brevo).
+2. **Workers & Pages** > **netosmart-website** > pestaña **Custom domains** >
+   **Set up a custom domain** → `netosmart.com` → **Activate domain**.
+   Cloudflare crea solo el registro que hace falta.
+3. Repetí con `www.netosmart.com`.
+4. En unos minutos `https://netosmart.com` abre el sitio, con candado.
 
 ## 7. Prender las estadísticas (Cloudflare Web Analytics)
 
-Las estadísticas siguen siendo de **Cloudflare Web Analytics**, aunque el sitio
-esté en Vercel: funciona en cualquier hosting porque es un pequeño script que se
-carga desde Cloudflare. Es gratis, no usa cookies y no identifica a nadie, así
-que no hace falta el cartelito de cookies.
+Es gratis, no usa cookies y no identifica a nadie, así que no hace falta el
+cartelito de cookies.
 
 1. En Cloudflare, menú **Analytics & Logs** > **Web Analytics**.
-2. **Add a site** y poné `netosmart.com` como dirección (**Hostname**).
-3. Si Cloudflare te ofrece una instalación automática, no la uses: esa solo
-   funciona con la nube naranja y acá el DNS está en gris. Escogé la opción del
-   código para copiar (**Manage site** > **JS Snippet**).
-4. Cloudflare te muestra un código. Dentro de ese código hay un **token**: una
+2. **Add a site**, poné la dirección del sitio.
+3. Cloudflare te muestra un código. Dentro de ese código hay un **token**: una
    tira larga de letras y números.
-5. Abrí `src/config/site.ts` y cambiá:
+4. Abrí `src/config/site.ts` y cambiá:
 
    ```ts
    tokenAnalytics: PENDIENTE as string | null,
@@ -201,17 +158,8 @@ que no hace falta el cartelito de cookies.
    tokenAnalytics: 'acá va el token que te dio Cloudflare' as string | null,
    ```
 
-6. Subí el cambio. Mientras el token sea `PENDIENTE`, el sitio no carga ningún
+5. Subí el cambio. Mientras el token sea `PENDIENTE`, el sitio no carga ningún
    script de medición.
-7. Un par de minutos después de publicarlo, abrí el sitio en tu teléfono y mirá
-   el panel de Web Analytics: tiene que aparecer una visita. Si a la hora no
-   aparece nada, revisá que el token esté bien copiado y que el nombre del sitio
-   en Cloudflare sea exactamente `netosmart.com`.
-
-El script que carga el sitio es `static.cloudflareinsights.com/beacon.min.js`.
-Vercel no le pone ninguna política de seguridad que lo bloquee (`vercel.json`
-no define `Content-Security-Policy`). Si algún día se agrega una, hay que
-permitirle a ese dominio y a `cloudflareinsights.com`.
 
 ## 8. Saber cuál grupo trae gente
 
@@ -256,12 +204,8 @@ pasos de cada cosa. Incluye cómo poner las capturas de la app.
   porque una tabla que obliga a desplazarse de lado no pasa ese criterio.
 - Los datos del negocio viven en `src/config/site.ts`. Lo que depende de un
   número (precio, días, minutos) se escribe ahí una vez y las páginas lo toman.
-- `vercel.json` define cómo se construye el sitio (`npm run build`, salida en
-  `dist/`) y las cabeceras de seguridad y de caché que aplica Vercel. Antes
-  estaban en `public/_headers`, que es un formato de Cloudflare Pages y Vercel
-  ignora. `cleanUrls` y `trailingSlash: false` hacen que las páginas se abran
-  sin barra al final (`/privacidad`), igual que las direcciones canónicas del
-  sitio. No hay adaptador de Astro: es un sitio estático.
+- `public/_headers` define las cabeceras de seguridad y de caché que aplica
+  Cloudflare Pages.
 - El logo es el mismo icono de la app. Los originales están en `src/marca/` y de
   ahí salen todas las imágenes.
 - `herramientas/generar-imagenes.mjs` vuelve a generar `og.png`, los iconos y el
