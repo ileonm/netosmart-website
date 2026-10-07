@@ -167,7 +167,7 @@ Son pantallas reales de la app, no dibujos. Estado:
 
 | Pantalla | Estado | Dónde va |
 | --- | --- | --- |
-| **Pro** (la pantalla de Premium), con la prueba de 14 días | **Lista, pero vieja: todavía dice «Premium». Hay que sacarla de nuevo** (`public/capturas/premium.webp`) | En «Lo que hace», a la derecha |
+| **Pro**, con la prueba de 14 días | **Lista, ya con el nombre Pro** (`public/capturas/premium.webp`, con la barra de Android dibujada) | En «Lo que hace», a la derecha |
 | **Hoy**, con el neto del día a la vista | **Lista** (`public/capturas/turno-hoy.webp`), con el nombre del saludo tapado | Junto a «Cómo funciona» |
 | **Mi garaje** (la lista de carros) | **Lista** (`public/capturas/mi-garaje.webp`), con las placas y el aceite tapados | En «Lo que hace», a la izquierda |
 | La pregunta **«¿Quién lo paga?»** del peaje de InDrive, con sus tres botones | Opcional | Junto al diagrama de peajes |
@@ -239,9 +239,9 @@ inicio.
 dos de teléfono, y un gráfico destacado de 1024 por 500. Se pueden reusar estas
 mismas.
 
-**Tres cosas que se ven en la captura de Premium** y conviene revisar en la app
+**Dos cosas que se ven en las capturas de Pro y de Mi garaje** y conviene revisar en la app
 (el sitio las muestra tal cual):
-- Los montos salen con coma: **«₡2,500»** en Premium y **«₡2,828 por barra»** en
+- Los montos salen con coma: **«₡2,500»** en Pro y **«₡2,828 por barra»** en
   Mi garaje. El sitio usa **«₡2.500»**, con punto, que es el formato de Costa
   Rica. Y en la misma pantalla de Mi garaje el kilometraje sale con punto
   (por ejemplo, **«123.456 km»**), así que la app mezcla los dos formatos. Conviene que diga lo
@@ -249,10 +249,9 @@ mismas.
 - La tarjeta **«El turno se cierra al llegar a descansar»** empieza con «Y si
   arrancás un viaje sin turno abierto…»: parece que le falta la primera frase
   (la del lugar de descanso).
-- La app dice «Ninguno se te olvida» (peajes) y «ya se paga solo» (el precio).
-  El sitio evita las dos: no promete que ningún peaje se escape, y no dice que
-  Premium se pague solo. Si Google o un conductor las leen literalmente, son
-  frases que se pueden discutir.
+- Resuelto en la captura nueva: la app ya no dice «Ninguno se te olvida» ni «ya
+  se paga solo». Ahora dice «Así no se te escapan» y «Con que te salve un viaje
+  mal anotado o un par de peajes que se te iban a olvidar, ya lo recuperaste».
 
 ### 15. Testimonios de conductores
 
