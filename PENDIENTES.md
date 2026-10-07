@@ -42,16 +42,11 @@ descargar, soporte, términos (6.5) y privacidad (11), con cómo cancelar, y que
 borrar la cuenta no cancela la suscripción. Google Play y RevenueCat están en la
 tabla de servicios externos.
 
-### 4. La dirección de «borrar cuenta» en la ficha de Play
+### 4. La dirección de «borrar cuenta» en la ficha de Play: resuelto (7-oct)
 
-Google exige que la ficha tenga una página web donde se pueda pedir el borrado
-de la cuenta sin tener la app. Esa página ya existe: `/borrar-cuenta`.
-
-**Qué hacer:** en Play Console, donde Google pide la dirección web para eliminar
-la cuenta (en la parte de seguridad de los datos), pegá
-`https://netosmart.com/borrar-cuenta`. Y en el campo de política de privacidad,
-`https://netosmart.com/privacidad`. **El sitio tiene que estar publicado antes
-de mandar la app a revisión.**
+En Play Console, la seguridad de los datos ya tiene
+`https://netosmart.com/borrar-cuenta` como dirección para eliminar la cuenta.
+La política de privacidad va en `https://netosmart.com/privacidad`.
 
 ### 5. El sitio contra la app: revisado el 5-oct
 
@@ -97,18 +92,12 @@ otra página. Si a la hora no aparece nada, revisá que el nombre del sitio en
 Cloudflare sea exactamente `netosmart.com`. Pasos de referencia en la sección 7
 del README.
 
-### 8. Alguien tiene que contestar el WhatsApp de soporte
+### 8. Quién contesta el WhatsApp de soporte: resuelto (7-oct)
 
-Desde ahora el sitio le dice al conductor que escriba al **+506 6342 0635**
-(botón en soporte, y número en el pie). Una pregunta sin respuesta pesa más que
-no tener canal.
-
-- Si ese número es tu teléfono personal, queda **público**: cualquiera puede
-  escribirte. WhatsApp Business (gratis) permite separarlo, y además trae mensaje
-  de ausencia y horario.
-- El sitio no promete tiempo de respuesta («puede tardar un poco, pero llega»).
-  Si decidís uno, se pone en `src/pages/soporte.astro`.
-- Si querés cambiar el número o quitarlo: una línea en `site.ts` (`whatsapp`).
+El **+506 6342 0635** es un número dedicado de WhatsApp Business, no tu teléfono
+personal. El sitio no promete tiempo de respuesta («puede tardar un poco, pero
+llega»); si decidís uno, se pone en `src/pages/soporte.astro`. Para cambiar el
+número: una línea en `site.ts` (`whatsapp`).
 
 ---
 
@@ -161,81 +150,21 @@ archivo.
 
 ## Bloquea que la gente confíe
 
-### 14. Capturas de la app (están las tres principales, y hay una opcional)
+### 14. Capturas de la app: resuelto (7-oct)
 
-Son pantallas reales de la app, no dibujos. Estado:
+Las tres capturas del sitio están puestas y son pantallas reales: **Pro**
+(`premium.webp`), **Hoy** (`turno-hoy.webp`) y **Mi garaje** (`mi-garaje.webp`),
+en `public/capturas/`. Las capturas de la ficha de Google Play también están
+listas.
 
-| Pantalla | Estado | Dónde va |
-| --- | --- | --- |
-| **Pro**, con la prueba de 14 días | **Lista, ya con el nombre Pro** (`public/capturas/premium.webp`, con la barra de Android dibujada) | En «Lo que hace», a la derecha |
-| **Hoy**, con el neto del día a la vista | **Lista** (`public/capturas/turno-hoy.webp`), con el nombre del saludo tapado | Junto a «Cómo funciona» |
-| **Mi garaje** (la lista de carros) | **Lista** (`public/capturas/mi-garaje.webp`), con las placas y el aceite tapados | En «Lo que hace», a la izquierda |
-| La pregunta **«¿Quién lo paga?»** del peaje de InDrive, con sus tres botones | Opcional | Junto al diagrama de peajes |
-
-**Cuál pantalla es «Mi garaje».** Son dos pantallas distintas dentro de lo mismo:
-la **lista** de carros y el **formulario de agregar o editar** un carro. La que
-está puesta es la **lista**: muestra dos carros, uno a gasolina y uno eléctrico,
-el costo por barra o por punto de batería, el aceite y el botón de agregar, así
-que respalda «varios carros» y «eléctricos de verdad». **No muestra la placa
-llenando los datos**, que es lo que dice la otra frase de la tarjeta («con la
-placa intentamos llenarte los datos»). Si algún día querés mostrar eso, hace
-falta una captura del **formulario** ya lleno a partir de una placa.
-
-**Los datos reales de esa captura están tapados.** La captura original traía dos
-placas reales y la fecha y el kilometraje del aceite. Se taparon con barras
-sólidas (no con desenfoque, que a veces se puede deshacer), y la original **no
-está en el repositorio**: solo está la versión tapada. Siguen visibles las
-marcas y modelos, los costos y el resto de la pantalla. Si preferís que no se
-vean barras, sacá la captura de nuevo con un carro de prueba y la reemplazamos.
-
-**Las tres capturas tienen la misma forma de teléfono (1440 por 3120) y la barra
-de estado de Android está dibujada, no capturada.** Para que se vean como un
-teléfono real, se les agregó arriba la hora, la señal, el wifi, la batería y el
-punto de la cámara. Es decoración: la hora (10:35) y la batería son fijas, no
-vienen de tu teléfono. Lo de adentro de cada pantalla sí es real. Si algún día
-sacás las capturas con la barra de estado incluida, se pueden reemplazar tal
-cual y se quita el dibujo.
-
-**La captura de «Hoy».** Es la pantalla de inicio con el turno ya cerrado: el
-neto en grande, el bruto, las horas, lo que sale por hora, lo de cada app y los
-gastos desglosados. Se tapó con una barra sólida **solo tu nombre** del saludo
-(«Buenas noches, ...»); la original no está en el repositorio. **Ojo con dos
-cosas que sí se ven:** los montos son de un día real (₡22,769 de neto) y sale el
-modelo del carro, sin placa. Si no querés mostrar montos tuyos, sacala de nuevo
-con datos de prueba.
-
-**Cómo ponerlas, paso a paso:**
-1. Sacá la captura en el teléfono, con datos de prueba (no tu placa ni tus
-   montos reales), en modo claro y con la barra de estado limpia. Recortá la
-   barra de arriba y la de abajo para que quede casi 1 de ancho por 2 de alto.
-2. Pasala a WebP (cualquier convertidor en línea sirve) a 516 píxeles de ancho, y
-   guardala en `public/capturas/` con un nombre sin tildes ni espacios:
-   `turno-hoy.webp`, `mi-garaje.webp`.
-3. Abrí `src/components/Landing.astro` y buscá el bloque `<Marcador ... />` de
-   esa pantalla.
-4. Cambialo por esto, con el nombre del archivo y la altura que le toque (el
-   alto sale de la proporción real de tu imagen; con 516 de ancho y 1015 de alto
-   son 258 por 508):
-
-   ```astro
-   <img
-     src="/capturas/mi-garaje.webp"
-     width="258"
-     height="508"
-     loading="lazy"
-     alt="Describí acá lo que se ve en la pantalla"
-   />
-   ```
-5. Guardá y subí el cambio (sección 4 del README).
-
-El texto de `alt` es lo que escucha una persona con lector de pantalla: describí
-lo que se ve, no «captura de pantalla». Si los montos de la captura son de
-ejemplo, agregá al lado una nota «datos de ejemplo», como la del resumen del
-inicio.
-
-**Google Play pide además sus propias capturas** para publicar la ficha: mínimo
-dos de teléfono, y un gráfico destacado de 1024 por 500. Se pueden reusar estas
-mismas.
+- En «Hoy» se ven montos de un día real (₡22,769 de neto) y el modelo del carro,
+  sin placa ni nombre. Se dejan así, a propósito.
+- En «Mi garaje» las placas y el aceite están tapados con barras sólidas; las
+  originales no están en el repositorio.
+- La barra de estado de Android de las tres está dibujada (hora y batería fijas).
+- **Opcional:** la pregunta «¿Quién lo paga?» del peaje de InDrive, junto al
+  diagrama de peajes. Si la agregás, copiá el `<img>` de otra captura en
+  `src/components/Landing.astro`.
 
 ### 15. Testimonios de conductores
 
