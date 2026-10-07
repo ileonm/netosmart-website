@@ -237,15 +237,6 @@ inicio.
 dos de teléfono, y un gráfico destacado de 1024 por 500. Se pueden reusar estas
 mismas.
 
-**Una cosa que se ve en la captura de Pro** y conviene revisar en la app (el sitio
-muestra la captura tal cual; la tarjeta del sitio con ese nombre está bien):
-- En la captura, la tarjeta **«El turno se cierra al llegar a descansar»** empieza con «Y si
-  arrancás un viaje sin turno abierto…»: parece que le falta la primera frase
-  (la del lugar de descanso).
-- Resuelto en la captura nueva: la app ya no dice «Ninguno se te olvida» ni «ya
-  se paga solo». Ahora dice «Así no se te escapan» y «Con que te salve un viaje
-  mal anotado o un par de peajes que se te iban a olvidar, ya lo recuperaste».
-
 ### 15. Testimonios de conductores
 
 **Dónde van:** `src/components/Landing.astro`, sección «Por qué confiar». Hay un
