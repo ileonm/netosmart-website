@@ -202,9 +202,7 @@ gastos desglosados. Se tapó con una barra sólida **solo tu nombre** del saludo
 («Buenas noches, ...»); la original no está en el repositorio. **Ojo con dos
 cosas que sí se ven:** los montos son de un día real (₡22,769 de neto) y sale el
 modelo del carro, sin placa. Si no querés mostrar montos tuyos, sacala de nuevo
-con datos de prueba. Además, esta pantalla escribe los montos con coma
-(₡22,769) y el sitio los escribe con punto (₡22.769): es el mismo detalle de
-formato de la app que está anotado más abajo.
+con datos de prueba.
 
 **Cómo ponerlas, paso a paso:**
 1. Sacá la captura en el teléfono, con datos de prueba (no tu placa ni tus
@@ -239,14 +237,9 @@ inicio.
 dos de teléfono, y un gráfico destacado de 1024 por 500. Se pueden reusar estas
 mismas.
 
-**Dos cosas que se ven en las capturas de Pro y de Mi garaje** y conviene revisar en la app
-(el sitio las muestra tal cual):
-- Los montos salen con coma: **«₡2,500»** en Pro y **«₡2,828 por barra»** en
-  Mi garaje. El sitio usa **«₡2.500»**, con punto, que es el formato de Costa
-  Rica. Y en la misma pantalla de Mi garaje el kilometraje sale con punto
-  (por ejemplo, **«123.456 km»**), así que la app mezcla los dos formatos. Conviene que diga lo
-  mismo en todos lados.
-- La tarjeta **«El turno se cierra al llegar a descansar»** empieza con «Y si
+**Una cosa que se ve en la captura de Pro** y conviene revisar en la app (el sitio
+muestra la captura tal cual; la tarjeta del sitio con ese nombre está bien):
+- En la captura, la tarjeta **«El turno se cierra al llegar a descansar»** empieza con «Y si
   arrancás un viaje sin turno abierto…»: parece que le falta la primera frase
   (la del lugar de descanso).
 - Resuelto en la captura nueva: la app ya no dice «Ninguno se te olvida» ni «ya
