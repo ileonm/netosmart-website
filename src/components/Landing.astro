@@ -19,7 +19,7 @@ const ejemplo = {
     { concepto: 'Gasolina (unos 17 litros)', monto: 13500 },
     { concepto: 'Peajes que pagaste vos', monto: 1800 },
     { concepto: 'Apartado de mantenimiento y llantas', monto: 4200 },
-    { concepto: 'Desgaste del carro', monto: 5300 },
+    { concepto: 'Costos fijos (seguro, marchamo, la cuota del carro)', monto: 5300 },
   ],
 };
 const totalGastos = ejemplo.gastos.reduce((s, g) => s + g.monto, 0);
@@ -237,6 +237,13 @@ const porHora = Math.round(neto / ejemplo.horas);
         <h3>Funciona sin señal</h3>
         <p>
           Lo que anotás manejando queda guardado en el teléfono y se sincroniza cuando vuelve la conexión.
+        </p>
+      </div>
+      <div class="tarjeta ancha">
+        <div class="icono-caja"><Icono nombre="neto" /></div>
+        <h3>Lo que el carro te cuesta aunque no lo veás</h3>
+        <p>
+          El seguro, el marchamo y la cuota del carro, si lo estás pagando, se reparten entre los días que trabajás. Los días que no trabajás no cargan nada. Tu neto se ve más bajo, pero es el de verdad, y en Hoy ves también cuánto te quedó en la bolsa sin contarlos.
         </p>
       </div>
     </div>

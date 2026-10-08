@@ -532,6 +532,11 @@ section.apretada { padding: 2rem 0; }
 @media (min-width: 900px) {
   .rejilla.tres { grid-template-columns: repeat(3, 1fr); }
 }
+/* Una tarjeta suelta al final de la rejilla ocupa toda la fila, para que no
+   quede una sola a medias. */
+@media (min-width: 620px) {
+  .rejilla > .tarjeta.ancha { grid-column: 1 / -1; }
+}
 
 .tarjeta {
   position: relative;

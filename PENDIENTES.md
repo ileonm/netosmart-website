@@ -161,6 +161,11 @@ listas.
   sin placa ni nombre. Se dejan así, a propósito.
 - En «Mi garaje» las placas y el aceite están tapados con barras sólidas; las
   originales no están en el repositorio.
+- La de **Pro** ya muestra **₡2.500**, con punto de miles, como la app desde la
+  v3.11.145 (actualizada el 8-oct). **«Hoy»** (₡22,769) y **«Mi garaje»**
+  (₡2,828 por barra) siguen con coma, porque son de antes de ese cambio. No es
+  grave, pero si querés que las tres coincidan con la app, pasame capturas
+  nuevas de esas dos y las reemplazo igual.
 - La barra de estado de Android de las tres está dibujada (hora y batería fijas).
 - **Opcional:** la pregunta «¿Quién lo paga?» del peaje de InDrive, junto al
   diagrama de peajes. Si la agregás, copiá el `<img>` de otra captura en

@@ -97,7 +97,7 @@ export const sitio = {
   tokenAnalytics: '44ec51eca021444a83f4c28feebd6d2b' as string | null,
 
   /** Fecha de la ultima revision de las paginas legales. */
-  fechaLegal: '5 de octubre de 2026',
+  fechaLegal: '8 de octubre de 2026',
 
   /**
    * Simbolo de marca que acompana al nombre en el pie.
