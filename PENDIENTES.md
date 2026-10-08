@@ -42,6 +42,26 @@ descargar, soporte, términos (6.5) y privacidad (11), con cómo cancelar, y que
 borrar la cuenta no cancela la suscripción. Google Play y RevenueCat están en la
 tabla de servicios externos.
 
+### 3 bis. Pagar Pro por SINPE Móvil: solo en el sitio (8-oct)
+
+Antes estaba en lo que no se ponía. Desde el 8-oct **sí va, pero solo en el
+sitio**: la página `/pagar` (el precio es el mismo que en Google Play, al
+6342-0635 a nombre de Isaac Leon Murillo, con el código de la cuenta en el
+detalle), la pregunta frecuente de `/soporte`, el punto 6.6 de los términos y la
+sección 11 y la tabla de servicios (JPC y Google Gmail) de la privacidad.
+
+**Por qué solo en el sitio:** la app es de Google Play y Google no deja que una
+app mande a pagar por fuera. Por eso **la app no lo menciona ni lo va a
+mencionar, y ninguna página que la app abra puede llevar a `/pagar`**. Hoy la app
+no abre ninguna página del sitio, y así tiene que quedarse. En el sitio, `/pagar`
+se enlaza desde el pie y desde `/soporte`, y **no** desde la sección de precios
+del inicio, que habla de la app.
+
+**Una cosa para tener presente:** la política de privacidad y los términos sí
+son públicos y los puede abrir cualquiera, incluido quien revise la ficha de
+Google Play, y ahora mencionan el pago por SINPE. Conviene que lo sepas antes de
+mandar la app a revisión.
+
 ### 4. La dirección de «borrar cuenta» en la ficha de Play: resuelto (7-oct)
 
 En Play Console, la seguridad de los datos ya tiene
@@ -189,10 +209,10 @@ diga algo y dé permiso para publicarlo con su nombre, va ahí.
 - **Descarga por APK.** Se quitó toda la instalación por archivo. Si hace falta
   repartir un APK para pruebas, que sea por aparte y no desde el sitio público.
 - **Anuncios.** Están en pausa, sin fecha. El sitio no dice que la app los tenga.
-- **SINPE como forma de pago, y WhatsApp como forma de pago.** El sitio dice solo
-  «se paga desde la app» (punto 3). WhatsApp (+506 6342 0635) aparece como canal
-  de ayuda en soporte y en el pie, y en la política de privacidad como servicio
-  externo (hablar con soporte, mandar el diagnóstico o un comprobante).
+- **WhatsApp como forma de pago.** WhatsApp (+506 6342 0635) es solo un canal de
+  ayuda: aparece en soporte, en el pie y en la política de privacidad como
+  servicio externo (hablar con soporte o mandar el diagnóstico). No se paga por
+  ahí.
 - **Borrar la cuenta o pedir datos por WhatsApp.** Esos pedidos van por correo,
   desde la dirección de la cuenta: así se comprueba que la cuenta es de quien
   escribe y queda constancia escrita.

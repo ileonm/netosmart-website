@@ -52,11 +52,19 @@ export const sitio = {
 
   /**
    * WhatsApp de soporte, solo los digitos y con el codigo de pais (506 es Costa
-   * Rica). Sale en soporte y en el pie. Es para AYUDA con la app: no es una
-   * forma de pago (el sitio solo dice "se paga desde la app") ni el canal para
-   * pedir borrado o datos personales, que van por correo.
+   * Rica). Sale en soporte y en el pie. Es solo para AYUDA con la app: no es
+   * una forma de pago (se paga por Google Play, o por SINPE Movil, ver sinpe)
+   * ni el canal para pedir borrado o datos personales, que van por correo.
    */
   whatsapp: '50663420635' as string | null,
+
+  /**
+   * Numero de SINPE Movil donde se paga Pro, sin el codigo de pais. Es el mismo
+   * del WhatsApp de soporte. SOLO sale en /pagar, en terminos y en privacidad:
+   * la app NO lo menciona (Google Play no deja mandar a pagar por fuera), asi
+   * que ninguna pagina que abra la app puede llevar a /pagar.
+   */
+  sinpe: '63420635',
 
   /**
    * RESPONSABLE de los datos y del servicio: nombre de la persona o razon
@@ -121,6 +129,7 @@ export const navegacion = [
   { texto: 'Inicio', url: '/' },
   { texto: 'Descargar', url: '/descargar' },
   { texto: 'Soporte', url: '/soporte' },
+  { texto: 'Pagar por SINPE', url: '/pagar' },
   { texto: 'Privacidad', url: '/privacidad' },
   { texto: 'Accesibilidad', url: '/accesibilidad' },
   { texto: 'Términos', url: '/terminos' },
@@ -141,6 +150,11 @@ export function colones(monto: number): string {
 export function telefonoLegible(digitos: string): string {
   // Espacios que no se separan (\u00A0): que el numero no se parta en dos renglones.
   return `+${digitos.slice(0, 3)}\u00A0${digitos.slice(3, 7)}\u00A0${digitos.slice(7)}`;
+}
+
+/** Muestra el SINPE legible: 63420635 pasa a 6342-0635 */
+export function sinpeLegible(digitos: string): string {
+  return `${digitos.slice(0, 4)}-${digitos.slice(4)}`;
 }
 
 /** Enlace que abre WhatsApp con un primer mensaje ya escrito. */

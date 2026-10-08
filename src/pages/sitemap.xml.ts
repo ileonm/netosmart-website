@@ -10,6 +10,7 @@ const rutas = [
   { url: '/', prioridad: '1.0' },
   { url: '/descargar', prioridad: '0.9' },
   { url: '/soporte', prioridad: '0.6' },
+  { url: '/pagar', prioridad: '0.5' },
   { url: '/accesibilidad', prioridad: '0.6' },
   { url: '/privacidad', prioridad: '0.5' },
   { url: '/terminos', prioridad: '0.3' },

@@ -1,0 +1,141 @@
+---
+import Base from '../layouts/Base.astro';
+import Faq from '../components/Faq.astro';
+import Pendiente from '../components/Pendiente.astro';
+import { sitio, sinpeLegible, urlWhatsapp } from '../config/site';
+
+const mensajeWhatsapp =
+  'Hola, pagué Pro por SINPE Móvil y necesito ayuda. El código de mi cuenta es: ';
+---
+
+<Base
+  titulo="Pagar Pro por SINPE Móvil"
+  descripcion="Cómo pagar Neto Smart Pro por SINPE Móvil: copiás el código de tu cuenta, hacés el SINPE y Pro se activa solo en unos minutos."
+>
+  <section>
+    <div class="envoltura angosto">
+      <h1>Pagar Pro por SINPE Móvil</h1>
+      <p>
+        Pro cuesta <strong>{sitio.precioPremium}</strong>, lo mismo que en Google
+        Play. Si preferís pagarlo por SINPE Móvil, son tres pasos y no hace falta
+        mandar ningún comprobante.
+      </p>
+
+      <div class="aviso">
+        <h2>Los datos del pago</h2>
+        <p>
+          <strong>SINPE Móvil al:</strong>
+          <span style="white-space: nowrap;">{sinpeLegible(sitio.sinpe)}</span><br />
+          <strong>A nombre de:</strong>
+          {sitio.responsable ?? <Pendiente que="nombre del responsable" />}<br />
+          <strong>Monto:</strong> {sitio.precioPremium} por cada mes<br />
+          <strong>En el detalle:</strong> el código de tu cuenta
+        </p>
+      </div>
+
+      <h2>En tres pasos</h2>
+      <ol class="pasos">
+        <li>
+          <div>
+            <h3>Copiá el código de tu cuenta</h3>
+            <p>
+              En la app: Configuración, Mi perfil, Código de tu cuenta.
+              Mantenelo presionado para copiarlo. Empieza con <strong>NS</strong>
+              y lleva 6 caracteres más, por ejemplo <strong>NS3F8A2C</strong>.
+            </p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <h3>Hacé el SINPE Móvil</h3>
+            <p>
+              Mandalo al {sinpeLegible(sitio.sinpe)} por el monto de los meses
+              que querés pagar, y pegá el código en el detalle. Sirve en
+              mayúscula o minúscula, con espacio o con guion, y con la letra O
+              en lugar del 0.
+            </p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <h3>Listo</h3>
+            <p>
+              El aviso del banco se lee solo y Pro se activa en unos minutos.
+              Pro es el mismo que se paga por Google Play.
+            </p>
+          </div>
+        </li>
+      </ol>
+
+      <h2>Preguntas</h2>
+
+      <Faq pregunta="¿Cuántos meses paga cada monto?" abierta={true}>
+        <p>
+          Se cuentan meses completos: {sitio.precioPremium.replace(' al mes', '')}
+          es un mes y ₡5.000 son dos. Lo que no alcance para un mes completo
+          queda <strong>a favor</strong> y se suma al próximo pago. Nunca se
+          pierde.
+        </p>
+      </Faq>
+
+      <Faq pregunta="¿Se renueva solo?">
+        <p>
+          No. El SINPE es por los meses que pagás. Cuando a tu Pro le quede poco,
+          te llega un correo de aviso, y si querés seguir, hacés otro SINPE.
+        </p>
+      </Faq>
+
+      <Faq pregunta="No puse el código, o lo escribí mal">
+        <p>
+          El pago queda guardado y se asigna a mano. Escribinos por WhatsApp con
+          el código de tu cuenta y la hora del SINPE.
+        </p>
+        {
+          sitio.whatsapp && (
+            <p>
+              <a
+                class="boton"
+                href={urlWhatsapp(sitio.whatsapp, mensajeWhatsapp)}
+                rel="noopener"
+              >
+                Escribir por WhatsApp
+              </a>
+            </p>
+          )
+        }
+      </Faq>
+
+      <Faq pregunta="Pasaron 30 minutos y Pro no se activó">
+        <p>
+          Escribinos por WhatsApp con el código de tu cuenta y la hora del SINPE,
+          y lo revisamos.
+        </p>
+      </Faq>
+
+      <Faq pregunta="Ya pago Pro por Google Play">
+        <p>
+          Pro es el mismo por Google Play o por SINPE, y no hay que pagarlo dos
+          veces. Si ya tenés la suscripción de Google Play y preferís pagar por
+          SINPE, primero cancelala para que no te cobre los dos: en la app de
+          Google Play, tu foto, arriba a la derecha, → Pagos y suscripciones →
+          Suscripciones → Neto Smart.
+        </p>
+      </Faq>
+
+      <Faq pregunta="¿Me devuelven lo que pagué?">
+        <p>
+          Lo pagado por SINPE no se reembolsa, salvo que haya un error: un SINPE
+          de más o enviado a la cuenta equivocada. Eso se devuelve por SINPE. Las
+          condiciones completas están en los
+          <a href="/terminos#sinpe">términos de uso</a>.
+        </p>
+      </Faq>
+
+      <p>
+        Qué datos se guardan de cada pago está en la
+        <a href="/privacidad#pagos">política de privacidad</a>. Para cualquier
+        otra duda, escribinos en <a href="/soporte">soporte</a>.
+      </p>
+    </div>
+  </section>
+</Base>

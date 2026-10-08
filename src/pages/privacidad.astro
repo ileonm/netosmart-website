@@ -501,6 +501,23 @@ import { sitio, paquetesLeidos, telefonoLegible } from '../config/site';
               </td>
             </tr>
             <tr role="row">
+              <td role="cell" data-label="Servicio">JPC</td>
+              <td role="cell" data-label="Para qué">Avisarnos de cada SINPE Móvil que se recibe por el pago de Pro.</td>
+              <td role="cell" data-label="Qué recibe">
+                Procesa el SINPE y nos manda un correo por cada uno recibido, con
+                la fecha y la hora, el monto, la referencia y el detalle. El
+                aviso no trae el nombre ni el teléfono de quien paga.
+              </td>
+            </tr>
+            <tr role="row">
+              <td role="cell" data-label="Servicio">Google (Gmail)</td>
+              <td role="cell" data-label="Para qué">Recibir el correo del banco y pasarlo a la base de datos.</td>
+              <td role="cell" data-label="Qué recibe">
+                El correo de cada SINPE recibido: fecha y hora, monto,
+                referencia y detalle. Nada más de quien paga.
+              </td>
+            </tr>
+            <tr role="row">
               <td role="cell" data-label="Servicio">RevenueCat</td>
               <td role="cell" data-label="Para qué">Saber si tu suscripción de Google Play está activa.</td>
               <td role="cell" data-label="Qué recibe">
@@ -528,8 +545,8 @@ import { sitio, paquetesLeidos, telefonoLegible } from '../config/site';
             <tr role="row">
               <td role="cell" data-label="Servicio">WhatsApp</td>
               <td role="cell" data-label="Para qué">
-                Hablar con soporte, y mandar el diagnóstico o un comprobante de
-                pago.
+                Hablar con soporte, y mandar el diagnóstico o los datos de un
+                pago (el código de tu cuenta y la hora del SINPE).
               </td>
               <td role="cell" data-label="Qué recibe">
                 Lo que vos escribís y mandás, y tu número de teléfono. Solo si
@@ -553,9 +570,19 @@ import { sitio, paquetesLeidos, telefonoLegible } from '../config/site';
         fecha y si se renueva sola.
       </p>
       <p>
-        Si en algún caso pagás por otro medio acordado con soporte, guardamos la
-        fecha, el monto y la referencia del pago, y nada de cuentas bancarias.
-        Esos pagos se confirman a mano o con el aviso del banco.
+        Pro también se puede pagar por SINPE Móvil desde la página
+        <a href="/pagar">Pagar Pro por SINPE Móvil</a> de este sitio. De cada
+        SINPE que recibimos guardamos la fecha y la hora, el monto, el número de
+        referencia, el detalle y el código de cuenta que se leyó en ese detalle,
+        para saber a qué cuenta activarle Pro. El aviso del banco{' '}
+        <strong>no trae el nombre ni el teléfono</strong> de quien paga, y por
+        eso no se guardan.
+      </p>
+      <p>
+        Así llega el pago: el banco (JPC) le manda un correo al responsable por
+        cada SINPE recibido, y un programa en esa cuenta de Gmail lo pasa a la
+        base de datos (Supabase). Si el pago no trae el código, o está mal
+        escrito, queda guardado y se asigna a mano cuando nos escribís.
       </p>
 
       <h2 id="derechos">12. Tus derechos y cómo borrar la cuenta</h2>

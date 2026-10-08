@@ -23,9 +23,10 @@ import { sitio, telefonoLegible } from '../config/site';
           </li>
           <li>
             Pro se prueba {sitio.diasPrueba} días sin tarjeta, una vez por
-            persona. Después es una suscripción mensual de Google Play que
-            cancelás cuando querás, el precio queda fijo para tu cuenta y, si
-            Pro vence, <strong>no se borra nada</strong>.
+            persona. Después se paga con una suscripción mensual de Google Play
+            que cancelás cuando querás, o por SINPE Móvil por los meses que
+            quieras. El precio queda fijo para tu cuenta y, si Pro vence,
+            <strong>no se borra nada</strong>.
           </li>
           <li>
             Está en pruebas de campo y puede tener errores. No es asesoría
@@ -140,7 +141,7 @@ import { sitio, telefonoLegible } from '../config/site';
 
       <h3>6.5 Suscripción mensual por Google Play</h3>
       <p>
-        Pro se paga desde la app con una suscripción mensual de Google Play.
+        En la app, Pro se paga con una suscripción mensual de Google Play.
         La suscripción se renueva sola cada mes, al mismo precio, hasta que la
         cancelés. Te suscribís vos, de manera expresa, desde la app; nunca se
         cobra sin eso.
@@ -157,9 +158,39 @@ import { sitio, telefonoLegible } from '../config/site';
         suscripción.</strong> Para dejar de pagar, cancelala en Google Play.
       </p>
 
-      <h3>6.6 Cuando Pro vence</h3>
+      <h3 id="sinpe">6.6 Pago por SINPE Móvil</h3>
       <p>
-        <strong>Al vencer no se borra nada, nunca.</strong> Volvés al plan Gratis
+        Además de Google Play, Pro se puede pagar por SINPE Móvil desde la página
+        <a href="/pagar">Pagar Pro por SINPE Móvil</a> de este sitio. Es el mismo
+        Pro y cuesta lo mismo.
+      </p>
+      <ul>
+        <li>
+          <strong>Meses completos.</strong> Cada {sitio.precioPremium.replace(' al mes', '')} son
+          un mes completo de Pro, contado desde la fecha del SINPE. Lo que no
+          alcance para un mes completo queda a favor y se suma al próximo pago.
+        </li>
+        <li>
+          <strong>No se renueva solo.</strong> Pro dura los meses que pagaste. Te
+          avisamos por correo antes de que termine.
+        </li>
+        <li>
+          <strong>No hay reembolso</strong> de lo pagado por SINPE, salvo que
+          haya un error, como un SINPE de más o enviado a la cuenta equivocada.
+          En ese caso se devuelve por SINPE.
+        </li>
+        <li>
+          <strong>No pagués dos veces.</strong> Si tenés la suscripción de Google
+          Play y preferís pagar por SINPE, cancelala primero en Google Play, que
+          es quien cobra y reembolsa esa suscripción.
+        </li>
+      </ul>
+
+      <h3>6.7 Cuando Pro vence</h3>
+      <p>
+        <strong>Al vencer no se borra nada, nunca.</strong> Pro vence cuando
+        termina el período pagado en Google Play o los meses pagados por SINPE.
+        Volvés al plan Gratis
         con todo tu historial. Si tenías varios carros, escogés con cuál seguís;
         los otros quedan guardados y vuelven si renovás. Un turno que empezó con
         Pro termina con Pro.

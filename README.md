@@ -1,8 +1,8 @@
 # Sitio web de Neto Smart
 
 Este es el sitio de **Neto Smart**, la app para conductores de plataforma en
-Costa Rica. Son siete páginas: inicio, descargar, soporte, privacidad,
-accesibilidad, términos y borrar mi cuenta.
+Costa Rica. Son ocho páginas: inicio, descargar, soporte, pagar Pro por SINPE
+Móvil, privacidad, accesibilidad, términos y borrar mi cuenta.
 
 Está escrito para que se pueda mantener sin saber programar. Casi todo lo que
 hay que cambiar está en **un solo archivo**: `src/config/site.ts`.
@@ -203,7 +203,7 @@ pasos de cada cosa. Incluye cómo poner las capturas de la app.
 - Cada página pesa entre 22 y 52 KB ya con el CSS adentro (el inicio es la más
   pesada). La única imagen de la primera carga es el logo, de unos 4 KB.
 - Lighthouse en móvil: 100 en rendimiento, accesibilidad, buenas prácticas y
-  SEO en las siete páginas.
+  SEO en las páginas principales.
 - Se revisó a 360 px y a 320 px con la letra del sistema hasta al 200%, sin que
   nada empuje la página de lado. Las tablas de varias columnas se apilan en
   pantallas angostas (clase `tabla-apilada` y la tabla de `Precios.astro`),
