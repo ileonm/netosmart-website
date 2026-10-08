@@ -46,7 +46,7 @@ tabla de servicios externos.
 
 Antes estaba en lo que no se ponía. Desde el 8-oct **sí va, pero solo en el
 sitio**: la página `/pagar` (el precio es el mismo que en Google Play, al
-6342-0635 a nombre de Isaac Leon Murillo, con el código de la cuenta en el
+6342-0635 a nombre de Isaac Leon, con el código de la cuenta en el
 detalle), la pregunta frecuente de `/soporte`, el punto 6.6 de los términos y la
 sección 11 y la tabla de servicios (JPC y Google Gmail) de la privacidad.
 

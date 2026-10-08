@@ -1,7 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
 import Faq from '../components/Faq.astro';
-import Pendiente from '../components/Pendiente.astro';
 import { sitio, sinpeLegible, urlWhatsapp } from '../config/site';
 
 const mensajeWhatsapp =
@@ -27,7 +26,7 @@ const mensajeWhatsapp =
           <strong>SINPE Móvil al:</strong>
           <span style="white-space: nowrap;">{sinpeLegible(sitio.sinpe)}</span><br />
           <strong>A nombre de:</strong>
-          {sitio.responsable ?? <Pendiente que="nombre del responsable" />}<br />
+          {sitio.nombreSinpe}<br />
           <strong>Monto:</strong> {sitio.precioPremium} por cada mes<br />
           <strong>En el detalle:</strong> el código de tu cuenta
         </p>

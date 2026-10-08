@@ -67,6 +67,12 @@ export const sitio = {
   sinpe: '63420635',
 
   /**
+   * Nombre con el que se ve la cuenta de SINPE Movil. Solo sale en /pagar. No
+   * es el responsable legal: ese es `responsable`, con el nombre completo.
+   */
+  nombreSinpe: 'Isaac Leon',
+
+  /**
    * RESPONSABLE de los datos y del servicio: nombre de la persona o razon
    * social de la empresa. PENDIENTE.
    *
