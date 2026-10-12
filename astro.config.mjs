@@ -4,10 +4,10 @@ import { sitio } from './src/config/site';
 
 export default defineConfig({
   site: sitio.dominio,
-  trailingSlash: 'ignore',
+  trailingSlash: 'never',
   build: {
     inlineStylesheets: 'always',
-    format: 'directory',
+    format: 'file',
   },
   compressHTML: true,
   devToolbar: { enabled: false },
