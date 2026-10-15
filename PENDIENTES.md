@@ -199,6 +199,25 @@ comentario en el código que marca el lugar.
 No hay ninguno todavía y no se inventó ninguno. Cuando un conductor de verdad
 diga algo y dé permiso para publicarlo con su nombre, va ahí.
 
+### 16. Cuando la foto de las ofertas se prenda para todos
+
+Hoy el asistente de ofertas de viaje viene **apagado** y está en pruebas. Más
+adelante se va a prender por defecto para todos. Ese día hay que actualizar el
+sitio **antes o al mismo tiempo** que la app, porque Google Play revisa esa
+divulgación y hoy el sitio dice que viene apagado. Qué cambiar:
+
+- `src/pages/accesibilidad.astro`: «En corto», la sección «La foto de las
+  ofertas de viaje» (el punto «Hoy viene apagado»), «Qué no hace» y la
+  descripción de la página.
+- `src/pages/privacidad.astro`: «En corto», la sección 4.1 y la tabla de
+  permisos.
+- `src/components/Landing.astro`: la tarjeta «Te dice si el viaje te conviene»
+  (etiqueta «Pronto» y el texto «lo estamos probando») y la ayuda que muestre la
+  app en pantalla, si para entonces ya muestra algo.
+- `src/config/site.ts`: `fechaLegal`.
+
+El Code App tiene que avisar cuándo pasa y qué cambia en la app.
+
 ---
 
 ## Lo que se decidió no poner, a propósito
