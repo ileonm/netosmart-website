@@ -1,7 +1,10 @@
 ---
 import Base from '../layouts/Base.astro';
 import Faq from '../components/Faq.astro';
-import { sitio, sinpeLegible } from '../config/site';
+import { sitio, sinpeLegible, colones } from '../config/site';
+
+// El monto sale de sitio.precioPremium: no hay numeros escritos a mano.
+const precioMensual = Number(sitio.precioPremium.replace(/\D/g, ''));
 
 ---
 
@@ -69,7 +72,7 @@ import { sitio, sinpeLegible } from '../config/site';
       <Faq pregunta="¿Cuántos meses paga cada monto?" abierta={true}>
         <p>
           Se cuentan meses completos: {sitio.precioPremium.replace(' al mes', '')}
-          es un mes y ₡5.000 son dos. Lo que no alcance para un mes completo
+          es un mes y {colones(precioMensual * 2)} son dos. Lo que no alcance para un mes completo
           queda <strong>a favor</strong> y se suma al próximo pago. Nunca se
           pierde.
         </p>

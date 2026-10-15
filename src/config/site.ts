@@ -94,14 +94,14 @@ export const sitio = {
   responsable: 'Isaac Leon Murillo' as string | null,
 
   /**
-   * PRECIO de Neto Smart Pro. Decidido: ₡2.500 al mes, el mismo que cobra
+   * PRECIO de Neto Smart Pro. Decidido: ₡3.500 al mes, el mismo que cobra
    * Google Play (suscripcion premium_mensual).
    *
    * El precio queda fijo para cada cuenta: si un dia sube, solo lo pagan las
    * cuentas nuevas. Si hay que cambiarlo, es esta linea y los textos que lo
    * mencionan salen solos.
    */
-  precioPremium: '₡2.500 al mes',
+  precioPremium: '₡3.500 al mes',
 
   /** Dias de prueba de Pro, sin tarjeta. Una por persona. */
   diasPrueba: 14,

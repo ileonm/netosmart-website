@@ -74,9 +74,9 @@ que está entre las etiquetas, sin tocar las etiquetas.
 ### Cambiar el precio de Pro
 
 1. Abrí `src/config/site.ts`.
-2. Buscá la línea `precioPremium: '₡2.500 al mes',`.
+2. Buscá la línea `precioPremium: '₡3.500 al mes',`.
 3. Cambiá el texto entre comillas, con el formato de Costa Rica (punto de
-   miles): por ejemplo `'₡3.000 al mes'`.
+   miles): por ejemplo `'₡4.000 al mes'`.
 4. Guardá y subí el cambio (sección 4).
 
 El inicio, descargar, las preguntas frecuentes y los términos toman el precio de

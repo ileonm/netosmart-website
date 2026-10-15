@@ -181,8 +181,14 @@ listas.
   sin placa ni nombre. Se dejan así, a propósito.
 - En «Mi garaje» las placas y el aceite están tapados con barras sólidas; las
   originales no están en el repositorio.
-- La de **Pro** ya muestra **₡2.500**, con punto de miles, como la app desde la
-  v3.11.145 (actualizada el 8-oct). **«Hoy»** (₡22,769) y **«Mi garaje»**
+- La de **Pro** está **fuera de la página** porque mostraba el precio anterior y el precio
+  ahora es **₡3.500**. Falta la captura nueva de la app con ₡3.500. Cuando
+  llegue, la proceso igual que las otras (forma de teléfono, barra de Android
+  dibujada), la guardo como `public/capturas/premium.webp` y la vuelvo a poner
+  en «Lo que hace», junto a Mi garaje, con este texto alternativo: «Pantalla de
+  Neto Smart Pro en la app: siete beneficios, entre ellos las ganancias que se
+  anotan solas y los peajes que se detectan solos, el precio de 3.500 colones
+  al mes y el botón para empezar los 14 días gratis.» **«Hoy»** (₡22,769) y **«Mi garaje»**
   (₡2,828 por barra) siguen con coma, porque son de antes de ese cambio. No es
   grave, pero si querés que las tres coincidan con la app, pasame capturas
   nuevas de esas dos y las reemplazo igual.
