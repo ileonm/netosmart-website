@@ -1,6 +1,6 @@
 ---
 import '../styles/global.css';
-import Icono from '../components/Icono.astro';
+import LogoRed from '../components/LogoRed.astro';
 import { sitio, navegacion, telefonoLegible } from '../config/site';
 
 interface Props {
@@ -152,17 +152,25 @@ const tituloCompleto =
             <ul class="redes" aria-label="Redes sociales">
               {sitio.urlFacebook && (
                 <li>
-                  <a href="/ir/facebook" rel="noopener">
-                    <Icono nombre="facebook" tamano={20} />
-                    Facebook
+                  <a
+                    href="/ir/facebook"
+                    rel="noopener"
+                    aria-label="Neto Smart en Facebook"
+                    title="Neto Smart en Facebook"
+                  >
+                    <LogoRed nombre="facebook" tamano={32} sufijo="pie" />
                   </a>
                 </li>
               )}
               {sitio.urlInstagram && (
                 <li>
-                  <a href="/ir/instagram" rel="noopener">
-                    <Icono nombre="instagram" tamano={20} />
-                    Instagram
+                  <a
+                    href="/ir/instagram"
+                    rel="noopener"
+                    aria-label="Neto Smart en Instagram"
+                    title="Neto Smart en Instagram"
+                  >
+                    <LogoRed nombre="instagram" tamano={32} sufijo="pie" />
                   </a>
                 </li>
               )}

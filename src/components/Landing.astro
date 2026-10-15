@@ -3,6 +3,7 @@ import BotonDescarga from './BotonDescarga.astro';
 import Faq from './Faq.astro';
 import Precios from './Precios.astro';
 import Icono from './Icono.astro';
+import LogoRed from './LogoRed.astro';
 import { sitio, colones } from '../config/site';
 
 /**
@@ -400,15 +401,25 @@ const porHora = Math.round(neto / ejemplo.horas);
         <p>Seguinos para ver cómo va el asistente de ofertas</p>
         <div class="seguinos-botones">
           {sitio.urlFacebook && (
-            <a class="boton secundario chico" href="/ir/facebook" rel="noopener">
-              <Icono nombre="facebook" tamano={18} />
-              Facebook
+            <a
+              class="red-boton"
+              href="/ir/facebook"
+              rel="noopener"
+              aria-label="Neto Smart en Facebook"
+              title="Neto Smart en Facebook"
+            >
+              <LogoRed nombre="facebook" tamano={36} sufijo="inicio" />
             </a>
           )}
           {sitio.urlInstagram && (
-            <a class="boton secundario chico" href="/ir/instagram" rel="noopener">
-              <Icono nombre="instagram" tamano={18} />
-              Instagram
+            <a
+              class="red-boton"
+              href="/ir/instagram"
+              rel="noopener"
+              aria-label="Neto Smart en Instagram"
+              title="Neto Smart en Instagram"
+            >
+              <LogoRed nombre="instagram" tamano={36} sufijo="inicio" />
             </a>
           )}
         </div>

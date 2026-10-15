@@ -1,0 +1,27 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base
+  titulo="No encontramos esa página"
+  descripcion="La página que buscás no existe o cambió de lugar. Volvé al inicio de Neto Smart."
+  noIndexar={true}
+>
+  <section>
+    <div class="envoltura angosto">
+      <h1>No encontramos esa página</h1>
+      <p>
+        Puede que la dirección esté mal escrita o que la página haya cambiado de
+        lugar. Desde acá llegás a lo que más se busca:
+      </p>
+      <p>
+        <a class="boton" href="/">Volver al inicio</a>
+      </p>
+      <ul>
+        <li><a href="/descargar">Descargar la app</a></li>
+        <li><a href="/soporte">Pedir ayuda</a></li>
+        <li><a href="/privacidad">Política de privacidad</a></li>
+      </ul>
+    </div>
+  </section>
+</Base>
