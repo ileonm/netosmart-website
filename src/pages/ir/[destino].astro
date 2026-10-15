@@ -40,6 +40,16 @@ export const getStaticPaths = (() => {
       destino: sitio.urlPlayStore,
     },
     {
+      id: 'facebook',
+      aviso: 'Abriendo Facebook…',
+      destino: sitio.urlFacebook,
+    },
+    {
+      id: 'instagram',
+      aviso: 'Abriendo Instagram…',
+      destino: sitio.urlInstagram,
+    },
+    {
       id: 'correo',
       aviso: 'Abriendo tu correo…',
       destino: sitio.correoContacto ? `mailto:${sitio.correoContacto}` : null,

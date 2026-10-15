@@ -51,6 +51,16 @@ export const sitio = {
   correoContacto: 'contacto@netosmart.com' as string | null,
 
   /**
+   * Redes sociales. Direccion COMPLETA de la pagina de Facebook y del perfil de
+   * Instagram (por ejemplo https://www.facebook.com/lo-que-sea). Si una es
+   * null, su boton no se muestra ni existe su pagina de paso /ir/<red>.
+   * Los botones no enlazan directo: pasan por /ir/facebook e /ir/instagram para
+   * contar los clics (ver pages/ir/[destino].astro).
+   */
+  urlFacebook: null as string | null,
+  urlInstagram: null as string | null,
+
+  /**
    * WhatsApp de soporte, solo los digitos y con el codigo de pais (506 es Costa
    * Rica). Sale en soporte y en el pie. Es solo para AYUDA con la app: no es
    * una forma de pago (se paga por Google Play, o por SINPE Movil, ver sinpe)

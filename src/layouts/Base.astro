@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import Icono from '../components/Icono.astro';
 import { sitio, navegacion, telefonoLegible } from '../config/site';
 
 interface Props {
@@ -146,6 +147,28 @@ const tituloCompleto =
             )
           }
         </p>
+        {
+          (sitio.urlFacebook || sitio.urlInstagram) && (
+            <ul class="redes" aria-label="Redes sociales">
+              {sitio.urlFacebook && (
+                <li>
+                  <a href="/ir/facebook" rel="noopener">
+                    <Icono nombre="facebook" tamano={20} />
+                    Facebook
+                  </a>
+                </li>
+              )}
+              {sitio.urlInstagram && (
+                <li>
+                  <a href="/ir/instagram" rel="noopener">
+                    <Icono nombre="instagram" tamano={20} />
+                    Instagram
+                  </a>
+                </li>
+              )}
+            </ul>
+          )
+        }
 
         <div class="legal-pie">
           <p>

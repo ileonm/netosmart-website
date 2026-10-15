@@ -393,6 +393,30 @@ const porHora = Math.round(neto / ejemplo.horas);
   </div>
 </section>
 
+{
+  (sitio.urlFacebook || sitio.urlInstagram) && (
+    <section class="seguinos">
+      <div class="envoltura angosto">
+        <p>Seguinos para ver cómo va el asistente de ofertas</p>
+        <div class="seguinos-botones">
+          {sitio.urlFacebook && (
+            <a class="boton secundario chico" href="/ir/facebook" rel="noopener">
+              <Icono nombre="facebook" tamano={18} />
+              Facebook
+            </a>
+          )}
+          {sitio.urlInstagram && (
+            <a class="boton secundario chico" href="/ir/instagram" rel="noopener">
+              <Icono nombre="instagram" tamano={18} />
+              Instagram
+            </a>
+          )}
+        </div>
+      </div>
+    </section>
+  )
+}
+
 <section>
   <div class="envoltura angosto">
     <span class="etiqueta-seccion">De dónde sale</span>
