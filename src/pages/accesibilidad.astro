@@ -5,7 +5,7 @@ import { sitio, paquetesLeidos } from '../config/site';
 
 <Base
   titulo="Permiso de accesibilidad: qué lee la app y qué no"
-  descripcion="Divulgación completa del uso del servicio de accesibilidad en Neto Smart: lee el texto en pantalla de Uber, DiDi e InDrive. Para DiDi hay además una captura de pantalla que pedís vos. No lee mensajes, contraseñas ni ninguna otra app."
+  descripcion="Divulgación completa del uso del servicio de accesibilidad en Neto Smart: lee el texto en pantalla de Uber, DiDi e InDrive. Hay además dos fotos de pantalla que se leen dentro del teléfono: la de las ofertas de viaje (hoy apagada) y la de DiDi, que pedís vos. No lee mensajes, contraseñas ni ninguna otra app."
 >
   <section>
     <div class="envoltura angosto legal">
@@ -30,10 +30,13 @@ import { sitio, paquetesLeidos } from '../config/site';
             tecleás, ni ninguna otra app del teléfono.
           </li>
           <li>
-            El servicio de accesibilidad <strong>no toma capturas de
-            pantalla</strong>. Pero DiDi no muestra su monto como texto, y para
-            ese monto la app tiene una captura de pantalla aparte, que solo se
-            activa cuando vos tocás «leer DiDi». Está explicada más abajo.
+            Cuando entra una oferta de viaje, el servicio <strong>saca una foto
+            de la pantalla</strong> para leerla dentro del teléfono. No guarda
+            la imagen ni la manda a ningún lado. Esa ayuda hoy
+            <strong>viene apagada</strong> y solo un administrador la puede
+            prender: mientras esté apagada, no saca ninguna foto. Aparte está
+            la captura de DiDi, que solo se activa cuando vos tocás «leer
+            DiDi». Las dos están explicadas más abajo.
           </li>
           <li>
             Lo podés apagar cuando querás. La app sigue funcionando y anotás
@@ -101,7 +104,8 @@ import { sitio, paquetesLeidos } from '../config/site';
         <li>El monto de cada viaje.</li>
         <li>
           Las señales de estado del viaje: si va en camino a recoger, si lleva
-          pasajero a bordo, y si el viaje se paga en efectivo.
+          pasajero a bordo, si el viaje se paga en efectivo y si se canceló (lo
+          usa para no pedirte que anotés un viaje que no se hizo).
         </li>
       </ul>
       <p>
@@ -126,6 +130,64 @@ import { sitio, paquetesLeidos } from '../config/site';
         corrige, mientras que uno marcado de reintegrado por error infla la
         ganancia sin que nadie lo note.
       </p>
+
+      <h2 id="ofertas">La foto de las ofertas de viaje</h2>
+      <p>
+        Esta es la única parte del servicio de accesibilidad que saca fotos de la
+        pantalla. Se explica con el mismo detalle que la captura de DiDi.
+      </p>
+      <ul>
+        <li>
+          <strong>Para qué:</strong> leer las ofertas de viaje que te llegan: lo
+          que paga el viaje, los minutos y los kilómetros hasta el pasajero y del
+          viaje, y las opciones para subir el precio. Es el primer paso de una
+          ayuda para decidir rápido si un viaje te conviene. Por ahora
+          <strong>solo se anota en el registro de diagnóstico</strong>: la app
+          todavía no muestra nada en pantalla con esto.
+        </li>
+        <li>
+          <strong>Hoy viene apagado:</strong> en la app aparece en gris, con el
+          texto «Pronto disponible, actualmente en pruebas», y solo un
+          administrador lo puede prender. Mientras esté apagado, el servicio no
+          saca ninguna foto.
+        </li>
+        <li>
+          <strong>Por qué con foto:</strong> Uber y DiDi dibujan la tarjeta de la
+          oferta como una imagen, sin texto que se pueda leer por accesibilidad.
+          En InDrive la mayor parte sí se lee como texto.
+        </li>
+        <li>
+          <strong>Cuándo pasa:</strong> solo cuando Uber, DiDi o InDrive ponen en
+          pantalla lo que parece una oferta de viaje. Son dos fotos, con algo más
+          de un segundo de diferencia, porque la tarjeta entra animada. Como
+          mucho una tanda cada cuatro segundos por app. Funciona en Android 11 o
+          más nuevo, y no pide un permiso aparte ni muestra el aviso de
+          «grabando».
+        </li>
+        <li>
+          <strong>Dónde se lee:</strong> dentro de tu teléfono, con Google ML
+          Kit. La imagen no se manda a ningún servidor ni a ningún tercero.
+        </li>
+        <li>
+          <strong>Qué guarda:</strong> no guarda la imagen: se lee y se descarta.
+          Del texto leído se queda solo la parte de la tarjeta de la oferta; lo
+          de arriba de la pantalla (el mapa, Waze, otras apps) no se anota nunca.
+          Si lo leído parece la conversación con el pasajero, no se anota nada.
+        </li>
+        <li>
+          <strong>Dónde queda:</strong> en el registro de diagnóstico de tu
+          teléfono, que no sale de ahí a menos que vos lo mandés con «Enviar
+          diagnóstico».
+        </li>
+        <li>
+          <strong>Cómo se apaga:</strong> con su propio interruptor, «Asistente
+          de ofertas de viaje», en Configuración &gt; Lectura automática, y
+          también apagando el permiso de accesibilidad en los ajustes de Android.
+        </li>
+        <li>
+          <strong>Nunca acepta ni rechaza un viaje.</strong> Solo lee.
+        </li>
+      </ul>
 
       <h2 id="captura">La captura de pantalla de DiDi (no es accesibilidad)</h2>
       <p>
@@ -161,7 +223,11 @@ import { sitio, paquetesLeidos } from '../config/site';
 
       <h2>Qué no hace</h2>
       <ul class="marcas no">
-        <li>No lee mensajes de ninguna aplicación.</li>
+        <li>
+          No lee mensajes de ninguna aplicación. Si una pantalla parece la
+          conversación con el pasajero, no se anota nada, ni siquiera en el
+          registro de diagnóstico.
+        </li>
         <li>No lee contraseñas.</li>
         <li>No registra lo que se teclea.</li>
         <li>
@@ -169,9 +235,9 @@ import { sitio, paquetesLeidos } from '../config/site';
           app.
         </li>
         <li>
-          El servicio de accesibilidad no toma capturas de pantalla ni graba la
-          pantalla. La única captura que existe es la de DiDi, descrita arriba, y
-          solo si la pedís.
+          No graba la pantalla ni guarda imágenes. Las únicas fotos son la de las
+          ofertas (hoy apagada) y la de DiDi, las dos descritas arriba, y se leen
+          dentro del teléfono.
         </li>
         <li>
           No manda a ningún servidor el texto que lee. Lo que sale de esa
@@ -187,7 +253,10 @@ import { sitio, paquetesLeidos } from '../config/site';
       </p>
 
       <h2>Cómo apagarlo</h2>
-      <p>Se puede quitar en cualquier momento, de dos maneras:</p>
+      <p>
+        Se puede quitar en cualquier momento, de dos maneras (la foto de las
+        ofertas tiene además su propio interruptor, descrito arriba):
+      </p>
       <ol>
         <li>
           Desde la configuración de Neto Smart, apagando la captura automática
