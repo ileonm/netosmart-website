@@ -218,15 +218,14 @@ divulgación y hoy el sitio dice que viene apagado. Qué cambiar:
 
 El Code App tiene que avisar cuándo pasa y qué cambia en la app.
 
-### 17. Las direcciones de Facebook e Instagram
+### 17. Facebook e Instagram: puestos
 
-El sitio ya tiene los botones de Facebook e Instagram (en el pie de todas las
-páginas y en una línea «Seguinos para ver cómo va el asistente de ofertas» en el
-inicio), pero **no se ven hasta que pongás las direcciones** en
-`src/config/site.ts`: `urlFacebook` y `urlInstagram`, con la dirección completa
-(por ejemplo `https://www.facebook.com/lo-que-sea`). Mientras sean `null`, no
-aparece ningún botón. Cada uno pasa por `/ir/facebook` o `/ir/instagram`, que
-salen en Top pages de Cloudflare cuando alguien los toca.
+Los botones están en el pie de todas las páginas y en una línea «Seguinos para
+ver cómo va el asistente de ofertas» en el inicio. Las direcciones están en
+`src/config/site.ts` (`urlFacebook` y `urlInstagram`): `facebook.com/netosmartcr`
+e `instagram.com/netosmartcr`. Cada botón pasa por `/ir/facebook` o
+`/ir/instagram`, que salen en Top pages de Cloudflare cuando alguien los toca.
+Si algún día cambia el nombre de usuario, se cambia solo en `site.ts`.
 
 ---
 

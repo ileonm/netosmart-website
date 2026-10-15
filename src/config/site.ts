@@ -57,8 +57,8 @@ export const sitio = {
    * Los botones no enlazan directo: pasan por /ir/facebook e /ir/instagram para
    * contar los clics (ver pages/ir/[destino].astro).
    */
-  urlFacebook: null as string | null,
-  urlInstagram: null as string | null,
+  urlFacebook: 'https://www.facebook.com/netosmartcr/' as string | null,
+  urlInstagram: 'https://www.instagram.com/netosmartcr' as string | null,
 
   /**
    * WhatsApp de soporte, solo los digitos y con el codigo de pais (506 es Costa
