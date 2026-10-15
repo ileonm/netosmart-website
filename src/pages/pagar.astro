@@ -1,10 +1,8 @@
 ---
 import Base from '../layouts/Base.astro';
 import Faq from '../components/Faq.astro';
-import { sitio, sinpeLegible, urlWhatsapp } from '../config/site';
+import { sitio, sinpeLegible } from '../config/site';
 
-const mensajeWhatsapp =
-  'Hola, pagué Pro por SINPE Móvil y necesito ayuda. El código de mi cuenta es: ';
 ---
 
 <Base
@@ -94,7 +92,7 @@ const mensajeWhatsapp =
             <p>
               <a
                 class="boton"
-                href={urlWhatsapp(sitio.whatsapp, mensajeWhatsapp)}
+                href="/ir/whatsapp-pagar"
                 rel="noopener"
               >
                 Escribir por WhatsApp

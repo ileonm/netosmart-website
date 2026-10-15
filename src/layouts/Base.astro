@@ -1,6 +1,6 @@
 ---
 import '../styles/global.css';
-import { sitio, navegacion, telefonoLegible, urlWhatsapp } from '../config/site';
+import { sitio, navegacion, telefonoLegible } from '../config/site';
 
 interface Props {
   titulo: string;
@@ -35,6 +35,7 @@ const tituloCompleto =
     <meta name="description" content={descripcion} />
     <link rel="canonical" href={urlCanonica} />
     {noIndexar && <meta name="robots" content="noindex, follow" />}
+    <slot name="head" />
     <meta name="theme-color" content="#1a1a2e" />
     <meta name="color-scheme" content="light dark" />
 
@@ -130,7 +131,7 @@ const tituloCompleto =
             sitio.whatsapp && (
               <>
                 Soporte por WhatsApp:{' '}
-                <a href={urlWhatsapp(sitio.whatsapp)} rel="noopener">
+                <a href="/ir/whatsapp" rel="noopener">
                   {telefonoLegible(sitio.whatsapp)}
                 </a>
                 <br />
@@ -139,7 +140,7 @@ const tituloCompleto =
           }
           {
             sitio.correoContacto && (
-              <a href={`mailto:${sitio.correoContacto}`}>
+              <a href="/ir/correo">
                 {sitio.correoContacto}
               </a>
             )

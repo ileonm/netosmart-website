@@ -194,10 +194,21 @@ pasos de cada cosa. Incluye cómo poner las capturas de la app.
 
 - Astro 5, TypeScript en modo estricto, sin framework de UI.
 - CSS propio, sin Tailwind. El CSS va incrustado en cada página.
-- **Cero JavaScript propio.** Las preguntas frecuentes usan `<details>` nativo.
-  El sitio se lee completo con JavaScript apagado. La única excepción es el
-  script de Cloudflare Web Analytics (`static.cloudflareinsights.com`), que se
-  carga con `defer` solo si hay token en `site.ts` y que no usa cookies.
+- **Casi cero JavaScript propio.** Las preguntas frecuentes usan `<details>`
+  nativo y el sitio se lee completo con JavaScript apagado. Hay dos excepciones.
+  Una es el script de Cloudflare Web Analytics (`static.cloudflareinsights.com`),
+  que se carga con `defer` solo si hay token en `site.ts` y no usa cookies. La
+  otra son las páginas de paso `/ir/<destino>` (`src/pages/ir/[destino].astro`):
+  cada una tiene un script de una línea que, cuando termina de cargar y pasan
+  400 ms, lleva al destino. Con JavaScript apagado, un `meta refresh` de 2
+  segundos y un enlace visible hacen lo mismo.
+- **Los botones que se miden** (WhatsApp, Google Play y correo) no enlazan directo
+  al destino: pasan por `/ir/whatsapp`, `/ir/whatsapp-pagar`, `/ir/play` o
+  `/ir/correo`. Cloudflare Web Analytics cuenta visitas a páginas y no clics, así
+  que cada clic queda contado como una visita a su página de paso. El destino
+  sale de `site.ts`. No se usa `_redirects` porque una redirección del servidor
+  no ejecuta el script y no se cuenta. Las páginas llevan `noindex`, están fuera
+  del sitemap y bloqueadas en `robots.txt`.
 - Tipografía del sistema, sin fuentes externas. La única petición a otro
   dominio es la de las estadísticas de Cloudflare.
 - Cada página pesa entre 22 y 52 KB ya con el CSS adentro (el inicio es la más

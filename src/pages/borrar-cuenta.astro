@@ -54,7 +54,7 @@ import { sitio } from '../config/site';
         Escribí a
         {
           sitio.correoContacto ? (
-            <a href={`mailto:${sitio.correoContacto}`}>{sitio.correoContacto}</a>
+            <a href="/ir/correo">{sitio.correoContacto}</a>
           ) : (
             <Pendiente que="correo de contacto" />
           )

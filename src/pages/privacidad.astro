@@ -691,7 +691,7 @@ import { sitio, paquetesLeidos, telefonoLegible } from '../config/site';
         30 días:
         {
           sitio.correoContacto ? (
-            <a href={`mailto:${sitio.correoContacto}`}>{sitio.correoContacto}</a>
+            <a href="/ir/correo">{sitio.correoContacto}</a>
           ) : (
             <Pendiente que="correo de contacto para borrado de cuenta" />
           )
@@ -775,6 +775,13 @@ import { sitio, paquetesLeidos, telefonoLegible } from '../config/site';
         Analytics, que mide de forma agregada y sin cookies, sin identificar a
         nadie y sin seguir a la persona entre sitios.
       </p>
+      <p>
+        Para saber cuántas personas tocan «Escribir por WhatsApp», la insignia de
+        Google Play o un correo de contacto, esos botones pasan un instante por
+        una página de este sitio (por ejemplo, <code>/ir/play</code>) antes de
+        llevarte al destino. Esa visita se cuenta igual que cualquier otra, sin
+        cookies y sin saber quién sos.
+      </p>
 
       <h2 id="cambios">16. Cambios a esta política</h2>
       <p>
@@ -790,7 +797,7 @@ import { sitio, paquetesLeidos, telefonoLegible } from '../config/site';
         cuenta:
         {
           sitio.correoContacto ? (
-            <a href={`mailto:${sitio.correoContacto}`}>{sitio.correoContacto}</a>
+            <a href="/ir/correo">{sitio.correoContacto}</a>
           ) : (
             <Pendiente que="correo de contacto" />
           )

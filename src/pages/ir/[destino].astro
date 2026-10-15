@@ -1,0 +1,81 @@
+---
+import type { GetStaticPaths } from 'astro';
+import Base from '../../layouts/Base.astro';
+import { sitio, urlWhatsapp, mensajeWhatsappPagar } from '../../config/site';
+
+/**
+ * Paginas de paso: /ir/<destino>.
+ *
+ * Cloudflare Web Analytics cuenta VISITAS A PAGINAS, no clics. Para saber
+ * cuantos de los que entran escriben por WhatsApp, van a Google Play o mandan
+ * un correo, esos botones pasan por una pagina propia que redirige al destino:
+ * cada clic queda contado como una visita a /ir/<destino>.
+ *
+ * La redireccion se hace con JavaScript despues del evento load mas 400 ms,
+ * para que el script de Cloudflare alcance a mandar la visita. NO se usa
+ * _redirects ni redireccion del servidor: no ejecutan el script y Web
+ * Analytics no las cuenta. Si el JavaScript no corre, un meta refresh de
+ * respaldo (2 s) y un enlace visible llevan al mismo destino.
+ *
+ * El destino sale de site.ts: si cambia el numero o el correo, cambia en un
+ * solo lugar. noindex y fuera del sitemap.
+ */
+export const getStaticPaths = (() => {
+  const destinos = [
+    {
+      id: 'whatsapp',
+      aviso: 'Abriendo WhatsApp…',
+      destino: sitio.whatsapp ? urlWhatsapp(sitio.whatsapp) : null,
+    },
+    {
+      id: 'whatsapp-pagar',
+      aviso: 'Abriendo WhatsApp…',
+      destino: sitio.whatsapp
+        ? urlWhatsapp(sitio.whatsapp, mensajeWhatsappPagar)
+        : null,
+    },
+    {
+      id: 'play',
+      aviso: 'Abriendo Google Play…',
+      destino: sitio.urlPlayStore,
+    },
+    {
+      id: 'correo',
+      aviso: 'Abriendo tu correo…',
+      destino: sitio.correoContacto ? `mailto:${sitio.correoContacto}` : null,
+    },
+  ];
+  return destinos
+    .filter((d) => d.destino)
+    .map((d) => ({ params: { destino: d.id }, props: d }));
+}) satisfies GetStaticPaths;
+
+const { aviso, destino } = Astro.props;
+---
+
+<Base
+  titulo="Abriendo…"
+  descripcion="Página de paso de Neto Smart."
+  noIndexar={true}
+>
+  <meta slot="head" http-equiv="refresh" content={`2;url=${destino}`} />
+
+  <section>
+    <div class="envoltura angosto">
+      <h1>{aviso}</h1>
+      <p>
+        Si no se abre solo, <a href={destino} rel="noopener">tocá aquí</a>.
+      </p>
+    </div>
+  </section>
+
+  <script is:inline define:vars={{ destino }}>
+    // Esperar a que cargue todo (incluido el script de estadisticas) y un poco
+    // mas, para que la visita a esta pagina quede contada antes de irse.
+    addEventListener('load', function () {
+      setTimeout(function () {
+        location.replace(destino);
+      }, 400);
+    });
+  </script>
+</Base>

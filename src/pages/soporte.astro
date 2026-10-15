@@ -2,7 +2,7 @@
 import Base from '../layouts/Base.astro';
 import Faq from '../components/Faq.astro';
 import Pendiente from '../components/Pendiente.astro';
-import { sitio, telefonoLegible, urlWhatsapp } from '../config/site';
+import { sitio, telefonoLegible } from '../config/site';
 ---
 
 <Base
@@ -23,7 +23,7 @@ import { sitio, telefonoLegible, urlWhatsapp } from '../config/site';
           sitio.whatsapp && (
             <>
               <p>
-                <a class="boton" href={urlWhatsapp(sitio.whatsapp)} rel="noopener">
+                <a class="boton" href="/ir/whatsapp" rel="noopener">
                   Escribir por WhatsApp
                 </a>
               </p>
@@ -37,7 +37,7 @@ import { sitio, telefonoLegible, urlWhatsapp } from '../config/site';
           Por correo:
           {
             sitio.correoContacto ? (
-              <a href={`mailto:${sitio.correoContacto}`}>
+              <a href="/ir/correo">
                 {sitio.correoContacto}
               </a>
             ) : (

@@ -27,6 +27,9 @@ Copiá el enlace de la fila que corresponda y pegalo en ese grupo. Nada más.
 | Grupo de Facebook 1 | `https://netosmart.com/g/fb-grupo-1` |
 | Grupo de Facebook 2 | `https://netosmart.com/g/fb-grupo-2` |
 | Publicación en el perfil personal | `https://netosmart.com/g/fb-perfil` |
+| Página de Facebook (campo Website) | `https://netosmart.com/g/fb-pagina` |
+| Enlaces dentro de las publicaciones de Facebook | `https://netosmart.com/g/fb-post` |
+| Bio de Instagram | `https://netosmart.com/g/ig-bio` |
 | Grupo de Telegram 1 | `https://netosmart.com/g/tg-grupo-1` |
 | Calcomanía o papelito en el carro | `https://netosmart.com/g/calcomania` |
 | Compañeros, de boca en boca | `https://netosmart.com/g/boca-a-boca` |
@@ -66,3 +69,27 @@ sección 7 del [README](README.md).
   principal. Eso está bien y es a propósito.
 - No se guarda ningún dato de quien entra. Solo se cuenta cuánta gente llegó por
   cada enlace.
+
+## Qué se mide y dónde se ve
+
+En Cloudflare, **Analytics & Logs > Web Analytics > netosmart.com > Top pages**,
+hay dos tipos de páginas para mirar:
+
+- **`/g/...`** te dice **de qué canal llegó la gente** (el grupo, la bio, la
+  publicación).
+- **`/ir/...`** te dice **cuántos tocaron cada botón**:
+
+| Página | Qué botón cuenta |
+| --- | --- |
+| `/ir/whatsapp` | «Escribir por WhatsApp» (soporte) y el número del pie |
+| `/ir/whatsapp-pagar` | «Escribir por WhatsApp» de la página de pagar por SINPE |
+| `/ir/play` | la insignia de «Descargar en Google Play» |
+| `/ir/correo` | cualquier correo de contacto |
+
+Cada clic en uno de esos botones pasa un instante (menos de un segundo) por la
+página de paso y sigue al destino, así que cada uno queda como una visita a esa
+página. Si la página no se abre sola en algún teléfono, la persona ve un enlace
+«tocá aquí».
+
+Estas direcciones **no se reparten**: son solo para contar. Los enlaces que se
+reparten son los de `/g/`.

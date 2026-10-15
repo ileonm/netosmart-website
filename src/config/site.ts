@@ -163,6 +163,10 @@ export function sinpeLegible(digitos: string): string {
   return `${digitos.slice(0, 4)}-${digitos.slice(4)}`;
 }
 
+/** Primer mensaje del WhatsApp que sale de la pagina /pagar. */
+export const mensajeWhatsappPagar =
+  'Hola, pagué Pro por SINPE Móvil y necesito ayuda. El código de mi cuenta es: ';
+
 /** Enlace que abre WhatsApp con un primer mensaje ya escrito. */
 export function urlWhatsapp(
   digitos: string,

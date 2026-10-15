@@ -1,5 +1,4 @@
 ---
-import { sitio } from '../config/site';
 
 /**
  * La insignia OFICIAL de Google Play ("Descargar en Google Play"), en espanol.
@@ -9,7 +8,8 @@ import { sitio } from '../config/site';
  * reglas de uso de marca para esta insignia, y una de ellas es la linea de
  * atribucion que va en el pie (ver Base.astro).
  *
- * Siempre enlaza a la ficha de la app en Google Play.
+ * Enlaza a la ficha de la app en Google Play pasando por /ir/play, una
+ * pagina de paso que cuenta el clic en las estadisticas (ver ir/[destino]).
  */
 interface Props {
   /** true para las que quedan debajo de la primera pantalla. */
@@ -18,7 +18,7 @@ interface Props {
 const { diferida = false } = Astro.props;
 ---
 
-<a class="insignia" href={sitio.urlPlayStore} rel="noopener">
+<a class="insignia" href="/ir/play" rel="noopener">
   <img
     src="/google-play-es.png"
     width="165"
