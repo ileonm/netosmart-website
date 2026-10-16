@@ -66,7 +66,7 @@ Para cerrarlo, en la terminal apretá `Ctrl + C`.
 | Privacidad, accesibilidad, términos, soporte, borrar cuenta | `src/pages/*.astro` |
 | Colores y tipografía | `src/styles/global.css` |
 | El logo | `src/marca/` (ver `src/marca/LEEME.md`) |
-| La tarjeta que se ve al compartir por WhatsApp | `public/og.png` |
+| La tarjeta que se ve al compartir por WhatsApp | `public/og-2.png` |
 
 Los textos están dentro de las etiquetas `<p>`, `<h1>`, `<h2>`, etc. Se cambia lo
 que está entre las etiquetas, sin tocar las etiquetas.
@@ -230,7 +230,7 @@ pasos de cada cosa. Incluye cómo poner las capturas de la app.
   Cloudflare Pages.
 - El logo es el mismo icono de la app. Los originales están en `src/marca/` y de
   ahí salen todas las imágenes.
-- `herramientas/generar-imagenes.mjs` vuelve a generar `og.png`, los iconos y el
+- `herramientas/generar-imagenes.mjs` vuelve a generar `og-2.png`, los iconos y el
   logo del encabezado. No hace falta para desplegar: las imágenes ya están en el
   repositorio.
 - La paleta sale de los colores medidos del logo: azul `#1a1a2e` y verde
