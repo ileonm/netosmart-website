@@ -45,7 +45,7 @@ const tarjeta = `<!doctype html><meta charset="utf-8">
 </style>
 <div class="marca"><img src="${logoRedondo}" alt=""><div class="nombre">Neto Smart</div></div>
 <h1>Trabajaste diez horas.<br><span class="verde">¿Cuánto te quedó?</span></h1>
-<p>Gasolina, peajes y desgaste descontados. Para conductores en Costa Rica.</p>
+<p>Gasolina, peajes y costos fijos descontados. Para conductores en Costa Rica.</p>
 <div class="barra"></div>`;
 
 /** Redimensiona una imagen dejando el fondo transparente. */
@@ -97,7 +97,7 @@ async function guardar(html, ancho, alto, salida, transparente = false) {
 console.log('Generando imagenes en public/');
 
 // Tarjeta de vista previa para WhatsApp, Facebook y Telegram.
-await guardar(tarjeta, 1200, 630, 'public/og.png');
+await guardar(tarjeta, 1200, 630, 'public/og-2.png');
 
 // Icono del navegador y de la pantalla de inicio (el cuadrado de la app).
 for (const lado of [32, 180, 192, 512]) {

@@ -22,7 +22,7 @@ const anio = new Date().getFullYear();
 const rutaActual =
   Astro.url.pathname.replace(/(\/index)?\.html$/, '').replace(/\/+$/, '') || '/';
 const urlCanonica = new URL(canonica ?? rutaActual, sitio.dominio).href;
-const urlImagen = new URL('/og.png', sitio.dominio).href;
+const urlImagen = new URL('/og-2.png', sitio.dominio).href;
 const tituloCompleto =
   titulo === sitio.nombre ? titulo : `${titulo} | ${sitio.nombre}`;
 ---
