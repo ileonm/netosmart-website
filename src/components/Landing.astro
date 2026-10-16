@@ -162,7 +162,7 @@ const porHora = Math.round(neto / ejemplo.horas);
         <div class="icono-caja"><Icono nombre="ojo" /></div>
         <h3>Tus ganancias se anotan solas</h3>
         <p>
-          Leemos lo que ganaste en Uber, DiDi e InDrive. Nada de copiar números manualmente al final del día. Se puede apagar, y entonces las anotás a mano. Y si al cerrar el turno el último viaje de Uber todavía no se sumó, te avisamos para que no te vayás a dormir sin él.
+          Leemos lo que ganaste en Uber, DiDi e InDrive, y DiDi también se lee solo. Nada de copiar números manualmente al final del día. Se puede apagar, y entonces las anotás a mano. Y si al cerrar el turno el último viaje de Uber todavía no se sumó, te avisamos para que no te vayás a dormir sin él.
         </p>
       </div>
       <div class="tarjeta destacada">
@@ -202,7 +202,7 @@ const porHora = Math.round(neto / ejemplo.horas);
         <div class="icono-caja"><Icono nombre="billete" /></div>
         <h3>El efectivo no se te escapa</h3>
         <p>
-          Si el cliente te dejó el vuelto, se anota como extra, aparte de lo que te paga la plataforma. Te avisamos para que no se te olvide.
+          Si el cliente te dejó el vuelto en Uber, DiDi o InDrive, se anota como extra, aparte de lo que te paga la plataforma. Te avisamos para que no se te olvide.
         </p>
       </div>
       <div class="tarjeta">
@@ -529,19 +529,20 @@ const porHora = Math.round(neto / ejemplo.horas);
       </p>
     </Faq>
 
-    <Faq pregunta="¿Qué es la captura de pantalla que pide para DiDi?">
+    <Faq pregunta="¿Por qué saca fotos de la pantalla de DiDi?">
       <p>
-        DiDi no muestra su monto como texto, así que no se puede leer por
-        accesibilidad. Cuando tocás «leer DiDi», Android te pide permiso para
-        capturar la pantalla. Mientras está activa, la app mira la pantalla cada
-        1,5 segundos y lee el monto con reconocimiento de texto{' '}
-        <strong>dentro de tu teléfono</strong> (Google ML Kit): la imagen no se
-        manda a ningún lado.
+        DiDi no muestra su monto como texto, así que no se puede leer de otra
+        forma. Con Pro y la lectura automática encendida, el servicio de
+        accesibilidad saca fotos de la pantalla de DiDi (y solo de DiDi) cuando
+        DiDi cambia de pantalla, sobre todo después de un viaje. De ahí lee el
+        total del día y el cobro en efectivo, para anotarlos solo y preguntarte
+        por el vuelto. Todo se lee{' '}
+        <strong>dentro de tu teléfono</strong> (Google ML Kit): las fotos no se
+        guardan ni se mandan a ningún lado.
       </p>
       <p>
-        Se detiene sola apenas encuentra el monto, o a los 25 segundos. No guarda
-        las imágenes. Mientras corre ves una notificación con «Detener ahora», y
-        solo pasa cuando vos lo pedís.
+        Se apaga apagando la lectura automática. «Leer DiDi» queda como respaldo
+        por si no lo agarró.
         <a href="/privacidad#captura">Los detalles están en la política</a>.
       </p>
     </Faq>

@@ -5,7 +5,7 @@ import { sitio, paquetesLeidos } from '../config/site';
 
 <Base
   titulo="Permiso de accesibilidad: qué lee la app y qué no"
-  descripcion="Divulgación completa del uso del servicio de accesibilidad en Neto Smart: lee el texto en pantalla de Uber, DiDi e InDrive. Hay además dos fotos de pantalla que se leen dentro del teléfono: la de las ofertas de viaje (hoy apagada) y la de DiDi, que pedís vos. No lee mensajes, contraseñas ni ninguna otra app."
+  descripcion="Divulgación completa del uso del servicio de accesibilidad en Neto Smart: lee el texto en pantalla de Uber, DiDi e InDrive. En DiDi, el servicio saca fotos de la pantalla de DiDi para leer el total del día y el cobro en efectivo, y hay otra foto para las ofertas de viaje (hoy apagada). Todas se leen dentro del teléfono. No lee mensajes, contraseñas ni ninguna otra app."
 >
   <section>
     <div class="envoltura angosto legal">
@@ -30,13 +30,17 @@ import { sitio, paquetesLeidos } from '../config/site';
             tecleás, ni ninguna otra app del teléfono.
           </li>
           <li>
-            Cuando entra una oferta de viaje, el servicio <strong>saca una foto
-            de la pantalla</strong> para leerla dentro del teléfono. No guarda
-            la imagen ni la manda a ningún lado. Esa ayuda hoy
+            <strong>En DiDi, el servicio saca fotos de la pantalla de DiDi</strong>
+            (y solo de DiDi) para leer el total de ganancias del día y el cobro
+            en efectivo de un viaje. Se leen dentro del teléfono y no se guardan
+            ni se mandan a ningún lado. Es parte de Pro, con la lectura
+            automática encendida.
+          </li>
+          <li>
+            Cuando entra una oferta de viaje, el servicio también puede sacar
+            una foto de la pantalla para leerla, igual de privada. Esa ayuda hoy
             <strong>viene apagada</strong> y solo un administrador la puede
-            prender: mientras esté apagada, no saca ninguna foto. Aparte está
-            la captura de DiDi, que solo se activa cuando vos tocás «leer
-            DiDi». Las dos están explicadas más abajo.
+            prender: mientras esté apagada, no saca ninguna foto.
           </li>
           <li>
             Lo podés apagar cuando querás. La app sigue funcionando y anotás
@@ -103,6 +107,11 @@ import { sitio, paquetesLeidos } from '../config/site';
         <li>El total de ganancias del día.</li>
         <li>El monto de cada viaje.</li>
         <li>
+          El monto del cobro en efectivo de un viaje de DiDi (la pantalla donde
+          DiDi pide cobrar y confirmar el pago), para preguntarte si te dejaron
+          vuelto.
+        </li>
+        <li>
           Las señales de estado del viaje: si va en camino a recoger, si lleva
           pasajero a bordo, si el viaje se paga en efectivo y si se canceló (lo
           usa para no pedirte que anotés un viaje que no se hizo).
@@ -110,9 +119,9 @@ import { sitio, paquetesLeidos } from '../config/site';
       </ul>
       <p>
         <strong>El monto de DiDi es la excepción.</strong> Las pantallas de
-        ganancias de DiDi no muestran su texto, así que ese monto no se lee por
-        accesibilidad: se lee con la captura de pantalla que se explica en la
-        sección siguiente.
+        ganancias de DiDi no muestran su texto, así que ese monto no se lee como
+        texto: sale de las fotos de la pantalla de DiDi que se explican en la
+        sección siguiente (y, como respaldo, de «leer DiDi»).
       </p>
       <p>
         Saber de cuál de las tres aplicaciones viene el viaje, y en qué estado
@@ -131,10 +140,53 @@ import { sitio, paquetesLeidos } from '../config/site';
         ganancia sin que nadie lo note.
       </p>
 
+      <h2 id="didi">Las fotos de la pantalla de DiDi</h2>
+      <p>
+        DiDi dibuja sus pantallas de ganancias y de cobro como imagen, sin texto
+        que se pueda leer por accesibilidad. Por eso, para los conductores con
+        Pro que tienen la lectura automática encendida, el servicio saca fotos de
+        la pantalla de DiDi. Se explican con el mismo detalle que la foto de las
+        ofertas:
+      </p>
+      <ul>
+        <li>
+          <strong>Cuándo pasa:</strong> cuando DiDi cambia de pantalla, sobre
+          todo en los minutos después de terminar un viaje. Solo de DiDi: de
+          ninguna otra app. No pide un permiso aparte ni muestra el aviso de
+          «grabando».
+        </li>
+        <li>
+          <strong>Qué lee, dos cosas:</strong> el total de ganancias del día de
+          DiDi (el número de arriba de la pantalla principal, «Ganancias de hoy»
+          o el tablero), para anotarlo solo; y el cobro en efectivo de un viaje
+          (la pantalla donde DiDi pide cobrar y confirmar el pago), para
+          preguntarte si te dejaron vuelto, igual que ya pasa con Uber e InDrive.
+        </li>
+        <li>
+          <strong>Dónde se lee:</strong> dentro de tu teléfono, con Google ML
+          Kit. La imagen no se manda a ningún servidor ni a ningún tercero.
+        </li>
+        <li>
+          <strong>Qué guarda:</strong> no guarda las imágenes. Lo único que queda
+          es el monto leído y, en el registro de diagnóstico de tu teléfono, el
+          texto de la pantalla de cobro, para poder revisar fallas. Si lo que se
+          ve parece la conversación con el pasajero, no se anota nada.
+        </li>
+        <li>
+          <strong>Cómo se apaga:</strong> apagando la lectura automática en la
+          configuración de Neto Smart, o quitando el permiso de accesibilidad en
+          los ajustes de Android.
+        </li>
+        <li>
+          <strong>«Leer DiDi» sigue existiendo</strong> como respaldo manual,
+          explicado más abajo.
+        </li>
+      </ul>
+
       <h2 id="ofertas">La foto de las ofertas de viaje</h2>
       <p>
-        Esta es la única parte del servicio de accesibilidad que saca fotos de la
-        pantalla. Se explica con el mismo detalle que la captura de DiDi.
+        Además de las fotos de DiDi, esta es otra parte del servicio de
+        accesibilidad que saca fotos de la pantalla. Hoy viene apagada.
       </p>
       <ul>
         <li>
@@ -189,10 +241,11 @@ import { sitio, paquetesLeidos } from '../config/site';
         </li>
       </ul>
 
-      <h2 id="captura">La captura de pantalla de DiDi (no es accesibilidad)</h2>
+      <h2 id="captura">El respaldo manual: «leer DiDi» (no es accesibilidad)</h2>
       <p>
-        Esto es aparte del permiso de accesibilidad y funciona distinto, así que
-        se explica por separado.
+        Si la lectura automática de DiDi no agarró el monto, queda este respaldo.
+        Es aparte del permiso de accesibilidad y funciona distinto, así que se
+        explica por separado.
       </p>
       <ul>
         <li>
@@ -235,9 +288,9 @@ import { sitio, paquetesLeidos } from '../config/site';
           app.
         </li>
         <li>
-          No graba la pantalla ni guarda imágenes. Las únicas fotos son la de las
-          ofertas (hoy apagada) y la de DiDi, las dos descritas arriba, y se leen
-          dentro del teléfono.
+          No graba la pantalla ni guarda imágenes. Las fotos (las de DiDi, la de
+          las ofertas cuando esté encendida y la de «leer DiDi») se leen dentro
+          del teléfono.
         </li>
         <li>
           No manda a ningún servidor el texto que lee. Lo que sale de esa
@@ -272,8 +325,9 @@ import { sitio, paquetesLeidos } from '../config/site';
         Con el permiso apagado, la app sigue haciendo todo lo demás: turnos,
         gasolina, peajes, apartados, mantenimiento y el cálculo del neto. Lo
         único que cambia es que las ganancias las anotás vos al final de cada
-        viaje o al cerrar el turno. La captura de DiDi no se queda prendida: se
-        apaga sola, y si no querés usarla, no toqués «leer DiDi».
+        viaje o al cerrar el turno. Las fotos de DiDi se apagan junto con la lectura
+        automática, y «leer DiDi» se apaga sola: si no querés usarlo, no lo
+        toqués.
       </p>
 
       <p class="espacio">

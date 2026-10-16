@@ -31,10 +31,11 @@ import { sitio, paquetesLeidos, telefonoLegible } from '../config/site';
             ninguna foto.
           </li>
           <li>
-            DiDi no muestra su monto como texto. Cuando tocás «leer DiDi», la app
-            <strong>captura la pantalla</strong> un momento (hasta 25
-            segundos), lee el monto <strong>dentro de tu teléfono</strong> y no
-            guarda ni manda la imagen.
+            <strong>En DiDi, el servicio saca fotos de la pantalla de DiDi</strong>
+            (y solo de DiDi) para leer el total del día y el cobro en efectivo.
+            Se leen <strong>dentro de tu teléfono</strong> y no se guardan ni se
+            mandan. Es parte de Pro, con la lectura automática encendida. Aparte
+            queda «leer DiDi» como respaldo manual.
           </li>
           <li>
             Con el turno abierto y Pro, la app consulta tu
@@ -70,7 +71,7 @@ import { sitio, paquetesLeidos, telefonoLegible } from '../config/site';
           <li><a href="#responsable">Quién responde por esto</a></li>
           <li><a href="#que-recoge">Qué datos recoge la app</a></li>
           <li><a href="#pantalla">Lectura de pantalla (accesibilidad)</a></li>
-          <li><a href="#captura">Capturas de pantalla: las ofertas y DiDi</a></li>
+          <li><a href="#captura">Capturas de pantalla: DiDi y las ofertas</a></li>
           <li><a href="#ubicacion">Ubicación</a></li>
           <li><a href="#diagnostico">Registro de diagnóstico</a></li>
           <li><a href="#cedula">Cédula o DIMEX</a></li>
@@ -190,7 +191,7 @@ import { sitio, paquetesLeidos, telefonoLegible } from '../config/site';
       <h3>2.5 Datos leídos de la pantalla, de la ubicación y de diagnóstico</h3>
       <p>
         Están explicados cada uno en su sección: la <a href="#pantalla">lectura
-        de pantalla</a>, las <a href="#captura">fotos de las ofertas y la captura de DiDi</a>, la
+        de pantalla</a>, las <a href="#captura">fotos de DiDi y de las ofertas</a>, la
         <a href="#ubicacion">ubicación</a> y el
         <a href="#diagnostico">registro de diagnóstico</a>.
       </p>
@@ -239,6 +240,10 @@ import { sitio, paquetesLeidos, telefonoLegible } from '../config/site';
         <li>El total de ganancias del día.</li>
         <li>El monto de cada viaje.</li>
         <li>
+          El monto del cobro en efectivo de un viaje de DiDi, para preguntarte si
+          te dejaron vuelto.
+        </li>
+        <li>
           Las señales de estado del viaje: si va en camino a recoger, si lleva
           pasajero a bordo, si el viaje se paga en efectivo y si se canceló (lo
           usa para no pedirte que anotés un viaje que no se hizo).
@@ -247,8 +252,8 @@ import { sitio, paquetesLeidos, telefonoLegible } from '../config/site';
       <p>
         Esto es cuando la aplicación muestra el dato como texto. <strong>El
         monto de DiDi es la excepción</strong>: sus pantallas de ganancias no
-        muestran texto, y ese monto se lee con la captura de la
-        <a href="#captura">sección 4</a>, no por accesibilidad.
+        muestran texto, y ese monto sale de las fotos de la pantalla de DiDi de
+        la <a href="#captura">sección 4</a>, no de leer texto.
       </p>
       <p>
         Esa información se usa para anotar tus ingresos sin que tengás que
@@ -271,9 +276,9 @@ import { sitio, paquetesLeidos, telefonoLegible } from '../config/site';
           banca, ni las redes sociales.
         </li>
         <li>
-          No graba la pantalla ni guarda imágenes. Las únicas fotos de pantalla
-          son la de las ofertas de viaje (hoy apagada) y la de DiDi, y las
-          explica la sección 4. Se leen dentro del teléfono.
+          No graba la pantalla ni guarda imágenes. Las fotos (las de DiDi, la de
+          las ofertas de viaje cuando esté encendida y la de «leer DiDi») las
+          explica la sección 4 y se leen dentro del teléfono.
         </li>
       </ul>
 
@@ -288,14 +293,54 @@ import { sitio, paquetesLeidos, telefonoLegible } from '../config/site';
 
       <h2 id="captura">4. Capturas de pantalla</h2>
       <p>
-        Hay dos mecanismos que leen una imagen de la pantalla. Los dos leen
+        Hay tres mecanismos que leen una imagen de la pantalla. Los tres leen
         dentro de tu teléfono y ninguno guarda la imagen.
       </p>
 
-      <h3 id="ofertas">4.1 La foto de las ofertas de viaje</h3>
+      <h3 id="didi">4.1 Las fotos de la pantalla de DiDi</h3>
       <p>
-        Es la única parte del servicio de accesibilidad que saca fotos de la
-        pantalla. Funciona así:
+        DiDi dibuja sus pantallas de ganancias y de cobro como imagen, sin texto
+        que se pueda leer por accesibilidad. Por eso, para los conductores con Pro
+        que tienen la lectura automática encendida, el servicio de accesibilidad
+        saca fotos de la pantalla de DiDi:
+      </p>
+      <ul>
+        <li>
+          <strong>Cuándo pasa.</strong> Cuando DiDi cambia de pantalla, sobre
+          todo en los minutos después de terminar un viaje. Solo de DiDi: de
+          ninguna otra app. No pide un permiso aparte ni muestra el aviso de
+          «grabando».
+        </li>
+        <li>
+          <strong>Qué lee, dos cosas.</strong> El total de ganancias del día de
+          DiDi (el número de arriba de la pantalla principal, «Ganancias de hoy»
+          o el tablero), para anotarlo solo; y el cobro en efectivo de un viaje
+          (la pantalla donde DiDi pide cobrar y confirmar el pago), para
+          preguntarte si te dejaron vuelto.
+        </li>
+        <li>
+          <strong>Dentro de tu teléfono.</strong> El reconocimiento de texto lo
+          hace Google ML Kit en el propio aparato. La imagen no se envía a ningún
+          servidor ni a ningún tercero.
+        </li>
+        <li>
+          <strong>Qué guarda.</strong> No guarda las imágenes. Lo único que queda
+          es el monto leído y, en el registro de diagnóstico de tu teléfono
+          (<a href="#diagnostico">sección 6</a>), el texto de la pantalla de
+          cobro, para poder revisar fallas. Si lo que se ve parece la
+          conversación con el pasajero, no se anota nada.
+        </li>
+        <li>
+          <strong>Se apaga</strong> apagando la lectura automática en
+          Configuración, o quitando el permiso de accesibilidad en los ajustes de
+          Android.
+        </li>
+      </ul>
+
+      <h3 id="ofertas">4.2 La foto de las ofertas de viaje</h3>
+      <p>
+        Es otra parte del servicio de accesibilidad que saca fotos de la
+        pantalla, y hoy viene apagada. Funciona así:
       </p>
       <ul>
         <li>
@@ -351,11 +396,11 @@ import { sitio, paquetesLeidos, telefonoLegible } from '../config/site';
         </li>
       </ul>
 
-      <h3>4.2 La captura de DiDi</h3>
+      <h3>4.3 El respaldo manual: «leer DiDi»</h3>
       <p>
-        DiDi no muestra su monto de ganancias como texto, así que no se puede
-        leer por accesibilidad. Para ese monto la app usa una captura de
-        pantalla, que es un mecanismo aparte y funciona así:
+        Si la lectura automática de DiDi no agarró el monto, queda este
+        respaldo: una captura de pantalla que pedís vos, que es un mecanismo
+        aparte y funciona así:
       </p>
       <ul>
         <li>
@@ -386,7 +431,8 @@ import { sitio, paquetesLeidos, telefonoLegible } from '../config/site';
         </li>
       </ul>
       <p>
-        Si no querés usarla, no toqués «leer DiDi» y anotás ese monto a mano.
+        Si no querés usarla, no toqués «leer DiDi». Con la lectura automática
+        apagada, anotás ese monto a mano.
       </p>
 
       <h2 id="ubicacion">5. Ubicación</h2>
@@ -456,7 +502,8 @@ import { sitio, paquetesLeidos, telefonoLegible } from '../config/site';
       <p>
         La app guarda <strong>en tu teléfono</strong> un registro de lo que leyó
         (el texto de las pantallas de Uber, DiDi e InDrive, incluido el texto de
-        las tarjetas de oferta de viaje, nunca imágenes) y de dónde pasaste cerca
+        la pantalla de cobro en efectivo de DiDi y de las tarjetas de oferta de
+        viaje, nunca imágenes) y de dónde pasaste cerca
         de una caseta. También guarda <strong>la versión de la app</strong> con
         la que se anotó cada parte. Sirve para encontrar y arreglar fallas.
       </p>
@@ -716,12 +763,12 @@ import { sitio, paquetesLeidos, telefonoLegible } from '../config/site';
           <tbody role="rowgroup">
             <tr role="row">
               <td role="cell" data-label="Permiso">Accesibilidad</td>
-              <td role="cell" data-label="Para qué">Leer el monto y el estado del viaje en Uber, DiDi e InDrive, y la foto de las ofertas de viaje (hoy apagada).</td>
+              <td role="cell" data-label="Para qué">Leer el monto y el estado del viaje en Uber, DiDi e InDrive, incluidas las fotos de la pantalla de DiDi, y la foto de las ofertas de viaje (hoy apagada).</td>
               <td role="cell" data-label="Si lo apagás">Las ganancias se anotan a mano.</td>
             </tr>
             <tr role="row">
               <td role="cell" data-label="Permiso">Captura de pantalla</td>
-              <td role="cell" data-label="Para qué">Leer el monto de DiDi, solo cuando tocás «leer DiDi».</td>
+              <td role="cell" data-label="Para qué">Leer el monto de DiDi cuando tocás «leer DiDi», el respaldo manual.</td>
               <td role="cell" data-label="Si lo apagás">El monto de DiDi se anota a mano.</td>
             </tr>
             <tr role="row">
