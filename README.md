@@ -222,7 +222,7 @@ pasos de cada cosa. Incluye cómo poner las capturas de la app.
 - Los datos del negocio viven en `src/config/site.ts`. Lo que depende de un
   número (precio, días, minutos) se escribe ahí una vez y las páginas lo toman.
 - **Al reemplazar una captura, cambiale el nombre al archivo** (por ejemplo,
-  `pro-3500.webp` en lugar de `premium.webp`). Las imágenes se guardan en el
+  `pro-prueba.webp` en lugar de `pro-3500.webp`). Las imágenes se guardan en el
   caché de los navegadores y de Cloudflare hasta 7 días; con el mismo nombre,
   mucha gente seguiría viendo la vieja. Con un nombre nuevo se ve la nueva al
   instante.

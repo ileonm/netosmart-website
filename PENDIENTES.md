@@ -173,7 +173,7 @@ archivo.
 ### 14. Capturas de la app: resuelto (7-oct)
 
 Las tres capturas del sitio están puestas y son pantallas reales: **Pro**
-(`pro-3500.webp`), **Hoy** (`turno-hoy.webp`) y **Mi garaje** (`mi-garaje.webp`),
+(`pro-prueba.webp`), **Hoy** (`turno-hoy.webp`) y **Mi garaje** (`mi-garaje.webp`),
 en `public/capturas/`. Las capturas de la ficha de Google Play también están
 listas.
 
@@ -181,10 +181,9 @@ listas.
   sin placa ni nombre. Se dejan así, a propósito.
 - En «Mi garaje» las placas y el aceite están tapados con barras sólidas; las
   originales no están en el repositorio.
-- La de **Pro** ya está puesta con **₡3.500** (actualizada el 16-oct). La
-  captura original traía una etiqueta con el estado de tu cuenta («Pro hasta el
-  31 de octubre»); se cubrió con el color de la cabecera, porque en la página
-  parecería una promoción. **«Hoy»** (₡22,769) y **«Mi garaje»**
+- La de **Pro** ya está puesta con **₡3.500** y el botón «Empezar mis 14 días
+  gratis» (`pro-prueba.webp`, actualizada el 16-oct). No tiene datos de tu
+  cuenta. **«Hoy»** (₡22,769) y **«Mi garaje»**
   (₡2,828 por barra) siguen con coma, porque son de antes de ese cambio. No es
   grave, pero si querés que las tres coincidan con la app, pasame capturas
   nuevas de esas dos y las reemplazo igual.
