@@ -173,7 +173,7 @@ archivo.
 ### 14. Capturas de la app: resuelto (7-oct)
 
 Las tres capturas del sitio están puestas y son pantallas reales: **Pro**
-(`premium.webp`), **Hoy** (`turno-hoy.webp`) y **Mi garaje** (`mi-garaje.webp`),
+(`pro-3500.webp`), **Hoy** (`turno-hoy.webp`) y **Mi garaje** (`mi-garaje.webp`),
 en `public/capturas/`. Las capturas de la ficha de Google Play también están
 listas.
 
