@@ -42,7 +42,9 @@ import { sitio, paquetesLeidos, telefonoLegible } from '../config/site';
             <strong>GPS seguido</strong> para darse cuenta de que cruzaste una
             caseta, con una notificación fija, y se apaga al cerrar el turno.
             <strong>No guarda por dónde anduviste</strong> ni manda tu ubicación
-            en vivo a ningún servidor.
+            en vivo a ningún servidor. Con esas posiciones también suma los
+            kilómetros del turno para el aviso del cambio de aceite, y de eso
+            solo guarda el total.
           </li>
           <li>
             Guarda en tu teléfono un <strong>registro de diagnóstico</strong> con
@@ -453,6 +455,10 @@ import { sitio, paquetesLeidos, telefonoLegible } from '../config/site';
           <strong>Darse cuenta de que estás en un lavacar que marcaste</strong>,
           para recordarte anotar el lavado.
         </li>
+        <li>
+          <strong>Sumar los kilómetros del turno</strong>, para estimar cuándo te
+          toca el cambio de aceite.
+        </li>
       </ol>
 
       <h3>5.1 El GPS seguido (con el turno abierto y Pro)</h3>
@@ -465,7 +471,24 @@ import { sitio, paquetesLeidos, telefonoLegible } from '../config/site';
         atento a los peajes». Se apaga al cerrar el turno.
       </p>
 
-      <h3>5.2 Los geocercos</h3>
+      <h3>5.2 Los kilómetros del turno</h3>
+      <p>
+        Con el turno abierto, la app también suma los
+        <strong>kilómetros del turno</strong> con esas mismas posiciones del GPS.
+        Sirve para estimar cuándo te toca el cambio de aceite.
+      </p>
+      <ul>
+        <li>
+          <strong>Solo se guarda el total de kilómetros</strong>, en tu teléfono.
+          Nunca las posiciones ni el camino.
+        </li>
+        <li>
+          Vos podés escribir de vez en cuando lo que marca el odómetro. Ese
+          número se guarda con tu configuración.
+        </li>
+      </ul>
+
+      <h3>5.3 Los geocercos</h3>
       <p>
         Además, la app usa geocercos: círculos alrededor de puntos que vos
         marcaste o que vienen del catálogo de casetas. El teléfono avisa cuando
@@ -482,9 +505,10 @@ import { sitio, paquetesLeidos, telefonoLegible } from '../config/site';
         es lo único que se vigila sin turno.
       </p>
 
-      <h3>5.3 Lo que no se guarda</h3>
+      <h3>5.4 Lo que no se guarda</h3>
       <ul class="marcas no">
-        <li>No se guarda un recorrido ni un historial de por dónde anduviste.</li>
+        <li>No se guarda un recorrido ni un historial de por dónde anduviste.
+          De los kilómetros del turno solo queda el total.</li>
         <li>No se manda tu ubicación en vivo a ningún servidor.</li>
       </ul>
       <p>
