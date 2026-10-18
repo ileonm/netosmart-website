@@ -8,6 +8,7 @@ import { sitio } from '../config/site';
  */
 const rutas = [
   { url: '/', prioridad: '1.0' },
+  { url: '/que-es', prioridad: '0.8' },
   { url: '/descargar', prioridad: '0.9' },
   { url: '/soporte', prioridad: '0.6' },
   { url: '/pagar', prioridad: '0.5' },

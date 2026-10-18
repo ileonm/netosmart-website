@@ -5,6 +5,7 @@ import Precios from './Precios.astro';
 import Icono from './Icono.astro';
 import LogoRed from './LogoRed.astro';
 import { sitio, colones } from '../config/site';
+import { preguntas } from '../config/preguntas';
 
 /**
  * Cuerpo del inicio. Se usa en / y en las paginas de canal /g/<id>,
@@ -31,11 +32,7 @@ const porHora = Math.round(neto / ejemplo.horas);
 <section class="portada">
   <div class="envoltura">
     <h1>Trabajaste diez horas. ¿Cuánto te quedó?</h1>
-    <p class="entradilla">
-      Neto Smart lleva la cuenta de lo que entra y de lo que sale (gasolina,
-      peajes, mantenimiento y lo que cuesta tener el carro) para que sepás
-      cuánto te queda libre al cerrar el turno.
-    </p>
+    <p class="entradilla">{sitio.definicion}</p>
     <div class="acciones">
       <BotonDescarga />
     </div>
@@ -509,179 +506,15 @@ const porHora = Math.round(neto / ejemplo.horas);
     <span class="etiqueta-seccion">Lo que más preguntan</span>
     <h2>Preguntas frecuentes</h2>
 
-    <Faq pregunta="¿Por qué pide el permiso de accesibilidad?" abierta={true}>
-      <p>
-        Es el permiso que le deja a la app leer el texto que aparece en la
-        pantalla. Se usa solo en Uber, DiDi e InDrive, para ver cuánto ganaste y
-        en qué momento del viaje vas, y anotarlo sin que lo tengás que hacer
-        vos. Es parte de la lectura automática, o sea de Pro.
-      </p>
-      <p>
-        Cualquier otra app que tengás abierta se descarta antes de mirarla. No
-        lee mensajes, ni contraseñas, ni lo que tecleás. DiDi no muestra su
-        monto como texto, así que ese se lee de otra forma (mirá la pregunta de
-        abajo).
-      </p>
-      <p>
-        Si no se lo querés dar, no se lo des. La app funciona igual y las
-        ganancias las anotás a mano.
-        <a href="/accesibilidad">Acá está la explicación completa</a>.
-      </p>
-    </Faq>
-
-    <Faq pregunta="¿Por qué saca fotos de la pantalla de DiDi?">
-      <p>
-        DiDi no muestra su monto como texto, así que no se puede leer de otra
-        forma. Con Pro y la lectura automática encendida, el servicio de
-        accesibilidad saca fotos de la pantalla de DiDi (y solo de DiDi) cuando
-        DiDi cambia de pantalla, sobre todo después de un viaje. De ahí lee el
-        total del día y el cobro en efectivo, para anotarlos solo y preguntarte
-        por el vuelto. Todo se lee{' '}
-        <strong>dentro de tu teléfono</strong> (Google ML Kit): las fotos no se
-        guardan ni se mandan a ningún lado.
-      </p>
-      <p>
-        Se apaga apagando la lectura automática. «Leer DiDi» queda como respaldo
-        por si no lo agarró.
-        <a href="/privacidad#captura">Los detalles están en la política</a>.
-      </p>
-    </Faq>
-
-    <Faq pregunta="¿Ven mis datos?">
-      <p>
-        Tus datos quedan en tu teléfono y en una cuenta que es tuya, protegida
-        para que solo vos puedas leerla. No se venden ni se usan para
-        publicidad. Fuera de tu cuenta, lo único que nos llega es lo que vos
-        decidís mandar, como un diagnóstico.
-      </p>
-      <p>
-        Algunos servicios externos reciben lo mínimo para hacer su trabajo (por
-        ejemplo, la placa va al Registro Nacional para buscar tu carro), y están
-        todos nombrados en la política. Tampoco se guarda un recorrido de por
-        dónde anduviste, ni se manda tu ubicación en vivo a ningún servidor.
-        <a href="/privacidad">Ver la política de privacidad</a>.
-      </p>
-    </Faq>
-
-    <Faq pregunta="¿Usa mi ubicación todo el tiempo? ¿Me gasta la batería?">
-      <p>
-        Con el turno abierto y Pro, la app mira el GPS más seguido para
-        darse cuenta de que cruzaste una caseta: una posición por segundo cuando
-        estás cerca de una, una cada diez segundos cuando estás lejos. Mientras
-        tanto ves una notificación fija que dice «Neto Smart está atento a los
-        peajes». Al cerrar el turno, se apaga.
-      </p>
-      <p>
-        Fuera del turno no se vigila nada, salvo los lavacares que marcaste, con
-        la ubicación de bajo consumo de Android, sin encender el GPS. Usar el GPS
-        más seguido gasta más batería que no usarlo: es el precio de que los
-        peajes se detecten solos, y si no lo querés, apagás el permiso y los
-        anotás a mano. Los datos casi no los toca.
-      </p>
-    </Faq>
-
-    <Faq pregunta="¿Funciona sin internet?">
-      <p>
-        Sí. Lo que anotás manejando se guarda en el teléfono aunque andés sin
-        señal, y se sincroniza solo cuando vuelve la conexión. No se pierde
-        nada.
-      </p>
-    </Faq>
-
-    <Faq pregunta="¿Cuánto cuesta?">
-      <p>
-        El plan Gratis es gratis para siempre: todo a mano, con la analítica
-        básica. Pro, que lo hace solo, cuesta {sitio.precioPremium}, y lo
-        probás {sitio.diasPrueba} días sin tarjeta.
-      </p>
-      <p>
-        <a href="#precio">Acá está qué incluye cada uno</a>. Se paga desde la
-        app, con Google Play.
-      </p>
-    </Faq>
-
-    <Faq pregunta="¿Qué pasa cuando vence Pro?">
-      <p>
-        No se borra nada, nunca. Volvés al plan gratis con todo tu historial. Si
-        tenías varios carros, escogés con cuál seguís; los otros quedan
-        guardados y vuelven si renovás. Un turno que empezó con Pro termina
-        con Pro.
-      </p>
-      <p>
-        La suscripción se renueva sola cada mes por Google Play, hasta que la
-        cancelés ahí mismo (Google Play → Pagos y suscripciones). Y el precio
-        queda fijo para tu cuenta; si un día sube, solo lo pagan las cuentas
-        nuevas.
-      </p>
-    </Faq>
-
-    <Faq pregunta="¿Por qué me pide la cédula?">
-      <p>
-        Solo para la prueba gratis de {sitio.diasPrueba} días de Pro, que es
-        una por persona. La cédula (o el DIMEX) es opcional en el perfil: si no
-        querés probar Pro, no hace falta darla.
-      </p>
-      <p>
-        No guardamos el número: guardamos una huella cifrada que no se puede
-        deshacer para recuperarlo. El nombre y la cédula quedan fijos; para
-        cambiarlos, escribinos por soporte.
-        <a href="/privacidad#cedula">Más en la política</a>.
-      </p>
-    </Faq>
-
-    <Faq pregunta="¿Con la placa me llena los datos del carro?">
-      <p>
-        Lo intenta. La app consulta la placa en el Registro Nacional y, si
-        responde, llena marca, modelo, año, forma, color y motor. Pero a veces
-        el sitio del Registro bloquea las consultas automáticas, y entonces lo
-        llenás a mano: son cuatro campos.
-      </p>
-      <p>
-        De lo que devuelve el Registro guardamos solo los datos del vehículo; lo
-        del dueño se descarta.
-      </p>
-    </Faq>
-
-    <Faq pregunta="¿Sirve para Uber, DiDi e InDrive al mismo tiempo?">
-      <p>
-        Sí. Si manejás en las tres, la app suma lo de las tres en el mismo turno
-        y te da un solo neto al final del día.
-      </p>
-    </Faq>
-
-    <Faq pregunta="¿Qué pasa si cambio de teléfono?">
-      <p>
-        Nada se pierde. Lo que anotás queda guardado en tu cuenta, no solo en el
-        teléfono. Instalás la app en el aparato nuevo, entrás con la misma
-        cuenta y ahí están tus turnos, tus carros y tus apartados.
-      </p>
-      <p>
-        La cuenta funciona en un teléfono a la vez: al entrar en el nuevo, el
-        anterior se cierra solo (después de subir lo que tuviera pendiente) y te
-        llega un correo avisando.
-      </p>
-    </Faq>
-
-    <Faq pregunta="¿Puedo borrar mi cuenta?">
-      <p>
-        Sí, desde la app y al instante: Configuración, Mi perfil, Zona de
-        peligro. Si ya no tenés la app, también se puede pedir sin ella.
-        <a href="/borrar-cuenta">Acá están los pasos</a>.
-      </p>
-    </Faq>
-
-    <Faq pregunta="¿Funciona en iPhone?">
-      <p>
-        Todavía no, pero viene en camino. Por ahora la app está en Google Play,
-        para Android.
-      </p>
-      <p>
-        No ponemos fecha porque no la tenemos, y tampoco prometemos todavía qué
-        va a hacer: lo automático de la versión de Android depende de permisos
-        que iPhone no tiene. Cuando la versión de iPhone esté lista, se anuncia
-        acá mismo.
-      </p>
-    </Faq>
+    {
+      preguntas.map((p) => (
+        <Faq pregunta={p.pregunta} abierta={p.abierta}>
+          {p.respuesta.map((parrafo) => (
+            <p set:html={parrafo} />
+          ))}
+        </Faq>
+      ))
+    }
   </div>
 </section>
 

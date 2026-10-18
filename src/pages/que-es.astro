@@ -1,0 +1,144 @@
+---
+import Base from '../layouts/Base.astro';
+import { sitio, telefonoLegible } from '../config/site';
+---
+
+<Base
+  titulo="Qué es Neto Smart"
+  descripcion={`Qué es Neto Smart, para quién es, qué hace y qué no, cuánto cuesta (plan Gratis y Pro) y cómo cuida tus datos: la app Android para conductores de Uber, DiDi e InDrive en Costa Rica.`}
+>
+  <section>
+    <div class="envoltura angosto">
+      <h1>Qué es Neto Smart</h1>
+      <p class="entradilla-clara">{sitio.definicion}</p>
+
+      <h2>Qué es</h2>
+      <p>
+        Neto Smart (también escrito NetoSmart) es una app para teléfonos Android
+        para conductores de plataformas de transporte en Costa Rica: Uber, DiDi
+        e InDrive. Lleva las cuentas del carro y dice cuánto le quedó de verdad
+        al conductor, que es el <strong>neto</strong>: lo que queda después de
+        descontar la gasolina, los peajes, el mantenimiento y los costos fijos.
+      </p>
+      <p>
+        Las apps de transporte muestran lo que facturaste. Neto Smart muestra lo
+        que te quedó.
+      </p>
+
+      <h2>Para quién es</h2>
+      <p>
+        Para conductores de Uber, DiDi o InDrive en Costa Rica, con carro propio,
+        alquilado o eléctrico. Si manejás en más de una plataforma, la app suma
+        todo en el mismo turno y te da un solo neto.
+      </p>
+
+      <h2>Qué hace</h2>
+      <ul>
+        <li>
+          Anota las ganancias de Uber, DiDi e InDrive (con el servicio de
+          accesibilidad de Android, sin pedir las contraseñas de esas apps).
+        </li>
+        <li>Pregunta por el peaje cuando pasás por la caseta.</li>
+        <li>Pregunta por el vuelto o los extras que te dan en efectivo.</li>
+        <li>Avisa si arranca un viaje y no tenés el turno abierto.</li>
+        <li>Cierra el turno cuando llegás a un lugar de descanso.</li>
+        <li>
+          Lleva la gasolina por las rayas del tablero, las cargas de los
+          eléctricos, el aceite (también por kilómetros) y los costos fijos:
+          seguro, marchamo, Quick Pass y alquiler.
+        </li>
+        <li>
+          Muestra el neto del día, de la semana y del mes, y cuántos colones te
+          salió la hora.
+        </li>
+        <li>Aparta un porcentaje para el mantenimiento.</li>
+      </ul>
+      <p>
+        Lo automático es parte de Pro. En el plan Gratis todo se anota a mano.
+        Estamos trabajando en un asistente que te diga si un viaje te conviene,
+        pero todavía no está disponible.
+      </p>
+
+      <h2>Qué no hace</h2>
+      <ul>
+        <li>No pide ni guarda las contraseñas de Uber, DiDi ni InDrive.</li>
+        <li>No lee tus mensajes ni ninguna otra app que no sea una de esas tres.</li>
+        <li>No guarda por dónde anduviste, ni manda tu ubicación en vivo a ningún servidor.</li>
+        <li>No es asesoría contable ni tributaria: las decisiones de plata las tomás vos.</li>
+        <li>No es de Uber, DiDi ni InDrive, ni está afiliada a ellas.</li>
+      </ul>
+
+      <h2>Planes y precio</h2>
+      <p>
+        <strong>Gratis para siempre:</strong> todo a mano, con la analítica
+        básica. <strong>Neto Smart Pro, {sitio.precioPremium}:</strong> lo
+        automático, con {sitio.diasPrueba} días de prueba sin tarjeta. Pro se
+        paga con una suscripción mensual de Google Play, y si vence, no se borra
+        nada. <a href="/#precio">Acá está qué incluye cada plan</a>.
+      </p>
+
+      <h2>Privacidad</h2>
+      <p>
+        La app no guarda las contraseñas de las plataformas. Las fotos de la
+        pantalla que usa para leer los montos se leen dentro del teléfono y no se
+        guardan. La ubicación se usa solo para los peajes, los lugares de
+        descanso, los lavacares y los kilómetros del turno, sin guardar por dónde
+        anduviste. La cuenta se borra desde la app, al instante.
+        <a href="/privacidad">Política de privacidad completa</a>.
+      </p>
+
+      <h2>Quién la hace</h2>
+      <p>
+        La hace Isaac, un conductor de plataforma en Costa Rica. Es
+        independiente: no es de Uber, DiDi ni InDrive ni está afiliada a ellas.
+        Quién responde por los datos y el servicio está en la
+        <a href="/privacidad#responsable">política de privacidad</a>.
+      </p>
+
+      <h2>Dónde y cuándo</h2>
+      <p>
+        Se baja desde Google Play, para Android, en Costa Rica.
+        {
+          sitio.urlAppStore
+            ? ' También está para iPhone.'
+            : ' Para iPhone todavía no, y no hay fecha.'
+        }
+        <a href="/descargar">Cómo descargarla y qué te pide la primera vez</a>.
+      </p>
+
+      <h2>Contacto</h2>
+      <ul>
+        {
+          sitio.correoContacto && (
+            <li>
+              Correo: <a href="/ir/correo">{sitio.correoContacto}</a>
+            </li>
+          )
+        }
+        {
+          sitio.whatsapp && (
+            <li>
+              Soporte por WhatsApp:{' '}
+              <a href="/ir/whatsapp" rel="noopener">{telefonoLegible(sitio.whatsapp)}</a>
+            </li>
+          )
+        }
+        {
+          sitio.urlFacebook && (
+            <li>
+              <a href="/ir/facebook" rel="noopener">Facebook</a>
+            </li>
+          )
+        }
+        {
+          sitio.urlInstagram && (
+            <li>
+              <a href="/ir/instagram" rel="noopener">Instagram</a>
+            </li>
+          )
+        }
+        <li><a href="/soporte">Ayuda y preguntas de soporte</a></li>
+      </ul>
+    </div>
+  </section>
+</Base>

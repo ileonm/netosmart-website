@@ -1155,3 +1155,11 @@ th { font-weight: 700; }
 .sin-margen { margin-bottom: 0; }
 .espacio { margin-top: 1.5rem; }
 img { max-width: 100%; height: auto; }
+
+/* Definicion corta debajo del titulo de una pagina clara (/que-es). */
+.entradilla-clara {
+  font-size: 1.2rem;
+  line-height: 1.55;
+  color: var(--texto-suave);
+  margin-bottom: 2rem;
+}

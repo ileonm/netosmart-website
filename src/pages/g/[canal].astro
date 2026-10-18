@@ -3,6 +3,7 @@ import type { GetStaticPaths } from 'astro';
 import Base from '../../layouts/Base.astro';
 import Landing from '../../components/Landing.astro';
 import { canales } from '../../config/canales';
+import { sitio } from '../../config/site';
 
 /**
  * Una pagina por canal de lanzamiento. Muestra lo mismo que el inicio.
@@ -18,7 +19,7 @@ export const getStaticPaths = (() =>
 
 <Base
   titulo="Cuánto te queda libre manejando en Costa Rica"
-  descripcion="App para conductores de Uber, DiDi e InDrive en Costa Rica. Descuenta gasolina, peajes, mantenimiento y costos fijos, y te dice cuánto ganás de verdad en cada turno. Para Android, con plan gratis y Pro con 14 días de prueba."
+  descripcion={`Neto Smart es una app para conductores de Uber, DiDi e InDrive en Costa Rica: descuenta gasolina, peajes, mantenimiento y costos fijos y te dice cuánto te quedó de verdad. Para Android, con plan gratis y Pro con ${sitio.diasPrueba} días de prueba.`}
   canonica="/"
   noIndexar={true}
 >

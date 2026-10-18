@@ -103,6 +103,21 @@ export const sitio = {
    */
   precioPremium: '₡3.500 al mes',
 
+  /**
+   * Definicion de Neto Smart en un parrafo. Sale visible arriba en el inicio y
+   * se reusa en los datos estructurados, en /que-es y en llms.txt: asi nunca se
+   * desfasan.
+   */
+  definicion:
+    'Neto Smart es una app para conductores de Uber, DiDi e InDrive en Costa Rica. Lleva la cuenta de lo que ganás, resta la gasolina, los peajes, el mantenimiento y lo que cuesta tener el carro, y te dice cuánto te quedó de verdad. Con Pro anota sola las ganancias.',
+
+  /**
+   * true SOLO cuando la ficha de Google Play ya es publica (se abre en un
+   * telefono que no es el tuyo). Mientras sea false, los datos estructurados no
+   * llevan downloadUrl.
+   */
+  fichaPlayPublica: false,
+
   /** Dias de prueba de Pro, sin tarjeta. Una por persona. */
   diasPrueba: 14,
 
@@ -143,6 +158,7 @@ export const paquetesLeidos = [
 
 export const navegacion = [
   { texto: 'Inicio', url: '/' },
+  { texto: 'Qué es Neto Smart', url: '/que-es' },
   { texto: 'Descargar', url: '/descargar' },
   { texto: 'Soporte', url: '/soporte' },
   { texto: 'Pagar por SINPE', url: '/pagar' },
@@ -151,6 +167,11 @@ export const navegacion = [
   { texto: 'Términos', url: '/terminos' },
   { texto: 'Borrar mi cuenta', url: '/borrar-cuenta' },
 ] as const;
+
+/** El precio mensual de Pro como numero (3500), sacado de sitio.precioPremium. */
+export function montoPremium(): number {
+  return Number(sitio.precioPremium.replace(/\D/g, ''));
+}
 
 /** Formatea un numero como colones de Costa Rica: ₡12.500,50 */
 export function colones(monto: number): string {

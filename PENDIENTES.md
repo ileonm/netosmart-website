@@ -228,6 +228,13 @@ e `instagram.com/netosmartcr`. Cada botón pasa por `/ir/facebook` o
 `/ir/instagram`, que salen en Top pages de Cloudflare cuando alguien los toca.
 Si algún día cambia el nombre de usuario, se cambia solo en `site.ts`.
 
+### 18. Cuando la ficha de Google Play ya sea pública
+
+Los datos estructurados del inicio (para buscadores e IA) todavía **no llevan el
+enlace de descarga** de Google Play, porque la ficha aún no se abre. El día que
+se abra en un teléfono que no sea el tuyo, poné `fichaPlayPublica: true` en
+`src/config/site.ts` y se agrega solo.
+
 ---
 
 ## Lo que se decidió no poner, a propósito

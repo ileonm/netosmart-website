@@ -2,6 +2,7 @@
 import '../styles/global.css';
 import LogoRed from '../components/LogoRed.astro';
 import { sitio, navegacion, telefonoLegible } from '../config/site';
+import { organizacion, sitioWeb, comoJson } from '../config/estructurados';
 
 interface Props {
   titulo: string;
@@ -37,6 +38,8 @@ const tituloCompleto =
     <link rel="canonical" href={urlCanonica} />
     {noIndexar && <meta name="robots" content="noindex, follow" />}
     <slot name="head" />
+    <script type="application/ld+json" set:html={comoJson(organizacion())} />
+    <script type="application/ld+json" set:html={comoJson(sitioWeb())} />
     <meta name="theme-color" content="#1a1a2e" />
     <meta name="color-scheme" content="light dark" />
 

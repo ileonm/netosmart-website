@@ -1,8 +1,8 @@
 # Sitio web de Neto Smart
 
 Este es el sitio de **Neto Smart**, la app para conductores de plataforma en
-Costa Rica. Son ocho páginas: inicio, descargar, soporte, pagar Pro por SINPE
-Móvil, privacidad, accesibilidad, términos y borrar mi cuenta.
+Costa Rica. Son nueve páginas: inicio, qué es Neto Smart, descargar, soporte, pagar
+Pro por SINPE Móvil, privacidad, accesibilidad, términos y borrar mi cuenta.
 
 Está escrito para que se pueda mantener sin saber programar. Casi todo lo que
 hay que cambiar está en **un solo archivo**: `src/config/site.ts`.
@@ -202,6 +202,14 @@ pasos de cada cosa. Incluye cómo poner las capturas de la app.
   cada una tiene un script de una línea que, cuando termina de cargar y pasan
   400 ms, lleva al destino. Con JavaScript apagado, un `meta refresh` de 2
   segundos y un enlace visible hacen lo mismo.
+- **Para que las IA y los buscadores lo entiendan.** La definición de Neto Smart
+  (`definicion` en `site.ts`) sale arriba en el inicio, en `/que-es` y en
+  `llms.txt`. Las preguntas frecuentes viven en `src/config/preguntas.ts` y de
+  ahí salen tanto lo que se ve como el `FAQPage` de los datos estructurados
+  (`src/config/estructurados.ts`), así que nunca se desfasan. Los datos
+  estructurados llevan el precio de `site.ts`. `downloadUrl` de la app solo se
+  agrega cuando `fichaPlayPublica` es `true` en `site.ts`. `robots.txt` y
+  `llms.txt` se generan desde `src/pages/robots.txt.ts` y `llms.txt.ts`.
 - **Los botones que se miden** (WhatsApp, Google Play y correo) no enlazan directo
   al destino: pasan por `/ir/whatsapp`, `/ir/whatsapp-pagar`, `/ir/play` o
   `/ir/correo`. Cloudflare Web Analytics cuenta visitas a páginas y no clics, así
