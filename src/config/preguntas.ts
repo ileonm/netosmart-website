@@ -105,8 +105,8 @@ export const preguntas: Pregunta[] = [
   {
     pregunta: '¿Con la placa me llena los datos del carro?',
     respuesta: [
-      'Lo intenta. La app consulta la placa en el Registro Nacional y, si responde, llena marca, modelo, año, forma, color y motor. Pero a veces el sitio del Registro bloquea las consultas automáticas, y entonces lo llenás a mano: son cuatro campos.',
-      'De lo que devuelve el Registro guardamos solo los datos del vehículo; lo del dueño se descarta.',
+      'Lo intenta. La app consulta la placa en el Registro Nacional y, si responde, llena marca, modelo, año, forma, color y motor. Si el Registro no contesta, la consulta con un servicio de respaldo (Placa.co.cr), al que solo le manda la placa. Y si tampoco hay respuesta, lo llenás a mano: son cuatro campos.',
+      'De lo que devuelve cualquiera de los dos guardamos solo los datos del vehículo; lo del dueño se descarta sin guardarse.',
     ],
   },
   {

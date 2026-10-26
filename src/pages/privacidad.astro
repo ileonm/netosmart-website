@@ -43,8 +43,8 @@ import { sitio, paquetesLeidos, telefonoLegible } from '../config/site';
             caseta, con una notificación fija, y se apaga al cerrar el turno.
             <strong>No guarda por dónde anduviste</strong> ni manda tu ubicación
             en vivo a ningún servidor. Con esas posiciones también suma los
-            kilómetros del turno para el aviso del cambio de aceite, y de eso
-            solo guarda el total.
+            kilómetros del turno para el aviso del cambio de aceite y para los
+            reportes, y de eso solo guarda un número por turno.
           </li>
           <li>
             Guarda en tu teléfono un <strong>registro de diagnóstico</strong> con
@@ -110,9 +110,10 @@ import { sitio, paquetesLeidos, telefonoLegible } from '../config/site';
       <ul>
         <li>Turnos: hora de inicio, hora de cierre y horas totales.</li>
         <li>
-          Gasolina y cargas: cargas medidas por rayitas del tablero o por monto
-          de factura, y, en eléctricos, los kWh, el nivel de la batería al
-          iniciar y al terminar cada carga, y si fue en casa, afuera o gratis.
+          Gasolina y cargas: el nivel que marca el indicador del tablero
+          (rayitas, aguja o porcentaje) y cuánto pagaste cada vez que llenás, y,
+          en eléctricos, los kWh, el nivel de la batería al iniciar y al
+          terminar cada carga, y si fue en casa, afuera o gratis.
         </li>
         <li>
           Peajes: monto, y si fue un peaje que la plataforma reintegra o uno que
@@ -244,6 +245,12 @@ import { sitio, paquetesLeidos, telefonoLegible } from '../config/site';
         <li>
           El monto del cobro en efectivo de un viaje de DiDi, para preguntarte si
           te dejaron vuelto.
+        </li>
+        <li>
+          En InDrive, el saldo de la cartera y el aviso de recarga recibida,
+          para anotar sola las recargas pagadas con tarjeta en «Recargas
+          InDrive». Se guarda solo el monto de cada recarga; no se guarda nada
+          de la tarjeta.
         </li>
         <li>
           Las señales de estado del viaje: si va en camino a recoger, si lleva
@@ -479,8 +486,14 @@ import { sitio, paquetesLeidos, telefonoLegible } from '../config/site';
       </p>
       <ul>
         <li>
-          <strong>Solo se guarda el total de kilómetros</strong>, en tu teléfono.
-          Nunca las posiciones ni el camino.
+          <strong>Se guarda un número por turno</strong>: los kilómetros que contó
+          el GPS mientras el turno estaba abierto. Queda en tu teléfono y en tu
+          cuenta, para mostrarte los kilómetros por día, mes y año en Reportes y
+          para que no se pierdan si cambiás de teléfono.
+        </li>
+        <li>
+          <strong>No se guarda ninguna posición ni el camino</strong>, ni lo que
+          se maneja con el turno cerrado.
         </li>
         <li>
           Vos podés escribir de vez en cuando lo que marca el odómetro. Ese
@@ -508,7 +521,7 @@ import { sitio, paquetesLeidos, telefonoLegible } from '../config/site';
       <h3>5.4 Lo que no se guarda</h3>
       <ul class="marcas no">
         <li>No se guarda un recorrido ni un historial de por dónde anduviste.
-          De los kilómetros del turno solo queda el total.</li>
+          De los kilómetros del turno solo queda un número por turno.</li>
         <li>No se manda tu ubicación en vivo a ningún servidor.</li>
       </ul>
       <p>
@@ -533,9 +546,25 @@ import { sitio, paquetesLeidos, telefonoLegible } from '../config/site';
       </p>
       <p>
         Ese registro <strong>no sale del teléfono</strong> a menos que vos lo
-        mandés a soporte con el botón «Enviar diagnóstico». Si lo mandás, lo
-        recibe quien te ayuda con el problema, por el medio que elijás. Si no lo
-        mandás, nadie lo ve.
+        mandés desde la app, con el botón «Enviar diagnóstico». Antes de
+        mandarlo, la app te explica a dónde va (el WhatsApp de soporte de Neto
+        Smart, o donde vos elijás) y qué lleva:
+      </p>
+      <ul>
+        <li>
+          <strong>Lo que lleva:</strong> lo que la app leyó en las pantallas de
+          Uber, DiDi e InDrive (montos, ofertas, direcciones, y nombres o correos
+          que salían en pantalla), los peajes, los kilómetros y la hora de abrir
+          y cerrar cada turno.
+        </li>
+        <li>
+          <strong>Lo que no lleva:</strong> los chats con pasajeros ni fotos de
+          la pantalla.
+        </li>
+      </ul>
+      <p>
+        Solo se manda si vos lo decidís, y se usa únicamente para encontrar
+        errores. Si no lo mandás, nadie lo ve.
       </p>
 
       <h2 id="cedula">7. Cédula o DIMEX</h2>
@@ -628,6 +657,18 @@ import { sitio, paquetesLeidos, telefonoLegible } from '../config/site';
                 (marca, estilo, año, carrocería, combustible, cilindrada, color
                 y el código del motor, sin el número de serie); lo del dueño se
                 descarta.
+              </td>
+            </tr>
+            <tr role="row">
+              <td role="cell" data-label="Servicio">Placa.co.cr (RegCheck)</td>
+              <td role="cell" data-label="Para qué">
+                Consultar la placa cuando el Registro Nacional no contesta.
+              </td>
+              <td role="cell" data-label="Qué recibe">
+                Solo la placa. Sus servidores pueden estar fuera de Costa Rica.
+                De la respuesta se guardan únicamente datos del vehículo (marca,
+                modelo, año, cilindrada y combustible); cualquier dato del dueño
+                se descarta sin guardarse.
               </td>
             </tr>
             <tr role="row">
