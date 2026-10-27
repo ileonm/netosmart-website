@@ -47,6 +47,12 @@ import { sitio, paquetesLeidos, telefonoLegible } from '../config/site';
             reportes, y de eso solo guarda un número por turno.
           </li>
           <li>
+            Guarda en tu cuenta una <strong>bitácora</strong> de las ganancias
+            que leyó y los turnos (sin nada de lo que sale en las pantallas de
+            las plataformas), para verificar que los datos son correctos. No se
+            edita ni se borra desde la app, y se borra con la cuenta.
+          </li>
+          <li>
             Guarda en tu teléfono un <strong>registro de diagnóstico</strong> con
             lo que leyó y dónde pasaste cerca de una caseta. No sale de ahí a
             menos que vos lo mandés.
@@ -198,6 +204,39 @@ import { sitio, paquetesLeidos, telefonoLegible } from '../config/site';
         <a href="#ubicacion">ubicación</a> y el
         <a href="#diagnostico">registro de diagnóstico</a>.
       </p>
+
+      <h3 id="bitacora">2.6 Bitácora de la cuenta</h3>
+      <p>
+        Mientras usás la app, se guarda <strong>en tu cuenta</strong> un
+        historial de lo que pasa con tus ganancias y tus turnos:
+      </p>
+      <ul>
+        <li>
+          Cada monto de ganancias que la app leyó sola de Uber, DiDi o InDrive,
+          con la plataforma, el día y la hora.
+        </li>
+        <li>
+          Cada vez que cambiás a mano un monto de ganancias en Registro, con el
+          monto anterior y el nuevo.
+        </li>
+        <li>Cuándo abrís y cerrás cada turno, y los kilómetros del turno.</li>
+      </ul>
+      <ul>
+        <li>
+          <strong>Para qué:</strong> verificar que los datos son correctos (por
+          ejemplo, en promociones o retos donde haya premios) y encontrar
+          errores de la app.
+        </li>
+        <li>
+          <strong>Lo que no guarda:</strong> nada de lo que sale en las pantallas
+          de las plataformas (ni direcciones, ni nombres de pasajeros, ni
+          ofertas), ni ubicaciones.
+        </li>
+        <li>
+          <strong>No se puede editar ni borrar desde la app.</strong> Se borra
+          junto con la cuenta, cuando la eliminás.
+        </li>
+      </ul>
 
       <h2 id="pantalla">3. Lectura de pantalla (servicio de accesibilidad)</h2>
       <p>
@@ -555,8 +594,8 @@ import { sitio, paquetesLeidos, telefonoLegible } from '../config/site';
       <ul>
         <li>
           <strong>Lo que lleva:</strong> lo que la app leyó en las pantallas de
-          Uber, DiDi e InDrive (montos, ofertas, direcciones, y nombres o correos
-          que salían en pantalla), los peajes, los kilómetros y la hora de abrir
+          Uber, DiDi e InDrive (montos, ofertas, direcciones y nombres que salían
+          en pantalla), los peajes, los kilómetros y la hora de abrir
           y cerrar cada turno.
         </li>
         <li>
@@ -565,8 +604,9 @@ import { sitio, paquetesLeidos, telefonoLegible } from '../config/site';
         </li>
       </ul>
       <p>
-        Solo se manda si vos lo decidís, y se usa únicamente para encontrar
-        errores. Si no lo mandás, nadie lo ve.
+        Antes de guardarse en el registro, se tapan los correos y los números de
+        tarjeta que salgan en pantalla. Solo se manda si vos lo decidís, y se
+        usa únicamente para encontrar errores. Si no lo mandás, nadie lo ve.
       </p>
 
       <h2 id="cedula">7. Cédula o DIMEX</h2>
@@ -795,7 +835,8 @@ import { sitio, paquetesLeidos, telefonoLegible } from '../config/site';
       <p>
         Desde la app, <strong>al instante</strong>: Configuración, Mi perfil,
         Zona de peligro. Se borra todo lo que la cuenta tenía adentro: turnos,
-        gasolina y cargas, peajes, carros, apartados, lugares y lavacares. Es
+        gasolina y cargas, peajes, carros, apartados, lugares, lavacares y la
+        bitácora de la cuenta. Es
         definitivo y no se puede deshacer.
       </p>
       <p>
