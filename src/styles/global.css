@@ -683,7 +683,7 @@ section.apretada { padding: 2rem 0; }
   border-width: 1px;
 }
 
-/* --- Dos pantallas de la app, lado a lado -------------------------------- */
+/* --- Pantallas de la app, lado a lado -------------------------------- */
 
 .pantallas {
   display: grid;
@@ -698,6 +698,10 @@ section.apretada { padding: 2rem 0; }
 }
 @media (min-width: 600px) {
   .pantallas { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+/* Tres capturas: en una fila desde que caben, centradas. */
+@media (min-width: 900px) {
+  .pantallas { grid-template-columns: repeat(3, minmax(0, 1fr)); max-width: 54rem; }
 }
 .pantallas figure { margin: 0; width: 100%; max-width: 300px; }
 .pantallas figcaption {
