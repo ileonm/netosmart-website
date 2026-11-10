@@ -159,7 +159,7 @@ const porHora = Math.round(neto / ejemplo.horas);
         <div class="icono-caja"><Icono nombre="ojo" /></div>
         <h3>Tus ganancias se anotan solas</h3>
         <p>
-          Leemos lo que ganaste en Uber, DiDi e InDrive, y DiDi también se lee solo. En InDrive, las recargas de la cartera pagadas con tarjeta también se anotan solas, tanto las que InDrive cobra automáticamente cuando el saldo es bajo como las que hacés a mano: apenas se hace el pago, la app lo registra. Nada de copiar números manualmente al final del día. Se puede apagar, y entonces las anotás a mano. Y si al cerrar el turno el último viaje de Uber todavía no se sumó, te avisamos para que no te vayás a dormir sin él. Si DiDi te reembolsa un viaje que no te pagaron, te preguntamos de qué día era y lo restamos ahí, para que no cuente dos veces.
+          Leemos lo que ganaste en Uber, DiDi e InDrive, y DiDi también se lee solo. En InDrive, las recargas de la cartera pagadas con tarjeta también se anotan solas, tanto las que InDrive cobra automáticamente cuando el saldo es bajo como las que hacés a mano: apenas se hace el pago, la app lo registra. Nada de copiar números manualmente al final del día. Se puede apagar, y entonces las anotás a mano. Y si al cerrar el turno el último viaje de Uber todavía no se sumó, te avisamos para que no te vayás a dormir sin él. Si DiDi te reembolsa un viaje que no te pagaron, te preguntamos de qué día era y lo restamos ahí, para que no cuente dos veces. Y si cancelás un viaje, la app lo entiende y no te queda esperando plata de ese viaje.
         </p>
       </div>
       <div class="tarjeta destacada">
@@ -206,14 +206,14 @@ const porHora = Math.round(neto / ejemplo.horas);
         <div class="icono-caja"><Icono nombre="gasolina" /></div>
         <h3>Gasolina por el tablero</h3>
         <p>
-          Se calcula con el indicador del tablero (rayitas, aguja o porcentaje) y, cuando llenás, te pregunta cuánto pagaste y si fue regular o súper. Con cada tanque se afina lo que te cuesta cada rayita, y en Gasolina / Carga ves eso para cada carro. Los precios de la gasolina, el diésel y el gas se ponen solos según los ajustes de ARESEP y RECOPE, y te avisamos cuando ARESEP aprueba un cambio y el día que empieza a regir. Lo que se calcula así lleva un aviso de que es aproximado.
+          Se calcula con el indicador del tablero (rayitas, aguja o porcentaje) y, cuando llenás, te pregunta cuánto pagaste y si fue regular o súper. Con cada tanque se afina lo que te cuesta cada rayita, y en Gasolina / Carga ves eso para cada carro. Si manejaste fuera del turno antes de llenar y lo pagado no cuadra con las rayitas, te propone cuánto marcaba de verdad antes de echar: lo que bajó fuera del turno no cuenta como gasto de trabajo ni te encarece la rayita. Los precios de la gasolina, el diésel y el gas se ponen solos según los ajustes de ARESEP y RECOPE, y te avisamos cuando ARESEP aprueba un cambio y el día que empieza a regir. Lo que se calcula así lleva un aviso de que es aproximado.
         </p>
       </div>
       <div class="tarjeta">
         <div class="icono-caja"><Icono nombre="rayo" /></div>
         <h3>Eléctricos de verdad</h3>
         <p>
-          La batería en kWh, con el nivel al iniciar y al terminar cada carga. Carga en casa con la tarifa de tu distribuidora (ICE, CNFL, Coopelesca y demás), carga afuera y cargas gratis, que cuentan ₡0. El precio de la luz también se pone solo.
+          La batería en kWh, con el nivel al iniciar y al terminar cada carga. Carga en casa con la tarifa de tu distribuidora (ICE, CNFL, Coopelesca y demás), que se calcula sola sin preguntarte cuánto pagaste, carga rápida, que se compara solo con otras cargas rápidas, y cargas gratis, que cuentan ₡0. El precio de la luz también se pone solo.
         </p>
       </div>
       <div class="tarjeta">
@@ -250,7 +250,7 @@ const porHora = Math.round(neto / ejemplo.horas);
         <div class="icono-caja"><Icono nombre="turno" /></div>
         <h3>Tiempo en viaje y tiempo esperando</h3>
         <p>
-          En Hoy ves cuánto de tu turno fue con un viaje y cuánto esperando, y cuánto te salió la hora contando solo el tiempo en viaje. Así sabés si lo que te baja el número es la espera entre viajes.
+          En Hoy ves cuánto de tu turno fue con un viaje y cuánto esperando, y cuánto te salió la hora contando solo el tiempo en viaje. Cada viaje cuenta desde que lo aceptás, también el camino a recoger, y si se cancela, desde ahí vuelve a ser espera. Así sabés si lo que te baja el número es la espera entre viajes.
         </p>
       </div>
       <div class="tarjeta">
@@ -381,6 +381,11 @@ const porHora = Math.round(neto / ejemplo.horas);
               <span>El pasajero pagó en la caseta, no pasó nada</span>
             </li>
           </ul>
+          <p class="ojo-con-esto">
+            <strong>Ojo:</strong> solo con el pasajero arriba. El de camino a
+            recogerlo lo pagás vos siempre, así que ese se anota como gasto sin
+            preguntar quién paga.
+          </p>
         </div>
       </div>
 
