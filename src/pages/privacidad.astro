@@ -26,9 +26,9 @@ import { sitio, paquetesLeidos, telefonoLegible } from '../config/site';
             Cuando entra una oferta de viaje, el servicio de accesibilidad puede
             <strong>sacar una foto de la pantalla</strong> y leerla
             <strong>dentro de tu teléfono</strong>, sin guardar ni mandar la
-            imagen. Hoy esa ayuda <strong>viene apagada</strong> y solo un
-            administrador la puede prender; mientras esté apagada, no saca
-            ninguna foto.
+            imagen. Hoy esa ayuda <strong>está en pruebas</strong> y solo
+            funciona en las cuentas de administrador; en las demás no saca
+            ninguna foto de ofertas.
           </li>
           <li>
             <strong>En DiDi, el servicio saca fotos de la pantalla de DiDi</strong>
@@ -146,7 +146,15 @@ import { sitio, paquetesLeidos, telefonoLegible } from '../config/site';
         <li>Apartados semanales de mantenimiento, gasolina y peajes.</li>
         <li>
           Los lugares que marcás: tus lugares de descanso (hasta cinco) y tus
-          lavacares (hasta cinco), con su ubicación y una dirección corta.
+          lavacares (hasta cinco), con su ubicación y una dirección corta, cuál
+          es el principal de cada uno, y si preferís navegar con Waze o con
+          Google Maps.
+        </li>
+        <li>
+          Los pendientes de cada carro: lo que anotás que hay que hacerle o
+          revisarle, en qué orden y cuándo lo marcaste hecho. Son de tu cuenta:
+          si compartís un carro con otra cuenta, la otra persona no ve tu
+          lista.
         </li>
       </ul>
 
@@ -362,11 +370,14 @@ import { sitio, paquetesLeidos, telefonoLegible } from '../config/site';
           «grabando».
         </li>
         <li>
-          <strong>Qué lee, dos cosas.</strong> El total de ganancias del día de
+          <strong>Qué lee, tres cosas.</strong> El total de ganancias del día de
           DiDi (el número de arriba de la pantalla principal, «Ganancias de hoy»
-          o el tablero), para anotarlo solo; y el cobro en efectivo de un viaje
+          o el tablero), para anotarlo solo; el cobro en efectivo de un viaje
           (la pantalla donde DiDi pide cobrar y confirmar el pago), para
-          preguntarte si te dejaron vuelto.
+          preguntarte si te dejaron vuelto; y el «Reembolso de DiDi» por un
+          viaje que no te pagaron, para preguntarte de qué día era y restarlo
+          ahí, así no cuenta dos veces. Si tenés las ganancias escondidas en
+          DiDi, no se lee ningún total.
         </li>
         <li>
           <strong>Dentro de tu teléfono.</strong> El reconocimiento de texto lo
@@ -390,22 +401,23 @@ import { sitio, paquetesLeidos, telefonoLegible } from '../config/site';
       <h3 id="ofertas">4.2 La foto de las ofertas de viaje</h3>
       <p>
         Es otra parte del servicio de accesibilidad que saca fotos de la
-        pantalla, y hoy viene apagada. Funciona así:
+        pantalla. Hoy está en pruebas y solo funciona en las cuentas de
+        administrador. Funciona así:
       </p>
       <ul>
         <li>
           <strong>Para qué.</strong> Leer las ofertas de viaje que te llegan: lo
           que paga el viaje, los minutos y los kilómetros hasta el pasajero y del
-          viaje, y las opciones para subir el precio. Es el primer paso de una
-          ayuda para decidir rápido si un viaje te conviene. Por ahora
-          <strong>solo se anota en el registro de diagnóstico</strong>: la app
-          todavía no muestra nada en pantalla con esto.
+          viaje, y las opciones para subir el precio. Con eso, encima de la
+          oferta sale una pastilla con lo que te quedaría por hora después de
+          la comisión, la gasolina, el mantenimiento y lo que cuesta el carro,
+          y si no llega a tu meta, cuánto pedir para llegar.
         </li>
         <li>
-          <strong>Hoy viene apagado.</strong> En la app aparece en gris, con el
-          texto «Pronto disponible, actualmente en pruebas», y solo un
-          administrador lo puede prender. Mientras esté apagado, el servicio no
-          saca ninguna foto.
+          <strong>Hoy está en pruebas.</strong> Solo funciona en las cuentas de
+          administrador. En las demás aparece en gris, con el texto «Pronto
+          disponible, actualmente en pruebas», y el servicio no saca ninguna
+          foto de ofertas.
         </li>
         <li>
           <strong>Por qué con foto.</strong> Uber y DiDi dibujan la tarjeta de la
@@ -414,11 +426,14 @@ import { sitio, paquetesLeidos, telefonoLegible } from '../config/site';
         </li>
         <li>
           <strong>Cuándo pasa.</strong> Solo cuando Uber, DiDi o InDrive ponen en
-          pantalla lo que parece una oferta de viaje. Son dos fotos, con algo más
-          de un segundo de diferencia, porque la tarjeta entra animada. Como
-          mucho una tanda cada cuatro segundos por app. Funciona en Android 11 o
-          más nuevo, y no pide un permiso aparte ni muestra el aviso de
-          «grabando».
+          pantalla lo que parece una oferta de viaje, también el Radar de viajes
+          de Uber y la lista de solicitudes de DiDi. Son dos fotos, con algo más
+          de un segundo de diferencia, porque la tarjeta entra animada. Mientras
+          la pastilla está en pantalla, se saca una foto cada dos segundos y
+          medio para ver si la oferta sigue ahí, por 45 segundos como mucho. En
+          InDrive, si el mapa todavía no muestra los minutos y los kilómetros,
+          se prueban hasta cuatro fotos más. Funciona en Android 11 o más nuevo,
+          y no pide un permiso aparte ni muestra el aviso de «grabando».
         </li>
         <li>
           <strong>Dentro de tu teléfono.</strong> El reconocimiento de texto lo
@@ -442,7 +457,9 @@ import { sitio, paquetesLeidos, telefonoLegible } from '../config/site';
           apagando el permiso de accesibilidad en los ajustes de Android.
         </li>
         <li>
-          <strong>Nunca acepta ni rechaza un viaje.</strong> Solo lee.
+          <strong>Nunca toca la pantalla.</strong> No acepta ni rechaza un
+          viaje, no escoge una opción ni escribe un precio. Solo sugiere, y la
+          pastilla se quita cuando la oferta se va.
         </li>
       </ul>
 
@@ -871,7 +888,7 @@ import { sitio, paquetesLeidos, telefonoLegible } from '../config/site';
           <tbody role="rowgroup">
             <tr role="row">
               <td role="cell" data-label="Permiso">Accesibilidad</td>
-              <td role="cell" data-label="Para qué">Leer el monto y el estado del viaje en Uber, DiDi e InDrive, incluidas las fotos de la pantalla de DiDi, y la foto de las ofertas de viaje (hoy apagada).</td>
+              <td role="cell" data-label="Para qué">Leer el monto y el estado del viaje en Uber, DiDi e InDrive, incluidas las fotos de la pantalla de DiDi, y la foto de las ofertas de viaje (hoy en pruebas, solo en cuentas de administrador).</td>
               <td role="cell" data-label="Si lo apagás">Las ganancias se anotan a mano.</td>
             </tr>
             <tr role="row">

@@ -151,7 +151,7 @@ const porHora = Math.round(neto / ejemplo.horas);
         <div class="icono-caja"><Icono nombre="volante" /></div>
         <h3>Te dice si el viaje te conviene</h3>
         <p>
-          Estamos trabajando en un asistente que mira las ofertas que te entran en Uber, DiDi e InDrive y te dice al toque si de verdad te conviene, con lo que te queda por hora después de gasolina y peajes. Y si no, cuánto pedir. Ya lo estamos probando en la calle.
+          Cuando te entra una oferta en Uber, DiDi o InDrive, sale encima una pastilla con lo que te quedaría por hora después de la comisión, la gasolina, el mantenimiento y lo que cuesta el carro. Si no llega a tu meta, te dice cuánto pedir: en DiDi, qué opción tocar o qué poner en «Poné tu precio»; en InDrive, qué oferta hacer. Nunca acepta ni rechaza nada: solo sugiere. Ya lo estamos probando en la calle.
         </p>
       </div>
       <div class="tarjeta destacada">
@@ -159,7 +159,7 @@ const porHora = Math.round(neto / ejemplo.horas);
         <div class="icono-caja"><Icono nombre="ojo" /></div>
         <h3>Tus ganancias se anotan solas</h3>
         <p>
-          Leemos lo que ganaste en Uber, DiDi e InDrive, y DiDi también se lee solo. En InDrive, las recargas de la cartera pagadas con tarjeta también se anotan solas, tanto las que InDrive cobra automáticamente cuando el saldo es bajo como las que hacés a mano: apenas se hace el pago, la app lo registra. Nada de copiar números manualmente al final del día. Se puede apagar, y entonces las anotás a mano. Y si al cerrar el turno el último viaje de Uber todavía no se sumó, te avisamos para que no te vayás a dormir sin él.
+          Leemos lo que ganaste en Uber, DiDi e InDrive, y DiDi también se lee solo. En InDrive, las recargas de la cartera pagadas con tarjeta también se anotan solas, tanto las que InDrive cobra automáticamente cuando el saldo es bajo como las que hacés a mano: apenas se hace el pago, la app lo registra. Nada de copiar números manualmente al final del día. Se puede apagar, y entonces las anotás a mano. Y si al cerrar el turno el último viaje de Uber todavía no se sumó, te avisamos para que no te vayás a dormir sin él. Si DiDi te reembolsa un viaje que no te pagaron, te preguntamos de qué día era y lo restamos ahí, para que no cuente dos veces.
         </p>
       </div>
       <div class="tarjeta destacada">
@@ -175,7 +175,7 @@ const porHora = Math.round(neto / ejemplo.horas);
         <div class="icono-caja"><Icono nombre="reloj" /></div>
         <h3>El turno que cruza la medianoche</h3>
         <p>
-          Lo parte y le da a cada día sus horas y su gasolina. Porque DiDi cierra el día a medianoche y Uber a las cuatro de la mañana, y sin eso las cuentas no cuadran.
+          Lo parte y le da a cada día sus horas y su gasolina. Porque DiDi cierra el día a medianoche y Uber a las cuatro de la mañana, y sin eso las cuentas no cuadran. El viaje de Uber que empieza antes de las cuatro y termina después va solo a «Uber madrugada», y si falta anotar uno de esos, te avisamos. El de DiDi que cruza la medianoche queda marcado para cuadrar.
         </p>
       </div>
       <div class="tarjeta">
@@ -183,7 +183,7 @@ const porHora = Math.round(neto / ejemplo.horas);
         <div class="icono-caja"><Icono nombre="pin" /></div>
         <h3>El turno se cierra al llegar a descansar</h3>
         <p>
-          Marcás hasta cinco lugares de descanso: tu casa, la soda donde almorzás, la casa de tu mamá. Con el turno abierto, si te quedás {sitio.minutosDescanso} minutos en uno te preguntamos «¿Terminás el turno?» y lo cerramos a la hora en que llegaste. Los marcás en un mapa de Google, con la dirección y botones para ir con Waze o Maps.
+          Marcás hasta cinco lugares de descanso: tu casa, la soda donde almorzás, la casa de tu mamá. Con el turno abierto, si te quedás {sitio.minutosDescanso} minutos en uno te preguntamos «¿Terminás el turno?» y lo cerramos a la hora en que llegaste. Los marcás en un mapa de Google, con la dirección. Escogés tu casa y tu lavacar principales, y desde Hoy llegás con un toque, en Waze o en Google Maps, el que prefirás.
         </p>
       </div>
       <div class="tarjeta">
@@ -206,7 +206,7 @@ const porHora = Math.round(neto / ejemplo.horas);
         <div class="icono-caja"><Icono nombre="gasolina" /></div>
         <h3>Gasolina por el tablero</h3>
         <p>
-          Se calcula con el indicador del tablero (rayitas, aguja o porcentaje) y, cuando llenás, te pregunta cuánto pagaste. Los precios de la gasolina, el diésel y el gas se ponen solos según los ajustes de ARESEP y RECOPE. Lo que se calcula así lleva un aviso de que es aproximado.
+          Se calcula con el indicador del tablero (rayitas, aguja o porcentaje) y, cuando llenás, te pregunta cuánto pagaste y si fue regular o súper. Con cada tanque se afina lo que te cuesta cada rayita, y en Gasolina / Carga ves eso para cada carro. Los precios de la gasolina, el diésel y el gas se ponen solos según los ajustes de ARESEP y RECOPE, y te avisamos cuando ARESEP aprueba un cambio y el día que empieza a regir. Lo que se calcula así lleva un aviso de que es aproximado.
         </p>
       </div>
       <div class="tarjeta">
@@ -235,7 +235,22 @@ const porHora = Math.round(neto / ejemplo.horas);
         <div class="icono-caja"><Icono nombre="alcancia" /></div>
         <h3>Apartados y cambio de aceite</h3>
         <p>
-          Te recuerda apartar lo de mantenimiento, gasolina y peajes antes de que te lo gastés. En el aceite, te propone lo de la vez pasada de ese carro y opciones rápidas de cada cuánto cambiarlo (km o meses). Te avisa del cambio de aceite por los kilómetros que andás, no solo por los meses.
+          Te recuerda apartar lo de mantenimiento, gasolina y peajes antes de que te lo gastés. En el aceite, te propone lo de la vez pasada de ese carro y opciones rápidas de cada cuánto cambiarlo (km o meses). Te avisa del cambio de aceite por los kilómetros que andás, no solo por los meses, y cuando te pide el odómetro te propone lo que calculamos que marca.
+        </p>
+      </div>
+      <div class="tarjeta">
+        <div class="icono-caja"><Icono nombre="carro" /></div>
+        <h3>Pendientes del carro</h3>
+        <p>
+          Cada carro tiene su lista de lo que hay que hacerle o revisarle: las llantas, un ruido, la revisión técnica. La ordenás arrastrando y marcás lo que ya está hecho. La lista es tuya: si compartís el carro con otra cuenta, cada uno ve solo la suya. En Pendientes hay dos pestañas, Dinero y Carro, y abre en la que tiene algo esperando.
+        </p>
+      </div>
+      <div class="tarjeta">
+        <div class="etiquetas"><span class="etiqueta premium">Pro</span></div>
+        <div class="icono-caja"><Icono nombre="turno" /></div>
+        <h3>Tiempo en viaje y tiempo esperando</h3>
+        <p>
+          En Hoy ves cuánto de tu turno fue con un viaje y cuánto esperando, y cuánto te salió la hora contando solo el tiempo en viaje. Así sabés si lo que te baja el número es la espera entre viajes.
         </p>
       </div>
       <div class="tarjeta">
@@ -484,9 +499,9 @@ const porHora = Math.round(neto / ejemplo.horas);
       <div class="tarjeta">
         <h3>Está en pruebas de calle</h3>
         <p>
-          Hoy la usa un conductor activo en San José, todos los días. No te
-          vamos a decir que tiene miles de usuarios, porque todavía no los
-          tiene.
+          Hoy la usa un conductor activo en San José, todos los días, y está en
+          prueba cerrada en Google Play. No te vamos a decir que tiene miles de
+          usuarios, porque todavía no los tiene.
         </p>
       </div>
     </div>
