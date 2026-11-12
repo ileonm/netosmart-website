@@ -1,0 +1,188 @@
+---
+import Base from '../../layouts/Base.astro';
+import { sitio, colones } from '../../config/site';
+import { comoJson } from '../../config/estructurados';
+
+/**
+ * GUIA: LOS PEAJES EN UBER, DIDI E INDRIVE (12-nov).
+ *
+ * Para que una persona (o una IA) que pregunta "¿quién paga el peaje en Uber
+ * en Costa Rica?" encuentre una respuesta clara. Todo lo que dice sale de lo
+ * que ya explica el inicio (el bloque "El peaje no vale lo mismo en cada
+ * app") y de como funciona la app: no se inventan reglas de las plataformas.
+ *
+ * Las preguntas de abajo estan VISIBLES en la pagina y son las mismas del
+ * FAQPage (Google castiga los datos estructurados que no se ven).
+ */
+const url = (ruta: string) => new URL(ruta, sitio.dominio).href;
+const ruta = '/guias/peajes-uber-didi-indrive';
+const titulo = 'Los peajes en Uber, DiDi e InDrive: quién los paga y cómo se cuentan';
+const fecha = '2026-11-12';
+
+const preguntas = [
+  {
+    pregunta: '¿Quién paga el peaje en un viaje de Uber en Costa Rica?',
+    respuesta:
+      'Lo pagás vos en la caseta, pero en el tramo con el pasajero arriba Uber se lo cobra al pasajero y te lo devuelve aparte, fuera del monto de ganancias del día. El peaje de camino a recoger al pasajero no lo cubre: ese sale de tu bolsillo.',
+  },
+  {
+    pregunta: '¿Y en DiDi?',
+    respuesta:
+      'DiDi también se lo cobra al pasajero y te lo devuelve, pero metido dentro del monto de ganancias que ya te mostró. Por eso, para saber cuánto te quedó, el peaje se resta: si no, el día se ve mejor de lo que fue.',
+  },
+  {
+    pregunta: '¿Y en InDrive?',
+    respuesta:
+      'InDrive no se entera de que pasaste por una caseta y nunca se lo cobra al pasajero. Queda entre vos y el pasajero: o lo pagás vos, o te lo devuelve al final, o lo paga él en la caseta. Camino a recogerlo, lo pagás vos siempre.',
+  },
+  {
+    pregunta: '¿Por qué el Quick Pass baja aunque el peaje me lo devuelvan?',
+    respuesta:
+      'Porque el dispositivo se debita en cada caseta, te lo devuelvan o no. Lo que te reintegra la plataforma te llega por otro lado. Por eso conviene anotar los dos tipos de peaje: los que son gasto tuyo y los que te devuelven, para saber cuánto abonarle al dispositivo.',
+  },
+];
+
+const articulo = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: titulo,
+  inLanguage: 'es-CR',
+  datePublished: fecha,
+  dateModified: fecha,
+  mainEntityOfPage: url(ruta),
+  author: { '@id': url('/#organizacion') },
+  publisher: { '@id': url('/#organizacion') },
+  about: ['Uber', 'DiDi', 'InDrive', 'Peajes en Costa Rica'],
+};
+const faq = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  inLanguage: 'es-CR',
+  mainEntity: preguntas.map((p) => ({
+    '@type': 'Question',
+    name: p.pregunta,
+    acceptedAnswer: { '@type': 'Answer', text: p.respuesta },
+  })),
+};
+---
+
+<Base
+  titulo="Peajes en Uber, DiDi e InDrive: quién los paga"
+  descripcion="Quién paga el peaje en Uber, DiDi e InDrive en Costa Rica, cuál te devuelven y cuál no, y cómo contarlo para saber cuánto te quedó de verdad."
+>
+  <script slot="head" type="application/ld+json" set:html={comoJson(articulo)} />
+  <script slot="head" type="application/ld+json" set:html={comoJson(faq)} />
+  <section>
+    <div class="envoltura angosto">
+      <p class="suave">Guía para conductores en Costa Rica</p>
+      <h1>{titulo}</h1>
+      <p class="entradilla-clara">
+        Un peaje de {colones(380)} es siempre {colones(380)} en la caseta. Pero
+        en la cuenta del día vale distinto según en cuál app ibas. Esta es la
+        parte que casi nadie lleva bien, y la que más cambia lo que creés que te
+        quedó.
+      </p>
+
+      <h2>En corto</h2>
+      <ul>
+        <li>
+          <strong>Uber:</strong> el peaje con el pasajero arriba te lo devuelven
+          aparte. No se resta de tus ganancias. El de camino a recogerlo, sí.
+        </li>
+        <li>
+          <strong>DiDi:</strong> te lo devuelven dentro del monto de ganancias.
+          Por eso hay que restarlo.
+        </li>
+        <li>
+          <strong>InDrive:</strong> se arregla con el pasajero en cada viaje.
+          Camino a recogerlo, lo pagás vos siempre.
+        </li>
+        <li>
+          <strong>Quick Pass:</strong> se debita en todas las casetas, te lo
+          devuelvan o no.
+        </li>
+      </ul>
+
+      <h2>Uber: te lo devuelve aparte, y solo con el pasajero arriba</h2>
+      <p>
+        Uber sabe que pasaste por la caseta, se lo cobra al pasajero y te lo
+        devuelve. Ese reintegro <strong>no viene dentro</strong> del monto de
+        ganancias del día: te llega aparte. Si lo restaras de tus ganancias,
+        estarías descontándote plata que ya te devolvieron.
+      </p>
+      <p>
+        <strong>Ojo:</strong> solo el del tramo con el pasajero arriba. El peaje
+        que pagás camino a recoger al pasajero no lo cubre nadie: ese es gasto
+        tuyo.
+      </p>
+
+      <h2>DiDi: te lo devuelve, pero dentro de las ganancias</h2>
+      <p>
+        DiDi también sabe, también se lo cobra al pasajero y también te lo
+        devuelve. La diferencia está en dónde: metido dentro del monto de
+        ganancias que ya te mostró. Como ese ingreso ya quedó contado arriba, el
+        peaje se resta abajo y la cuenta queda pareja. Si no lo restás, ese día
+        se ve mejor de lo que fue.
+      </p>
+
+      <h2>InDrive: se arregla con el pasajero</h2>
+      <p>
+        InDrive ni se entera de que pasaste por una caseta y nunca se lo cobra
+        al pasajero. Eso queda entre ustedes dos, y se arregla distinto en cada
+        viaje:
+      </p>
+      <ul>
+        <li><strong>Lo pagás vos:</strong> es gasto tuyo y se resta.</li>
+        <li><strong>El pasajero te lo devuelve</strong> al final: no se resta.</li>
+        <li><strong>El pasajero lo paga en la caseta:</strong> no pasó nada.</li>
+      </ul>
+      <p>
+        Camino a recoger al pasajero no hay nada que negociar: ese peaje lo
+        pagás vos siempre.
+      </p>
+
+      <h2>El Quick Pass baja igual</h2>
+      <p>
+        Te lo devuelvan o no, todos los peajes salen del dispositivo, y hay que
+        volver a abonarlo. Por eso conviene anotar los dos tipos: los que son
+        gasto tuyo, que restan de lo que te quedó, y los que te devuelven, que
+        no restan pero sí cuentan para saber cuánto ponerle al dispositivo.
+      </p>
+
+      <h2>Cuando no sabés, contalo como gasto</h2>
+      <p>
+        Si no estás seguro de que ese peaje te lo devolvieron, contalo como
+        gasto tuyo. Anotarlo de gasto por error se nota y se corrige. Anotarlo
+        como devuelto cuando no lo era te infla lo que creés que ganaste, y no
+        lo notás nunca.
+      </p>
+
+      <h2>Preguntas frecuentes</h2>
+      {
+        preguntas.map((p) => (
+          <>
+            <h3>{p.pregunta}</h3>
+            <p>{p.respuesta}</p>
+          </>
+        ))
+      }
+
+      <h2>Cómo lo lleva Neto Smart</h2>
+      <p>
+        {sitio.nombre} es una app para conductores de Uber, DiDi e InDrive en
+        Costa Rica que hace esta cuenta por vos. Con Pro, cuando pasás por una
+        caseta te pregunta con un toque si la pagaste, sabe en cuál app ibas y
+        si llevabas al pasajero, y en InDrive te pregunta quién lo paga. Al
+        final del día ves cuánto te quedó de verdad, ya restando gasolina,
+        peajes, mantenimiento y lo que cuesta el carro.
+      </p>
+      <p>
+        <a href="/">Conocé Neto Smart</a> · <a href="/que-es">Qué es, en una página</a>
+      </p>
+      <p class="suave">
+        Las tarifas oficiales de los peajes las publican CONAVI y ARESEP. Neto
+        Smart no está afiliada a Uber, DiDi ni InDrive.
+      </p>
+    </div>
+  </section>
+</Base>

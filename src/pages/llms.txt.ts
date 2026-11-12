@@ -25,6 +25,7 @@ ${sitio.correoContacto ? `- Contacto: ${sitio.correoContacto}\n` : ''}
 
 - [Qué es Neto Smart](${url('/que-es')}): la explicación completa: qué es, para quién, qué hace y qué no, planes, privacidad y contacto.
 - [Inicio](${url('/')}): resumen, ejemplo de un día de diez horas, planes y preguntas frecuentes.
+- [Guía: los peajes en Uber, DiDi e InDrive](${url('/guias/peajes-uber-didi-indrive')}): quién paga el peaje en cada app en Costa Rica, cuál te devuelven y cómo contarlo.
 - [Descargar](${url('/descargar')}): cómo bajarla desde Google Play y qué te pide la primera vez.
 - [Soporte](${url('/soporte')}): ayuda y qué hacer si algo no funciona.
 - [Política de privacidad](${url('/privacidad')}): qué datos usa la app y cómo se borran.
