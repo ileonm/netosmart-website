@@ -11,6 +11,8 @@ const rutas = [
   { url: '/que-es', prioridad: '0.8' },
   { url: '/guias/peajes-uber-didi-indrive', prioridad: '0.7' },
   { url: '/guias/cuanto-gana-un-conductor', prioridad: '0.7' },
+  { url: '/guias/gasolina-por-kilometro', prioridad: '0.7' },
+  { url: '/guias/tiempo-muerto', prioridad: '0.7' },
   { url: '/descargar', prioridad: '0.9' },
   { url: '/soporte', prioridad: '0.6' },
   { url: '/pagar', prioridad: '0.5' },

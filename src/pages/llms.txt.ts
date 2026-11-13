@@ -26,6 +26,8 @@ ${sitio.correoContacto ? `- Contacto: ${sitio.correoContacto}\n` : ''}
 - [Qué es Neto Smart](${url('/que-es')}): la explicación completa: qué es, para quién, qué hace y qué no, planes, privacidad y contacto.
 - [Inicio](${url('/')}): resumen, ejemplo de un día de diez horas, planes y preguntas frecuentes.
 - [Guía: cuánto gana de verdad un conductor](${url('/guias/cuanto-gana-un-conductor')}): qué restarle a lo que muestran Uber, DiDi e InDrive para saber el neto y la ganancia por hora en Costa Rica.
+- [Guía: la gasolina por kilómetro](${url('/guias/gasolina-por-kilometro')}): cómo sacar cuánto cuesta cada kilómetro con el precio de ARESEP, lo que rinde el carro o las rayitas del tablero.
+- [Guía: el tiempo muerto](${url('/guias/tiempo-muerto')}): qué es la espera entre viajes, por qué baja la ganancia por hora y cómo medirla.
 - [Guía: los peajes en Uber, DiDi e InDrive](${url('/guias/peajes-uber-didi-indrive')}): quién paga el peaje en cada app en Costa Rica, cuál te devuelven y cómo contarlo.
 - [Descargar](${url('/descargar')}): cómo bajarla desde Google Play y qué te pide la primera vez.
 - [Soporte](${url('/soporte')}): ayuda y qué hacer si algo no funciona.
