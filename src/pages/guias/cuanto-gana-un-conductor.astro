@@ -1,0 +1,193 @@
+---
+import Base from '../../layouts/Base.astro';
+import { sitio, colones } from '../../config/site';
+import { comoJson } from '../../config/estructurados';
+import { ejemplo, totalGastos, neto, porHora } from '../../config/ejemplo';
+
+/**
+ * GUIA: CUANTO GANA DE VERDAD UN CONDUCTOR (13-nov).
+ *
+ * Contesta "¿cuánto gana un conductor de Uber en Costa Rica?" sin inventar
+ * promedios: no los tenemos medidos, y una cifra inventada es exactamente lo
+ * que el sitio no hace. Explica la cuenta con el mismo día de ejemplo del
+ * inicio (config/ejemplo.ts), dicho como ejemplo, y cómo hacer la propia.
+ *
+ * Las preguntas de abajo estan VISIBLES y son las mismas del FAQPage.
+ */
+const url = (ruta: string) => new URL(ruta, sitio.dominio).href;
+const ruta = '/guias/cuanto-gana-un-conductor';
+const titulo = '¿Cuánto gana de verdad un conductor de Uber, DiDi o InDrive en Costa Rica?';
+const fecha = '2026-11-13';
+const brutoPorHora = Math.round(ejemplo.bruto / ejemplo.horas);
+
+const preguntas = [
+  {
+    pregunta: '¿Cuánto gana un conductor de Uber en Costa Rica?',
+    respuesta:
+      'Depende de las horas, la zona, el carro y lo que gasta. Lo que la app de Uber muestra es lo que facturaste, no lo que te quedó: falta restar la gasolina, los peajes que pagaste vos, el mantenimiento y lo que cuesta tener el carro. Lo que importa es el neto, y es distinto para cada conductor.',
+  },
+  {
+    pregunta: '¿Qué es la ganancia neta de un conductor?',
+    respuesta:
+      'Es lo que de verdad te queda después de restarle a lo que ganaste en las apps la gasolina, los peajes que pagaste vos, el mantenimiento y los costos fijos del carro, como el seguro, el marchamo o la cuota.',
+  },
+  {
+    pregunta: '¿Lo que muestran Uber, DiDi e InDrive ya es mi ganancia?',
+    respuesta:
+      'No. Es lo que facturaste, ya sin la parte de la plataforma, pero todavía sin restar lo que pone el carro. En el ejemplo de esta guía, lo que pone el carro se lleva más de un tercio de lo que muestran las apps.',
+  },
+  {
+    pregunta: '¿Cómo calculo cuánto me quedó por hora?',
+    respuesta:
+      'Tomá lo que ganaste en las apps, restale la gasolina, los peajes que pagaste vos, lo que apartás para mantenimiento y lo que te toca ese día de los costos fijos, y dividilo entre las horas que trabajaste, incluido el tiempo esperando viajes.',
+  },
+];
+
+const articulo = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: titulo,
+  inLanguage: 'es-CR',
+  datePublished: fecha,
+  dateModified: fecha,
+  mainEntityOfPage: url(ruta),
+  author: { '@id': url('/#organizacion') },
+  publisher: { '@id': url('/#organizacion') },
+  about: ['Uber', 'DiDi', 'InDrive', 'Ganancias de conductores en Costa Rica'],
+};
+const faq = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  inLanguage: 'es-CR',
+  mainEntity: preguntas.map((p) => ({
+    '@type': 'Question',
+    name: p.pregunta,
+    acceptedAnswer: { '@type': 'Answer', text: p.respuesta },
+  })),
+};
+---
+
+<Base
+  titulo="Cuánto gana de verdad un conductor de Uber, DiDi o InDrive"
+  descripcion="Cuánto gana de verdad un conductor de Uber, DiDi o InDrive en Costa Rica: qué hay que restarle a lo que muestran las apps y cómo sacar tu neto por hora."
+>
+  <script slot="head" type="application/ld+json" set:html={comoJson(articulo)} />
+  <script slot="head" type="application/ld+json" set:html={comoJson(faq)} />
+  <section>
+    <div class="envoltura angosto">
+      <p class="suave">Guía para conductores en Costa Rica</p>
+      <h1>{titulo}</h1>
+      <p class="entradilla-clara">
+        Lo que te muestran las apps es lo que facturaste. Lo que ganaste de
+        verdad es otra cuenta: hay que restarle lo que pone el carro. Y esa
+        cuenta es distinta para cada conductor, por eso no hay una cifra que
+        sirva para todos.
+      </p>
+
+      <h2>En corto</h2>
+      <ul>
+        <li>
+          <strong>Lo que muestran Uber, DiDi e InDrive</strong> ya viene sin la
+          parte de la plataforma, pero todavía no es tu ganancia.
+        </li>
+        <li>
+          <strong>Hay que restarle</strong> la gasolina, los peajes que pagaste
+          vos, el mantenimiento y los costos fijos del carro.
+        </li>
+        <li>
+          <strong>Lo que queda es el neto.</strong> Dividido entre las horas
+          que trabajaste, contando la espera, es lo que te quedó por hora.
+        </li>
+      </ul>
+
+      <h2>Un día de diez horas, con los números puestos</h2>
+      <p>
+        Este es un <strong>ejemplo ilustrativo</strong>, no un promedio medido:
+        sirve para ver la forma de la cuenta.
+      </p>
+      <ul>
+        <li>Lo que mostraron las apps: <strong>{colones(ejemplo.bruto)}</strong> ({colones(brutoPorHora)} la hora).</li>
+        {ejemplo.gastos.map((g) => <li>{g.concepto}: −{colones(g.monto)}</li>)}
+        <li>Total que puso el carro: −{colones(totalGastos)}</li>
+        <li>Te quedó libre: <strong>{colones(neto)}</strong>, o sea <strong>{colones(porHora)} la hora</strong>.</li>
+      </ul>
+      <p>
+        En el ejemplo, de cada {colones(1000)} que mostraron las apps quedaron
+        unos {colones(Math.round((neto / ejemplo.bruto) * 1000))}. Con tus números va a ser otra
+        cosa: por eso conviene sacarla.
+      </p>
+
+      <h2>Lo que hay que restar</h2>
+      <h3>La gasolina (o la carga del eléctrico)</h3>
+      <p>
+        Es el gasto más grande y el que más varía: depende de los kilómetros,
+        del carro y del precio del día, que en Costa Rica fija ARESEP. Incluye
+        los kilómetros de camino a recoger al pasajero, que no te paga nadie.
+      </p>
+      <h3>Los peajes que pagaste vos</h3>
+      <p>
+        No todos: algunos te los devuelve la plataforma y otros no, y cambia
+        en cada app. Está explicado en la
+        <a href="/guias/peajes-uber-didi-indrive">guía de los peajes</a>.
+      </p>
+      <h3>El mantenimiento</h3>
+      <p>
+        Aceite, llantas, frenos, alineamiento. No se pagan todos los días, pero
+        cada kilómetro los gasta. Lo sano es apartar un porcentaje de cada día
+        para cuando toquen, en vez de que te agarren desprevenido.
+      </p>
+      <h3>Los costos fijos</h3>
+      <p>
+        El seguro, el marchamo, la cuota del carro si lo estás pagando, el
+        alquiler si es alquilado. Se pagan trabajés o no, así que cada día
+        trabajado tiene que cargar su parte. Si no, los días se ven mejores de
+        lo que son.
+      </p>
+
+      <h2>El tiempo que no se ve: la espera</h2>
+      <p>
+        La hora no se gana solo con el pasajero arriba. Entre un viaje y otro
+        hay espera, y esa espera también es parte de tu turno. Un día puede
+        verse bien por viaje y flojo por hora: muchas veces lo que baja el
+        número no es el viaje, es la espera.
+      </p>
+
+      <h2>Cómo sacar tu propia cuenta</h2>
+      <ol>
+        <li>Sumá lo que ganaste ese día en Uber, DiDi e InDrive.</li>
+        <li>Restá la gasolina de ese día, por lo que bajó el tanque.</li>
+        <li>Restá los peajes que salieron de tu bolsillo.</li>
+        <li>Restá lo que apartás para mantenimiento.</li>
+        <li>Restá la parte del día de los costos fijos.</li>
+        <li>Dividí lo que quedó entre las horas del turno, con la espera incluida.</li>
+      </ol>
+
+      <h2>Preguntas frecuentes</h2>
+      {
+        preguntas.map((p) => (
+          <>
+            <h3>{p.pregunta}</h3>
+            <p>{p.respuesta}</p>
+          </>
+        ))
+      }
+
+      <h2>Cómo lo lleva Neto Smart</h2>
+      <p>
+        {sitio.nombre} es una app para conductores de Uber, DiDi e InDrive en
+        Costa Rica que hace esta cuenta por vos, con tus números y no con un
+        promedio: la gasolina por lo que bajó el tablero, los peajes que pagaste,
+        el mantenimiento y los costos fijos repartidos entre los días que
+        trabajás. Al cerrar el turno ves cuánto te quedó y cuánto te salió la
+        hora. Con Pro, además, las ganancias se anotan solas y ves cuánto de tu
+        turno fue con viaje y cuánto esperando.
+      </p>
+      <p>
+        <a href="/">Conocé Neto Smart</a> · <a href="/que-es">Qué es, en una página</a>
+      </p>
+      <p class="suave">
+        Neto Smart no está afiliada a Uber, DiDi ni InDrive.
+      </p>
+    </div>
+  </section>
+</Base>

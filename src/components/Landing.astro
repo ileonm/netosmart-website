@@ -12,21 +12,8 @@ import { preguntas } from '../config/preguntas';
  * para que todos los enlaces de lanzamiento muestren exactamente lo mismo.
  */
 
-// Ejemplo ILUSTRATIVO. No son datos medidos ni un promedio.
-// Si se cambian estos numeros, la suma de abajo se recalcula sola.
-const ejemplo = {
-  horas: 10,
-  bruto: 58400,
-  gastos: [
-    { concepto: 'Gasolina (unos 17 litros)', monto: 13500 },
-    { concepto: 'Peajes que pagaste vos', monto: 1800 },
-    { concepto: 'Apartado de mantenimiento y llantas', monto: 4200 },
-    { concepto: 'Costos fijos (seguro, marchamo, la cuota del carro)', monto: 5300 },
-  ],
-};
-const totalGastos = ejemplo.gastos.reduce((s, g) => s + g.monto, 0);
-const neto = ejemplo.bruto - totalGastos;
-const porHora = Math.round(neto / ejemplo.horas);
+// Ejemplo ILUSTRATIVO (ver config/ejemplo.ts), el mismo de la guía.
+import { ejemplo, neto, porHora } from '../config/ejemplo';
 ---
 
 <section class="portada">
@@ -80,6 +67,9 @@ const porHora = Math.round(neto / ejemplo.horas);
       Son montos de referencia para que se vea la forma de la cuenta. Tus
       números van a ser otros, y por eso la app los saca de tu turno y no de una
       tabla.
+    </p>
+    <p class="aviso-ejemplo">
+      <a href="/guias/cuanto-gana-un-conductor">Cómo sacar tu propia cuenta, paso a paso</a>
     </p>
   </div>
 </section>
